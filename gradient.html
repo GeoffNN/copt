@@ -1,0 +1,151 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Gradient-based methods &#8212; copt  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/gallery.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="copt.minimize_PGD" href="generated/copt.minimize_PGD.html" />
+    <link rel="prev" title="Welcome to copt!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="gradient-based-methods">
+<h1>Gradient-based methods<a class="headerlink" href="#gradient-based-methods" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/copt.minimize_PGD.html#copt.minimize_PGD" title="copt.minimize_PGD"><code class="xref py py-obj docutils literal"><span class="pre">copt.minimize_PGD</span></code></a>(f_grad,&nbsp;x0[,&nbsp;g_prox,&nbsp;tol,&nbsp;…])</td>
+<td>Proximal gradient descent.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/copt.minimize_APGD.html#copt.minimize_APGD" title="copt.minimize_APGD"><code class="xref py py-obj docutils literal"><span class="pre">copt.minimize_APGD</span></code></a>(f_grad,&nbsp;x0[,&nbsp;g_prox,&nbsp;…])</td>
+<td>Accelerated proximal gradient descent.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/copt.minimize_TOS.html#copt.minimize_TOS" title="copt.minimize_TOS"><code class="xref py py-obj docutils literal"><span class="pre">copt.minimize_TOS</span></code></a>(f_grad,&nbsp;x0[,&nbsp;g_prox,&nbsp;…])</td>
+<td>Davis-Yin three operator splitting method.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo"/>
+            </a></p>
+<h1 class="logo"><a href="index.html">copt</a></h1>
+
+
+
+<p class="blurb">Optimization in Python</p>
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=openopt&repo=copt&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+    
+
+<p>
+<a href="https://travis-ci.org/openopt/copt">
+    <img
+        alt="https://secure.travis-ci.org/openopt/copt.svg?branch=master"
+        src="https://secure.travis-ci.org/openopt/copt.svg?branch=master"
+    />
+</a>
+</p>
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Gradient-based methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="generated/copt.minimize_PGD.html">copt.minimize_PGD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/copt.minimize_APGD.html">copt.minimize_APGD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/copt.minimize_TOS.html">copt.minimize_TOS</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="loss_functions.html">Loss functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datasets.html">Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html">Examples</a></li>
+</ul>
+
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+<h3><a href="index.html">Table Of Contents</a></h3>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;Fabian Pedregosa.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/gradient.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

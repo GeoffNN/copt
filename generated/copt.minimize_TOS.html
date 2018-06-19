@@ -1,0 +1,181 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>copt.minimize_TOS &#8212; copt  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Loss functions" href="../loss_functions.html" />
+    <link rel="prev" title="copt.minimize_APGD" href="copt.minimize_APGD.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="copt-minimize-tos">
+<h1>copt.minimize_TOS<a class="headerlink" href="#copt-minimize-tos" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="copt.minimize_TOS">
+<code class="descclassname">copt.</code><code class="descname">minimize_TOS</code><span class="sig-paren">(</span><em>f_grad</em>, <em>x0</em>, <em>g_prox=None</em>, <em>h_prox=None</em>, <em>tol=1e-06</em>, <em>max_iter=1000</em>, <em>verbose=0</em>, <em>callback=None</em>, <em>line_search=True</em>, <em>step_size=None</em>, <em>max_iter_backtracking=100</em>, <em>backtracking_factor=0.7</em>, <em>h_Lipschitz=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/79a4235/copt/gradient.py#L238"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.minimize_TOS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Davis-Yin three operator splitting method.</p>
+<p>This algorithm can solve problems of the form</p>
+<blockquote>
+<div>minimize_x f(x) + g(x) + h(x)</div></blockquote>
+<p>where f is a smooth function and g is a (possibly non-smooth)
+function for which the proximal operator is known.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>fun</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#callable" title="(in Python v3.6)"><em>callable</em></a>) – f(x) returns the value of f at x.</li>
+<li><strong>fun_deriv</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#callable" title="(in Python v3.6)"><em>callable</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><em>None</em></a>) – f_prime(x) returns the gradient of f.</li>
+<li><strong>g_prox</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#callable" title="(in Python v3.6)"><em>callable</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><em>None</em></a>) – g_prox(x, alpha, <a href="#id1"><span class="problematic" id="id2">*</span></a>args) returns the proximal operator of g at xa
+with parameter alpha. Extra arguments can be passed by g_prox_args.</li>
+<li><strong>y0</strong> (<em>array-like</em>) – Initial guess</li>
+<li><strong>line_search</strong> (<em>boolean</em>) – Whether to perform backtracking (i.e. line-search) to estimate
+the step size.</li>
+<li><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – Maximum number of iterations.</li>
+<li><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – Verbosity level, from 0 (no output) to 2 (output on each iteration)</li>
+<li><strong>step_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – Starting value for the line-search procedure.</li>
+<li><strong>callback</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#callable" title="(in Python v3.6)"><em>callable</em></a>) – callback function (optional).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>res</strong> – The optimization result represented as a
+<code class="docutils literal"><span class="pre">scipy.optimize.OptimizeResult</span></code> object. Important attributes are:
+<code class="docutils literal"><span class="pre">x</span></code> the solution array, <code class="docutils literal"><span class="pre">success</span></code> a Boolean flag indicating if
+the optimizer exited successfully and <code class="docutils literal"><span class="pre">message</span></code> which describes
+the cause of the termination. See <cite>scipy.optimize.OptimizeResult</cite>
+for a description of other attributes.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">OptimizeResult</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">References</p>
+<p>Davis, Damek, and Wotao Yin. “A three-operator splitting scheme and its optimization applications.”
+arXiv preprint arXiv:1504.01032 (2015) https://arxiv.org/abs/1504.01032</p>
+<p>Pedregosa, Fabian, and Gauthier Gidel. “Adaptive Three Operator Splitting.” arXiv preprint arXiv:1804.02339 (2018).</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo"/>
+            </a></p>
+<h1 class="logo"><a href="../index.html">copt</a></h1>
+
+
+
+<p class="blurb">Optimization in Python</p>
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=openopt&repo=copt&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+    
+
+<p>
+<a href="https://travis-ci.org/openopt/copt">
+    <img
+        alt="https://secure.travis-ci.org/openopt/copt.svg?branch=master"
+        src="https://secure.travis-ci.org/openopt/copt.svg?branch=master"
+    />
+</a>
+</p>
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../gradient.html">Gradient-based methods</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="copt.minimize_PGD.html">copt.minimize_PGD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="copt.minimize_APGD.html">copt.minimize_APGD</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">copt.minimize_TOS</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../loss_functions.html">Loss functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datasets.html">Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">Examples</a></li>
+</ul>
+
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+<h3><a href="../index.html">Table Of Contents</a></h3>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;Fabian Pedregosa.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/generated/copt.minimize_TOS.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

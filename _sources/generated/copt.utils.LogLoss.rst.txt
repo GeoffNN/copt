@@ -1,0 +1,23 @@
+copt\.utils\.LogLoss
+====================
+
+.. currentmodule:: copt.utils
+
+.. autoclass:: LogLoss
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~LogLoss.__init__
+      ~LogLoss.func_grad
+   
+   
+
+   
+   
+   

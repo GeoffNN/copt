@@ -1,0 +1,6 @@
+copt\.minimize\_APGD
+====================
+
+.. currentmodule:: copt
+
+.. autofunction:: minimize_APGD
