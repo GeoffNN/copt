@@ -26,7 +26,7 @@ Examples
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Comparison of solvers with total variation regularization.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Comparison of solvers for problems with a group lasso regularization.">
 
 .. only:: html
 

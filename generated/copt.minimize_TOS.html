@@ -46,7 +46,7 @@
 <h1>copt.minimize_TOS<a class="headerlink" href="#copt-minimize-tos" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="copt.minimize_TOS">
-<code class="descclassname">copt.</code><code class="descname">minimize_TOS</code><span class="sig-paren">(</span><em>f_grad</em>, <em>x0</em>, <em>g_prox=None</em>, <em>h_prox=None</em>, <em>tol=1e-06</em>, <em>max_iter=1000</em>, <em>verbose=0</em>, <em>callback=None</em>, <em>line_search=True</em>, <em>step_size=None</em>, <em>max_iter_backtracking=100</em>, <em>backtracking_factor=0.7</em>, <em>h_Lipschitz=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/79a4235/copt/gradient.py#L238"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.minimize_TOS" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">copt.</code><code class="descname">minimize_TOS</code><span class="sig-paren">(</span><em>f_grad</em>, <em>x0</em>, <em>g_prox=None</em>, <em>h_prox=None</em>, <em>tol=1e-06</em>, <em>max_iter=1000</em>, <em>verbose=0</em>, <em>callback=None</em>, <em>line_search=True</em>, <em>step_size=None</em>, <em>max_iter_backtracking=100</em>, <em>backtracking_factor=0.7</em>, <em>h_Lipschitz=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/50a9b1f/copt/gradient.py#L238"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.minimize_TOS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Davis-Yin three operator splitting method.</p>
 <p>This algorithm can solve problems of the form</p>
 <blockquote>
@@ -58,17 +58,17 @@ function for which the proximal operator is known.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>fun</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#callable" title="(in Python v3.6)"><em>callable</em></a>) – f(x) returns the value of f at x.</li>
-<li><strong>fun_deriv</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#callable" title="(in Python v3.6)"><em>callable</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><em>None</em></a>) – f_prime(x) returns the gradient of f.</li>
-<li><strong>g_prox</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#callable" title="(in Python v3.6)"><em>callable</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><em>None</em></a>) – g_prox(x, alpha, <a href="#id1"><span class="problematic" id="id2">*</span></a>args) returns the proximal operator of g at xa
+<li><strong>fun</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#callable" title="(in Python v3.7)"><em>callable</em></a>) – f(x) returns the value of f at x.</li>
+<li><strong>fun_deriv</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#callable" title="(in Python v3.7)"><em>callable</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a>) – f_prime(x) returns the gradient of f.</li>
+<li><strong>g_prox</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#callable" title="(in Python v3.7)"><em>callable</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a>) – g_prox(x, alpha, <a href="#id1"><span class="problematic" id="id2">*</span></a>args) returns the proximal operator of g at xa
 with parameter alpha. Extra arguments can be passed by g_prox_args.</li>
 <li><strong>y0</strong> (<em>array-like</em>) – Initial guess</li>
 <li><strong>line_search</strong> (<em>boolean</em>) – Whether to perform backtracking (i.e. line-search) to estimate
 the step size.</li>
-<li><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – Maximum number of iterations.</li>
-<li><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – Verbosity level, from 0 (no output) to 2 (output on each iteration)</li>
-<li><strong>step_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – Starting value for the line-search procedure.</li>
-<li><strong>callback</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#callable" title="(in Python v3.6)"><em>callable</em></a>) – callback function (optional).</li>
+<li><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Maximum number of iterations.</li>
+<li><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Verbosity level, from 0 (no output) to 2 (output on each iteration)</li>
+<li><strong>step_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – Starting value for the line-search procedure.</li>
+<li><strong>callback</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#callable" title="(in Python v3.7)"><em>callable</em></a>) – callback function (optional).</li>
 </ul>
 </td>
 </tr>
@@ -86,9 +86,10 @@ for a description of other attributes.</p>
 </tbody>
 </table>
 <p class="rubric">References</p>
-<p>Davis, Damek, and Wotao Yin. “A three-operator splitting scheme and its optimization applications.”
-arXiv preprint arXiv:1504.01032 (2015) https://arxiv.org/abs/1504.01032</p>
-<p>Pedregosa, Fabian, and Gauthier Gidel. “Adaptive Three Operator Splitting.” arXiv preprint arXiv:1804.02339 (2018).</p>
+<ul class="simple">
+<li>Davis, Damek, and Wotao Yin. “A three-operator splitting scheme and its optimization applications.” Set-Valued and Variational Analysis, 2017. <a class="reference external" href="https://doi.org/10.1007/s11228-017-0421-z">https://doi.org/10.1007/s11228-017-0421-z</a></li>
+<li>Pedregosa, Fabian, and Gauthier Gidel. “Adaptive Three Operator Splitting.” Proceedings of the 35th International Conference on Machine Learning, 2018. <a class="reference external" href="https://arxiv.org/abs/1804.02339">https://arxiv.org/abs/1804.02339</a></li>
+</ul>
 </dd></dl>
 
 </div>

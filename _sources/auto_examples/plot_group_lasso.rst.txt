@@ -6,9 +6,11 @@
 Group Lasso regularization
 ==========================
 
-Comparison of solvers with total variation regularization.
+Comparison of solvers for problems with a group lasso regularization.
 
-The group lasso penalty enters the optimization through its proximal operator, which is implemented in copt through the function prox of object :ref:`cp.utils.GroupL1`. 
+The group lasso regularization enters the optimization through
+its proximal operator, which is implemented in copt through the
+function prox of object :ref:`cp.utils.GroupL1`.
 
 
 
@@ -25,12 +27,12 @@ The group lasso penalty enters the optimization through its proximal operator, w
     #features 100
     beta = 0
     beta = 0.01
-    Achieved relative tolerance at iteration 1346
+    Achieved relative tolerance at iteration 1474
     beta = 0.1
-    Achieved relative tolerance at iteration 134
+    Achieved relative tolerance at iteration 102
     Achieved relative tolerance at iteration 718
     beta = 0.2
-    Achieved relative tolerance at iteration 83
+    Achieved relative tolerance at iteration 107
     Achieved relative tolerance at iteration 661
 
 
@@ -164,7 +166,7 @@ The group lasso penalty enters the optimization through its proximal operator, w
     ax[1, 0].set_ylabel('Objective minus optimum')
     plt.show()
 
-**Total running time of the script:** ( 0 minutes  6.312 seconds)
+**Total running time of the script:** ( 0 minutes  13.825 seconds)
 
 
 
