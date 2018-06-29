@@ -47,14 +47,14 @@
 overlapping group lasso regularization.</p>
 <img alt="../_images/sphx_glr_plot_overlapping_group_lasso_001.png" class="align-center" src="../_images/sphx_glr_plot_overlapping_group_lasso_001.png" />
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-default"><div class="highlight"><pre><span></span><span class="mf">0.4012504714013977</span>
+<div class="sphx-glr-script-out highlight-default"><div class="highlight"><pre><span></span><span class="mf">0.40125047140139797</span>
 <span class="n">beta</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">beta</span> <span class="o">=</span> <span class="mf">0.001</span>
 <span class="n">beta</span> <span class="o">=</span> <span class="mf">0.01</span>
-<span class="n">Achieved</span> <span class="n">relative</span> <span class="n">tolerance</span> <span class="n">at</span> <span class="n">iteration</span> <span class="mi">4833</span>
+<span class="n">Achieved</span> <span class="n">relative</span> <span class="n">tolerance</span> <span class="n">at</span> <span class="n">iteration</span> <span class="mi">4331</span>
 <span class="n">beta</span> <span class="o">=</span> <span class="mf">0.1</span>
-<span class="n">Achieved</span> <span class="n">relative</span> <span class="n">tolerance</span> <span class="n">at</span> <span class="n">iteration</span> <span class="mi">675</span>
-<span class="n">Achieved</span> <span class="n">relative</span> <span class="n">tolerance</span> <span class="n">at</span> <span class="n">iteration</span> <span class="mi">531</span>
+<span class="n">Achieved</span> <span class="n">relative</span> <span class="n">tolerance</span> <span class="n">at</span> <span class="n">iteration</span> <span class="mi">424</span>
+<span class="n">Achieved</span> <span class="n">relative</span> <span class="n">tolerance</span> <span class="n">at</span> <span class="n">iteration</span> <span class="mi">994</span>
 </pre></div>
 </div>
 <div class="line-block">
@@ -116,7 +116,7 @@ overlapping group lasso regularization.</p>
     <span class="n">tos_ls</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">minimize_TOS</span><span class="p">(</span>
         <span class="n">f</span><span class="o">.</span><span class="n">func_grad</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">G1</span><span class="o">.</span><span class="n">prox</span><span class="p">,</span> <span class="n">G2</span><span class="o">.</span><span class="n">prox</span><span class="p">,</span> <span class="n">step_size</span><span class="o">=</span><span class="mi">3</span> <span class="o">*</span> <span class="n">step_size</span><span class="p">,</span>
         <span class="n">max_iter</span><span class="o">=</span><span class="n">max_iter</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-14</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-        <span class="n">callback</span><span class="o">=</span><span class="n">cb_tosls</span><span class="p">)</span>
+        <span class="n">callback</span><span class="o">=</span><span class="n">cb_tosls</span><span class="p">,</span> <span class="n">h_Lipschitz</span><span class="o">=</span><span class="n">beta</span><span class="p">)</span>
     <span class="n">trace_ls</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">loss</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">cb_tosls</span><span class="o">.</span><span class="n">trace_x</span><span class="p">])</span>
     <span class="n">all_trace_ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">trace_ls</span><span class="p">)</span>
     <span class="n">all_trace_ls_time</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cb_tosls</span><span class="o">.</span><span class="n">trace_time</span><span class="p">)</span>
@@ -128,7 +128,7 @@ overlapping group lasso regularization.</p>
         <span class="n">f</span><span class="o">.</span><span class="n">func_grad</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">G1</span><span class="o">.</span><span class="n">prox</span><span class="p">,</span> <span class="n">G2</span><span class="o">.</span><span class="n">prox</span><span class="p">,</span>
         <span class="n">step_size</span><span class="o">=</span><span class="n">step_size</span><span class="p">,</span>
         <span class="n">max_iter</span><span class="o">=</span><span class="n">max_iter</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-14</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-        <span class="n">line_search</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">cb_tos</span><span class="p">,</span> <span class="n">h_Lipschitz</span><span class="o">=</span><span class="n">beta</span><span class="p">)</span>
+        <span class="n">line_search</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">cb_tos</span><span class="p">)</span>
     <span class="n">trace_nols</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">loss</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">cb_tos</span><span class="o">.</span><span class="n">trace_x</span><span class="p">])</span>
     <span class="n">all_trace_nols</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">trace_nols</span><span class="p">)</span>
     <span class="n">all_trace_nols_time</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cb_tos</span><span class="o">.</span><span class="n">trace_time</span><span class="p">)</span>
@@ -163,12 +163,12 @@ overlapping group lasso regularization.</p>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 <span class="n">xlim</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">beta</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">all_betas</span><span class="p">):</span>
-    <span class="c1"># ax[0, i].set_title(r&#39;$\lambda=%s$&#39; % beta)</span>
-    <span class="c1"># ax[0, i].set_title(r&#39;$\lambda=%s$&#39; % beta)</span>
-    <span class="c1"># ax[0, i].plot(out_img[i])</span>
-    <span class="c1"># ax[0, i].plot(ground_truth)</span>
-    <span class="c1"># ax[0, i].set_xticks(())</span>
-    <span class="c1"># ax[0, i].set_yticks(())</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\lambda=</span><span class="si">%s</span><span class="s1">$&#39;</span> <span class="o">%</span> <span class="n">beta</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\lambda=</span><span class="si">%s</span><span class="s1">$&#39;</span> <span class="o">%</span> <span class="n">beta</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">out_img</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ground_truth</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(())</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(())</span>
 
     <span class="n">fmin</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">all_trace_ls</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">all_trace_nols</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
     <span class="n">scale</span> <span class="o">=</span> <span class="mf">1.</span> <span class="c1"># all_trace_ls[i][0] - fmin</span>
@@ -210,7 +210,7 @@ overlapping group lasso regularization.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><strong>Total running time of the script:</strong> ( 0 minutes  21.480 seconds)</p>
+<p><strong>Total running time of the script:</strong> ( 0 minutes  27.469 seconds)</p>
 <div class="sphx-glr-footer docutils container">
 <div class="sphx-glr-download docutils container">
 <a class="reference download internal" href="../_downloads/plot_overlapping_group_lasso.py" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_overlapping_group_lasso.py</span></code></a></div>

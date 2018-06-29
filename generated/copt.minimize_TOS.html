@@ -25,7 +25,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Loss functions" href="../loss_functions.html" />
+    <link rel="next" title="Incremental methods" href="../incremental.html" />
     <link rel="prev" title="copt.minimize_APGD" href="copt.minimize_APGD.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -46,7 +46,7 @@
 <h1>copt.minimize_TOS<a class="headerlink" href="#copt-minimize-tos" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="copt.minimize_TOS">
-<code class="descclassname">copt.</code><code class="descname">minimize_TOS</code><span class="sig-paren">(</span><em>f_grad</em>, <em>x0</em>, <em>g_prox=None</em>, <em>h_prox=None</em>, <em>tol=1e-06</em>, <em>max_iter=1000</em>, <em>verbose=0</em>, <em>callback=None</em>, <em>line_search=True</em>, <em>step_size=None</em>, <em>max_iter_backtracking=100</em>, <em>backtracking_factor=0.7</em>, <em>h_Lipschitz=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/50a9b1f/copt/gradient.py#L238"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.minimize_TOS" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">copt.</code><code class="descname">minimize_TOS</code><span class="sig-paren">(</span><em>f_grad</em>, <em>x0</em>, <em>g_prox=None</em>, <em>h_prox=None</em>, <em>tol=1e-06</em>, <em>max_iter=1000</em>, <em>verbose=0</em>, <em>callback=None</em>, <em>line_search=True</em>, <em>step_size=None</em>, <em>max_iter_backtracking=100</em>, <em>backtracking_factor=0.7</em>, <em>h_Lipschitz=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/764802d/copt/gradient.py#L238"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.minimize_TOS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Davis-Yin three operator splitting method.</p>
 <p>This algorithm can solve problems of the form</p>
 <blockquote>
@@ -87,8 +87,10 @@ for a description of other attributes.</p>
 </table>
 <p class="rubric">References</p>
 <ul class="simple">
-<li>Davis, Damek, and Wotao Yin. “A three-operator splitting scheme and its optimization applications.” Set-Valued and Variational Analysis, 2017. <a class="reference external" href="https://doi.org/10.1007/s11228-017-0421-z">https://doi.org/10.1007/s11228-017-0421-z</a></li>
-<li>Pedregosa, Fabian, and Gauthier Gidel. “Adaptive Three Operator Splitting.” Proceedings of the 35th International Conference on Machine Learning, 2018. <a class="reference external" href="https://arxiv.org/abs/1804.02339">https://arxiv.org/abs/1804.02339</a></li>
+<li>Davis, Damek, and Wotao Yin. <a class="reference external" href="https://doi.org/10.1007/s11228-017-0421-z">“A three-operator splitting scheme and its optimization
+applications.”</a> Set-Valued and Variational Analysis, 2017.</li>
+<li>Pedregosa, Fabian, and Gauthier Gidel. <a class="reference external" href="https://arxiv.org/abs/1804.02339">“Adaptive Three Operator Splitting.”</a> Proceedings of the 35th International Conference
+on Machine Learning, 2018.</li>
 </ul>
 </dd></dl>
 
@@ -141,6 +143,7 @@ for a description of other attributes.</p>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">copt.minimize_TOS</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../incremental.html">Incremental methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../loss_functions.html">Loss functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../datasets.html">Datasets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">Examples</a></li>
