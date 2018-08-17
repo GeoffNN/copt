@@ -66,7 +66,7 @@ Examples
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="">
+    <div class="sphx-glr-thumbcontainer" tooltip="Estimating a sparse and low rank matrix">
 
 .. only:: html
 
@@ -112,6 +112,7 @@ Examples
 .. only :: html
 
  .. container:: sphx-glr-footer
+    :class: sphx-glr-footer-gallery
 
 
   .. container:: sphx-glr-download
