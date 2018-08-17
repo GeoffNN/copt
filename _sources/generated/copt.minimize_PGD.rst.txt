@@ -1,5 +1,5 @@
-copt\.minimize\_PGD
-===================
+copt.minimize\_PGD
+==================
 
 .. currentmodule:: copt
 

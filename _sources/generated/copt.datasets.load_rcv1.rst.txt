@@ -1,5 +1,5 @@
-copt\.datasets\.load\_rcv1
-==========================
+copt.datasets.load\_rcv1
+========================
 
 .. currentmodule:: copt.datasets
 

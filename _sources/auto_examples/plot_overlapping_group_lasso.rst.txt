@@ -1,4 +1,8 @@
+.. note::
+    :class: sphx-glr-download-link-note
 
+    Click :ref:`here <sphx_glr_download_auto_examples_plot_overlapping_group_lasso.py>` to download the full example code
+.. rst-class:: sphx-glr-example-title
 
 .. _sphx_glr_auto_examples_plot_overlapping_group_lasso.py:
 
@@ -14,21 +18,23 @@ overlapping group lasso regularization.
 
 
 .. image:: /auto_examples/images/sphx_glr_plot_overlapping_group_lasso_001.png
-    :align: center
+    :class: sphx-glr-single-img
 
 
 .. rst-class:: sphx-glr-script-out
 
- Out::
+ Out:
 
-    0.40125047140139797
+ .. code-block:: none
+
+    0.4012504714013981
     beta = 0
     beta = 0.001
     beta = 0.01
-    Achieved relative tolerance at iteration 4331
+    Achieved relative tolerance at iteration 4330
     beta = 0.1
-    Achieved relative tolerance at iteration 424
-    Achieved relative tolerance at iteration 994
+    Achieved relative tolerance at iteration 423
+    Achieved relative tolerance at iteration 993
 
 
 
@@ -187,13 +193,17 @@ overlapping group lasso regularization.
     ax[1, 0].set_ylabel('Objective minus optimum')
     plt.show()
 
-**Total running time of the script:** ( 0 minutes  27.469 seconds)
+**Total running time of the script:** ( 0 minutes  15.195 seconds)
 
+
+.. _sphx_glr_download_auto_examples_plot_overlapping_group_lasso.py:
 
 
 .. only :: html
 
  .. container:: sphx-glr-footer
+    :class: sphx-glr-footer-example
+
 
 
   .. container:: sphx-glr-download

@@ -1,5 +1,5 @@
-copt\.minimize\_TOS
-===================
+copt.minimize\_TOS
+==================
 
 .. currentmodule:: copt
 

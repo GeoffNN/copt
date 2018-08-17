@@ -1,4 +1,8 @@
+.. note::
+    :class: sphx-glr-download-link-note
 
+    Click :ref:`here <sphx_glr_download_auto_examples_plot_sparse_nuclear_norm.py>` to download the full example code
+.. rst-class:: sphx-glr-example-title
 
 .. _sphx_glr_auto_examples_plot_sparse_nuclear_norm.py:
 
@@ -11,22 +15,24 @@ Estimating a sparse and low rank matrix
 
 
 .. image:: /auto_examples/images/sphx_glr_plot_sparse_nuclear_norm_001.png
-    :align: center
+    :class: sphx-glr-single-img
 
 
 .. rst-class:: sphx-glr-script-out
 
- Out::
+ Out:
+
+ .. code-block:: none
 
     #features 400
     beta = 0
     beta = 0.001
     beta = 0.01
-    Achieved relative tolerance at iteration 807
-    Achieved relative tolerance at iteration 2059
+    Achieved relative tolerance at iteration 806
+    Achieved relative tolerance at iteration 1987
     beta = 0.1
-    Achieved relative tolerance at iteration 159
-    Achieved relative tolerance at iteration 946
+    Achieved relative tolerance at iteration 166
+    Achieved relative tolerance at iteration 951
 
 
 
@@ -162,13 +168,17 @@ Estimating a sparse and low rank matrix
     ax[1, 0].set_ylabel('Objective minus optimum')
     plt.show()
 
-**Total running time of the script:** ( 0 minutes  19.114 seconds)
+**Total running time of the script:** ( 0 minutes  14.045 seconds)
 
+
+.. _sphx_glr_download_auto_examples_plot_sparse_nuclear_norm.py:
 
 
 .. only :: html
 
  .. container:: sphx-glr-footer
+    :class: sphx-glr-footer-example
+
 
 
   .. container:: sphx-glr-download

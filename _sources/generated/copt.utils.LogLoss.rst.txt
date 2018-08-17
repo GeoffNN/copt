@@ -1,5 +1,5 @@
-copt\.utils\.LogLoss
-====================
+copt.utils.LogLoss
+==================
 
 .. currentmodule:: copt.utils
 

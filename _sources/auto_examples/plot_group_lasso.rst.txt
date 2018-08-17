@@ -1,4 +1,8 @@
+.. note::
+    :class: sphx-glr-download-link-note
 
+    Click :ref:`here <sphx_glr_download_auto_examples_plot_group_lasso.py>` to download the full example code
+.. rst-class:: sphx-glr-example-title
 
 .. _sphx_glr_auto_examples_plot_group_lasso.py:
 
@@ -17,22 +21,24 @@ function prox of object :ref:`cp.utils.GroupL1`.
 
 
 .. image:: /auto_examples/images/sphx_glr_plot_group_lasso_001.png
-    :align: center
+    :class: sphx-glr-single-img
 
 
 .. rst-class:: sphx-glr-script-out
 
- Out::
+ Out:
+
+ .. code-block:: none
 
     #features 100
     beta = 0
     beta = 0.01
-    Achieved relative tolerance at iteration 1474
+    Achieved relative tolerance at iteration 1346
     beta = 0.1
-    Achieved relative tolerance at iteration 102
+    Achieved relative tolerance at iteration 134
     Achieved relative tolerance at iteration 718
     beta = 0.2
-    Achieved relative tolerance at iteration 107
+    Achieved relative tolerance at iteration 83
     Achieved relative tolerance at iteration 661
 
 
@@ -166,13 +172,17 @@ function prox of object :ref:`cp.utils.GroupL1`.
     ax[1, 0].set_ylabel('Objective minus optimum')
     plt.show()
 
-**Total running time of the script:** ( 0 minutes  13.825 seconds)
+**Total running time of the script:** ( 0 minutes  6.966 seconds)
 
+
+.. _sphx_glr_download_auto_examples_plot_group_lasso.py:
 
 
 .. only :: html
 
  .. container:: sphx-glr-footer
+    :class: sphx-glr-footer-example
+
 
 
   .. container:: sphx-glr-download

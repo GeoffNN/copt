@@ -1,5 +1,5 @@
-copt\.datasets\.load\_img1
-==========================
+copt.datasets.load\_img1
+========================
 
 .. currentmodule:: copt.datasets
 

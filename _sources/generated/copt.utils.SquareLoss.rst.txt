@@ -1,5 +1,5 @@
-copt\.utils\.SquareLoss
-=======================
+copt.utils.SquareLoss
+=====================
 
 .. currentmodule:: copt.utils
 
