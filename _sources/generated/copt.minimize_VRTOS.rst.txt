@@ -1,0 +1,6 @@
+copt.minimize\_VRTOS
+====================
+
+.. currentmodule:: copt
+
+.. autofunction:: minimize_VRTOS

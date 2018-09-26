@@ -1,0 +1,6 @@
+copt.minimize\_SAGALP\_L1
+=========================
+
+.. currentmodule:: copt
+
+.. autofunction:: minimize_SAGALP_L1
