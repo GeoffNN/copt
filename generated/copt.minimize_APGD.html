@@ -39,7 +39,7 @@
 <h1>copt.minimize_APGD<a class="headerlink" href="#copt-minimize-apgd" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="copt.minimize_APGD">
-<code class="descclassname">copt.</code><code class="descname">minimize_APGD</code><span class="sig-paren">(</span><em>f_grad</em>, <em>x0</em>, <em>g_prox=None</em>, <em>tol=1e-06</em>, <em>max_iter=500</em>, <em>verbose=0</em>, <em>callback=None</em>, <em>line_search=True</em>, <em>step_size=None</em>, <em>max_iter_backtracking=100</em>, <em>backtracking_factor=0.6</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4ec9c45/copt/gradient.py#L124"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.minimize_APGD" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">copt.</code><code class="descname">minimize_APGD</code><span class="sig-paren">(</span><em>f_grad</em>, <em>x0</em>, <em>g_prox=None</em>, <em>tol=1e-06</em>, <em>max_iter=500</em>, <em>verbose=0</em>, <em>callback=None</em>, <em>backtracking=True</em>, <em>step_size=None</em>, <em>max_iter_backtracking=100</em>, <em>backtracking_factor=0.6</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/e22186e/copt/gradient.py#L126"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.minimize_APGD" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accelerated proximal gradient descent.</p>
 <p>Solves problems of the form</p>
 <blockquote>
@@ -50,38 +50,26 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>f_grad</strong> – loss function, differentiable</li>
-<li><strong>g_prox</strong> – penalty, proximable</li>
-<li><strong>g_prox</strong> – g_prox(x, alpha) returns the proximal operator of g at x
-with parameter alpha.</li>
-<li><strong>x0</strong> – array-like
-Initial guess</li>
-<li><strong>line_search</strong> – boolean
-Whether to perform backtracking (i.e. line-search) or not.</li>
-<li><strong>max_iter</strong> – int
-Maximum number of iterations.</li>
-<li><strong>verbose</strong> – int
-Verbosity level, from 0 (no output) to 2 (output on each iteration)</li>
-<li><strong>step_size</strong> – float
-Starting value for the line-search procedure. XXX</li>
-<li><strong>callback</strong> – callable
-callback function (optional).</li>
+<li><strong>f_grad</strong> (<em>loss function</em><em>, </em><em>differentiable</em>) – </li>
+<li><strong>g_prox</strong> (<em>g_prox</em><em>(</em><em>x</em><em>, </em><em>alpha</em><em>) </em><em>returns the proximal operator of g at x</em>) – </li>
+<li><strong>g_prox</strong> – with parameter alpha.</li>
+<li><strong>x0</strong> (<em>array-like</em>) – Initial guess</li>
+<li><strong>backtracking</strong> (<em>boolean</em>) – Whether to perform backtracking (i.e. line-search) or not.</li>
+<li><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Maximum number of iterations.</li>
+<li><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Verbosity level, from 0 (no output) to 2 (output on each iteration)</li>
+<li><strong>step_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – Starting value for the line-search procedure. XXX</li>
+<li><strong>callback</strong> (<em>callable</em>) – callback function (optional).</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
-<dt>The optimization result represented as a</dt>
-<dd><p class="first last"><code class="docutils literal notranslate"><span class="pre">scipy.optimize.OptimizeResult</span></code> object. Important attributes are:
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>res</strong> – <code class="docutils literal notranslate"><span class="pre">scipy.optimize.OptimizeResult</span></code> object. Important attributes are:
 <code class="docutils literal notranslate"><span class="pre">x</span></code> the solution array, <code class="docutils literal notranslate"><span class="pre">success</span></code> a Boolean flag indicating if
 the optimizer exited successfully and <code class="docutils literal notranslate"><span class="pre">message</span></code> which describes
 the cause of the termination. See <cite>scipy.optimize.OptimizeResult</cite>
 for a description of other attributes.</p>
-</dd>
-</dl>
-</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">res</p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">The optimization result represented as a</p>
 </td>
 </tr>
 </tbody>
@@ -170,7 +158,7 @@ recovery.” Convex optimization in signal processing and communications (2009)<
       &copy;Fabian Pedregosa.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.6</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.8</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
       
       |

@@ -44,14 +44,15 @@
 overlapping group lasso regularization.</p>
 <img alt="../_images/sphx_glr_plot_overlapping_group_lasso_001.png" class="sphx-glr-single-img" src="../_images/sphx_glr_plot_overlapping_group_lasso_001.png" />
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>0.4012504714013981
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>0.401250471401
 beta = 0
 beta = 0.001
 beta = 0.01
-Achieved relative tolerance at iteration 4330
+Achieved relative tolerance at iteration 2139
+Achieved relative tolerance at iteration 3737
 beta = 0.1
-Achieved relative tolerance at iteration 423
-Achieved relative tolerance at iteration 993
+Achieved relative tolerance at iteration 238
+Achieved relative tolerance at iteration 464
 </pre></div>
 </div>
 <div class="line-block">
@@ -68,12 +69,13 @@ Achieved relative tolerance at iteration 993
 <span class="c1"># .. generate some data ..</span>
 
 <span class="n">n_samples</span><span class="p">,</span> <span class="n">n_features</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span>
-<span class="n">groups</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="n">i</span><span class="p">,</span> <span class="mi">8</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">10</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_features</span> <span class="o">//</span> <span class="mi">8</span><span class="p">)]</span>
+<span class="n">blocks_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_features</span><span class="p">)</span> <span class="o">//</span> <span class="mi">8</span>
+<span class="n">blocks_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_features</span><span class="p">)</span> <span class="o">//</span> <span class="mi">12</span>
 
 
 <span class="n">ground_truth</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_features</span><span class="p">)</span>
-<span class="n">ground_truth</span><span class="p">[</span><span class="n">groups</span><span class="p">[</span><span class="mi">4</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">ground_truth</span><span class="p">[</span><span class="n">groups</span><span class="p">[</span><span class="mi">5</span><span class="p">]]</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">ground_truth</span><span class="p">[</span><span class="n">blocks_1</span><span class="o">==</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">ground_truth</span><span class="p">[</span><span class="n">blocks_2</span><span class="o">==</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.5</span>
 
 
 <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">n_features</span><span class="p">)</span>
@@ -100,9 +102,8 @@ Achieved relative tolerance at iteration 993
 <span class="n">out_img</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">beta</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">all_betas</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="s1">&#39;beta = </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">beta</span><span class="p">)</span>
-    <span class="n">groups1</span><span class="p">,</span> <span class="n">groups2</span> <span class="o">=</span> <span class="n">groups</span><span class="p">[::</span><span class="mi">2</span><span class="p">],</span> <span class="n">groups</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-    <span class="n">G1</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">GroupL1</span><span class="p">(</span><span class="n">beta</span><span class="p">,</span> <span class="n">groups1</span><span class="p">)</span>
-    <span class="n">G2</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">GroupL1</span><span class="p">(</span><span class="n">beta</span><span class="p">,</span> <span class="n">groups2</span><span class="p">)</span>
+    <span class="n">G1</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">GroupL1</span><span class="p">(</span><span class="n">beta</span><span class="p">,</span> <span class="n">blocks_1</span><span class="p">)</span>
+    <span class="n">G2</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">GroupL1</span><span class="p">(</span><span class="n">beta</span><span class="p">,</span> <span class="n">blocks_2</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">loss</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">G1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">G2</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -111,7 +112,7 @@ Achieved relative tolerance at iteration 993
     <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_features</span><span class="p">)</span>
     <span class="n">cb_tosls</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
     <span class="n">tos_ls</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">minimize_TOS</span><span class="p">(</span>
-        <span class="n">f</span><span class="o">.</span><span class="n">func_grad</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">G1</span><span class="o">.</span><span class="n">prox</span><span class="p">,</span> <span class="n">G2</span><span class="o">.</span><span class="n">prox</span><span class="p">,</span> <span class="n">step_size</span><span class="o">=</span><span class="mi">3</span> <span class="o">*</span> <span class="n">step_size</span><span class="p">,</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">f_grad</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">G1</span><span class="o">.</span><span class="n">prox</span><span class="p">,</span> <span class="n">G2</span><span class="o">.</span><span class="n">prox</span><span class="p">,</span> <span class="n">step_size</span><span class="o">=</span><span class="mi">3</span> <span class="o">*</span> <span class="n">step_size</span><span class="p">,</span>
         <span class="n">max_iter</span><span class="o">=</span><span class="n">max_iter</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-14</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
         <span class="n">callback</span><span class="o">=</span><span class="n">cb_tosls</span><span class="p">,</span> <span class="n">h_Lipschitz</span><span class="o">=</span><span class="n">beta</span><span class="p">)</span>
     <span class="n">trace_ls</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">loss</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">cb_tosls</span><span class="o">.</span><span class="n">trace_x</span><span class="p">])</span>
@@ -122,10 +123,10 @@ Achieved relative tolerance at iteration 993
     <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_features</span><span class="p">)</span>
     <span class="n">cb_tos</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
     <span class="n">tos</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">minimize_TOS</span><span class="p">(</span>
-        <span class="n">f</span><span class="o">.</span><span class="n">func_grad</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">G1</span><span class="o">.</span><span class="n">prox</span><span class="p">,</span> <span class="n">G2</span><span class="o">.</span><span class="n">prox</span><span class="p">,</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">f_grad</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">G1</span><span class="o">.</span><span class="n">prox</span><span class="p">,</span> <span class="n">G2</span><span class="o">.</span><span class="n">prox</span><span class="p">,</span>
         <span class="n">step_size</span><span class="o">=</span><span class="n">step_size</span><span class="p">,</span>
         <span class="n">max_iter</span><span class="o">=</span><span class="n">max_iter</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-14</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-        <span class="n">line_search</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">cb_tos</span><span class="p">)</span>
+        <span class="n">backtracking</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">cb_tos</span><span class="p">)</span>
     <span class="n">trace_nols</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">loss</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">cb_tos</span><span class="o">.</span><span class="n">trace_x</span><span class="p">])</span>
     <span class="n">all_trace_nols</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">trace_nols</span><span class="p">)</span>
     <span class="n">all_trace_nols_time</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cb_tos</span><span class="o">.</span><span class="n">trace_time</span><span class="p">)</span>
@@ -135,10 +136,10 @@ Achieved relative tolerance at iteration 993
     <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_features</span><span class="p">)</span>
     <span class="n">cb_pdhg</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
     <span class="n">pdhg</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">gradient</span><span class="o">.</span><span class="n">minimize_PDHG</span><span class="p">(</span>
-        <span class="n">f</span><span class="o">.</span><span class="n">func_grad</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">G1</span><span class="o">.</span><span class="n">prox</span><span class="p">,</span> <span class="n">G2</span><span class="o">.</span><span class="n">prox</span><span class="p">,</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">f_grad</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">G1</span><span class="o">.</span><span class="n">prox</span><span class="p">,</span> <span class="n">G2</span><span class="o">.</span><span class="n">prox</span><span class="p">,</span>
         <span class="n">callback</span><span class="o">=</span><span class="n">cb_pdhg</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="n">max_iter</span><span class="p">,</span>
         <span class="n">step_size</span><span class="o">=</span><span class="n">step_size</span><span class="p">,</span>
-        <span class="n">step_size2</span><span class="o">=</span><span class="p">(</span><span class="mf">1.</span> <span class="o">/</span> <span class="n">step_size</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">line_search</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+        <span class="n">step_size2</span><span class="o">=</span><span class="p">(</span><span class="mf">1.</span> <span class="o">/</span> <span class="n">step_size</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">backtracking</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
     <span class="n">trace_pdhg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">loss</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">cb_pdhg</span><span class="o">.</span><span class="n">trace_x</span><span class="p">])</span>
     <span class="n">all_trace_pdhg</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">trace_pdhg</span><span class="p">)</span>
     <span class="n">all_trace_pdhg_time</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cb_pdhg</span><span class="o">.</span><span class="n">trace_time</span><span class="p">)</span>
@@ -147,10 +148,10 @@ Achieved relative tolerance at iteration 993
     <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_features</span><span class="p">)</span>
     <span class="n">cb_pdhg_nols</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
     <span class="n">pdhg_nols</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">gradient</span><span class="o">.</span><span class="n">minimize_PDHG</span><span class="p">(</span>
-        <span class="n">f</span><span class="o">.</span><span class="n">func_grad</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">G1</span><span class="o">.</span><span class="n">prox</span><span class="p">,</span> <span class="n">G2</span><span class="o">.</span><span class="n">prox</span><span class="p">,</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">f_grad</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">G1</span><span class="o">.</span><span class="n">prox</span><span class="p">,</span> <span class="n">G2</span><span class="o">.</span><span class="n">prox</span><span class="p">,</span>
         <span class="n">callback</span><span class="o">=</span><span class="n">cb_pdhg_nols</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="n">max_iter</span><span class="p">,</span>
         <span class="n">step_size</span><span class="o">=</span><span class="n">step_size</span><span class="p">,</span>
-        <span class="n">step_size2</span><span class="o">=</span><span class="p">(</span><span class="mf">1.</span> <span class="o">/</span> <span class="n">step_size</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">line_search</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+        <span class="n">step_size2</span><span class="o">=</span><span class="p">(</span><span class="mf">1.</span> <span class="o">/</span> <span class="n">step_size</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">backtracking</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
     <span class="n">trace_pdhg_nols</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">loss</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">cb_pdhg_nols</span><span class="o">.</span><span class="n">trace_x</span><span class="p">])</span>
     <span class="n">all_trace_pdhg_nols</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">trace_pdhg_nols</span><span class="p">)</span>
     <span class="n">all_trace_pdhg_nols_time</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cb_pdhg_nols</span><span class="o">.</span><span class="n">trace_time</span><span class="p">)</span>
@@ -207,7 +208,7 @@ Achieved relative tolerance at iteration 993
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><strong>Total running time of the script:</strong> ( 0 minutes  15.195 seconds)</p>
+<p><strong>Total running time of the script:</strong> ( 0 minutes  38.527 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-overlapping-group-lasso-py">
 <div class="sphx-glr-download docutils container">
 <a class="reference download internal" href="../_downloads/plot_overlapping_group_lasso.py" download=""><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_overlapping_group_lasso.py</span></code></a></div>
@@ -296,7 +297,7 @@ Achieved relative tolerance at iteration 993
       &copy;Fabian Pedregosa.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.6</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.8</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
       
       |

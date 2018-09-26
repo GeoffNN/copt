@@ -39,11 +39,12 @@
 <h1>copt.utils.LogLoss<a class="headerlink" href="#copt-utils-logloss" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="copt.utils.LogLoss">
-<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">LogLoss</code><span class="sig-paren">(</span><em>A</em>, <em>b</em>, <em>alpha=0.0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4ec9c45/copt/utils.py#L62"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.LogLoss" title="Permalink to this definition">¶</a></dt>
-<dd><p>Logistic loss</p>
+<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">LogLoss</code><span class="sig-paren">(</span><em>A</em>, <em>b</em>, <em>alpha=0.0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/e22186e/copt/utils.py#L62"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.LogLoss" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class evaluation and derivatives of the logistic loss. The logistic loss function is defined as</p>
 <div class="math notranslate nohighlight">
 \[-\frac{1}{n}\sum_{i=1}^n b_i \log(\sigma(a_i^T x)) + (1 - b_i) \log(1 - \sigma(a_i^T x))\]</div>
 <p>where <span class="math notranslate nohighlight">\(\sigma\)</span> is the sigmoid function <span class="math notranslate nohighlight">\(\sigma(t) = 1/(1 + e^{-t})\)</span>.</p>
+<p>When the input vector b comes from class labels, it is expected to have the values 0 or 1.</p>
 <p>for a numerically stable computation of the logistic loss, we use the identities</p>
 <div class="math notranslate nohighlight">
 \[ \begin{align}\begin{aligned}\begin{split}\log(\sigma(t)) = \begin{cases} -\log(1 + e^{-t}) &amp;\text{ if $t \geq 0$}\\
@@ -51,7 +52,7 @@ t - \log(1 + e^t) &amp;\text{ otherwise}\end{cases}\end{split}\\\begin{split}\lo
 - \log(1 + e^t) &amp;\text{ otherwise}\end{cases}\end{split}\end{aligned}\end{align} \]</div>
 <dl class="method">
 <dt id="copt.utils.LogLoss.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>A</em>, <em>b</em>, <em>alpha=0.0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4ec9c45/copt/utils.py#L81"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.LogLoss.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>A</em>, <em>b</em>, <em>alpha=0.0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/e22186e/copt/utils.py#L83"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.LogLoss.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
@@ -65,7 +66,7 @@ t - \log(1 + e^t) &amp;\text{ otherwise}\end{cases}\end{split}\\\begin{split}\lo
 <tr class="row-odd"><td><a class="reference internal" href="#copt.utils.LogLoss.__init__" title="copt.utils.LogLoss.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(A,&nbsp;b[,&nbsp;alpha])</td>
 <td>Initialize self.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">func_grad</span></code>(x[,&nbsp;return_gradient])</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">LogLoss.func_grad</span></code></td>
 <td></td>
 </tr>
 </tbody>
@@ -150,7 +151,7 @@ t - \log(1 + e^t) &amp;\text{ otherwise}\end{cases}\end{split}\\\begin{split}\lo
       &copy;Fabian Pedregosa.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.6</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.8</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
       
       |

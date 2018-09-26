@@ -54,17 +54,17 @@ descent on a logistic regression problem.</p>
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">n_features</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n_samples</span><span class="p">)</span>
 
-<span class="n">logloss</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">LogLoss</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">func_grad</span>
+<span class="n">logloss</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">LogLoss</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">f_grad</span>
 <span class="n">cb_pgd</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">Trace</span><span class="p">()</span>
 <span class="n">cb_apgd</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">Trace</span><span class="p">()</span>
 <span class="n">L</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">get_lipschitz</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="s1">&#39;logloss&#39;</span><span class="p">)</span>
 <span class="n">step_size</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">/</span> <span class="n">L</span>
 <span class="n">result_pgd</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">minimize_PGD</span><span class="p">(</span>
     <span class="n">logloss</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_features</span><span class="p">),</span> <span class="n">step_size</span><span class="o">=</span><span class="n">step_size</span><span class="p">,</span>
-    <span class="n">callback</span><span class="o">=</span><span class="n">cb_pgd</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">line_search</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">callback</span><span class="o">=</span><span class="n">cb_pgd</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">backtracking</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 <span class="n">result_apgd</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">minimize_APGD</span><span class="p">(</span>
     <span class="n">logloss</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_features</span><span class="p">),</span> <span class="n">step_size</span><span class="o">=</span><span class="n">step_size</span><span class="p">,</span>
-    <span class="n">callback</span><span class="o">=</span><span class="n">cb_apgd</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">line_search</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">callback</span><span class="o">=</span><span class="n">cb_apgd</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">backtracking</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 
 <span class="n">trace_func_pgd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">logloss</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">cb_pgd</span><span class="o">.</span><span class="n">trace_x</span><span class="p">])</span>
 <span class="n">trace_func_apgd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">logloss</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">cb_apgd</span><span class="o">.</span><span class="n">trace_x</span><span class="p">])</span>
@@ -86,7 +86,7 @@ descent on a logistic regression problem.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><strong>Total running time of the script:</strong> ( 0 minutes  0.517 seconds)</p>
+<p><strong>Total running time of the script:</strong> ( 0 minutes  0.751 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-accelerated-py">
 <div class="sphx-glr-download docutils container">
 <a class="reference download internal" href="../_downloads/plot_accelerated.py" download=""><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_accelerated.py</span></code></a></div>
@@ -175,7 +175,7 @@ descent on a logistic regression problem.</p>
       &copy;Fabian Pedregosa.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.6</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.8</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
       
       |
