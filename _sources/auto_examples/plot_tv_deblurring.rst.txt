@@ -69,7 +69,7 @@ Comparison of solvers with total variation regularization.
                       tol=1e-3, maxiter=500)[0]
     L = cp.utils.get_lipschitz(A, 'square')
     step_size = 1./L
-    f_grad = cp.utils.SquareLoss(A, b).func_grad
+    f_grad = cp.utils.SquareLoss(A, b).f_grad
 
 
     def loss(x, beta):
@@ -161,7 +161,7 @@ Comparison of solvers with total variation regularization.
     ax[1, 0].set_ylabel('Objective minus optimum')
     plt.show()
 
-**Total running time of the script:** ( 0 minutes  31.692 seconds)
+**Total running time of the script:** ( 0 minutes  34.731 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_tv_deblurring.py:

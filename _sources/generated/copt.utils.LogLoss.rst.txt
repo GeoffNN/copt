@@ -14,7 +14,7 @@ copt.utils.LogLoss
    .. autosummary::
    
       ~LogLoss.__init__
-      ~LogLoss.func_grad
+      ~LogLoss.f_grad
    
    
 

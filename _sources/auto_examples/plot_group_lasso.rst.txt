@@ -162,7 +162,7 @@ function prox of object :ref:`cp.utils.GroupL1`.
     ax[1, 0].set_ylabel('Objective minus optimum')
     plt.show()
 
-**Total running time of the script:** ( 0 minutes  9.290 seconds)
+**Total running time of the script:** ( 0 minutes  9.803 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_group_lasso.py:

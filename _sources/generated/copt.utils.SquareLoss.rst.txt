@@ -14,7 +14,7 @@ copt.utils.SquareLoss
    .. autosummary::
    
       ~SquareLoss.__init__
-      ~SquareLoss.func_grad
+      ~SquareLoss.f_grad
    
    
 
