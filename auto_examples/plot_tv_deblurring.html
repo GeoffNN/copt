@@ -44,8 +44,7 @@
 <p>Comparison of solvers with total variation regularization.</p>
 <img alt="../_images/sphx_glr_plot_tv_deblurring_001.png" class="sphx-glr-single-img" src="../_images/sphx_glr_plot_tv_deblurring_001.png" />
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>#features 17595
-Iteration 0, beta 0
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Iteration 0, beta 0
 Iteration 1, beta 1e-06
 Iteration 2, beta 5e-06
 Achieved relative tolerance at iteration 1560
@@ -71,7 +70,6 @@ Achieved relative tolerance at iteration 1560
 <span class="n">n_features</span> <span class="o">=</span> <span class="n">n_rows</span> <span class="o">*</span> <span class="n">n_cols</span>
 <span class="n">n_samples</span> <span class="o">=</span> <span class="n">n_features</span>
 <span class="n">max_iter</span> <span class="o">=</span> <span class="mi">2000</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;#features&#39;</span><span class="p">,</span> <span class="n">n_features</span><span class="p">)</span>
 
 <span class="c1"># .. compute blurred and noisy image ..</span>
 <span class="n">A</span> <span class="o">=</span> <span class="n">sparse</span><span class="o">.</span><span class="n">load_npz</span><span class="p">(</span><span class="s1">&#39;data/blur_matrix.npz&#39;</span><span class="p">)</span>
@@ -163,19 +161,19 @@ Achieved relative tolerance at iteration 1560
     <span class="n">fmin</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">all_trace_ls</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">all_trace_pdhg</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
     <span class="n">scale</span> <span class="o">=</span> <span class="n">all_trace_ls</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">fmin</span>
     <span class="n">plot_tos</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
-        <span class="p">(</span><span class="n">all_trace_ls</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">fmin</span><span class="p">)</span> <span class="o">/</span> <span class="n">scale</span><span class="p">,</span>
-        <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">markevery</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
-        <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+        <span class="p">(</span><span class="n">all_trace_ls</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">fmin</span><span class="p">)</span> <span class="o">/</span> <span class="n">scale</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span>
+        <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">markevery</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span>
+        <span class="n">markersize</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
 
     <span class="n">plot_tos_nols</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
         <span class="p">(</span><span class="n">all_trace_nols</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">fmin</span><span class="p">)</span> <span class="o">/</span> <span class="n">scale</span><span class="p">,</span>
-        <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">markevery</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
-        <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+        <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;&lt;&#39;</span><span class="p">,</span> <span class="n">markevery</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span>
+        <span class="n">markersize</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
 
     <span class="n">plot_pdhg</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
-        <span class="p">(</span><span class="n">all_trace_pdhg</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">fmin</span><span class="p">)</span> <span class="o">/</span> <span class="n">scale</span><span class="p">,</span>
-        <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;^&#39;</span><span class="p">,</span> <span class="n">markevery</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
-        <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+        <span class="p">(</span><span class="n">all_trace_pdhg</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">fmin</span><span class="p">)</span> <span class="o">/</span> <span class="n">scale</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span>
+        <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;^&#39;</span><span class="p">,</span> <span class="n">markevery</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span>
+        <span class="n">markersize</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
 
     <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Iterations&#39;</span><span class="p">)</span>
     <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
@@ -184,19 +182,17 @@ Achieved relative tolerance at iteration 1560
     <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
 
 
-<span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">bottom</span><span class="o">=</span><span class="mf">0.15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">bottom</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figlegend</span><span class="p">(</span>
     <span class="p">(</span><span class="n">plot_tos</span><span class="p">,</span> <span class="n">plot_tos_nols</span><span class="p">,</span> <span class="n">plot_pdhg</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;TOS with line search&#39;</span><span class="p">,</span> <span class="s1">&#39;TOS without line search&#39;</span><span class="p">,</span> <span class="s1">&#39;PDHG&#39;</span><span class="p">),</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
-    <span class="n">scatterpoints</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-    <span class="n">loc</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">0.00</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0</span><span class="p">),</span> <span class="n">frameon</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
-    <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">[</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">])</span>
+    <span class="p">(</span><span class="s1">&#39;Adaptive three operator splitting&#39;</span><span class="p">,</span> <span class="s1">&#39;three operator splitting&#39;</span><span class="p">,</span> <span class="s1">&#39;primal-dual hybrid gradient&#39;</span><span class="p">),</span> <span class="s1">&#39;lower center&#39;</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">scatterpoints</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Objective minus optimum&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><strong>Total running time of the script:</strong> ( 0 minutes  55.459 seconds)</p>
+<p><strong>Total running time of the script:</strong> ( 1 minutes  24.970 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-tv-deblurring-py">
 <div class="sphx-glr-download docutils container">
 <a class="reference download internal" href="../_downloads/plot_tv_deblurring.py" download=""><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_tv_deblurring.py</span></code></a></div>

@@ -21,7 +21,6 @@ n_rows, n_cols = img.shape
 n_features = n_rows * n_cols
 n_samples = n_features
 max_iter = 2000
-print('#features', n_features)
 
 # .. compute blurred and noisy image ..
 A = sparse.load_npz('data/blur_matrix.npz')
@@ -113,19 +112,19 @@ for i, beta in enumerate(all_betas):
     fmin = min(np.min(all_trace_ls[i]), np.min(all_trace_pdhg[i]))
     scale = all_trace_ls[i][0] - fmin
     plot_tos, = ax[1, i].plot(
-        (all_trace_ls[i] - fmin) / scale,
-        lw=2, marker='o', markevery=200,
-        markersize=10)
+        (all_trace_ls[i] - fmin) / scale, '--',
+        lw=2, marker='o', markevery=400,
+        markersize=7)
 
     plot_tos_nols, = ax[1, i].plot(
         (all_trace_nols[i] - fmin) / scale,
-        lw=2, marker='o', markevery=200,
-        markersize=10)
+        lw=2, marker='<', markevery=400,
+        markersize=7)
 
     plot_pdhg, = ax[1, i].plot(
-        (all_trace_pdhg[i] - fmin) / scale,
-        lw=2, marker='^', markevery=200,
-        markersize=10)
+        (all_trace_pdhg[i] - fmin) / scale, '--',
+        lw=2, marker='^', markevery=400, 
+        markersize=7)
 
     ax[1, i].set_xlabel('Iterations')
     ax[1, i].set_yscale('log')
@@ -134,13 +133,11 @@ for i, beta in enumerate(all_betas):
     ax[1, i].grid(True)
 
 
-plt.gcf().subplots_adjust(bottom=0.15)
+plt.gcf().subplots_adjust(bottom=0.25)
 plt.figlegend(
     (plot_tos, plot_tos_nols, plot_pdhg),
-    ('TOS with line search', 'TOS without line search', 'PDHG'), ncol=5,
-    scatterpoints=1,
-    loc=(-0.00, -0.0), frameon=False,
-    bbox_to_anchor=[0.05, 0.01])
+    ('Adaptive three operator splitting', 'three operator splitting', 'primal-dual hybrid gradient'), 'lower center', ncol=2,
+    scatterpoints=1, frameon=False)
 
 ax[1, 0].set_ylabel('Objective minus optimum')
 plt.show()
