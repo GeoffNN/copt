@@ -28,11 +28,11 @@ Estimating a sparse and low rank matrix
     beta = 0
     beta = 0.001
     beta = 0.01
-    Achieved relative tolerance at iteration 806
-    Achieved relative tolerance at iteration 1987
+    Achieved relative tolerance at iteration 805
+    Achieved relative tolerance at iteration 1981
     beta = 0.1
-    Achieved relative tolerance at iteration 166
-    Achieved relative tolerance at iteration 951
+    Achieved relative tolerance at iteration 160
+    Achieved relative tolerance at iteration 934
 
 
 
@@ -98,7 +98,7 @@ Estimating a sparse and low rank matrix
     out_img = []
     for i, beta in enumerate(all_betas):
         print('beta = %s' % beta)
-        G1 = cp.utils.NuclearNorm(beta, *Sigma.shape)
+        G1 = cp.utils.TraceNorm(beta, Sigma.shape)
         G2 = cp.utils.L1Norm(beta)
 
         def loss(x):
@@ -168,7 +168,7 @@ Estimating a sparse and low rank matrix
     ax[1, 0].set_ylabel('Objective minus optimum')
     plt.show()
 
-**Total running time of the script:** ( 0 minutes  14.648 seconds)
+**Total running time of the script:** ( 0 minutes  15.127 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_sparse_nuclear_norm.py:

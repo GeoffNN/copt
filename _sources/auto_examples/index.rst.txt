@@ -46,26 +46,6 @@ Examples
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Comparison of solvers with total variation regularization. ">
-
-.. only:: html
-
-    .. figure:: /auto_examples/images/thumb/sphx_glr_plot_tv_deblurring_thumb.png
-
-        :ref:`sphx_glr_auto_examples_plot_tv_deblurring.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /auto_examples/plot_tv_deblurring
-
-.. raw:: html
-
     <div class="sphx-glr-thumbcontainer" tooltip="Estimating a sparse and low rank matrix">
 
 .. only:: html
@@ -83,6 +63,26 @@ Examples
    :hidden:
 
    /auto_examples/plot_sparse_nuclear_norm
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Comparison of solvers with total variation regularization. ">
+
+.. only:: html
+
+    .. figure:: /auto_examples/images/thumb/sphx_glr_plot_tv_deblurring_thumb.png
+
+        :ref:`sphx_glr_auto_examples_plot_tv_deblurring.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/plot_tv_deblurring
 
 .. raw:: html
 

@@ -194,7 +194,7 @@ overlapping group lasso regularization.
     ax[1, 0].set_ylabel('Objective minus optimum')
     plt.show()
 
-**Total running time of the script:** ( 0 minutes  25.232 seconds)
+**Total running time of the script:** ( 0 minutes  29.523 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_overlapping_group_lasso.py:
