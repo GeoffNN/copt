@@ -17,7 +17,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Gradient-based methods" href="gradient.html" />
+    <link rel="next" title="Gradient-based methods" href="proximal_gradient.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -37,6 +37,10 @@
   <div class="section" id="welcome-to-copt">
 <h1>Welcome to copt!<a class="headerlink" href="#welcome-to-copt" title="Permalink to this headline">¶</a></h1>
 <p>copt is a library for mathematical optimization written in pure Python.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This library is a work in progress, expect some rough edges.</p>
+</div>
 <div class="section" id="philosophy">
 <h2>Philosophy<a class="headerlink" href="#philosophy" title="Permalink to this headline">¶</a></h2>
 <blockquote>
@@ -61,15 +65,13 @@
 <p>C-OPT contains implementations of different optimization methods. These are categorized as:</p>
 <blockquote>
 <div><ul class="simple">
-<li><a class="reference internal" href="gradient.html#gradient-methods"><span class="std std-ref">Gradient-based methods</span></a>: <a class="reference internal" href="generated/copt.minimize_PGD.html#copt.minimize_PGD" title="copt.minimize_PGD"><code class="xref py py-meth docutils literal notranslate"><span class="pre">proximal</span> <span class="pre">gradient</span> <span class="pre">descent</span></code></a> and its <a class="reference internal" href="generated/copt.minimize_APGD.html#copt.minimize_APGD" title="copt.minimize_APGD"><code class="xref py py-meth docutils literal notranslate"><span class="pre">accelerated</span> <span class="pre">variant</span></code></a>, <a class="reference internal" href="generated/copt.minimize_TOS.html#copt.minimize_TOS" title="copt.minimize_TOS"><code class="xref py py-meth docutils literal notranslate"><span class="pre">three</span> <span class="pre">operator</span> <span class="pre">splitting</span></code></a></li>
-<li><a class="reference internal" href="incremental.html#incremental-methods"><span class="std std-ref">Incremental methods</span></a>: <a class="reference internal" href="generated/copt.minimize_SAGA_L1.html#copt.minimize_SAGA_L1" title="copt.minimize_SAGA_L1"><code class="xref py py-meth docutils literal notranslate"><span class="pre">SAGA</span></code></a>, <a class="reference internal" href="generated/copt.minimize_SVRG_L1.html#copt.minimize_SVRG_L1" title="copt.minimize_SVRG_L1"><code class="xref py py-meth docutils literal notranslate"><span class="pre">SVRG</span></code></a></li>
+<li>Proximal gradient: <a class="reference internal" href="generated/copt.minimize_PGD.html#copt.minimize_PGD" title="copt.minimize_PGD"><code class="xref py py-meth docutils literal notranslate"><span class="pre">proximal</span> <span class="pre">gradient</span> <span class="pre">descent</span></code></a> and its <a class="reference internal" href="generated/copt.minimize_APGD.html#copt.minimize_APGD" title="copt.minimize_APGD"><code class="xref py py-meth docutils literal notranslate"><span class="pre">accelerated</span> <span class="pre">variant</span></code></a></li>
+<li>Proximal splitting: <a class="reference internal" href="generated/copt.minimize_TOS.html#copt.minimize_TOS" title="copt.minimize_TOS"><code class="xref py py-meth docutils literal notranslate"><span class="pre">three</span> <span class="pre">operator</span> <span class="pre">splitting</span></code></a>, <a class="reference internal" href="generated/copt.minimize_PDHG.html#copt.minimize_PDHG" title="copt.minimize_PDHG"><code class="xref py py-meth docutils literal notranslate"><span class="pre">primal-dual</span> <span class="pre">hybrid</span> <span class="pre">gradient</span></code></a></li>
+<li>Frank-Wolfe: <a class="reference internal" href="generated/copt.minimize_FW.html#copt.minimize_FW" title="copt.minimize_FW"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Frank-Wolfe</span></code></a>, <a class="reference internal" href="generated/copt.minimize_PFW_L1.html#copt.minimize_PFW_L1" title="copt.minimize_PFW_L1"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Pairwise</span> <span class="pre">Frank-Wolfe</span></code></a></li>
+<li>Variance-reduced stochastic methods: <a class="reference internal" href="generated/copt.minimize_SAGA_L1.html#copt.minimize_SAGA_L1" title="copt.minimize_SAGA_L1"><code class="xref py py-meth docutils literal notranslate"><span class="pre">SAGA</span></code></a>, <a class="reference internal" href="generated/copt.minimize_SVRG_L1.html#copt.minimize_SVRG_L1" title="copt.minimize_SVRG_L1"><code class="xref py py-meth docutils literal notranslate"><span class="pre">SVRG</span></code></a>, <a class="reference internal" href="generated/copt.minimize_VRTOS.html#copt.minimize_VRTOS" title="copt.minimize_VRTOS"><code class="xref py py-meth docutils literal notranslate"><span class="pre">variance-reduced</span> <span class="pre">three</span> <span class="pre">operator</span> <span class="pre">splitting</span></code></a></li>
 </ul>
 </div></blockquote>
 <div class="toctree-wrapper compound">
-</div>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">This library is a work in progress, expect some rough edges.</p>
 </div>
 </div>
 </div>
@@ -116,11 +118,13 @@
 
 <h3>Navigation</h3>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="gradient.html">Gradient-based methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proximal_gradient.html">Gradient-based methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proximal_splitting.html">Proximal splitting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frank_wolfe.html">Frank-Wolfe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="incremental.html">Incremental methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="loss_functions.html">Loss functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="datasets.html">Datasets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datasets.html">Datasets</a></li>
 </ul>
 
 

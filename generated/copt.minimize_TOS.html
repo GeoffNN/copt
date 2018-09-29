@@ -17,7 +17,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="copt.minimize_APGD" href="copt.minimize_APGD.html" />
+    <link rel="next" title="copt.minimize_PDHG" href="copt.minimize_PDHG.html" />
+    <link rel="prev" title="Proximal splitting" href="../proximal_splitting.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -38,7 +39,7 @@
 <h1>copt.minimize_TOS<a class="headerlink" href="#copt-minimize-tos" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="copt.minimize_TOS">
-<code class="descclassname">copt.</code><code class="descname">minimize_TOS</code><span class="sig-paren">(</span><em>f_grad</em>, <em>x0</em>, <em>g_prox=None</em>, <em>h_prox=None</em>, <em>tol=1e-06</em>, <em>max_iter=1000</em>, <em>verbose=0</em>, <em>callback=None</em>, <em>backtracking=True</em>, <em>step_size=None</em>, <em>max_iter_backtracking=100</em>, <em>backtracking_factor=0.7</em>, <em>h_Lipschitz=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/9cbff9d/copt/gradient.py#L246"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.minimize_TOS" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">copt.</code><code class="descname">minimize_TOS</code><span class="sig-paren">(</span><em>f_grad</em>, <em>x0</em>, <em>g_prox=None</em>, <em>h_prox=None</em>, <em>tol=1e-06</em>, <em>max_iter=1000</em>, <em>verbose=0</em>, <em>callback=None</em>, <em>backtracking=True</em>, <em>step_size=None</em>, <em>max_iter_backtracking=100</em>, <em>backtracking_factor=0.7</em>, <em>h_Lipschitz=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/f7bca48/copt/splitting.py#L7"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.minimize_TOS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Davis-Yin three operator splitting method.</p>
 <p>This algorithm can solve problems of the form</p>
 <blockquote>
@@ -130,16 +131,17 @@ on Machine Learning, 2018.</li>
 
 <h3>Navigation</h3>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../gradient.html">Gradient-based methods</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="copt.minimize_PGD.html">copt.minimize_PGD</a></li>
-<li class="toctree-l2"><a class="reference internal" href="copt.minimize_APGD.html">copt.minimize_APGD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proximal_gradient.html">Gradient-based methods</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../proximal_splitting.html">Proximal splitting</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">copt.minimize_TOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="copt.minimize_PDHG.html">copt.minimize_PDHG</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../frank_wolfe.html">Frank-Wolfe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../incremental.html">Incremental methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../loss_functions.html">Loss functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../datasets.html">Datasets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datasets.html">Datasets</a></li>
 </ul>
 
 
