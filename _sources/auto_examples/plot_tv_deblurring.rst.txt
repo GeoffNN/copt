@@ -28,7 +28,6 @@ Comparison of solvers with total variation regularization.
     Iteration 0, beta 0
     Iteration 1, beta 1e-06
     Iteration 2, beta 5e-06
-    Achieved relative tolerance at iteration 1560
 
 
 
@@ -176,7 +175,7 @@ Comparison of solvers with total variation regularization.
     ax[1, 0].set_ylabel('Objective minus optimum')
     plt.show()
 
-**Total running time of the script:** ( 0 minutes  53.854 seconds)
+**Total running time of the script:** ( 0 minutes  49.170 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_tv_deblurring.py:

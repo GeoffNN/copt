@@ -59,13 +59,13 @@ function prox of object :meth:`copt.utils.GroupL1`.
 
     # .. generate some data ..
     n_samples, n_features = 100, 100
-    blocks = np.arange(n_features) // 10
+    groups = [np.arange(10 * i, 10 * i + 10) for i in range(10)]
 
     # .. construct a ground truth vector in which ..
     # .. group 4 and 5 are nonzero ..
     ground_truth = np.zeros(n_features)
-    ground_truth[blocks == 4] = 1
-    ground_truth[blocks == 5] = 0.5
+    ground_truth[groups[4]] = 1
+    ground_truth[groups[5]] = 0.5
 
     max_iter = 5000
     print('#features', n_features)
@@ -91,7 +91,7 @@ function prox of object :meth:`copt.utils.GroupL1`.
     out_img = []
     for i, beta in enumerate(all_betas):
         print('beta = %s' % beta)
-        G1 = cp.utils.GroupL1(beta, blocks)
+        G1 = cp.utils.GroupL1(beta, groups)
 
         def loss(x):
             return f_grad(x)[0] + G1(x)
@@ -162,7 +162,7 @@ function prox of object :meth:`copt.utils.GroupL1`.
     ax[1, 0].set_ylabel('Objective minus optimum')
     plt.show()
 
-**Total running time of the script:** ( 0 minutes  10.416 seconds)
+**Total running time of the script:** ( 0 minutes  8.766 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_group_lasso.py:
