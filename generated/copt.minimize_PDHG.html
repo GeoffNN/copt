@@ -1,0 +1,193 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>2.2. copt.minimize_PDHG &#8212; copt  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3. Frank-Wolfe" href="../frank_wolfe.html" />
+    <link rel="prev" title="2.1. copt.minimize_TOS" href="copt.minimize_TOS.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="copt-minimize-pdhg">
+<h1>2.2. copt.minimize_PDHG<a class="headerlink" href="#copt-minimize-pdhg" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="copt.minimize_PDHG">
+<code class="descclassname">copt.</code><code class="descname">minimize_PDHG</code><span class="sig-paren">(</span><em>f_grad</em>, <em>x0</em>, <em>g_prox=None</em>, <em>h_prox=None</em>, <em>L=None</em>, <em>tol=1e-12</em>, <em>max_iter=1000</em>, <em>callback=None</em>, <em>step_size=1.0</em>, <em>step_size2=None</em>, <em>backtracking=True</em>, <em>max_iter_ls=20</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/7a534a7/copt/splitting.py#L143"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.minimize_PDHG" title="Permalink to this definition">¶</a></dt>
+<dd><p>Primal-dual hybrid gradient splitting method.</p>
+<p>This method for optimization problems of the form</p>
+<blockquote>
+<div>minimize_x f(x) + alpha * g(x) + beta * h(L x)</div></blockquote>
+<p>where f is a smooth function and g is a (possibly non-smooth)
+function for which the proximal operator is known.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>f_grad</strong> (<em>callable</em>) – Returns the function value and gradient of the objective function.
+It should accept the optional argument return_gradient, and when False
+it should return only the function value.</li>
+<li><strong>g_prox</strong> (<em>callable of the form g_prox</em><em>(</em><em>x</em><em>, </em><em>alpha</em><em>)</em>) – g_prox(x, alpha) returns the proximal operator of g at x
+with parameter alpha.</li>
+<li><strong>x0</strong> (<em>array-like</em>) – Initial guess</li>
+<li><strong>L</strong> (<em>ndarray</em><em> or </em><em>sparse matrix</em>) – Linear operator inside the h term.</li>
+<li><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Maximum number of iterations.</li>
+<li><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Verbosity level, from 0 (no output) to 2 (output on each iteration)</li>
+<li><strong>callback</strong> (<em>callable</em>) – callback function (optional).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>res</strong> – The optimization result represented as a
+<code class="docutils literal notranslate"><span class="pre">scipy.optimize.OptimizeResult</span></code> object. Important attributes are:
+<code class="docutils literal notranslate"><span class="pre">x</span></code> the solution array, <code class="docutils literal notranslate"><span class="pre">success</span></code> a Boolean flag indicating if
+the optimizer exited successfully and <code class="docutils literal notranslate"><span class="pre">message</span></code> which describes
+the cause of the termination. See <cite>scipy.optimize.OptimizeResult</cite>
+for a description of other attributes.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">OptimizeResult</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">References</p>
+<p>Condat, Laurent. “A primal-dual splitting method for convex optimization
+involving Lipschitzian, proximable and linear composite terms.” Journal of
+Optimization Theory and Applications (2013).</p>
+<p>Chambolle, Antonin, and Thomas Pock. “On the ergodic convergence rates of a
+first-order primal-dual algorithm.” Mathematical Programming (2015)</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo"/>
+            </a></p>
+<h1 class="logo"><a href="../index.html">copt</a></h1>
+
+
+
+<p class="blurb">Optimization in Python</p>
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=openopt&repo=copt&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+    
+
+<p>
+<a href="https://travis-ci.org/openopt/copt">
+    <img
+        alt="https://secure.travis-ci.org/openopt/copt.svg?branch=master"
+        src="https://secure.travis-ci.org/openopt/copt.svg?branch=master"
+    />
+</a>
+</p>
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../proximal_gradient.html">1. Gradient-based methods</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../proximal_splitting.html">2. Proximal splitting</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="copt.minimize_TOS.html">2.1. copt.minimize_TOS</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.2. copt.minimize_PDHG</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../frank_wolfe.html">3. Frank-Wolfe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../incremental.html">4. Incremental methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../loss_functions.html">5. Loss functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">6. Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datasets.html">7. Datasets</a></li>
+</ul>
+
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../proximal_gradient.html">1. Gradient-based methods</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../proximal_splitting.html">2. Proximal splitting</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="copt.minimize_TOS.html">2.1. copt.minimize_TOS</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.2. copt.minimize_PDHG</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../frank_wolfe.html">3. Frank-Wolfe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../incremental.html">4. Incremental methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../loss_functions.html">5. Loss functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">6. Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datasets.html">7. Datasets</a></li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;Fabian Pedregosa.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.8</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
+      
+      |
+      <a href="../_sources/generated/copt.minimize_PDHG.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

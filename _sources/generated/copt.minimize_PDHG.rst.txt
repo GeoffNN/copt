@@ -1,0 +1,6 @@
+copt.minimize\_PDHG
+===================
+
+.. currentmodule:: copt
+
+.. autofunction:: minimize_PDHG
