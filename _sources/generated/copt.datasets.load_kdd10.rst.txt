@@ -1,0 +1,6 @@
+copt.datasets.load\_kdd10
+=========================
+
+.. currentmodule:: copt.datasets
+
+.. autofunction:: load_kdd10
