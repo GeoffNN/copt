@@ -50,12 +50,12 @@ function prox of object <a class="reference internal" href="../generated/copt.ut
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>#features 100
 beta = 0
 beta = 0.01
-Achieved relative tolerance at iteration 1346
+Achieved relative tolerance at iteration 1397
 beta = 0.1
-Achieved relative tolerance at iteration 134
+Achieved relative tolerance at iteration 126
 Achieved relative tolerance at iteration 718
 beta = 0.2
-Achieved relative tolerance at iteration 83
+Achieved relative tolerance at iteration 123
 Achieved relative tolerance at iteration 661
 </pre></div>
 </div>
@@ -91,16 +91,13 @@ Achieved relative tolerance at iteration 661
 <span class="n">n_samples</span> <span class="o">=</span> <span class="n">n_features</span>
 
 <span class="c1"># .. compute the step-size ..</span>
-<span class="n">s</span> <span class="o">=</span> <span class="n">splinalg</span><span class="o">.</span><span class="n">svds</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">return_singular_vectors</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
-                  <span class="n">tol</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">500</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">step_size</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">/</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">get_lipschitz</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="s1">&#39;square&#39;</span><span class="p">)</span>
 <span class="n">f_grad</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">SquareLoss</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span><span class="o">.</span><span class="n">f_grad</span>
 
 <span class="c1"># .. run the solver for different values ..</span>
 <span class="c1"># .. of the regularization parameter beta ..</span>
 <span class="n">all_betas</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1e-2</span><span class="p">,</span> <span class="mf">1e-1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">]</span>
-<span class="n">all_trace_ls</span><span class="p">,</span> <span class="n">all_trace_nols</span><span class="p">,</span> <span class="n">all_trace_pdhg_nols</span><span class="p">,</span> <span class="n">all_trace_pdhg</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
-<span class="n">all_trace_ls_time</span><span class="p">,</span> <span class="n">all_trace_nols_time</span><span class="p">,</span> <span class="n">all_trace_pdhg_nols_time</span><span class="p">,</span> <span class="n">all_trace_pdhg_time</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
+<span class="n">all_trace_ls</span><span class="p">,</span> <span class="n">all_trace_nols</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
 <span class="n">out_img</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">beta</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">all_betas</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="s1">&#39;beta = </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">beta</span><span class="p">)</span>
@@ -118,7 +115,6 @@ Achieved relative tolerance at iteration 661
         <span class="n">callback</span><span class="o">=</span><span class="n">cb_tosls</span><span class="p">)</span>
     <span class="n">trace_ls</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">loss</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">cb_tosls</span><span class="o">.</span><span class="n">trace_x</span><span class="p">])</span>
     <span class="n">all_trace_ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">trace_ls</span><span class="p">)</span>
-    <span class="n">all_trace_ls_time</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cb_tosls</span><span class="o">.</span><span class="n">trace_time</span><span class="p">)</span>
 
     <span class="n">cb_tos</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">Trace</span><span class="p">()</span>
     <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_features</span><span class="p">)</span>
@@ -130,7 +126,6 @@ Achieved relative tolerance at iteration 661
         <span class="n">backtracking</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">cb_tos</span><span class="p">)</span>
     <span class="n">trace_nols</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">loss</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">cb_tos</span><span class="o">.</span><span class="n">trace_x</span><span class="p">])</span>
     <span class="n">all_trace_nols</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">trace_nols</span><span class="p">)</span>
-    <span class="n">all_trace_nols_time</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cb_tos</span><span class="o">.</span><span class="n">trace_time</span><span class="p">)</span>
     <span class="n">out_img</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pgd</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
 
 
@@ -176,7 +171,7 @@ Achieved relative tolerance at iteration 661
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><strong>Total running time of the script:</strong> ( 0 minutes  8.766 seconds)</p>
+<p><strong>Total running time of the script:</strong> ( 0 minutes  8.596 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-group-lasso-py">
 <div class="sphx-glr-download docutils container">
 <a class="reference download internal" href="../_downloads/plot_group_lasso.py" download=""><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_group_lasso.py</span></code></a></div>

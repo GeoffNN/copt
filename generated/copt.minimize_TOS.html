@@ -39,7 +39,7 @@
 <h1>2.1. copt.minimize_TOS<a class="headerlink" href="#copt-minimize-tos" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="copt.minimize_TOS">
-<code class="descclassname">copt.</code><code class="descname">minimize_TOS</code><span class="sig-paren">(</span><em>f_grad</em>, <em>x0</em>, <em>g_prox=None</em>, <em>h_prox=None</em>, <em>tol=1e-06</em>, <em>max_iter=1000</em>, <em>verbose=0</em>, <em>callback=None</em>, <em>backtracking=True</em>, <em>step_size=None</em>, <em>max_iter_backtracking=100</em>, <em>backtracking_factor=0.7</em>, <em>h_Lipschitz=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/7a534a7/copt/splitting.py#L7"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.minimize_TOS" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">copt.</code><code class="descname">minimize_TOS</code><span class="sig-paren">(</span><em>f_grad</em>, <em>x0</em>, <em>prox_1=None</em>, <em>prox_2=None</em>, <em>tol=1e-06</em>, <em>max_iter=1000</em>, <em>verbose=0</em>, <em>callback=None</em>, <em>backtracking=True</em>, <em>step_size=None</em>, <em>max_iter_backtracking=100</em>, <em>backtracking_factor=0.7</em>, <em>h_Lipschitz=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/splitting.py#L9"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.minimize_TOS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Davis-Yin three operator splitting method.</p>
 <p>This algorithm can solve problems of the form</p>
 <blockquote>
@@ -53,8 +53,8 @@ function for which the proximal operator is known.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>f_grad</strong> (<em>callable</em>) – Returns the function value and gradient of the objective function.
 With return_gradient=False, returns only the function value.</li>
-<li><strong>g_prox</strong> (<em>callable</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a>) – g_prox(x, alpha, <a href="#id1"><span class="problematic" id="id2">*</span></a>args) returns the proximal operator of g at xa
-with parameter alpha. Extra arguments can be passed by g_prox_args.</li>
+<li><strong>prox_1</strong> (<em>callable</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a>) – prox_1(x, alpha, <a href="#id1"><span class="problematic" id="id2">*</span></a>args) returns the proximal operator of g at xa
+with parameter alpha. Extra arguments can be passed by prox_1_args.</li>
 <li><strong>y0</strong> (<em>array-like</em>) – Initial guess</li>
 <li><strong>backtracking</strong> (<em>boolean</em>) – Whether to perform backtracking (i.e. line-search) to estimate
 the step size.</li>

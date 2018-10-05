@@ -15,6 +15,7 @@ copt.utils.HuberLoss
    
       ~HuberLoss.__init__
       ~HuberLoss.f_grad
+      ~HuberLoss.lipschitz
    
    
 

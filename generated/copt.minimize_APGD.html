@@ -39,7 +39,7 @@
 <h1>1.2. copt.minimize_APGD<a class="headerlink" href="#copt-minimize-apgd" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="copt.minimize_APGD">
-<code class="descclassname">copt.</code><code class="descname">minimize_APGD</code><span class="sig-paren">(</span><em>f_grad</em>, <em>x0</em>, <em>g_prox=None</em>, <em>tol=1e-06</em>, <em>max_iter=500</em>, <em>verbose=0</em>, <em>callback=None</em>, <em>backtracking=True</em>, <em>step_size=None</em>, <em>max_iter_backtracking=100</em>, <em>backtracking_factor=0.6</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/7a534a7/copt/proxgrad.py#L129"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.minimize_APGD" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">copt.</code><code class="descname">minimize_APGD</code><span class="sig-paren">(</span><em>f_grad</em>, <em>x0</em>, <em>prox=None</em>, <em>tol=1e-06</em>, <em>max_iter=500</em>, <em>verbose=0</em>, <em>callback=None</em>, <em>backtracking=True</em>, <em>step_size=None</em>, <em>max_iter_backtracking=100</em>, <em>backtracking_factor=0.6</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/proxgrad.py#L128"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.minimize_APGD" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accelerated proximal gradient descent.</p>
 <p>Solves problems of the form</p>
 <blockquote>
@@ -51,8 +51,8 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>f_grad</strong> (<em>loss function</em><em>, </em><em>differentiable</em>) – </li>
-<li><strong>g_prox</strong> (<em>g_prox</em><em>(</em><em>x</em><em>, </em><em>alpha</em><em>) </em><em>returns the proximal operator of g at x</em>) – </li>
-<li><strong>g_prox</strong> – with parameter alpha.</li>
+<li><strong>prox</strong> (<em>prox</em><em>(</em><em>x</em><em>, </em><em>alpha</em><em>) </em><em>returns the proximal operator of g at x</em>) – </li>
+<li><strong>prox</strong> – with parameter alpha.</li>
 <li><strong>x0</strong> (<em>array-like</em>) – Initial guess</li>
 <li><strong>backtracking</strong> (<em>boolean</em>) – Whether to perform backtracking (i.e. line-search) or not.</li>
 <li><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Maximum number of iterations.</li>

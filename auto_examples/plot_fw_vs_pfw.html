@@ -41,114 +41,83 @@
 </div>
 <div class="sphx-glr-example-title section" id="frank-wolfe-and-pairwise-frank-wolfe">
 <span id="sphx-glr-auto-examples-plot-fw-vs-pfw-py"></span><h1>6.2. Frank-Wolfe and Pairwise Frank-Wolfe<a class="headerlink" href="#frank-wolfe-and-pairwise-frank-wolfe" title="Permalink to this headline">¶</a></h1>
+<p>This example features a comparison in terms of convergence speed per iteration
+between the Frank-Wolfe and the Pairwise Frank-Wolfe algorithms.</p>
+<img alt="../_images/sphx_glr_plot_fw_vs_pfw_001.png" class="sphx-glr-single-img" src="../_images/sphx_glr_plot_fw_vs_pfw_001.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>beta = 1.0
+beta = 10.0
+beta = 100.0
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">sparse</span>
-<span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">linalg</span> <span class="k">as</span> <span class="n">splinalg</span>
 <span class="kn">import</span> <span class="nn">pylab</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">copt</span> <span class="kn">as</span> <span class="nn">cp</span>
 
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="c1">#</span>
-<span class="c1"># # .. generate some data ..</span>
-<span class="c1"># n_samples, n_features = 100, 100</span>
+
+<span class="c1"># .. generate some data ..</span>
+<span class="n">n_samples</span><span class="p">,</span> <span class="n">n_features</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span>
 <span class="c1">#</span>
 <span class="c1"># max_iter = 5000</span>
 <span class="c1"># print(&#39;#features&#39;, n_features)</span>
-<span class="c1">#</span>
-<span class="c1"># A = sparse.rand(n_samples, n_features, density=0.2)</span>
-<span class="c1"># sigma = 1.</span>
-<span class="c1"># b = A.dot(ground_truth) + sigma * np.random.randn(n_samples)</span>
-<span class="c1">#</span>
-<span class="c1"># np.random.seed(0)</span>
-<span class="c1"># n_samples = n_features</span>
-<span class="c1">#</span>
-<span class="c1"># # .. compute the step-size ..</span>
-<span class="c1"># s = splinalg.svds(A, k=1, return_singular_vectors=False,</span>
-<span class="c1">#                   tol=1e-3, maxiter=500)[0]</span>
-<span class="c1"># step_size = 1. / cp.utils.get_lipschitz(A, &#39;square&#39;)</span>
-<span class="c1"># f_grad = cp.utils.SquareLoss(A, b).f_grad</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">sparse</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">n_features</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">ground_truth</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n_features</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">ground_truth</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n_samples</span><span class="p">)</span>
+
+<span class="c1"># make labels in {0, 1}</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">LogLoss</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="n">n_samples</span>
+<span class="n">L</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">get_lipschitz</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span>
+
 <span class="c1">#</span>
 <span class="c1"># # .. run the solver for different values ..</span>
 <span class="c1"># # .. of the regularization parameter beta ..</span>
-<span class="c1"># all_betas = [0, 1e-2, 1e-1, 0.2]</span>
-<span class="c1"># all_trace_ls, all_trace_nols, all_trace_pdhg_nols, all_trace_pdhg = [], [], [], []</span>
-<span class="c1"># all_trace_ls_time, all_trace_nols_time, all_trace_pdhg_nols_time, all_trace_pdhg_time = [], [], [], []</span>
-<span class="c1"># out_img = []</span>
-<span class="c1"># for i, beta in enumerate(all_betas):</span>
-<span class="c1">#     print(&#39;beta = %s&#39; % beta)</span>
-<span class="c1">#     G1 = cp.utils.GroupL1(beta, blocks)</span>
-<span class="c1">#</span>
-<span class="c1">#     def loss(x):</span>
-<span class="c1">#         return f_grad(x)[0] + G1(x)</span>
-<span class="c1">#</span>
-<span class="c1">#     cb_tosls = cp.utils.Trace()</span>
-<span class="c1">#     x0 = np.zeros(n_features)</span>
-<span class="c1">#     cb_tosls(x0)</span>
-<span class="c1">#     pgd_ls = cp.minimize_PGD(</span>
-<span class="c1">#         f_grad, x0, G1.prox, step_size=step_size,</span>
-<span class="c1">#         max_iter=max_iter, tol=1e-14, verbose=1,</span>
-<span class="c1">#         callback=cb_tosls)</span>
-<span class="c1">#     trace_ls = np.array([loss(x) for x in cb_tosls.trace_x])</span>
-<span class="c1">#     all_trace_ls.append(trace_ls)</span>
-<span class="c1">#     all_trace_ls_time.append(cb_tosls.trace_time)</span>
-<span class="c1">#</span>
-<span class="c1">#     cb_tos = cp.utils.Trace()</span>
-<span class="c1">#     x0 = np.zeros(n_features)</span>
-<span class="c1">#     cb_tos(x0)</span>
-<span class="c1">#     pgd = cp.minimize_PGD(</span>
-<span class="c1">#         f_grad, x0, G1.prox,</span>
-<span class="c1">#         step_size=step_size,</span>
-<span class="c1">#         max_iter=max_iter, tol=1e-14, verbose=1,</span>
-<span class="c1">#         backtracking=False, callback=cb_tos)</span>
-<span class="c1">#     trace_nols = np.array([loss(x) for x in cb_tos.trace_x])</span>
-<span class="c1">#     all_trace_nols.append(trace_nols)</span>
-<span class="c1">#     all_trace_nols_time.append(cb_tos.trace_time)</span>
-<span class="c1">#     out_img.append(pgd.x)</span>
-<span class="c1">#</span>
-<span class="c1">#</span>
-<span class="c1"># # .. plot the results ..</span>
-<span class="c1"># fig, ax = plt.subplots(2, 4, sharey=False)</span>
-<span class="c1"># xlim = [0.02, 0.02, 0.1]</span>
-<span class="c1"># for i, beta in enumerate(all_betas):</span>
-<span class="c1">#     ax[0, i].set_title(r&#39;$\lambda=%s$&#39; % beta)</span>
-<span class="c1">#     ax[0, i].set_title(r&#39;$\lambda=%s$&#39; % beta)</span>
-<span class="c1">#     ax[0, i].plot(out_img[i])</span>
-<span class="c1">#     ax[0, i].plot(ground_truth)</span>
-<span class="c1">#     ax[0, i].set_ylim((-0.5, 1.5))</span>
-<span class="c1">#     ax[0, i].set_xticks(())</span>
-<span class="c1">#     ax[0, i].set_yticks(())</span>
-<span class="c1">#</span>
-<span class="c1">#     fmin = min(np.min(all_trace_ls[i]), np.min(all_trace_nols[i]))</span>
-<span class="c1">#     scale = all_trace_ls[i][0] - fmin</span>
-<span class="c1">#     plot_tos, = ax[1, i].plot(</span>
-<span class="c1">#         (all_trace_ls[i] - fmin) / scale,</span>
-<span class="c1">#         lw=4, marker=&#39;o&#39;, markevery=100,</span>
-<span class="c1">#         markersize=10)</span>
-<span class="c1">#</span>
-<span class="c1">#     plot_nols, = ax[1, i].plot(</span>
-<span class="c1">#         (all_trace_nols[i] - fmin) / scale,</span>
-<span class="c1">#         lw=4, marker=&#39;h&#39;, markevery=100,</span>
-<span class="c1">#         markersize=10)</span>
-<span class="c1">#</span>
-<span class="c1">#     ax[1, i].set_xlabel(&#39;Iterations&#39;)</span>
-<span class="c1">#     ax[1, i].set_yscale(&#39;log&#39;)</span>
-<span class="c1">#     ax[1, i].set_ylim((1e-14, None))</span>
-<span class="c1">#     ax[1, i].grid(True)</span>
-<span class="c1">#</span>
-<span class="c1">#</span>
-<span class="c1"># plt.gcf().subplots_adjust(bottom=0.15)</span>
-<span class="c1"># plt.figlegend(</span>
-<span class="c1">#     (plot_tos, plot_nols),</span>
-<span class="c1">#     (&#39;PGD with line search&#39;, &#39;PGD without line search&#39;), ncol=5,</span>
-<span class="c1">#     scatterpoints=1,</span>
-<span class="c1">#     loc=(-0.00, -0.0), frameon=False,</span>
-<span class="c1">#     bbox_to_anchor=[0.05, 0.01])</span>
-<span class="c1">#</span>
-<span class="c1"># ax[1, 0].set_ylabel(&#39;Objective minus optimum&#39;)</span>
-<span class="c1"># plt.show()</span>
+<span class="n">all_betas</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">10.</span><span class="p">,</span> <span class="mf">100.</span><span class="p">]</span>
+<span class="n">all_trace_fw</span><span class="p">,</span> <span class="n">all_trace_pfw</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+<span class="n">max_iter</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">5000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">beta</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">all_betas</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;beta = </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">beta</span><span class="p">)</span>
+    <span class="n">pen</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">L1Ball</span><span class="p">(</span><span class="n">beta</span><span class="p">)</span>
+
+    <span class="n">cb_fw</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">Trace</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">cp</span><span class="o">.</span><span class="n">minimize_FW</span><span class="p">(</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">f_grad</span><span class="p">,</span> <span class="n">pen</span><span class="o">.</span><span class="n">lmo</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_features</span><span class="p">),</span> <span class="n">callback</span><span class="o">=</span><span class="n">cb_fw</span><span class="p">,</span>
+        <span class="n">max_iter</span><span class="o">=</span><span class="n">max_iter</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">all_trace_fw</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cb_fw</span><span class="o">.</span><span class="n">trace_fx</span><span class="p">)</span>
+
+    <span class="n">cb_pfw</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">Trace</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">cp</span><span class="o">.</span><span class="n">minimize_PFW_L1</span><span class="p">(</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">f_grad</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">n_features</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">cb_pfw</span><span class="p">,</span>
+        <span class="n">max_iter</span><span class="o">=</span><span class="n">max_iter</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">backtracking</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">all_trace_pfw</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cb_pfw</span><span class="o">.</span><span class="n">trace_fx</span><span class="p">)</span>
+
+
+<span class="c1"># .. plot the results ..</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">xlim</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">beta</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">all_betas</span><span class="p">):</span>
+
+    <span class="n">fmin</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">all_trace_fw</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">all_trace_pfw</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">all_trace_fw</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">fmin</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;FW&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">all_trace_pfw</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">fmin</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;PFW&#39;</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Iterations&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">((</span><span class="mf">1e-10</span><span class="p">,</span> <span class="bp">None</span><span class="p">))</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
+<p><strong>Total running time of the script:</strong> ( 0 minutes  37.219 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-fw-vs-pfw-py">
 <div class="sphx-glr-download docutils container">
 <a class="reference download internal" href="../_downloads/plot_fw_vs_pfw.py" download=""><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_fw_vs_pfw.py</span></code></a></div>

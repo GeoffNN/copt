@@ -39,7 +39,7 @@
 <h1>2.2. copt.minimize_PDHG<a class="headerlink" href="#copt-minimize-pdhg" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="copt.minimize_PDHG">
-<code class="descclassname">copt.</code><code class="descname">minimize_PDHG</code><span class="sig-paren">(</span><em>f_grad</em>, <em>x0</em>, <em>g_prox=None</em>, <em>h_prox=None</em>, <em>L=None</em>, <em>tol=1e-12</em>, <em>max_iter=1000</em>, <em>callback=None</em>, <em>step_size=1.0</em>, <em>step_size2=None</em>, <em>backtracking=True</em>, <em>max_iter_ls=20</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/7a534a7/copt/splitting.py#L143"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.minimize_PDHG" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">copt.</code><code class="descname">minimize_PDHG</code><span class="sig-paren">(</span><em>f_grad</em>, <em>x0</em>, <em>prox_1=None</em>, <em>prox_2=None</em>, <em>L=None</em>, <em>tol=1e-12</em>, <em>max_iter=1000</em>, <em>callback=None</em>, <em>step_size=1.0</em>, <em>step_size2=None</em>, <em>backtracking=True</em>, <em>max_iter_ls=20</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/splitting.py#L147"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.minimize_PDHG" title="Permalink to this definition">¶</a></dt>
 <dd><p>Primal-dual hybrid gradient splitting method.</p>
 <p>This method for optimization problems of the form</p>
 <blockquote>
@@ -54,7 +54,7 @@ function for which the proximal operator is known.</p>
 <li><strong>f_grad</strong> (<em>callable</em>) – Returns the function value and gradient of the objective function.
 It should accept the optional argument return_gradient, and when False
 it should return only the function value.</li>
-<li><strong>g_prox</strong> (<em>callable of the form g_prox</em><em>(</em><em>x</em><em>, </em><em>alpha</em><em>)</em>) – g_prox(x, alpha) returns the proximal operator of g at x
+<li><strong>prox_1</strong> (<em>callable of the form prox_1</em><em>(</em><em>x</em><em>, </em><em>alpha</em><em>)</em>) – prox_1(x, alpha) returns the proximal operator of g at x
 with parameter alpha.</li>
 <li><strong>x0</strong> (<em>array-like</em>) – Initial guess</li>
 <li><strong>L</strong> (<em>ndarray</em><em> or </em><em>sparse matrix</em>) – Linear operator inside the h term.</li>
