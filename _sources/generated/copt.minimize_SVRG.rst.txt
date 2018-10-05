@@ -1,0 +1,6 @@
+copt.minimize\_SVRG
+===================
+
+.. currentmodule:: copt
+
+.. autofunction:: minimize_SVRG

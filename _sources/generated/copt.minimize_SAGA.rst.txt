@@ -1,0 +1,6 @@
+copt.minimize\_SAGA
+===================
+
+.. currentmodule:: copt
+
+.. autofunction:: minimize_SAGA
