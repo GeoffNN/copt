@@ -1,0 +1,70 @@
+copt package
+============
+
+Submodules
+----------
+
+copt\.datasets module
+---------------------
+
+.. automodule:: copt.datasets
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+copt\.frank\_wolfe module
+-------------------------
+
+.. automodule:: copt.frank_wolfe
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+copt\.proxgrad module
+---------------------
+
+.. automodule:: copt.proxgrad
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+copt\.randomized module
+-----------------------
+
+.. automodule:: copt.randomized
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+copt\.splitting module
+----------------------
+
+.. automodule:: copt.splitting
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+copt\.tv\_prox module
+---------------------
+
+.. automodule:: copt.tv_prox
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+copt\.utils module
+------------------
+
+.. automodule:: copt.utils
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: copt
+    :members:
+    :undoc-members:
+    :show-inheritance:

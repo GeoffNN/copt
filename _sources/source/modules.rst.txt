@@ -1,0 +1,7 @@
+copt
+====
+
+.. toctree::
+   :maxdepth: 4
+
+   copt
