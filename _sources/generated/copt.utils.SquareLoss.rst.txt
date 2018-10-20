@@ -15,10 +15,15 @@ copt.utils.SquareLoss
    
       ~SquareLoss.__init__
       ~SquareLoss.f_grad
-      ~SquareLoss.lipschitz
    
    
 
    
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~SquareLoss.lipschitz
    
    

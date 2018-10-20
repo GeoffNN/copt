@@ -33,12 +33,12 @@ function prox of object :meth:`copt.utils.GroupL1`.
     #features 100
     beta = 0
     beta = 0.01
-    Achieved relative tolerance at iteration 1397
+    Achieved relative tolerance at iteration 1346
     beta = 0.1
-    Achieved relative tolerance at iteration 126
+    Achieved relative tolerance at iteration 134
     Achieved relative tolerance at iteration 718
     beta = 0.2
-    Achieved relative tolerance at iteration 123
+    Achieved relative tolerance at iteration 83
     Achieved relative tolerance at iteration 661
 
 
@@ -157,7 +157,7 @@ function prox of object :meth:`copt.utils.GroupL1`.
     ax[1, 0].set_ylabel('Objective minus optimum')
     plt.show()
 
-**Total running time of the script:** ( 0 minutes  8.596 seconds)
+**Total running time of the script:** ( 0 minutes  14.662 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_group_lasso.py:

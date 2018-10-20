@@ -26,13 +26,13 @@ Examples
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="This example features a comparison in terms of convergence speed per iteration between the Fran...">
+    <div class="sphx-glr-thumbcontainer" tooltip="A comparison between two variance-reduced stochastic gradient methods: SAGA and SVRG. The probl...">
 
 .. only:: html
 
-    .. figure:: /auto_examples/images/thumb/sphx_glr_plot_fw_vs_pfw_thumb.png
+    .. figure:: /auto_examples/images/thumb/sphx_glr_plot_saga_vs_svrg_thumb.png
 
-        :ref:`sphx_glr_auto_examples_plot_fw_vs_pfw.py`
+        :ref:`sphx_glr_auto_examples_plot_saga_vs_svrg.py`
 
 .. raw:: html
 
@@ -42,7 +42,7 @@ Examples
 .. toctree::
    :hidden:
 
-   /auto_examples/plot_fw_vs_pfw
+   /auto_examples/plot_saga_vs_svrg
 
 .. raw:: html
 
@@ -137,13 +137,13 @@ Examples
 
   .. container:: sphx-glr-download
 
-    :download:`Download all examples in Python source code: auto_examples_python.zip <//home/fabian/Dropbox/dev/copt/doc/auto_examples/auto_examples_python.zip>`
+    :download:`Download all examples in Python source code: auto_examples_python.zip <//home/pedregosa/Google Drive/dev/copt/doc/auto_examples/auto_examples_python.zip>`
 
 
 
   .. container:: sphx-glr-download
 
-    :download:`Download all examples in Jupyter notebooks: auto_examples_jupyter.zip <//home/fabian/Dropbox/dev/copt/doc/auto_examples/auto_examples_jupyter.zip>`
+    :download:`Download all examples in Jupyter notebooks: auto_examples_jupyter.zip <//home/pedregosa/Google Drive/dev/copt/doc/auto_examples/auto_examples_jupyter.zip>`
 
 
 .. only:: html

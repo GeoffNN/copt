@@ -9,12 +9,12 @@
     <title>5.5. copt.utils.L1Ball &#8212; copt  documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="5.6. copt.utils.GroupL1" href="copt.utils.GroupL1.html" />
@@ -39,13 +39,13 @@
 <h1>5.5. copt.utils.L1Ball<a class="headerlink" href="#copt-utils-l1ball" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="copt.utils.L1Ball">
-<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">L1Ball</code><span class="sig-paren">(</span><em>alpha</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/utils.py#L242"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.L1Ball" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">L1Ball</code><span class="sig-paren">(</span><em>alpha</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/utils.py#L276"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.L1Ball" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indicator function over the L1 ball</p>
 <p>This function is 0 if the sum of absolute values is less than or equal to
 alpha, and infinity otherwise.</p>
 <dl class="method">
 <dt id="copt.utils.L1Ball.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>alpha</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/utils.py#L248"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.L1Ball.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>alpha</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/utils.py#L282"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.L1Ball.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
@@ -59,17 +59,17 @@ alpha, and infinity otherwise.</p>
 <tr class="row-odd"><td><a class="reference internal" href="#copt.utils.L1Ball.__init__" title="copt.utils.L1Ball.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(alpha)</td>
 <td>Initialize self.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#copt.utils.L1Ball.lmo" title="copt.utils.L1Ball.lmo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lmo</span></code></a>(u)</td>
+<tr class="row-even"><td><a class="reference internal" href="../source/copt.html#copt.utils.L1Ball.lmo" title="copt.utils.L1Ball.lmo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lmo</span></code></a>(u)</td>
 <td>Solve the linear problem min_{||s||_1 &lt;= alpha} &lt;u, s&gt;</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">prox</span></code>(x,&nbsp;step_size)</td>
+<tr class="row-odd"><td><a class="reference internal" href="../source/copt.html#copt.utils.L1Ball.prox" title="copt.utils.L1Ball.prox"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prox</span></code></a>(x,&nbsp;step_size)</td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
 <dt id="copt.utils.L1Ball.lmo">
-<code class="descname">lmo</code><span class="sig-paren">(</span><em>u</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/utils.py#L260"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.L1Ball.lmo" title="Permalink to this definition">¶</a></dt>
+<code class="descname">lmo</code><span class="sig-paren">(</span><em>u</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/utils.py#L294"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.L1Ball.lmo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Solve the linear problem
 min_{||s||_1 &lt;= alpha} &lt;u, s&gt;</p>
 </dd></dl>
@@ -153,7 +153,7 @@ min_{||s||_1 &lt;= alpha} &lt;u, s&gt;</p>
     </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
-<h3><a href="../index.html">Table Of Contents</a></h3>
+<h3><a href="../index.html">Table of Contents</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../proximal_gradient.html">1. Gradient-based methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../proximal_splitting.html">2. Proximal splitting</a></li>
@@ -183,7 +183,7 @@ min_{||s||_1 &lt;= alpha} &lt;u, s&gt;</p>
       &copy;Fabian Pedregosa.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.8</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
       
       |

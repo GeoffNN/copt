@@ -9,12 +9,12 @@
     <title>2.1. copt.minimize_TOS &#8212; copt  documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="2.2. copt.minimize_PDHG" href="copt.minimize_PDHG.html" />
@@ -53,14 +53,14 @@ function for which the proximal operator is known.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>f_grad</strong> (<em>callable</em>) – Returns the function value and gradient of the objective function.
 With return_gradient=False, returns only the function value.</li>
-<li><strong>prox_1</strong> (<em>callable</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a>) – prox_1(x, alpha, <a href="#id1"><span class="problematic" id="id2">*</span></a>args) returns the proximal operator of g at xa
+<li><strong>prox_1</strong> (<em>callable</em><em> or </em><em>None</em>) – prox_1(x, alpha, <a href="#id1"><span class="problematic" id="id2">*</span></a>args) returns the proximal operator of g at xa
 with parameter alpha. Extra arguments can be passed by prox_1_args.</li>
 <li><strong>y0</strong> (<em>array-like</em>) – Initial guess</li>
 <li><strong>backtracking</strong> (<em>boolean</em>) – Whether to perform backtracking (i.e. line-search) to estimate
 the step size.</li>
-<li><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Maximum number of iterations.</li>
-<li><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Verbosity level, from 0 (no output) to 2 (output on each iteration)</li>
-<li><strong>step_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – Starting value for the line-search procedure.</li>
+<li><strong>max_iter</strong> (<em>int</em>) – Maximum number of iterations.</li>
+<li><strong>verbose</strong> (<em>int</em>) – Verbosity level, from 0 (no output) to 2 (output on each iteration)</li>
+<li><strong>step_size</strong> (<em>float</em>) – Starting value for the line-search procedure.</li>
 <li><strong>callback</strong> (<em>callable</em>) – callback function (optional).</li>
 </ul>
 </td>
@@ -157,7 +157,7 @@ on Machine Learning, 2018.</li>
     </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
-<h3><a href="../index.html">Table Of Contents</a></h3>
+<h3><a href="../index.html">Table of Contents</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../proximal_gradient.html">1. Gradient-based methods</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../proximal_splitting.html">2. Proximal splitting</a><ul class="current">
@@ -180,7 +180,7 @@ on Machine Learning, 2018.</li>
       &copy;Fabian Pedregosa.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.8</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
       
       |

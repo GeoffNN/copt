@@ -15,10 +15,17 @@ copt.utils.LogLoss
    
       ~LogLoss.__init__
       ~LogLoss.f_grad
-      ~LogLoss.lipschitz
    
    
 
    
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~LogLoss.lipschitz
+      ~LogLoss.max_lipschitz
+      ~LogLoss.partial_deriv
    
    

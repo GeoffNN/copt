@@ -9,16 +9,16 @@
     <title>6.3. Group Lasso regularization &#8212; copt  documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="6.4. Estimating a sparse and low rank matrix" href="plot_sparse_nuclear_norm.html" />
-    <link rel="prev" title="6.2. Frank-Wolfe and Pairwise Frank-Wolfe" href="plot_fw_vs_pfw.html" />
+    <link rel="prev" title="6.2. SAGA vs SVRG" href="plot_saga_vs_svrg.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -44,18 +44,18 @@
 <p>Comparison of solvers for problems with a group lasso regularization.</p>
 <p>The group lasso regularization enters the optimization through
 its proximal operator, which is implemented in copt through the
-function prox of object <a class="reference internal" href="../generated/copt.utils.GroupL1.html#copt.utils.GroupL1" title="copt.utils.GroupL1"><code class="xref py py-meth docutils literal notranslate"><span class="pre">copt.utils.GroupL1()</span></code></a>.</p>
+function prox of object <a class="reference internal" href="../source/copt.html#copt.utils.GroupL1" title="copt.utils.GroupL1"><code class="xref py py-meth docutils literal notranslate"><span class="pre">copt.utils.GroupL1()</span></code></a>.</p>
 <img alt="../_images/sphx_glr_plot_group_lasso_001.png" class="sphx-glr-single-img" src="../_images/sphx_glr_plot_group_lasso_001.png" />
 <p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>#features 100
 beta = 0
 beta = 0.01
-Achieved relative tolerance at iteration 1397
+Achieved relative tolerance at iteration 1346
 beta = 0.1
-Achieved relative tolerance at iteration 126
+Achieved relative tolerance at iteration 134
 Achieved relative tolerance at iteration 718
 beta = 0.2
-Achieved relative tolerance at iteration 123
+Achieved relative tolerance at iteration 83
 Achieved relative tolerance at iteration 661
 </pre></div>
 </div>
@@ -171,12 +171,12 @@ Achieved relative tolerance at iteration 661
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><strong>Total running time of the script:</strong> ( 0 minutes  8.596 seconds)</p>
+<p><strong>Total running time of the script:</strong> ( 0 minutes  14.662 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-group-lasso-py">
 <div class="sphx-glr-download docutils container">
-<a class="reference download internal" href="../_downloads/plot_group_lasso.py" download=""><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_group_lasso.py</span></code></a></div>
+<a class="reference download internal" download="" href="../_downloads/f12cc16022f50d9303adad1e439e43f2/plot_group_lasso.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_group_lasso.py</span></code></a></div>
 <div class="sphx-glr-download docutils container">
-<a class="reference download internal" href="../_downloads/plot_group_lasso.ipynb" download=""><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_group_lasso.ipynb</span></code></a></div>
+<a class="reference download internal" download="" href="../_downloads/ca1bafee45ea7c5cc154a6df3e3f7dd6/plot_group_lasso.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_group_lasso.ipynb</span></code></a></div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Gallery generated by Sphinx-Gallery</a></p>
 </div>
@@ -230,7 +230,7 @@ Achieved relative tolerance at iteration 661
 <li class="toctree-l1"><a class="reference internal" href="../loss_functions.html">5. Loss functions</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">6. Examples</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="plot_accelerated.html">6.1. Effect of acceleration in gradient descent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plot_fw_vs_pfw.html">6.2. Frank-Wolfe and Pairwise Frank-Wolfe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_saga_vs_svrg.html">6.2. SAGA vs SVRG</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">6.3. Group Lasso regularization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_sparse_nuclear_norm.html">6.4. Estimating a sparse and low rank matrix</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_tv_deblurring.html">6.5. Total variation regularization</a></li>
@@ -253,7 +253,7 @@ Achieved relative tolerance at iteration 661
     </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
-<h3><a href="../index.html">Table Of Contents</a></h3>
+<h3><a href="../index.html">Table of Contents</a></h3>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../proximal_gradient.html">1. Gradient-based methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../proximal_splitting.html">2. Proximal splitting</a></li>
@@ -272,7 +272,7 @@ Achieved relative tolerance at iteration 661
       &copy;Fabian Pedregosa.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.8</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
       
       |
