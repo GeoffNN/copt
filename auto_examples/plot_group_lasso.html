@@ -6,19 +6,19 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>6.3. Group Lasso regularization &#8212; copt  documentation</title>
+    <title>Group Lasso regularization &#8212; copt  documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="6.4. Estimating a sparse and low rank matrix" href="plot_sparse_nuclear_norm.html" />
-    <link rel="prev" title="6.2. SAGA vs SVRG" href="plot_saga_vs_svrg.html" />
+    <link rel="next" title="Estimating a sparse and low rank matrix" href="plot_sparse_nuclear_norm.html" />
+    <link rel="prev" title="SAGA vs SVRG" href="plot_saga_vs_svrg.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -40,7 +40,7 @@
 <p class="last">Click <a class="reference internal" href="#sphx-glr-download-auto-examples-plot-group-lasso-py"><span class="std std-ref">here</span></a> to download the full example code</p>
 </div>
 <div class="sphx-glr-example-title section" id="group-lasso-regularization">
-<span id="sphx-glr-auto-examples-plot-group-lasso-py"></span><h1>6.3. Group Lasso regularization<a class="headerlink" href="#group-lasso-regularization" title="Permalink to this headline">¶</a></h1>
+<span id="sphx-glr-auto-examples-plot-group-lasso-py"></span><h1>Group Lasso regularization<a class="headerlink" href="#group-lasso-regularization" title="Permalink to this headline">¶</a></h1>
 <p>Comparison of solvers for problems with a group lasso regularization.</p>
 <p>The group lasso regularization enters the optimization through
 its proximal operator, which is implemented in copt through the
@@ -50,12 +50,12 @@ function prox of object <a class="reference internal" href="../source/copt.html#
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>#features 100
 beta = 0
 beta = 0.01
-Achieved relative tolerance at iteration 1346
+Achieved relative tolerance at iteration 1396
 beta = 0.1
-Achieved relative tolerance at iteration 134
+Achieved relative tolerance at iteration 123
 Achieved relative tolerance at iteration 718
 beta = 0.2
-Achieved relative tolerance at iteration 83
+Achieved relative tolerance at iteration 98
 Achieved relative tolerance at iteration 661
 </pre></div>
 </div>
@@ -64,7 +64,6 @@ Achieved relative tolerance at iteration 661
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">sparse</span>
-<span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">linalg</span> <span class="k">as</span> <span class="n">splinalg</span>
 <span class="kn">import</span> <span class="nn">pylab</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">copt</span> <span class="kn">as</span> <span class="nn">cp</span>
 
@@ -91,8 +90,8 @@ Achieved relative tolerance at iteration 661
 <span class="n">n_samples</span> <span class="o">=</span> <span class="n">n_features</span>
 
 <span class="c1"># .. compute the step-size ..</span>
-<span class="n">step_size</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">/</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">get_lipschitz</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="s1">&#39;square&#39;</span><span class="p">)</span>
-<span class="n">f_grad</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">SquareLoss</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span><span class="o">.</span><span class="n">f_grad</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">SquareLoss</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="n">step_size</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">/</span> <span class="n">f</span><span class="o">.</span><span class="n">lipschitz</span>
 
 <span class="c1"># .. run the solver for different values ..</span>
 <span class="c1"># .. of the regularization parameter beta ..</span>
@@ -104,13 +103,13 @@ Achieved relative tolerance at iteration 661
     <span class="n">G1</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">GroupL1</span><span class="p">(</span><span class="n">beta</span><span class="p">,</span> <span class="n">groups</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">loss</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">f_grad</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">G1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">G1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
     <span class="n">cb_tosls</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">Trace</span><span class="p">()</span>
     <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_features</span><span class="p">)</span>
     <span class="n">cb_tosls</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
     <span class="n">pgd_ls</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">minimize_PGD</span><span class="p">(</span>
-        <span class="n">f_grad</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">G1</span><span class="o">.</span><span class="n">prox</span><span class="p">,</span> <span class="n">step_size</span><span class="o">=</span><span class="n">step_size</span><span class="p">,</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">f_grad</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">G1</span><span class="o">.</span><span class="n">prox</span><span class="p">,</span> <span class="n">step_size</span><span class="o">=</span><span class="n">step_size</span><span class="p">,</span>
         <span class="n">max_iter</span><span class="o">=</span><span class="n">max_iter</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-14</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
         <span class="n">callback</span><span class="o">=</span><span class="n">cb_tosls</span><span class="p">)</span>
     <span class="n">trace_ls</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">loss</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">cb_tosls</span><span class="o">.</span><span class="n">trace_x</span><span class="p">])</span>
@@ -120,7 +119,7 @@ Achieved relative tolerance at iteration 661
     <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_features</span><span class="p">)</span>
     <span class="n">cb_tos</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
     <span class="n">pgd</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">minimize_PGD</span><span class="p">(</span>
-        <span class="n">f_grad</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">G1</span><span class="o">.</span><span class="n">prox</span><span class="p">,</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">f_grad</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">G1</span><span class="o">.</span><span class="n">prox</span><span class="p">,</span>
         <span class="n">step_size</span><span class="o">=</span><span class="n">step_size</span><span class="p">,</span>
         <span class="n">max_iter</span><span class="o">=</span><span class="n">max_iter</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-14</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
         <span class="n">backtracking</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">cb_tos</span><span class="p">)</span>
@@ -132,6 +131,7 @@ Achieved relative tolerance at iteration 661
 <span class="c1"># .. plot the results ..</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 <span class="n">xlim</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">]</span>
+<span class="n">markevery</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">beta</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">all_betas</span><span class="p">):</span>
     <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\lambda=</span><span class="si">%s</span><span class="s1">$&#39;</span> <span class="o">%</span> <span class="n">beta</span><span class="p">)</span>
     <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\lambda=</span><span class="si">%s</span><span class="s1">$&#39;</span> <span class="o">%</span> <span class="n">beta</span><span class="p">)</span>
@@ -150,7 +150,7 @@ Achieved relative tolerance at iteration 661
 
     <span class="n">plot_nols</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
         <span class="p">(</span><span class="n">all_trace_nols</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">fmin</span><span class="p">)</span> <span class="o">/</span> <span class="n">scale</span><span class="p">,</span>
-        <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;h&#39;</span><span class="p">,</span> <span class="n">markevery</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+        <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;h&#39;</span><span class="p">,</span> <span class="n">markevery</span><span class="o">=</span><span class="n">markevery</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
         <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 
     <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Iterations&#39;</span><span class="p">)</span>
@@ -171,12 +171,12 @@ Achieved relative tolerance at iteration 661
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><strong>Total running time of the script:</strong> ( 0 minutes  14.662 seconds)</p>
+<p><strong>Total running time of the script:</strong> ( 0 minutes  8.462 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-group-lasso-py">
 <div class="sphx-glr-download docutils container">
-<a class="reference download internal" download="" href="../_downloads/f12cc16022f50d9303adad1e439e43f2/plot_group_lasso.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_group_lasso.py</span></code></a></div>
+<a class="reference download internal" href="../_downloads/plot_group_lasso.py" download=""><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_group_lasso.py</span></code></a></div>
 <div class="sphx-glr-download docutils container">
-<a class="reference download internal" download="" href="../_downloads/ca1bafee45ea7c5cc154a6df3e3f7dd6/plot_group_lasso.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_group_lasso.ipynb</span></code></a></div>
+<a class="reference download internal" href="../_downloads/plot_group_lasso.ipynb" download=""><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_group_lasso.ipynb</span></code></a></div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Gallery generated by Sphinx-Gallery</a></p>
 </div>
@@ -223,21 +223,21 @@ Achieved relative tolerance at iteration 661
 
 <h3>Navigation</h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../proximal_gradient.html">1. Gradient-based methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../proximal_splitting.html">2. Proximal splitting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../frank_wolfe.html">3. Frank-Wolfe</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../incremental.html">4. Incremental methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../loss_functions.html">5. Loss functions</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">6. Examples</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="plot_accelerated.html">6.1. Effect of acceleration in gradient descent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plot_saga_vs_svrg.html">6.2. SAGA vs SVRG</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">6.3. Group Lasso regularization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plot_sparse_nuclear_norm.html">6.4. Estimating a sparse and low rank matrix</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plot_tv_deblurring.html">6.5. Total variation regularization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plot_overlapping_group_lasso.html">6.6. Group lasso with overlap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proximal_gradient.html">Gradient-based methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proximal_splitting.html">Proximal splitting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frank_wolfe.html">Frank-Wolfe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../incremental.html">Incremental methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../loss_functions.html">Loss functions</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="plot_accelerated.html">Effect of acceleration in gradient descent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_saga_vs_svrg.html">SAGA vs SVRG</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Group Lasso regularization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_sparse_nuclear_norm.html">Estimating a sparse and low rank matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_tv_deblurring.html">Total variation regularization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_overlapping_group_lasso.html">Group lasso with overlap</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../datasets.html">7. Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datasets.html">Datasets</a></li>
 </ul>
 
 
@@ -253,17 +253,6 @@ Achieved relative tolerance at iteration 661
     </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
-<h3><a href="../index.html">Table of Contents</a></h3>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../proximal_gradient.html">1. Gradient-based methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../proximal_splitting.html">2. Proximal splitting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../frank_wolfe.html">3. Frank-Wolfe</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../incremental.html">4. Incremental methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../loss_functions.html">5. Loss functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="index.html">6. Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../datasets.html">7. Datasets</a></li>
-</ul>
-
         </div>
       </div>
       <div class="clearer"></div>
@@ -272,7 +261,7 @@ Achieved relative tolerance at iteration 661
       &copy;Fabian Pedregosa.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.1</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.9</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
       
       |

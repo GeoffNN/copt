@@ -11,7 +11,6 @@ function prox of object :meth:`copt.utils.GroupL1`.
 """
 import numpy as np
 from scipy import sparse
-from scipy.sparse import linalg as splinalg
 import pylab as plt
 import copt as cp
 
@@ -38,8 +37,8 @@ np.random.seed(0)
 n_samples = n_features
 
 # .. compute the step-size ..
-step_size = 1. / cp.utils.get_lipschitz(A, 'square')
-f_grad = cp.utils.SquareLoss(A, b).f_grad
+f = cp.utils.SquareLoss(A, b)
+step_size = 1. / f.lipschitz
 
 # .. run the solver for different values ..
 # .. of the regularization parameter beta ..
@@ -51,13 +50,13 @@ for i, beta in enumerate(all_betas):
     G1 = cp.utils.GroupL1(beta, groups)
 
     def loss(x):
-        return f_grad(x)[0] + G1(x)
+        return f(x) + G1(x)
 
     cb_tosls = cp.utils.Trace()
     x0 = np.zeros(n_features)
     cb_tosls(x0)
     pgd_ls = cp.minimize_PGD(
-        f_grad, x0, G1.prox, step_size=step_size,
+        f.f_grad, x0, G1.prox, step_size=step_size,
         max_iter=max_iter, tol=1e-14, verbose=1,
         callback=cb_tosls)
     trace_ls = np.array([loss(x) for x in cb_tosls.trace_x])
@@ -67,7 +66,7 @@ for i, beta in enumerate(all_betas):
     x0 = np.zeros(n_features)
     cb_tos(x0)
     pgd = cp.minimize_PGD(
-        f_grad, x0, G1.prox,
+        f.f_grad, x0, G1.prox,
         step_size=step_size,
         max_iter=max_iter, tol=1e-14, verbose=1,
         backtracking=False, callback=cb_tos)
@@ -79,6 +78,7 @@ for i, beta in enumerate(all_betas):
 # .. plot the results ..
 fig, ax = plt.subplots(2, 4, sharey=False)
 xlim = [0.02, 0.02, 0.1]
+markevery = [1000, 1000, 100, 100]
 for i, beta in enumerate(all_betas):
     ax[0, i].set_title(r'$\lambda=%s$' % beta)
     ax[0, i].set_title(r'$\lambda=%s$' % beta)
@@ -97,7 +97,7 @@ for i, beta in enumerate(all_betas):
 
     plot_nols, = ax[1, i].plot(
         (all_trace_nols[i] - fmin) / scale,
-        lw=4, marker='h', markevery=100,
+        lw=4, marker='h', markevery=markevery[i],
         markersize=10)
 
     ax[1, i].set_xlabel('Iterations')

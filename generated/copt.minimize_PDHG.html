@@ -6,19 +6,19 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>2.2. copt.minimize_PDHG &#8212; copt  documentation</title>
+    <title>copt.minimize_PDHG &#8212; copt  documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3. Frank-Wolfe" href="../frank_wolfe.html" />
-    <link rel="prev" title="2.1. copt.minimize_TOS" href="copt.minimize_TOS.html" />
+    <link rel="next" title="Frank-Wolfe" href="../frank_wolfe.html" />
+    <link rel="prev" title="copt.minimize_TOS" href="copt.minimize_TOS.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -36,10 +36,10 @@
           <div class="body" role="main">
             
   <div class="section" id="copt-minimize-pdhg">
-<h1>2.2. copt.minimize_PDHG<a class="headerlink" href="#copt-minimize-pdhg" title="Permalink to this headline">¶</a></h1>
+<h1>copt.minimize_PDHG<a class="headerlink" href="#copt-minimize-pdhg" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="copt.minimize_PDHG">
-<code class="descclassname">copt.</code><code class="descname">minimize_PDHG</code><span class="sig-paren">(</span><em>f_grad</em>, <em>x0</em>, <em>prox_1=None</em>, <em>prox_2=None</em>, <em>L=None</em>, <em>tol=1e-12</em>, <em>max_iter=1000</em>, <em>callback=None</em>, <em>step_size=1.0</em>, <em>step_size2=None</em>, <em>backtracking=True</em>, <em>max_iter_ls=20</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/splitting.py#L147"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.minimize_PDHG" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">copt.</code><code class="descname">minimize_PDHG</code><span class="sig-paren">(</span><em>f_grad</em>, <em>x0</em>, <em>prox_1=None</em>, <em>prox_2=None</em>, <em>L=None</em>, <em>tol=1e-12</em>, <em>max_iter=1000</em>, <em>callback=None</em>, <em>step_size=1.0</em>, <em>step_size2=None</em>, <em>backtracking=True</em>, <em>max_iter_ls=20</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/splitting.py#L147"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.minimize_PDHG" title="Permalink to this definition">¶</a></dt>
 <dd><p>Primal-dual hybrid gradient splitting method.</p>
 <p>This method for optimization problems of the form</p>
 <blockquote>
@@ -58,8 +58,8 @@ it should return only the function value.</li>
 with parameter alpha.</li>
 <li><strong>x0</strong> (<em>array-like</em>) – Initial guess</li>
 <li><strong>L</strong> (<em>ndarray</em><em> or </em><em>sparse matrix</em>) – Linear operator inside the h term.</li>
-<li><strong>max_iter</strong> (<em>int</em>) – Maximum number of iterations.</li>
-<li><strong>verbose</strong> (<em>int</em>) – Verbosity level, from 0 (no output) to 2 (output on each iteration)</li>
+<li><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Maximum number of iterations.</li>
+<li><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Verbosity level, from 0 (no output) to 2 (output on each iteration)</li>
 <li><strong>callback</strong> (<em>callable</em>) – callback function (optional).</li>
 </ul>
 </td>
@@ -129,17 +129,17 @@ first-order primal-dual algorithm.” Mathematical Programming (2015)</p>
 
 <h3>Navigation</h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../proximal_gradient.html">1. Gradient-based methods</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../proximal_splitting.html">2. Proximal splitting</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="copt.minimize_TOS.html">2.1. copt.minimize_TOS</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">2.2. copt.minimize_PDHG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proximal_gradient.html">Gradient-based methods</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../proximal_splitting.html">Proximal splitting</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="copt.minimize_TOS.html">copt.minimize_TOS</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">copt.minimize_PDHG</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../frank_wolfe.html">3. Frank-Wolfe</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../incremental.html">4. Incremental methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../loss_functions.html">5. Loss functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">6. Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../datasets.html">7. Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frank_wolfe.html">Frank-Wolfe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../incremental.html">Incremental methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../loss_functions.html">Loss functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datasets.html">Datasets</a></li>
 </ul>
 
 
@@ -155,21 +155,6 @@ first-order primal-dual algorithm.” Mathematical Programming (2015)</p>
     </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
-<h3><a href="../index.html">Table of Contents</a></h3>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../proximal_gradient.html">1. Gradient-based methods</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../proximal_splitting.html">2. Proximal splitting</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="copt.minimize_TOS.html">2.1. copt.minimize_TOS</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">2.2. copt.minimize_PDHG</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../frank_wolfe.html">3. Frank-Wolfe</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../incremental.html">4. Incremental methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../loss_functions.html">5. Loss functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">6. Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../datasets.html">7. Datasets</a></li>
-</ul>
-
         </div>
       </div>
       <div class="clearer"></div>
@@ -178,7 +163,7 @@ first-order primal-dual algorithm.” Mathematical Programming (2015)</p>
       &copy;Fabian Pedregosa.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.1</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.9</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
       
       |

@@ -9,12 +9,12 @@
     <title>copt package &#8212; copt  documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
    
@@ -42,7 +42,7 @@
 <span id="copt-datasets-module"></span><h2>copt.datasets module<a class="headerlink" href="#module-copt.datasets" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="copt.datasets.load_covtype">
-<code class="descclassname">copt.datasets.</code><code class="descname">load_covtype</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/datasets.py#L193"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.datasets.load_covtype" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">copt.datasets.</code><code class="descname">load_covtype</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/datasets.py#L193"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.datasets.load_covtype" title="Permalink to this definition">¶</a></dt>
 <dd><p>Download and return the URL dataset.</p>
 <p>This is the binary classification version of the dataset as found in the
 LIBSVM dataset project:</p>
@@ -52,7 +52,7 @@ LIBSVM dataset project:</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>md5_check</strong> (<em>bool</em>) – Whether to do an md5 check on the downloaded files.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>md5_check</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – Whether to do an md5 check on the downloaded files.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><ul class="simple">
 <li><strong>X</strong> (<em>scipy.sparse CSR matrix</em>)</li>
@@ -66,7 +66,7 @@ LIBSVM dataset project:</p>
 
 <dl class="function">
 <dt id="copt.datasets.load_criteo">
-<code class="descclassname">copt.datasets.</code><code class="descname">load_criteo</code><span class="sig-paren">(</span><em>md5_check=True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/datasets.py#L326"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.datasets.load_criteo" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">copt.datasets.</code><code class="descname">load_criteo</code><span class="sig-paren">(</span><em>md5_check=True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/datasets.py#L326"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.datasets.load_criteo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Download and return the criteo dataset.</p>
 <p>This is the binary classification version of the dataset as found in the
 LIBSVM dataset project:</p>
@@ -76,7 +76,7 @@ LIBSVM dataset project:</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>md5_check</strong> (<em>bool</em>) – Whether to do an md5 check on the downloaded files.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>md5_check</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – Whether to do an md5 check on the downloaded files.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><ul class="simple">
 <li><strong>X</strong> (<em>scipy.sparse CSR matrix</em>)</li>
@@ -90,13 +90,13 @@ LIBSVM dataset project:</p>
 
 <dl class="function">
 <dt id="copt.datasets.load_img1">
-<code class="descclassname">copt.datasets.</code><code class="descname">load_img1</code><span class="sig-paren">(</span><em>n_rows=20</em>, <em>n_cols=20</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/datasets.py#L12"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.datasets.load_img1" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">copt.datasets.</code><code class="descname">load_img1</code><span class="sig-paren">(</span><em>n_rows=20</em>, <em>n_cols=20</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/datasets.py#L12"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.datasets.load_img1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load sample image</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="copt.datasets.load_kdd10">
-<code class="descclassname">copt.datasets.</code><code class="descname">load_kdd10</code><span class="sig-paren">(</span><em>md5_check=True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/datasets.py#L227"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.datasets.load_kdd10" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">copt.datasets.</code><code class="descname">load_kdd10</code><span class="sig-paren">(</span><em>md5_check=True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/datasets.py#L227"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.datasets.load_kdd10" title="Permalink to this definition">¶</a></dt>
 <dd><p>Download and return the KDD10 dataset.</p>
 <p>This is the binary classification version of the dataset as found in the
 LIBSVM dataset project:</p>
@@ -106,7 +106,7 @@ LIBSVM dataset project:</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>md5_check</strong> (<em>bool</em>) – Whether to do an md5 check on the downloaded files.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>md5_check</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – Whether to do an md5 check on the downloaded files.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><ul class="simple">
 <li><strong>X</strong> (<em>scipy.sparse CSR matrix</em>)</li>
@@ -120,7 +120,7 @@ LIBSVM dataset project:</p>
 
 <dl class="function">
 <dt id="copt.datasets.load_kdd12">
-<code class="descclassname">copt.datasets.</code><code class="descname">load_kdd12</code><span class="sig-paren">(</span><em>md5_check=True</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/datasets.py#L266"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.datasets.load_kdd12" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">copt.datasets.</code><code class="descname">load_kdd12</code><span class="sig-paren">(</span><em>md5_check=True</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/datasets.py#L266"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.datasets.load_kdd12" title="Permalink to this definition">¶</a></dt>
 <dd><p>Download and return the KDD12 dataset.</p>
 <p>This is the binary classification version of the dataset as found in the
 LIBSVM dataset project:</p>
@@ -130,7 +130,7 @@ LIBSVM dataset project:</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>md5_check</strong> (<em>bool</em>) – Whether to do an md5 check on the downloaded files.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>md5_check</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – Whether to do an md5 check on the downloaded files.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><ul class="simple">
 <li><strong>X</strong> (<em>scipy.sparse CSR matrix</em>)</li>
@@ -144,7 +144,7 @@ LIBSVM dataset project:</p>
 
 <dl class="function">
 <dt id="copt.datasets.load_madelon">
-<code class="descclassname">copt.datasets.</code><code class="descname">load_madelon</code><span class="sig-paren">(</span><em>md5_check=True</em>, <em>subset='full'</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/datasets.py#L23"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.datasets.load_madelon" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">copt.datasets.</code><code class="descname">load_madelon</code><span class="sig-paren">(</span><em>md5_check=True</em>, <em>subset='full'</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/datasets.py#L23"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.datasets.load_madelon" title="Permalink to this definition">¶</a></dt>
 <dd><p>Download and return the RCV1 dataset.</p>
 <p>This is the binary classification version of the dataset as found in the
 LIBSVM dataset project:</p>
@@ -154,7 +154,7 @@ LIBSVM dataset project:</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>md5_check</strong> (<em>bool</em>) – Whether to do an md5 check on the downloaded files.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>md5_check</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – Whether to do an md5 check on the downloaded files.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><ul class="simple">
 <li><strong>X</strong> (<em>scipy.sparse CSR matrix</em>)</li>
@@ -168,7 +168,7 @@ LIBSVM dataset project:</p>
 
 <dl class="function">
 <dt id="copt.datasets.load_rcv1">
-<code class="descclassname">copt.datasets.</code><code class="descname">load_rcv1</code><span class="sig-paren">(</span><em>md5_check=True</em>, <em>subset='full'</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/datasets.py#L72"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.datasets.load_rcv1" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">copt.datasets.</code><code class="descname">load_rcv1</code><span class="sig-paren">(</span><em>md5_check=True</em>, <em>subset='full'</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/datasets.py#L72"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.datasets.load_rcv1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Download and return the RCV1 dataset.</p>
 <p>This is the binary classification version of the dataset as found in the
 LIBSVM dataset project:</p>
@@ -178,7 +178,7 @@ LIBSVM dataset project:</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>md5_check</strong> (<em>bool</em>) – Whether to do an md5 check on the downloaded files.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>md5_check</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – Whether to do an md5 check on the downloaded files.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><ul class="simple">
 <li><strong>X</strong> (<em>scipy.sparse CSR matrix</em>)</li>
@@ -192,7 +192,7 @@ LIBSVM dataset project:</p>
 
 <dl class="function">
 <dt id="copt.datasets.load_url">
-<code class="descclassname">copt.datasets.</code><code class="descname">load_url</code><span class="sig-paren">(</span><em>md5_check=True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/datasets.py#L133"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.datasets.load_url" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">copt.datasets.</code><code class="descname">load_url</code><span class="sig-paren">(</span><em>md5_check=True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/datasets.py#L133"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.datasets.load_url" title="Permalink to this definition">¶</a></dt>
 <dd><p>Download and return the URL dataset.</p>
 <p>This is the binary classification version of the dataset as found in the
 LIBSVM dataset project:</p>
@@ -202,7 +202,7 @@ LIBSVM dataset project:</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>md5_check</strong> (<em>bool</em>) – Whether to do an md5 check on the downloaded files.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>md5_check</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – Whether to do an md5 check on the downloaded files.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><ul class="simple">
 <li><strong>X</strong> (<em>scipy.sparse CSR matrix</em>)</li>
@@ -219,18 +219,18 @@ LIBSVM dataset project:</p>
 <span id="copt-frank-wolfe-module"></span><h2>copt.frank_wolfe module<a class="headerlink" href="#module-copt.frank_wolfe" title="Permalink to this headline">¶</a></h2>
 <dl class="attribute">
 <dt id="copt.frank_wolfe.max_active">
-<code class="descclassname">copt.frank_wolfe.</code><code class="descname">max_active</code><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/frank_wolfe.py#L67"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.frank_wolfe.max_active" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">copt.frank_wolfe.</code><code class="descname">max_active</code><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/frank_wolfe.py#L66"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.frank_wolfe.max_active" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="copt.frank_wolfe.minimize_FW">
-<code class="descclassname">copt.frank_wolfe.</code><code class="descname">minimize_FW</code><span class="sig-paren">(</span><em>f_grad</em>, <em>lmo</em>, <em>x0</em>, <em>L=None</em>, <em>max_iter=1000</em>, <em>tol=1e-12</em>, <em>backtracking=True</em>, <em>callback=None</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/frank_wolfe.py#L11"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.frank_wolfe.minimize_FW" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">copt.frank_wolfe.</code><code class="descname">minimize_FW</code><span class="sig-paren">(</span><em>f_grad</em>, <em>lmo</em>, <em>x0</em>, <em>L=None</em>, <em>max_iter=1000</em>, <em>tol=1e-12</em>, <em>backtracking=True</em>, <em>callback=None</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/frank_wolfe.py#L10"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.frank_wolfe.minimize_FW" title="Permalink to this definition">¶</a></dt>
 <dd><p>Frank-Wolfe algorithm</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="copt.frank_wolfe.minimize_PFW_L1">
-<code class="descclassname">copt.frank_wolfe.</code><code class="descname">minimize_PFW_L1</code><span class="sig-paren">(</span><em>f_grad</em>, <em>alpha</em>, <em>n_features</em>, <em>L=None</em>, <em>max_iter=1000</em>, <em>tol=1e-12</em>, <em>backtracking=True</em>, <em>callback=None</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/frank_wolfe.py#L89"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.frank_wolfe.minimize_PFW_L1" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">copt.frank_wolfe.</code><code class="descname">minimize_PFW_L1</code><span class="sig-paren">(</span><em>f_grad</em>, <em>alpha</em>, <em>n_features</em>, <em>L=None</em>, <em>max_iter=1000</em>, <em>tol=1e-12</em>, <em>backtracking=True</em>, <em>callback=None</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/frank_wolfe.py#L88"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.frank_wolfe.minimize_PFW_L1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Pairwise FW on the L1 ball</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
@@ -243,25 +243,24 @@ LIBSVM dataset project:</p>
 <span id="copt-proxgrad-module"></span><h2>copt.proxgrad module<a class="headerlink" href="#module-copt.proxgrad" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="copt.proxgrad.minimize_APGD">
-<code class="descclassname">copt.proxgrad.</code><code class="descname">minimize_APGD</code><span class="sig-paren">(</span><em>f_grad</em>, <em>x0</em>, <em>prox=None</em>, <em>tol=1e-06</em>, <em>max_iter=500</em>, <em>verbose=0</em>, <em>callback=None</em>, <em>backtracking=True</em>, <em>step_size=None</em>, <em>max_iter_backtracking=100</em>, <em>backtracking_factor=0.6</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/proxgrad.py#L128"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.proxgrad.minimize_APGD" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">copt.proxgrad.</code><code class="descname">minimize_APGD</code><span class="sig-paren">(</span><em>f_grad</em>, <em>x0</em>, <em>prox=None</em>, <em>tol=1e-06</em>, <em>max_iter=500</em>, <em>verbose=0</em>, <em>callback=None</em>, <em>backtracking=True</em>, <em>step_size=None</em>, <em>max_iter_backtracking=100</em>, <em>backtracking_factor=0.6</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/proxgrad.py#L138"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.proxgrad.minimize_APGD" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accelerated proximal gradient descent.</p>
 <p>Solves problems of the form</p>
 <blockquote>
-<div>minimize_x f(x) + alpha g(x)</div></blockquote>
-<p>where we have access to the gradient of f and to the proximal operator of g.</p>
+<div>minimize_x f(x) + g(x)</div></blockquote>
+<p>where we have access to the gradient of f and the proximal operator of g.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>f_grad</strong> (<em>loss function</em><em>, </em><em>differentiable</em>) – </li>
-<li><strong>prox</strong> (<em>prox</em><em>(</em><em>x</em><em>, </em><em>alpha</em><em>) </em><em>returns the proximal operator of g at x</em>) – </li>
-<li><strong>prox</strong> – with parameter alpha.</li>
+<li><strong>prox</strong> (<em>prox</em><em>(</em><em>x</em><em>, </em><em>alpha</em><em>) </em><em>returns the proximal operator of g at x</em>) – with parameter alpha.</li>
 <li><strong>x0</strong> (<em>array-like</em>) – Initial guess</li>
 <li><strong>backtracking</strong> (<em>boolean</em>) – Whether to perform backtracking (i.e. line-search) or not.</li>
-<li><strong>max_iter</strong> (<em>int</em>) – Maximum number of iterations.</li>
-<li><strong>verbose</strong> (<em>int</em>) – Verbosity level, from 0 (no output) to 2 (output on each iteration)</li>
-<li><strong>step_size</strong> (<em>float</em>) – Starting value for the line-search procedure. XXX</li>
+<li><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Maximum number of iterations.</li>
+<li><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Verbosity level, from 0 (no output) to 2 (output on each iteration)</li>
+<li><strong>step_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – Starting value for the line-search procedure. XXX</li>
 <li><strong>callback</strong> (<em>callable</em>) – callback function (optional).</li>
 </ul>
 </td>
@@ -279,31 +278,34 @@ for a description of other attributes.</p>
 </tbody>
 </table>
 <p class="rubric">References</p>
-<p>Amir Beck and Marc Teboulle. “Gradient-based algorithms with applications to signal
-recovery.” Convex optimization in signal processing and communications (2009)</p>
+<p>Amir Beck and Marc Teboulle. “Gradient-based algorithms with applications
+to signal recovery.” Convex optimization in signal processing and
+communications (2009)</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="copt.proxgrad.minimize_PGD">
-<code class="descclassname">copt.proxgrad.</code><code class="descname">minimize_PGD</code><span class="sig-paren">(</span><em>f_grad</em>, <em>x0</em>, <em>prox=None</em>, <em>tol=1e-06</em>, <em>max_iter=500</em>, <em>verbose=0</em>, <em>callback=None</em>, <em>backtracking=True</em>, <em>step_size=None</em>, <em>max_iter_backtracking=1000</em>, <em>backtracking_factor=0.6</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/proxgrad.py#L7"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.proxgrad.minimize_PGD" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">copt.proxgrad.</code><code class="descname">minimize_PGD</code><span class="sig-paren">(</span><em>f_grad</em>, <em>x0</em>, <em>prox=None</em>, <em>tol=1e-06</em>, <em>max_iter=500</em>, <em>verbose=0</em>, <em>callback=None</em>, <em>backtracking=True</em>, <em>step_size=None</em>, <em>max_iter_backtracking=1000</em>, <em>backtracking_factor=0.6</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/proxgrad.py#L7"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.proxgrad.minimize_PGD" title="Permalink to this definition">¶</a></dt>
 <dd><p>Proximal gradient descent.</p>
 <p>Solves problems of the form</p>
 <blockquote>
 <div>minimize_x f(x) + g(x)</div></blockquote>
-<p>where we have access to the gradient of f and to the proximal operator of g.</p>
+<p>where we have access to the gradient of f and the proximal operator of g.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>f_grad</strong> (<em>callable</em>) – Returns the function value and gradient of the objective function.</li>
-<li><strong>g</strong> (<em>penalty term</em><em> (</em><em>proximal</em><em>)</em>) – </li>
-<li><strong>x0</strong> (<em>array-like</em><em>, </em><em>optional</em>) – Initial guess</li>
-<li><strong>backtracking</strong> (<em>boolean</em>) – Whether to perform backtracking (i.e. line-search) or not.</li>
-<li><strong>max_iter</strong> (<em>int</em>) – Maximum number of iterations.</li>
-<li><strong>verbose</strong> (<em>int</em>) – Verbosity level, from 0 (no output) to 2 (output on each iteration)</li>
-<li><strong>step_size</strong> (<em>float</em>) – Starting value for the line-search procedure. XXX</li>
-<li><strong>callback</strong> (<em>callable</em>) – callback function (optional).</li>
+<li><strong>f_grad</strong> (<em>callable</em>) – Value and gradient of f: <code class="docutils literal notranslate"><span class="pre">f_grad(x)</span> <span class="pre">-&gt;</span> <span class="pre">float,</span> <span class="pre">array-like</span></code>.</li>
+<li><strong>x0</strong> (<em>array-like of size n_features</em>) – Initial guess of solution.</li>
+<li><strong>prox</strong> (<em>callable</em><em>, </em><em>optional.</em>) – Proximal operator g.</li>
+<li><strong>backtracking</strong> (<em>boolean</em><em>, </em><em>optional</em>) – Whether to perform backtracking (i.e. line-search) or not.</li>
+<li><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a><em>, </em><em>optional.</em>) – Maximum number of iterations.</li>
+<li><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a><em>, </em><em>optional.</em>) – Verbosity level, from 0 (no output) to 2 (output on each iteration)</li>
+<li><strong>step_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – Starting value for the line-search procedure. XXX</li>
+<li><strong>callback</strong> (<em>callable</em>) – callback function (optional). Takes a single argument (x) with the
+current coefficients in the algorithm. The algorithm will exit if
+callback returns False.</li>
 </ul>
 </td>
 </tr>
@@ -320,36 +322,22 @@ for a description of other attributes.</p>
 </tbody>
 </table>
 <p class="rubric">References</p>
-<p>Beck, Amir, and Marc Teboulle. “Gradient-based algorithms with applications to signal
-recovery.” Convex optimization in signal processing and communications (2009)</p>
+<p>Beck, Amir, and Marc Teboulle. “Gradient-based algorithms with applications
+to signal recovery.” Convex optimization in signal processing and
+communications (2009)</p>
+<p class="rubric">Examples</p>
+<ul class="simple">
+<li><a class="reference internal" href="../auto_examples/plot_group_lasso.html#sphx-glr-auto-examples-plot-group-lasso-py"><span class="std std-ref">Group Lasso regularization</span></a></li>
+</ul>
 </dd></dl>
 
 </div>
 <div class="section" id="module-copt.randomized">
 <span id="copt-randomized-module"></span><h2>copt.randomized module<a class="headerlink" href="#module-copt.randomized" title="Permalink to this headline">¶</a></h2>
-<dl class="attribute">
-<dt id="copt.randomized.deriv_logistic">
-<code class="descclassname">copt.randomized.</code><code class="descname">deriv_logistic</code><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/randomized.py#L28"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.randomized.deriv_logistic" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="copt.randomized.deriv_squared">
-<code class="descclassname">copt.randomized.</code><code class="descname">deriv_squared</code><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/randomized.py#L13"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.randomized.deriv_squared" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="copt.randomized.f_logistic">
-<code class="descclassname">copt.randomized.</code><code class="descname">f_logistic</code><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/randomized.py#L19"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.randomized.f_logistic" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="copt.randomized.f_squared">
-<code class="descclassname">copt.randomized.</code><code class="descname">f_squared</code><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/randomized.py#L7"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.randomized.f_squared" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
+<p>Module that contains randomized (also known as stochastic) algorithms</p>
 <dl class="function">
 <dt id="copt.randomized.minimize_SAGA">
-<code class="descclassname">copt.randomized.</code><code class="descname">minimize_SAGA</code><span class="sig-paren">(</span><em>f_deriv</em>, <em>A</em>, <em>b</em>, <em>x0</em>, <em>step_size</em>, <em>prox=None</em>, <em>alpha=0</em>, <em>max_iter=500</em>, <em>tol=1e-06</em>, <em>verbose=1</em>, <em>callback=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/randomized.py#L89"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.randomized.minimize_SAGA" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">copt.randomized.</code><code class="descname">minimize_SAGA</code><span class="sig-paren">(</span><em>f_deriv</em>, <em>A</em>, <em>b</em>, <em>x0</em>, <em>step_size</em>, <em>prox=None</em>, <em>alpha=0</em>, <em>max_iter=500</em>, <em>tol=1e-06</em>, <em>verbose=1</em>, <em>callback=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/randomized.py#L62"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.randomized.minimize_SAGA" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Stochastic average gradient augmented (SAGA) algorithm for</dt>
 <dd><p class="first">linearly-parametrized loss functions.</p>
@@ -361,7 +349,7 @@ recovery.” Convex optimization in signal processing and communications (2009)<
 </dl>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p>This feature is experimental, API is likely to change.</p>
+<p>This function is experimental, API is likely to change.</p>
 <dl class="docutils">
 <dt>f</dt>
 <dd>loss functions.</dd>
@@ -401,7 +389,7 @@ Advances in Neural Information Processing Systems (NIPS) 2017.</p>
 
 <dl class="function">
 <dt id="copt.randomized.minimize_SVRG">
-<code class="descclassname">copt.randomized.</code><code class="descname">minimize_SVRG</code><span class="sig-paren">(</span><em>f_deriv</em>, <em>A</em>, <em>b</em>, <em>x0</em>, <em>step_size</em>, <em>alpha=0</em>, <em>prox=None</em>, <em>max_iter=500</em>, <em>tol=1e-06</em>, <em>verbose=False</em>, <em>callback=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/randomized.py#L254"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.randomized.minimize_SVRG" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">copt.randomized.</code><code class="descname">minimize_SVRG</code><span class="sig-paren">(</span><em>f_deriv</em>, <em>A</em>, <em>b</em>, <em>x0</em>, <em>step_size</em>, <em>alpha=0</em>, <em>prox=None</em>, <em>max_iter=500</em>, <em>tol=1e-06</em>, <em>verbose=False</em>, <em>callback=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/randomized.py#L229"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.randomized.minimize_SVRG" title="Permalink to this definition">¶</a></dt>
 <dd><p>Stochastic average gradient augmented (SAGA) algorithm.</p>
 <p>The SAGA algorithm can solve optimization problems of the form</p>
 <blockquote>
@@ -419,18 +407,18 @@ Advances in Neural Information Processing Systems (NIPS) 2017.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>f_deriv</strong> – derivative of f</li>
-<li><strong>x0</strong> (<em>np.ndarray</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Starting point for optimization.</li>
-<li><strong>step_size</strong> (<em>float</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Step size for the optimization. If None is given, this will be
+<li><strong>x0</strong> (<em>np.ndarray</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><em>optional</em>) – Starting point for optimization.</li>
+<li><strong>step_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><em>optional</em>) – Step size for the optimization. If None is given, this will be
 estimated from the function f.</li>
-<li><strong>n_jobs</strong> (<em>int</em>) – Number of threads to use in the optimization. A number higher than 1
+<li><strong>n_jobs</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Number of threads to use in the optimization. A number higher than 1
 will use the Asynchronous SAGA optimization method described in
 [Pedregosa et al., 2017]</li>
-<li><strong>max_iter</strong> (<em>int</em>) – Maximum number of passes through the data in the optimization.</li>
-<li><strong>tol</strong> (<em>float</em>) – Tolerance criterion. The algorithm will stop whenever the norm of the
+<li><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Maximum number of passes through the data in the optimization.</li>
+<li><strong>tol</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – Tolerance criterion. The algorithm will stop whenever the norm of the
 gradient mapping (generalization of the gradient for nonsmooth optimization)
 is below tol.</li>
-<li><strong>verbose</strong> (<em>bool</em>) – Verbosity level. True might print some messages.</li>
-<li><strong>trace</strong> (<em>bool</em>) – Whether to trace convergence of the function, useful for plotting and/or
+<li><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – Verbosity level. True might print some messages.</li>
+<li><strong>trace</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – Whether to trace convergence of the function, useful for plotting and/or
 debugging. If ye, the result will have extra members trace_func,
 trace_time.</li>
 </ul>
@@ -465,7 +453,7 @@ Processing Systems (NIPS) 2017.</p>
 
 <dl class="function">
 <dt id="copt.randomized.minimize_VRTOS">
-<code class="descclassname">copt.randomized.</code><code class="descname">minimize_VRTOS</code><span class="sig-paren">(</span><em>f_deriv</em>, <em>A</em>, <em>b</em>, <em>x0</em>, <em>step_size</em>, <em>prox_1=None</em>, <em>prox_2=None</em>, <em>alpha=0</em>, <em>max_iter=500</em>, <em>tol=1e-06</em>, <em>callback=None</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/randomized.py#L430"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.randomized.minimize_VRTOS" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">copt.randomized.</code><code class="descname">minimize_VRTOS</code><span class="sig-paren">(</span><em>f_deriv</em>, <em>A</em>, <em>b</em>, <em>x0</em>, <em>step_size</em>, <em>prox_1=None</em>, <em>prox_2=None</em>, <em>alpha=0</em>, <em>max_iter=500</em>, <em>tol=1e-06</em>, <em>callback=None</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/randomized.py#L407"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.randomized.minimize_VRTOS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Variance-reduced three operator splitting (VRTOS) algorithm.</p>
 <p>The VRTOS algorithm can solve optimization problems of the form</p>
 <blockquote>
@@ -483,18 +471,18 @@ Processing Systems (NIPS) 2017.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>f_deriv</strong> – derivative of f</li>
-<li><strong>x0</strong> (<em>np.ndarray</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Starting point for optimization.</li>
-<li><strong>step_size</strong> (<em>float</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Step size for the optimization. If None is given, this will be
+<li><strong>x0</strong> (<em>np.ndarray</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><em>optional</em>) – Starting point for optimization.</li>
+<li><strong>step_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><em>optional</em>) – Step size for the optimization. If None is given, this will be
 estimated from the function f.</li>
-<li><strong>n_jobs</strong> (<em>int</em>) – Number of threads to use in the optimization. A number higher than 1
+<li><strong>n_jobs</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Number of threads to use in the optimization. A number higher than 1
 will use the Asynchronous SAGA optimization method described in
 [Pedregosa et al., 2017]</li>
-<li><strong>max_iter</strong> (<em>int</em>) – Maximum number of passes through the data in the optimization.</li>
-<li><strong>tol</strong> (<em>float</em>) – Tolerance criterion. The algorithm will stop whenever the norm of the
+<li><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Maximum number of passes through the data in the optimization.</li>
+<li><strong>tol</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – Tolerance criterion. The algorithm will stop whenever the norm of the
 gradient mapping (generalization of the gradient for nonsmooth optimization)
 is below tol.</li>
-<li><strong>verbose</strong> (<em>bool</em>) – Verbosity level. True might print some messages.</li>
-<li><strong>trace</strong> (<em>bool</em>) – Whether to trace convergence of the function, useful for plotting and/or
+<li><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – Verbosity level. True might print some messages.</li>
+<li><strong>trace</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – Whether to trace convergence of the function, useful for plotting and/or
 debugging. If ye, the result will have extra members trace_func,
 trace_time.</li>
 </ul>
@@ -522,7 +510,7 @@ for a description of other attributes.</p>
 <span id="copt-splitting-module"></span><h2>copt.splitting module<a class="headerlink" href="#module-copt.splitting" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="copt.splitting.minimize_PDHG">
-<code class="descclassname">copt.splitting.</code><code class="descname">minimize_PDHG</code><span class="sig-paren">(</span><em>f_grad</em>, <em>x0</em>, <em>prox_1=None</em>, <em>prox_2=None</em>, <em>L=None</em>, <em>tol=1e-12</em>, <em>max_iter=1000</em>, <em>callback=None</em>, <em>step_size=1.0</em>, <em>step_size2=None</em>, <em>backtracking=True</em>, <em>max_iter_ls=20</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/splitting.py#L147"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.splitting.minimize_PDHG" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">copt.splitting.</code><code class="descname">minimize_PDHG</code><span class="sig-paren">(</span><em>f_grad</em>, <em>x0</em>, <em>prox_1=None</em>, <em>prox_2=None</em>, <em>L=None</em>, <em>tol=1e-12</em>, <em>max_iter=1000</em>, <em>callback=None</em>, <em>step_size=1.0</em>, <em>step_size2=None</em>, <em>backtracking=True</em>, <em>max_iter_ls=20</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/splitting.py#L147"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.splitting.minimize_PDHG" title="Permalink to this definition">¶</a></dt>
 <dd><p>Primal-dual hybrid gradient splitting method.</p>
 <p>This method for optimization problems of the form</p>
 <blockquote>
@@ -541,8 +529,8 @@ it should return only the function value.</li>
 with parameter alpha.</li>
 <li><strong>x0</strong> (<em>array-like</em>) – Initial guess</li>
 <li><strong>L</strong> (<em>ndarray</em><em> or </em><em>sparse matrix</em>) – Linear operator inside the h term.</li>
-<li><strong>max_iter</strong> (<em>int</em>) – Maximum number of iterations.</li>
-<li><strong>verbose</strong> (<em>int</em>) – Verbosity level, from 0 (no output) to 2 (output on each iteration)</li>
+<li><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Maximum number of iterations.</li>
+<li><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Verbosity level, from 0 (no output) to 2 (output on each iteration)</li>
 <li><strong>callback</strong> (<em>callable</em>) – callback function (optional).</li>
 </ul>
 </td>
@@ -570,7 +558,7 @@ first-order primal-dual algorithm.” Mathematical Programming (2015)</p>
 
 <dl class="function">
 <dt id="copt.splitting.minimize_TOS">
-<code class="descclassname">copt.splitting.</code><code class="descname">minimize_TOS</code><span class="sig-paren">(</span><em>f_grad</em>, <em>x0</em>, <em>prox_1=None</em>, <em>prox_2=None</em>, <em>tol=1e-06</em>, <em>max_iter=1000</em>, <em>verbose=0</em>, <em>callback=None</em>, <em>backtracking=True</em>, <em>step_size=None</em>, <em>max_iter_backtracking=100</em>, <em>backtracking_factor=0.7</em>, <em>h_Lipschitz=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/splitting.py#L9"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.splitting.minimize_TOS" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">copt.splitting.</code><code class="descname">minimize_TOS</code><span class="sig-paren">(</span><em>f_grad</em>, <em>x0</em>, <em>prox_1=None</em>, <em>prox_2=None</em>, <em>tol=1e-06</em>, <em>max_iter=1000</em>, <em>verbose=0</em>, <em>callback=None</em>, <em>backtracking=True</em>, <em>step_size=None</em>, <em>max_iter_backtracking=100</em>, <em>backtracking_factor=0.7</em>, <em>h_Lipschitz=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/splitting.py#L9"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.splitting.minimize_TOS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Davis-Yin three operator splitting method.</p>
 <p>This algorithm can solve problems of the form</p>
 <blockquote>
@@ -584,14 +572,14 @@ function for which the proximal operator is known.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>f_grad</strong> (<em>callable</em>) – Returns the function value and gradient of the objective function.
 With return_gradient=False, returns only the function value.</li>
-<li><strong>prox_1</strong> (<em>callable</em><em> or </em><em>None</em>) – prox_1(x, alpha, <a href="#id1"><span class="problematic" id="id2">*</span></a>args) returns the proximal operator of g at xa
+<li><strong>prox_1</strong> (<em>callable</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a>) – prox_1(x, alpha, <a href="#id1"><span class="problematic" id="id2">*</span></a>args) returns the proximal operator of g at xa
 with parameter alpha. Extra arguments can be passed by prox_1_args.</li>
 <li><strong>y0</strong> (<em>array-like</em>) – Initial guess</li>
 <li><strong>backtracking</strong> (<em>boolean</em>) – Whether to perform backtracking (i.e. line-search) to estimate
 the step size.</li>
-<li><strong>max_iter</strong> (<em>int</em>) – Maximum number of iterations.</li>
-<li><strong>verbose</strong> (<em>int</em>) – Verbosity level, from 0 (no output) to 2 (output on each iteration)</li>
-<li><strong>step_size</strong> (<em>float</em>) – Starting value for the line-search procedure.</li>
+<li><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Maximum number of iterations.</li>
+<li><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Verbosity level, from 0 (no output) to 2 (output on each iteration)</li>
+<li><strong>step_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – Starting value for the line-search procedure.</li>
 <li><strong>callback</strong> (<em>callable</em>) – callback function (optional).</li>
 </ul>
 </td>
@@ -624,14 +612,14 @@ on Machine Learning, 2018.</li>
 <p>These are implementations of some proximal operators</p>
 <dl class="function">
 <dt id="copt.tv_prox.c_prox_tv2d">
-<code class="descclassname">copt.tv_prox.</code><code class="descname">c_prox_tv2d</code><span class="sig-paren">(</span><em>step_size</em>, <em>x</em>, <em>n_rows</em>, <em>n_cols</em>, <em>max_iter</em>, <em>tol</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/tv_prox.py#L147"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.tv_prox.c_prox_tv2d" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">copt.tv_prox.</code><code class="descname">c_prox_tv2d</code><span class="sig-paren">(</span><em>step_size</em>, <em>x</em>, <em>n_rows</em>, <em>n_cols</em>, <em>max_iter</em>, <em>tol</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/tv_prox.py#L147"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.tv_prox.c_prox_tv2d" title="Permalink to this definition">¶</a></dt>
 <dd><p>Douflas-Rachford to minimize a 2-dimensional total variation.</p>
 <p>Reference: <a class="reference external" href="https://arxiv.org/abs/1411.0589">https://arxiv.org/abs/1411.0589</a></p>
 </dd></dl>
 
 <dl class="function">
 <dt id="copt.tv_prox.prox_tv1d">
-<code class="descclassname">copt.tv_prox.</code><code class="descname">prox_tv1d</code><span class="sig-paren">(</span><em>w</em>, <em>step_size</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/tv_prox.py#L14"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.tv_prox.prox_tv1d" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">copt.tv_prox.</code><code class="descname">prox_tv1d</code><span class="sig-paren">(</span><em>w</em>, <em>step_size</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/tv_prox.py#L14"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.tv_prox.prox_tv1d" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the proximal operator of the 1-dimensional total variation operator.</p>
 <p>This solves a problem of the form</p>
 <blockquote>
@@ -643,7 +631,7 @@ on Machine Learning, 2018.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>w</strong> (<em>array</em>) – vector of coefficients</li>
-<li><strong>step_size</strong> (<em>float</em>) – step size (sometimes denoted gamma) in proximal objective function</li>
+<li><strong>step_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – step size (sometimes denoted gamma) in proximal objective function</li>
 </ul>
 </td>
 </tr>
@@ -656,19 +644,19 @@ IEEE Signal Processing Letters (2013)</p>
 
 <dl class="attribute">
 <dt id="copt.tv_prox.prox_tv1d_cols">
-<code class="descclassname">copt.tv_prox.</code><code class="descname">prox_tv1d_cols</code><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/tv_prox.py#L125"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.tv_prox.prox_tv1d_cols" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">copt.tv_prox.</code><code class="descname">prox_tv1d_cols</code><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/tv_prox.py#L125"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.tv_prox.prox_tv1d_cols" title="Permalink to this definition">¶</a></dt>
 <dd><p>apply prox_tv1d along columns of the matri a</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="copt.tv_prox.prox_tv1d_rows">
-<code class="descclassname">copt.tv_prox.</code><code class="descname">prox_tv1d_rows</code><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/tv_prox.py#L136"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.tv_prox.prox_tv1d_rows" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">copt.tv_prox.</code><code class="descname">prox_tv1d_rows</code><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/tv_prox.py#L136"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.tv_prox.prox_tv1d_rows" title="Permalink to this definition">¶</a></dt>
 <dd><p>apply prox_tv1d along rows of the matri a</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="copt.tv_prox.prox_tv2d">
-<code class="descclassname">copt.tv_prox.</code><code class="descname">prox_tv2d</code><span class="sig-paren">(</span><em>w</em>, <em>step_size</em>, <em>n_rows</em>, <em>n_cols</em>, <em>max_iter=500</em>, <em>tol=1e-06</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/tv_prox.py#L175"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.tv_prox.prox_tv2d" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">copt.tv_prox.</code><code class="descname">prox_tv2d</code><span class="sig-paren">(</span><em>w</em>, <em>step_size</em>, <em>n_rows</em>, <em>n_cols</em>, <em>max_iter=500</em>, <em>tol=1e-06</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/tv_prox.py#L175"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.tv_prox.prox_tv2d" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the proximal operator of the 2-dimensional total variation operator.</p>
 <p>This solves a problem of the form</p>
 <blockquote>
@@ -681,9 +669,9 @@ Douglas-Rachford algorithm [Barbero and Sra, 2014].</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>w</strong> (<em>array</em>) – vector of coefficients</li>
-<li><strong>step_size</strong> (<em>float</em>) – step size (often denoted gamma) in proximal objective function</li>
-<li><strong>max_iter</strong> (<em>int</em>) – </li>
-<li><strong>tol</strong> (<em>float</em>) – </li>
+<li><strong>step_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – step size (often denoted gamma) in proximal objective function</li>
+<li><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – </li>
+<li><strong>tol</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – </li>
 </ul>
 </td>
 </tr>
@@ -699,7 +687,7 @@ arXiv:1411.0589 (2014).</p>
 
 <dl class="function">
 <dt id="copt.tv_prox.tv2d_linear_operator">
-<code class="descclassname">copt.tv_prox.</code><code class="descname">tv2d_linear_operator</code><span class="sig-paren">(</span><em>n_rows</em>, <em>n_cols</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/tv_prox.py#L212"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.tv_prox.tv2d_linear_operator" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">copt.tv_prox.</code><code class="descname">tv2d_linear_operator</code><span class="sig-paren">(</span><em>n_rows</em>, <em>n_cols</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/tv_prox.py#L212"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.tv_prox.tv2d_linear_operator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the linear operator L such ||L x||_1 is the 2D total variation norm.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -720,8 +708,8 @@ arXiv:1411.0589 (2014).</p>
 <span id="copt-utils-module"></span><h2>copt.utils module<a class="headerlink" href="#module-copt.utils" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="copt.utils.FusedLasso">
-<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">FusedLasso</code><span class="sig-paren">(</span><em>alpha</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/utils.py#L414"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.FusedLasso" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">FusedLasso</code><span class="sig-paren">(</span><em>alpha</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/utils.py#L425"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.FusedLasso" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Fused Lasso penalty</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -734,25 +722,25 @@ arXiv:1411.0589 (2014).</p>
 <p class="rubric">Examples</p>
 <dl class="method">
 <dt id="copt.utils.FusedLasso.prox">
-<code class="descname">prox</code><span class="sig-paren">(</span><em>x</em>, <em>step_size</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/utils.py#L432"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.FusedLasso.prox" title="Permalink to this definition">¶</a></dt>
+<code class="descname">prox</code><span class="sig-paren">(</span><em>x</em>, <em>step_size</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/utils.py#L443"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.FusedLasso.prox" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="copt.utils.FusedLasso.prox_1_factory">
-<code class="descname">prox_1_factory</code><span class="sig-paren">(</span><em>n_features</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/utils.py#L435"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.FusedLasso.prox_1_factory" title="Permalink to this definition">¶</a></dt>
+<code class="descname">prox_1_factory</code><span class="sig-paren">(</span><em>n_features</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/utils.py#L448"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.FusedLasso.prox_1_factory" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="copt.utils.FusedLasso.prox_2_factory">
-<code class="descname">prox_2_factory</code><span class="sig-paren">(</span><em>n_features</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/utils.py#L469"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.FusedLasso.prox_2_factory" title="Permalink to this definition">¶</a></dt>
+<code class="descname">prox_2_factory</code><span class="sig-paren">(</span><em>n_features</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/utils.py#L482"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.FusedLasso.prox_2_factory" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="class">
 <dt id="copt.utils.GroupL1">
-<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">GroupL1</code><span class="sig-paren">(</span><em>alpha</em>, <em>groups</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/utils.py#L322"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.GroupL1" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">GroupL1</code><span class="sig-paren">(</span><em>alpha</em>, <em>groups</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/utils.py#L333"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.GroupL1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Group Lasso penalty</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -769,24 +757,24 @@ arXiv:1411.0589 (2014).</p>
 <p class="rubric">Examples</p>
 <dl class="method">
 <dt id="copt.utils.GroupL1.prox">
-<code class="descname">prox</code><span class="sig-paren">(</span><em>x</em>, <em>step_size</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/utils.py#L350"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.GroupL1.prox" title="Permalink to this definition">¶</a></dt>
+<code class="descname">prox</code><span class="sig-paren">(</span><em>x</em>, <em>step_size</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/utils.py#L361"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.GroupL1.prox" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="copt.utils.GroupL1.prox_factory">
-<code class="descname">prox_factory</code><span class="sig-paren">(</span><em>n_features</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/utils.py#L361"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.GroupL1.prox_factory" title="Permalink to this definition">¶</a></dt>
+<code class="descname">prox_factory</code><span class="sig-paren">(</span><em>n_features</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/utils.py#L372"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.GroupL1.prox_factory" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="class">
 <dt id="copt.utils.HuberLoss">
-<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">HuberLoss</code><span class="sig-paren">(</span><em>A</em>, <em>b</em>, <em>alpha=0</em>, <em>delta=1</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/utils.py#L220"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.HuberLoss" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">HuberLoss</code><span class="sig-paren">(</span><em>A</em>, <em>b</em>, <em>alpha=0</em>, <em>delta=1</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/utils.py#L231"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.HuberLoss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Huber loss</p>
 <dl class="method">
 <dt id="copt.utils.HuberLoss.f_grad">
-<code class="descname">f_grad</code><span class="sig-paren">(</span><em>x</em>, <em>return_gradient=True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/utils.py#L232"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.HuberLoss.f_grad" title="Permalink to this definition">¶</a></dt>
+<code class="descname">f_grad</code><span class="sig-paren">(</span><em>x</em>, <em>return_gradient=True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/utils.py#L243"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.HuberLoss.f_grad" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -798,46 +786,46 @@ arXiv:1411.0589 (2014).</p>
 
 <dl class="class">
 <dt id="copt.utils.L1Ball">
-<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">L1Ball</code><span class="sig-paren">(</span><em>alpha</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/utils.py#L276"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.L1Ball" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">L1Ball</code><span class="sig-paren">(</span><em>alpha</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/utils.py#L287"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.L1Ball" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Indicator function over the L1 ball</p>
 <p>This function is 0 if the sum of absolute values is less than or equal to
 alpha, and infinity otherwise.</p>
 <dl class="method">
 <dt id="copt.utils.L1Ball.lmo">
-<code class="descname">lmo</code><span class="sig-paren">(</span><em>u</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/utils.py#L294"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.L1Ball.lmo" title="Permalink to this definition">¶</a></dt>
+<code class="descname">lmo</code><span class="sig-paren">(</span><em>u</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/utils.py#L305"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.L1Ball.lmo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Solve the linear problem
 min_{||s||_1 &lt;= alpha} &lt;u, s&gt;</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="copt.utils.L1Ball.prox">
-<code class="descname">prox</code><span class="sig-paren">(</span><em>x</em>, <em>step_size</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/utils.py#L291"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.L1Ball.prox" title="Permalink to this definition">¶</a></dt>
+<code class="descname">prox</code><span class="sig-paren">(</span><em>x</em>, <em>step_size</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/utils.py#L302"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.L1Ball.prox" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="class">
 <dt id="copt.utils.L1Norm">
-<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">L1Norm</code><span class="sig-paren">(</span><em>alpha</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/utils.py#L251"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.L1Norm" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">L1Norm</code><span class="sig-paren">(</span><em>alpha</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/utils.py#L262"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.L1Norm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>L1 norm, that is, the sum of absolute values</p>
 <dl class="method">
 <dt id="copt.utils.L1Norm.prox">
-<code class="descname">prox</code><span class="sig-paren">(</span><em>x</em>, <em>step_size</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/utils.py#L259"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.L1Norm.prox" title="Permalink to this definition">¶</a></dt>
+<code class="descname">prox</code><span class="sig-paren">(</span><em>x</em>, <em>step_size</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/utils.py#L270"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.L1Norm.prox" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="copt.utils.L1Norm.prox_factory">
-<code class="descname">prox_factory</code><span class="sig-paren">(</span><em>n_features</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/utils.py#L263"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.L1Norm.prox_factory" title="Permalink to this definition">¶</a></dt>
+<code class="descname">prox_factory</code><span class="sig-paren">(</span><em>n_features</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/utils.py#L274"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.L1Norm.prox_factory" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="class">
 <dt id="copt.utils.LogLoss">
-<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">LogLoss</code><span class="sig-paren">(</span><em>A</em>, <em>b</em>, <em>alpha=0.0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/utils.py#L95"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.LogLoss" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">LogLoss</code><span class="sig-paren">(</span><em>A</em>, <em>b</em>, <em>alpha=0.0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/utils.py#L106"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.LogLoss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>A class evaluation and derivatives of the logistic loss. The logistic loss function is defined as</p>
 <div class="math notranslate nohighlight">
 \[-\frac{1}{n}\sum_{i=1}^n b_i \log(\sigma(a_i^T x)) + (1 - b_i) \log(1 - \sigma(a_i^T x))\]</div>
@@ -850,7 +838,7 @@ t - \log(1 + e^t) &amp;\text{ otherwise}\end{cases}\end{split}\\\begin{split}\lo
 - \log(1 + e^t) &amp;\text{ otherwise}\end{cases}\end{split}\end{aligned}\end{align} \]</div>
 <dl class="method">
 <dt id="copt.utils.LogLoss.f_grad">
-<code class="descname">f_grad</code><span class="sig-paren">(</span><em>x</em>, <em>return_gradient=True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/utils.py#L132"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.LogLoss.f_grad" title="Permalink to this definition">¶</a></dt>
+<code class="descname">f_grad</code><span class="sig-paren">(</span><em>x</em>, <em>return_gradient=True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/utils.py#L143"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.LogLoss.f_grad" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -872,22 +860,22 @@ t - \log(1 + e^t) &amp;\text{ otherwise}\end{cases}\end{split}\\\begin{split}\lo
 
 <dl class="class">
 <dt id="copt.utils.SimplexConstraint">
-<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">SimplexConstraint</code><span class="sig-paren">(</span><em>s=1</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/utils.py#L505"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.SimplexConstraint" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">SimplexConstraint</code><span class="sig-paren">(</span><em>s=1</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/utils.py#L518"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.SimplexConstraint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="method">
 <dt id="copt.utils.SimplexConstraint.prox">
-<code class="descname">prox</code><span class="sig-paren">(</span><em>x</em>, <em>step_size</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/utils.py#L509"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.SimplexConstraint.prox" title="Permalink to this definition">¶</a></dt>
+<code class="descname">prox</code><span class="sig-paren">(</span><em>x</em>, <em>step_size</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/utils.py#L522"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.SimplexConstraint.prox" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="class">
 <dt id="copt.utils.SquareLoss">
-<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">SquareLoss</code><span class="sig-paren">(</span><em>A</em>, <em>b</em>, <em>alpha=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/utils.py#L193"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.SquareLoss" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">SquareLoss</code><span class="sig-paren">(</span><em>A</em>, <em>b</em>, <em>alpha=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/utils.py#L204"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.SquareLoss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="method">
 <dt id="copt.utils.SquareLoss.f_grad">
-<code class="descname">f_grad</code><span class="sig-paren">(</span><em>x</em>, <em>return_gradient=True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/utils.py#L206"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.SquareLoss.f_grad" title="Permalink to this definition">¶</a></dt>
+<code class="descname">f_grad</code><span class="sig-paren">(</span><em>x</em>, <em>return_gradient=True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/utils.py#L217"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.SquareLoss.f_grad" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -899,26 +887,26 @@ t - \log(1 + e^t) &amp;\text{ otherwise}\end{cases}\end{split}\\\begin{split}\lo
 
 <dl class="class">
 <dt id="copt.utils.TotalVariation2D">
-<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">TotalVariation2D</code><span class="sig-paren">(</span><em>alpha</em>, <em>shape</em>, <em>max_iter=100</em>, <em>tol=1e-06</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/utils.py#L650"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.TotalVariation2D" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">TotalVariation2D</code><span class="sig-paren">(</span><em>alpha</em>, <em>shape</em>, <em>max_iter=100</em>, <em>tol=1e-06</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/utils.py#L663"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.TotalVariation2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>2-dimensional Total Variation pseudo-norm</p>
 <dl class="method">
 <dt id="copt.utils.TotalVariation2D.prox">
-<code class="descname">prox</code><span class="sig-paren">(</span><em>x</em>, <em>step_size</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/utils.py#L666"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.TotalVariation2D.prox" title="Permalink to this definition">¶</a></dt>
+<code class="descname">prox</code><span class="sig-paren">(</span><em>x</em>, <em>step_size</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/utils.py#L679"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.TotalVariation2D.prox" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="class">
 <dt id="copt.utils.Trace">
-<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">Trace</code><span class="sig-paren">(</span><em>f=None</em>, <em>freq=1</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/utils.py#L11"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.Trace" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">Trace</code><span class="sig-paren">(</span><em>f=None</em>, <em>freq=1</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/utils.py#L46"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.Trace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 </dd></dl>
 
 <dl class="class">
 <dt id="copt.utils.TraceBall">
-<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">TraceBall</code><span class="sig-paren">(</span><em>alpha</em>, <em>shape</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/utils.py#L618"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.TraceBall" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">TraceBall</code><span class="sig-paren">(</span><em>alpha</em>, <em>shape</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/utils.py#L631"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.TraceBall" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Projection onto the trace (aka nuclear) norm, sum of singular values</p>
 <dl class="attribute">
 <dt id="copt.utils.TraceBall.is_separable">
@@ -927,25 +915,25 @@ t - \log(1 + e^t) &amp;\text{ otherwise}\end{cases}\end{split}\\\begin{split}\lo
 
 <dl class="method">
 <dt id="copt.utils.TraceBall.lmo">
-<code class="descname">lmo</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/utils.py#L643"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.TraceBall.lmo" title="Permalink to this definition">¶</a></dt>
+<code class="descname">lmo</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/utils.py#L656"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.TraceBall.lmo" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="copt.utils.TraceBall.prox">
-<code class="descname">prox</code><span class="sig-paren">(</span><em>x</em>, <em>step_size</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/utils.py#L634"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.TraceBall.prox" title="Permalink to this definition">¶</a></dt>
+<code class="descname">prox</code><span class="sig-paren">(</span><em>x</em>, <em>step_size</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/utils.py#L647"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.TraceBall.prox" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="copt.utils.TraceBall.prox_factory">
-<code class="descname">prox_factory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/utils.py#L640"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.TraceBall.prox_factory" title="Permalink to this definition">¶</a></dt>
+<code class="descname">prox_factory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/utils.py#L653"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.TraceBall.prox_factory" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="class">
 <dt id="copt.utils.TraceNorm">
-<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">TraceNorm</code><span class="sig-paren">(</span><em>alpha</em>, <em>shape</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/utils.py#L594"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.TraceNorm" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">TraceNorm</code><span class="sig-paren">(</span><em>alpha</em>, <em>shape</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/utils.py#L607"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.TraceNorm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Trace (aka nuclear) norm, sum of singular values</p>
 <dl class="attribute">
 <dt id="copt.utils.TraceNorm.is_separable">
@@ -954,19 +942,19 @@ t - \log(1 + e^t) &amp;\text{ otherwise}\end{cases}\end{split}\\\begin{split}\lo
 
 <dl class="method">
 <dt id="copt.utils.TraceNorm.prox">
-<code class="descname">prox</code><span class="sig-paren">(</span><em>x</em>, <em>step_size</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/utils.py#L607"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.TraceNorm.prox" title="Permalink to this definition">¶</a></dt>
+<code class="descname">prox</code><span class="sig-paren">(</span><em>x</em>, <em>step_size</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/utils.py#L620"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.TraceNorm.prox" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="copt.utils.TraceNorm.prox_factory">
-<code class="descname">prox_factory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/utils.py#L614"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.TraceNorm.prox_factory" title="Permalink to this definition">¶</a></dt>
+<code class="descname">prox_factory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/utils.py#L627"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.TraceNorm.prox_factory" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="function">
 <dt id="copt.utils.euclidean_proj_l1ball">
-<code class="descclassname">copt.utils.</code><code class="descname">euclidean_proj_l1ball</code><span class="sig-paren">(</span><em>v</em>, <em>s=1</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/utils.py#L557"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.euclidean_proj_l1ball" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">copt.utils.</code><code class="descname">euclidean_proj_l1ball</code><span class="sig-paren">(</span><em>v</em>, <em>s=1</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/utils.py#L570"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.euclidean_proj_l1ball" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the Euclidean projection on a L1-ball
 Solves the optimisation problem (using the algorithm from [1]):</p>
 <blockquote>
@@ -977,7 +965,7 @@ Solves the optimisation problem (using the algorithm from [1]):</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>v</strong> (<em>(</em><em>n</em><em>,</em><em>) </em><em>numpy array</em><em>,</em>) – n-dimensional vector to project</li>
-<li><strong>s</strong> (<em>float</em><em>, </em><em>optional</em><em>, </em><em>default: 1</em><em>,</em>) – radius of the L1-ball</li>
+<li><strong>s</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em><em>, </em><em>default: 1</em><em>,</em>) – radius of the L1-ball</li>
 </ul>
 </td>
 </tr>
@@ -999,7 +987,7 @@ Solves the optimisation problem (using the algorithm from [1]):</p>
 
 <dl class="function">
 <dt id="copt.utils.euclidean_proj_simplex">
-<code class="descclassname">copt.utils.</code><code class="descname">euclidean_proj_simplex</code><span class="sig-paren">(</span><em>v</em>, <em>s=1.0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/utils.py#L513"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.euclidean_proj_simplex" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">copt.utils.</code><code class="descname">euclidean_proj_simplex</code><span class="sig-paren">(</span><em>v</em>, <em>s=1.0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/utils.py#L526"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.euclidean_proj_simplex" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the Euclidean projection on a positive simplex
 Solves the optimisation problem (using the algorithm from [1]):</p>
 <blockquote>
@@ -1010,7 +998,7 @@ Solves the optimisation problem (using the algorithm from [1]):</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>v</strong> (<em>(</em><em>n</em><em>,</em><em>) </em><em>numpy array</em><em>,</em>) – n-dimensional vector to project</li>
-<li><strong>s</strong> (<em>float</em><em>, </em><em>optional</em><em>, </em><em>default: 1</em><em>,</em>) – radius of the simplex</li>
+<li><strong>s</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em><em>, </em><em>default: 1</em><em>,</em>) – radius of the simplex</li>
 </ul>
 </td>
 </tr>
@@ -1036,17 +1024,8 @@ International Conference on Machine Learning (ICML 2008)
 </dd></dl>
 
 <dl class="function">
-<dt id="copt.utils.get_lipschitz">
-<code class="descclassname">copt.utils.</code><code class="descname">get_lipschitz</code><span class="sig-paren">(</span><em>A</em>, <em>loss</em>, <em>alpha=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/utils.py#L50"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.get_lipschitz" title="Permalink to this definition">¶</a></dt>
-<dd><p>XXX DEPRECATED</p>
-<p>Estimate Lipschitz constant for different loss functions</p>
-<p>A : array-like</p>
-<p>loss : {‘logloss’, ‘square’, ‘huber’}</p>
-</dd></dl>
-
-<dl class="function">
 <dt id="copt.utils.get_max_lipschitz">
-<code class="descclassname">copt.utils.</code><code class="descname">get_max_lipschitz</code><span class="sig-paren">(</span><em>A</em>, <em>loss</em>, <em>alpha=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/utils.py#L74"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.get_max_lipschitz" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">copt.utils.</code><code class="descname">get_max_lipschitz</code><span class="sig-paren">(</span><em>A</em>, <em>loss</em>, <em>alpha=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/utils.py#L85"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.get_max_lipschitz" title="Permalink to this definition">¶</a></dt>
 <dd><p>XXX DEPRECATED</p>
 <p>Estimate the max Lipschitz constant (as appears in
 many stochastic methods).</p>
@@ -1056,7 +1035,12 @@ many stochastic methods).</p>
 
 <dl class="function">
 <dt id="copt.utils.init_lipschitz">
-<code class="descclassname">copt.utils.</code><code class="descname">init_lipschitz</code><span class="sig-paren">(</span><em>f_grad</em>, <em>x0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4e91b42/copt/utils.py#L32"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.init_lipschitz" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">copt.utils.</code><code class="descname">init_lipschitz</code><span class="sig-paren">(</span><em>f_grad</em>, <em>x0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/utils.py#L67"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.init_lipschitz" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="copt.utils.safe_sparse_add">
+<code class="descclassname">copt.utils.</code><code class="descname">safe_sparse_add</code><span class="sig-paren">(</span><em>a</em>, <em>b</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/utils.py#L29"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.safe_sparse_add" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -1107,13 +1091,13 @@ many stochastic methods).</p>
 
 <h3>Navigation</h3>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../proximal_gradient.html">1. Gradient-based methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../proximal_splitting.html">2. Proximal splitting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../frank_wolfe.html">3. Frank-Wolfe</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../incremental.html">4. Incremental methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../loss_functions.html">5. Loss functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">6. Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../datasets.html">7. Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proximal_gradient.html">Gradient-based methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proximal_splitting.html">Proximal splitting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frank_wolfe.html">Frank-Wolfe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../incremental.html">Incremental methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../loss_functions.html">Loss functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datasets.html">Datasets</a></li>
 </ul>
 
 
@@ -1129,17 +1113,6 @@ many stochastic methods).</p>
     </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
-<h3><a href="../index.html">Table of Contents</a></h3>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../proximal_gradient.html">1. Gradient-based methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../proximal_splitting.html">2. Proximal splitting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../frank_wolfe.html">3. Frank-Wolfe</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../incremental.html">4. Incremental methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../loss_functions.html">5. Loss functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">6. Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../datasets.html">7. Datasets</a></li>
-</ul>
-
         </div>
       </div>
       <div class="clearer"></div>
@@ -1148,7 +1121,7 @@ many stochastic methods).</p>
       &copy;Fabian Pedregosa.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.1</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.9</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
       
       |

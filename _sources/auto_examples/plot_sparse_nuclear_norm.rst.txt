@@ -28,11 +28,11 @@ Estimating a sparse and low rank matrix
     beta = 0
     beta = 0.001
     beta = 0.01
-    Achieved relative tolerance at iteration 967
-    Achieved relative tolerance at iteration 1981
+    Achieved relative tolerance at iteration 964
+    Achieved relative tolerance at iteration 1969
     beta = 0.1
     Achieved relative tolerance at iteration 121
-    Achieved relative tolerance at iteration 941
+    Achieved relative tolerance at iteration 942
 
 
 
@@ -87,8 +87,8 @@ Estimating a sparse and low rank matrix
     # .. compute the step-size ..
     s = splinalg.svds(A, k=1, return_singular_vectors=False,
                       tol=1e-3, maxiter=500)[0]
-    step_size = 1. / cp.utils.get_lipschitz(A, 'square')
     f = cp.utils.HuberLoss(A, b)
+    step_size = 1. / f.lipschitz
 
     # .. run the solver for different values ..
     # .. of the regularization parameter beta ..
@@ -168,7 +168,7 @@ Estimating a sparse and low rank matrix
     ax[1, 0].set_ylabel('Objective minus optimum')
     plt.show()
 
-**Total running time of the script:** ( 0 minutes  33.651 seconds)
+**Total running time of the script:** ( 0 minutes  59.915 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_sparse_nuclear_norm.py:
