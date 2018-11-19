@@ -9,12 +9,12 @@
     <title>copt.utils.L1Ball &#8212; copt  documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="copt.utils.GroupL1" href="copt.utils.GroupL1.html" />
@@ -39,13 +39,13 @@
 <h1>copt.utils.L1Ball<a class="headerlink" href="#copt-utils-l1ball" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="copt.utils.L1Ball">
-<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">L1Ball</code><span class="sig-paren">(</span><em>alpha</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/utils.py#L287"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.L1Ball" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">L1Ball</code><span class="sig-paren">(</span><em>alpha</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/025884d/copt/utils.py#L294"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.L1Ball" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indicator function over the L1 ball</p>
 <p>This function is 0 if the sum of absolute values is less than or equal to
 alpha, and infinity otherwise.</p>
 <dl class="method">
 <dt id="copt.utils.L1Ball.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>alpha</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/utils.py#L293"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.L1Ball.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>alpha</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/025884d/copt/utils.py#L300"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.L1Ball.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
@@ -69,7 +69,7 @@ alpha, and infinity otherwise.</p>
 </table>
 <dl class="method">
 <dt id="copt.utils.L1Ball.lmo">
-<code class="descname">lmo</code><span class="sig-paren">(</span><em>u</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/utils.py#L305"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.L1Ball.lmo" title="Permalink to this definition">¶</a></dt>
+<code class="descname">lmo</code><span class="sig-paren">(</span><em>u</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/025884d/copt/utils.py#L312"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.L1Ball.lmo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Solve the linear problem
 min_{||s||_1 &lt;= alpha} &lt;u, s&gt;</p>
 </dd></dl>
@@ -109,7 +109,7 @@ min_{||s||_1 &lt;= alpha} &lt;u, s&gt;</p>
     
 
 <p>
-<a href="https://travis-ci.org/openopt/copt">
+<a class="badge" href="https://travis-ci.org/openopt/copt">
     <img
         alt="https://secure.travis-ci.org/openopt/copt.svg?branch=master"
         src="https://secure.travis-ci.org/openopt/copt.svg?branch=master"
@@ -161,8 +161,8 @@ min_{||s||_1 &lt;= alpha} &lt;u, s&gt;</p>
       &copy;Fabian Pedregosa.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.9</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
       <a href="../_sources/generated/copt.utils.L1Ball.rst.txt"

@@ -9,12 +9,12 @@
     <title>copt.minimize_APGD &#8212; copt  documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Proximal splitting" href="../proximal_splitting.html" />
@@ -39,7 +39,7 @@
 <h1>copt.minimize_APGD<a class="headerlink" href="#copt-minimize-apgd" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="copt.minimize_APGD">
-<code class="descclassname">copt.</code><code class="descname">minimize_APGD</code><span class="sig-paren">(</span><em>f_grad</em>, <em>x0</em>, <em>prox=None</em>, <em>tol=1e-06</em>, <em>max_iter=500</em>, <em>verbose=0</em>, <em>callback=None</em>, <em>backtracking=True</em>, <em>step_size=None</em>, <em>max_iter_backtracking=100</em>, <em>backtracking_factor=0.6</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/proxgrad.py#L138"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.minimize_APGD" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">copt.</code><code class="descname">minimize_APGD</code><span class="sig-paren">(</span><em>f_grad</em>, <em>x0</em>, <em>prox=None</em>, <em>tol=1e-06</em>, <em>max_iter=500</em>, <em>verbose=0</em>, <em>callback=None</em>, <em>backtracking=True</em>, <em>step_size=None</em>, <em>max_iter_backtracking=100</em>, <em>backtracking_factor=0.6</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/025884d/copt/proxgrad.py#L138"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.minimize_APGD" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accelerated proximal gradient descent.</p>
 <p>Solves problems of the form</p>
 <blockquote>
@@ -112,7 +112,7 @@ communications (2009)</p>
     
 
 <p>
-<a href="https://travis-ci.org/openopt/copt">
+<a class="badge" href="https://travis-ci.org/openopt/copt">
     <img
         alt="https://secure.travis-ci.org/openopt/copt.svg?branch=master"
         src="https://secure.travis-ci.org/openopt/copt.svg?branch=master"
@@ -157,8 +157,8 @@ communications (2009)</p>
       &copy;Fabian Pedregosa.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.9</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
       <a href="../_sources/generated/copt.minimize_APGD.rst.txt"

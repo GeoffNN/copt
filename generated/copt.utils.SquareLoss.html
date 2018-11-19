@@ -9,12 +9,12 @@
     <title>copt.utils.SquareLoss &#8212; copt  documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="copt.utils.HuberLoss" href="copt.utils.HuberLoss.html" />
@@ -39,10 +39,16 @@
 <h1>copt.utils.SquareLoss<a class="headerlink" href="#copt-utils-squareloss" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="copt.utils.SquareLoss">
-<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">SquareLoss</code><span class="sig-paren">(</span><em>A</em>, <em>b</em>, <em>alpha=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/utils.py#L204"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.SquareLoss" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="method">
+<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">SquareLoss</code><span class="sig-paren">(</span><em>A</em>, <em>b</em>, <em>alpha=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/025884d/copt/utils.py#L202"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.SquareLoss" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class evaluation and derivatives of the logistic loss. The logistic loss
+function is defined as</p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[-\frac{1}{n}\|A x - b\|^2\]</div>
+</div></blockquote>
+<dl class="method">
 <dt id="copt.utils.SquareLoss.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>A</em>, <em>b</em>, <em>alpha=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96553a6/copt/utils.py#L205"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.SquareLoss.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>A</em>, <em>b</em>, <em>alpha=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/025884d/copt/utils.py#L212"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.SquareLoss.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
@@ -108,7 +114,7 @@
     
 
 <p>
-<a href="https://travis-ci.org/openopt/copt">
+<a class="badge" href="https://travis-ci.org/openopt/copt">
     <img
         alt="https://secure.travis-ci.org/openopt/copt.svg?branch=master"
         src="https://secure.travis-ci.org/openopt/copt.svg?branch=master"
@@ -160,8 +166,8 @@
       &copy;Fabian Pedregosa.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.9</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
       <a href="../_sources/generated/copt.utils.SquareLoss.rst.txt"
