@@ -14,7 +14,9 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"argmin": "\\DeclareMathOperator*{\\argmin}{\\mathbf{arg\\,min}}", "argmax": "\\DeclareMathOperator*{\\argmin}{\\mathbf{arg\\,max}}", "bs": "\\newcommand{\\bs}[1]{\\boldsymbol{#1}}"}}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="copt.minimize_SVRG" href="copt.minimize_SVRG.html" />
@@ -39,54 +41,53 @@
 <h1>copt.minimize_SAGA<a class="headerlink" href="#copt-minimize-saga" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="copt.minimize_SAGA">
-<code class="descclassname">copt.</code><code class="descname">minimize_SAGA</code><span class="sig-paren">(</span><em>f_deriv</em>, <em>A</em>, <em>b</em>, <em>x0</em>, <em>step_size</em>, <em>prox=None</em>, <em>alpha=0</em>, <em>max_iter=500</em>, <em>tol=1e-06</em>, <em>verbose=1</em>, <em>callback=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/025884d/copt/randomized.py#L62"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.minimize_SAGA" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Stochastic average gradient augmented (SAGA) algorithm for</dt>
-<dd><p class="first">linearly-parametrized loss functions.</p>
+<code class="descclassname">copt.</code><code class="descname">minimize_SAGA</code><span class="sig-paren">(</span><em>f_deriv</em>, <em>A</em>, <em>b</em>, <em>x0</em>, <em>step_size</em>, <em>prox=None</em>, <em>alpha=0</em>, <em>max_iter=500</em>, <em>tol=1e-06</em>, <em>verbose=1</em>, <em>callback=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/9141530/copt/randomized.py#L62"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.minimize_SAGA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stochastic average gradient augmented (SAGA) algorithm for
+linearly-parametrized loss functions.</p>
 <p>The SAGA algorithm can solve optimization problems of the form</p>
 <blockquote>
 <div>minimize_x sum_{i}^n_samples f(A_i^T x, b_i) + alpha ||x||_2^2 + g(x)</div></blockquote>
-<p class="last">where g is a function for which we have access to its proximal operator.</p>
-</dd>
-</dl>
+<p>where g is a function for which we have access to its proximal operator.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p>This function is experimental, API is likely to change.</p>
-<dl class="docutils">
-<dt>f</dt>
-<dd>loss functions.</dd>
-<dt>x0: np.ndarray or None, optional</dt>
-<dd>Starting point for optimization.</dd>
-<dt>step_size: float or None, optional</dt>
-<dd>Step size for the optimization. If None is given, this will be
-estimated from the function f.</dd>
-<dt>max_iter: int</dt>
-<dd>Maximum number of passes through the data in the optimization.</dd>
-<dt>tol: float</dt>
-<dd>Tolerance criterion. The algorithm will stop whenever the norm of the
+<p class="last">This function is experimental, API is likely to change.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>f</strong> – loss functions.</li>
+<li><strong>x0</strong> (<em>np.ndarray</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><em>optional</em>) – Starting point for optimization.</li>
+<li><strong>step_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><em>optional</em>) – Step size for the optimization. If None is given, this will be
+estimated from the function f.</li>
+<li><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Maximum number of passes through the data in the optimization.</li>
+<li><strong>tol</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – Tolerance criterion. The algorithm will stop whenever the norm of the
 gradient mapping (generalization of the gradient for nonsmooth
-optimization) is below tol.</dd>
-<dt>verbose: bool</dt>
-<dd>Verbosity level. True might print some messages.</dd>
-<dt>trace: bool</dt>
-<dd>Whether to trace convergence of the function, useful for plotting
+optimization) is below tol.</li>
+<li><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – Verbosity level. True might print some messages.</li>
+<li><strong>trace</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – Whether to trace convergence of the function, useful for plotting
 and/or debugging. If ye, the result will have extra members trace_func,
-trace_time.</dd>
-</dl>
-<dl class="docutils">
-<dt>opt: OptimizeResult</dt>
-<dd>The optimization result represented as a
+trace_time.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>opt</strong> – The optimization result represented as a
 <code class="docutils literal notranslate"><span class="pre">scipy.optimize.OptimizeResult</span></code> object. Important attributes are:
 <code class="docutils literal notranslate"><span class="pre">x</span></code> the solution array, <code class="docutils literal notranslate"><span class="pre">success</span></code> a Boolean flag indicating if
 the optimizer exited successfully and <code class="docutils literal notranslate"><span class="pre">message</span></code> which describes
 the cause of the termination. See <cite>scipy.optimize.OptimizeResult</cite>
-for a description of other attributes.</dd>
-</dl>
+for a description of other attributes.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">OptimizeResult</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">References</p>
 <p>This variant of the SAGA algorithm is described in:</p>
-<p class="last">Fabian Pedregosa, Remi Leblond, and Simon Lacoste-Julien. “Breaking the
-Nonsmooth Barrier: A Scalable Parallel Method for Composite Optimization.”
-Advances in Neural Information Processing Systems (NIPS) 2017.</p>
-</div>
+<p><a class="reference external" href="https://arxiv.org/pdf/1707.06468.pdf">“Breaking the Nonsmooth Barrier: A Scalable Parallel Method for Composite Optimization.”</a>, Fabian Pedregosa, Remi Leblond, and Simon Lacoste-Julien. Advances in Neural Information Processing Systems (NIPS) 2017.</p>
 </dd></dl>
 
 </div>
@@ -168,7 +169,7 @@ Advances in Neural Information Processing Systems (NIPS) 2017.</p>
       &copy;Fabian Pedregosa.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.1</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.4</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

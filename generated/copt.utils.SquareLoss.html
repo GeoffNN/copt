@@ -14,7 +14,9 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"argmin": "\\DeclareMathOperator*{\\argmin}{\\mathbf{arg\\,min}}", "argmax": "\\DeclareMathOperator*{\\argmin}{\\mathbf{arg\\,max}}", "bs": "\\newcommand{\\bs}[1]{\\boldsymbol{#1}}"}}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="copt.utils.HuberLoss" href="copt.utils.HuberLoss.html" />
@@ -39,7 +41,7 @@
 <h1>copt.utils.SquareLoss<a class="headerlink" href="#copt-utils-squareloss" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="copt.utils.SquareLoss">
-<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">SquareLoss</code><span class="sig-paren">(</span><em>A</em>, <em>b</em>, <em>alpha=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/025884d/copt/utils.py#L202"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.SquareLoss" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">SquareLoss</code><span class="sig-paren">(</span><em>A</em>, <em>b</em>, <em>alpha=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/9141530/copt/utils.py#L202"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.SquareLoss" title="Permalink to this definition">¶</a></dt>
 <dd><p>A class evaluation and derivatives of the logistic loss. The logistic loss
 function is defined as</p>
 <blockquote>
@@ -48,7 +50,7 @@ function is defined as</p>
 </div></blockquote>
 <dl class="method">
 <dt id="copt.utils.SquareLoss.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>A</em>, <em>b</em>, <em>alpha=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/025884d/copt/utils.py#L212"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.SquareLoss.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>A</em>, <em>b</em>, <em>alpha=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/9141530/copt/utils.py#L212"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.SquareLoss.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
@@ -166,7 +168,7 @@ function is defined as</p>
       &copy;Fabian Pedregosa.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.1</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.4</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

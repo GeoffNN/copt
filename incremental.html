@@ -14,7 +14,9 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"argmin": "\\DeclareMathOperator*{\\argmin}{\\mathbf{arg\\,min}}", "argmax": "\\DeclareMathOperator*{\\argmin}{\\mathbf{arg\\,max}}", "bs": "\\newcommand{\\bs}[1]{\\boldsymbol{#1}}"}}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="copt.minimize_SAGA" href="generated/copt.minimize_SAGA.html" />
@@ -44,7 +46,7 @@
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td><a class="reference internal" href="generated/copt.minimize_SAGA.html#copt.minimize_SAGA" title="copt.minimize_SAGA"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copt.minimize_SAGA</span></code></a>(f_deriv,&nbsp;A,&nbsp;b,&nbsp;x0,&nbsp;step_size)</td>
-<td>Stochastic average gradient augmented (SAGA) algorithm for</td>
+<td>Stochastic average gradient augmented (SAGA) algorithm for linearly-parametrized loss functions.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="generated/copt.minimize_SVRG.html#copt.minimize_SVRG" title="copt.minimize_SVRG"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copt.minimize_SVRG</span></code></a>(f_deriv,&nbsp;A,&nbsp;b,&nbsp;x0,&nbsp;step_size)</td>
 <td>Stochastic average gradient augmented (SAGA) algorithm.</td>
@@ -133,7 +135,7 @@
       &copy;Fabian Pedregosa.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.1</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.4</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

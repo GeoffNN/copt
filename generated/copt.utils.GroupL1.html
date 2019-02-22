@@ -14,7 +14,9 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"argmin": "\\DeclareMathOperator*{\\argmin}{\\mathbf{arg\\,min}}", "argmax": "\\DeclareMathOperator*{\\argmin}{\\mathbf{arg\\,max}}", "bs": "\\newcommand{\\bs}[1]{\\boldsymbol{#1}}"}}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="copt.utils.TraceNorm" href="copt.utils.TraceNorm.html" />
@@ -39,7 +41,7 @@
 <h1>copt.utils.GroupL1<a class="headerlink" href="#copt-utils-groupl1" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="copt.utils.GroupL1">
-<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">GroupL1</code><span class="sig-paren">(</span><em>alpha</em>, <em>groups</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/025884d/copt/utils.py#L340"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.GroupL1" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">GroupL1</code><span class="sig-paren">(</span><em>alpha</em>, <em>groups</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/9141530/copt/utils.py#L340"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.GroupL1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Group Lasso penalty</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -56,7 +58,7 @@
 <p class="rubric">Examples</p>
 <dl class="method">
 <dt id="copt.utils.GroupL1.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>alpha</em>, <em>groups</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/025884d/copt/utils.py#L354"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.GroupL1.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>alpha</em>, <em>groups</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/9141530/copt/utils.py#L354"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.GroupL1.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
@@ -165,7 +167,7 @@
       &copy;Fabian Pedregosa.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.1</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.4</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
