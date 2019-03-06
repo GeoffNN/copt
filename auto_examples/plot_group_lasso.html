@@ -109,7 +109,6 @@ Achieved relative tolerance at iteration 661
 
     <span class="n">cb_tosls</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">Trace</span><span class="p">()</span>
     <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_features</span><span class="p">)</span>
-    <span class="n">cb_tosls</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
     <span class="n">pgd_ls</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">minimize_PGD</span><span class="p">(</span>
         <span class="n">f</span><span class="o">.</span><span class="n">f_grad</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">G1</span><span class="o">.</span><span class="n">prox</span><span class="p">,</span> <span class="n">step_size</span><span class="o">=</span><span class="n">step_size</span><span class="p">,</span>
         <span class="n">max_iter</span><span class="o">=</span><span class="n">max_iter</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-14</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
@@ -119,7 +118,6 @@ Achieved relative tolerance at iteration 661
 
     <span class="n">cb_tos</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">Trace</span><span class="p">()</span>
     <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_features</span><span class="p">)</span>
-    <span class="n">cb_tos</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
     <span class="n">pgd</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">minimize_PGD</span><span class="p">(</span>
         <span class="n">f</span><span class="o">.</span><span class="n">f_grad</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">G1</span><span class="o">.</span><span class="n">prox</span><span class="p">,</span>
         <span class="n">step_size</span><span class="o">=</span><span class="n">step_size</span><span class="p">,</span>
@@ -173,7 +171,7 @@ Achieved relative tolerance at iteration 661
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><strong>Total running time of the script:</strong> ( 0 minutes  8.732 seconds)</p>
+<p><strong>Total running time of the script:</strong> ( 0 minutes  9.956 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-group-lasso-py">
 <div class="sphx-glr-download docutils container">
 <a class="reference download internal" download="" href="../_downloads/f6b8725d039339f78d5026df8d22acfa/plot_group_lasso.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_group_lasso.py</span></code></a></div>

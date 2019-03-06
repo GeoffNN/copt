@@ -111,7 +111,6 @@ Iteration 2, beta 5e-06
 
     <span class="n">cb_adatos</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">Trace</span><span class="p">()</span>
     <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_features</span><span class="p">)</span>
-    <span class="n">cb_adatos</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
     <span class="n">adatos</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">minimize_TOS</span><span class="p">(</span>
         <span class="n">f</span><span class="o">.</span><span class="n">f_grad</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">g_prox</span><span class="p">,</span> <span class="n">h_prox</span><span class="p">,</span>
         <span class="n">step_size</span><span class="o">=</span><span class="mi">10</span> <span class="o">*</span> <span class="n">step_size</span><span class="p">,</span>
@@ -124,7 +123,6 @@ Iteration 2, beta 5e-06
 
     <span class="n">cb_tos</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">Trace</span><span class="p">()</span>
     <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_features</span><span class="p">)</span>
-    <span class="n">cb_tos</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
     <span class="n">cp</span><span class="o">.</span><span class="n">minimize_TOS</span><span class="p">(</span>
         <span class="n">f</span><span class="o">.</span><span class="n">f_grad</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">g_prox</span><span class="p">,</span> <span class="n">h_prox</span><span class="p">,</span>
         <span class="n">step_size</span><span class="o">=</span><span class="n">step_size</span><span class="p">,</span>
@@ -136,7 +134,6 @@ Iteration 2, beta 5e-06
 
     <span class="n">cb_pdhg</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">Trace</span><span class="p">()</span>
     <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_features</span><span class="p">)</span>
-    <span class="n">cb_pdhg</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
     <span class="n">cp</span><span class="o">.</span><span class="n">minimize_PDHG</span><span class="p">(</span>
         <span class="n">f</span><span class="o">.</span><span class="n">f_grad</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">g_prox</span><span class="p">,</span> <span class="n">h_prox</span><span class="p">,</span>
         <span class="n">callback</span><span class="o">=</span><span class="n">cb_pdhg</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="n">max_iter</span><span class="p">,</span>
@@ -190,7 +187,7 @@ Iteration 2, beta 5e-06
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><strong>Total running time of the script:</strong> ( 2 minutes  9.987 seconds)</p>
+<p><strong>Total running time of the script:</strong> ( 1 minutes  48.135 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-tv-deblurring-py">
 <div class="sphx-glr-download docutils container">
 <a class="reference download internal" download="" href="../_downloads/e94ab9148efb733dbd6d61c47b557cd0/plot_tv_deblurring.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_tv_deblurring.py</span></code></a></div>

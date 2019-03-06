@@ -94,7 +94,6 @@ Comparison of solvers with total variation regularization.
 
         cb_adatos = cp.utils.Trace()
         x0 = np.zeros(n_features)
-        cb_adatos(x0)
         adatos = cp.minimize_TOS(
             f.f_grad, x0, g_prox, h_prox,
             step_size=10 * step_size,
@@ -107,7 +106,6 @@ Comparison of solvers with total variation regularization.
 
         cb_tos = cp.utils.Trace()
         x0 = np.zeros(n_features)
-        cb_tos(x0)
         cp.minimize_TOS(
             f.f_grad, x0, g_prox, h_prox,
             step_size=step_size,
@@ -119,7 +117,6 @@ Comparison of solvers with total variation regularization.
 
         cb_pdhg = cp.utils.Trace()
         x0 = np.zeros(n_features)
-        cb_pdhg(x0)
         cp.minimize_PDHG(
             f.f_grad, x0, g_prox, h_prox,
             callback=cb_pdhg, max_iter=max_iter,
@@ -172,7 +169,7 @@ Comparison of solvers with total variation regularization.
     ax[1, 0].set_ylabel('Objective minus optimum')
     plt.show()
 
-**Total running time of the script:** ( 2 minutes  9.987 seconds)
+**Total running time of the script:** ( 1 minutes  48.135 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_tv_deblurring.py:

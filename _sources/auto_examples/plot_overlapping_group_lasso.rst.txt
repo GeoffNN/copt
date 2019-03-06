@@ -36,7 +36,7 @@ This example is modeled after the experiments in `Adaptive Three Operator Splitt
     beta = 0.01
     Achieved relative tolerance at iteration 2693
     beta = 0.1
-    Achieved relative tolerance at iteration 1691
+    Achieved relative tolerance at iteration 1692
 
 
 
@@ -97,7 +97,6 @@ This example is modeled after the experiments in `Adaptive Three Operator Splitt
 
         cb_tosls = cp.utils.Trace()
         x0 = np.zeros(n_features)
-        cb_tosls(x0)
         tos_ls = cp.minimize_TOS(
             f.f_grad, x0, G1.prox, G2.prox, step_size=10 * step_size,
             max_iter=max_iter, tol=1e-14, verbose=1,
@@ -108,7 +107,6 @@ This example is modeled after the experiments in `Adaptive Three Operator Splitt
 
         cb_tos = cp.utils.Trace()
         x0 = np.zeros(n_features)
-        cb_tos(x0)
         tos = cp.minimize_TOS(
             f.f_grad, x0, G1.prox, G2.prox,
             step_size=step_size,
@@ -121,7 +119,6 @@ This example is modeled after the experiments in `Adaptive Three Operator Splitt
 
         cb_pdhg = cp.utils.Trace()
         x0 = np.zeros(n_features)
-        cb_pdhg(x0)
         pdhg = cp.minimize_PDHG(
             f.f_grad, x0, G1.prox, G2.prox,
             callback=cb_pdhg, max_iter=max_iter,
@@ -133,7 +130,6 @@ This example is modeled after the experiments in `Adaptive Three Operator Splitt
 
         cb_pdhg_nols = cp.utils.Trace()
         x0 = np.zeros(n_features)
-        cb_pdhg_nols(x0)
         pdhg_nols = cp.minimize_PDHG(
             f.f_grad, x0, G1.prox, G2.prox,
             callback=cb_pdhg_nols, max_iter=max_iter,
@@ -195,7 +191,7 @@ This example is modeled after the experiments in `Adaptive Three Operator Splitt
     ax[1, 0].set_ylabel('Objective minus optimum')
     plt.show()
 
-**Total running time of the script:** ( 5 minutes  22.574 seconds)
+**Total running time of the script:** ( 4 minutes  54.706 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_overlapping_group_lasso.py:

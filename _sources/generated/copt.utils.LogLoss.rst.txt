@@ -13,6 +13,7 @@ copt.utils.LogLoss
 
    .. autosummary::
    
+      ~LogLoss.Hessian
       ~LogLoss.__init__
       ~LogLoss.f_grad
    
