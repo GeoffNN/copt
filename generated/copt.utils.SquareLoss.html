@@ -41,16 +41,16 @@
 <h1>copt.utils.SquareLoss<a class="headerlink" href="#copt-utils-squareloss" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="copt.utils.SquareLoss">
-<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">SquareLoss</code><span class="sig-paren">(</span><em>A</em>, <em>b</em>, <em>alpha=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/9141530/copt/utils.py#L202"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.SquareLoss" title="Permalink to this definition">¶</a></dt>
-<dd><p>A class evaluation and derivatives of the logistic loss. The logistic loss
-function is defined as</p>
+<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">SquareLoss</code><span class="sig-paren">(</span><em>A</em>, <em>b</em>, <em>alpha=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/59c3fd5/copt/utils.py#L248"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.SquareLoss" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class evaluation and derivatives of the square loss, defined as</p>
 <blockquote>
 <div><div class="math notranslate nohighlight">
-\[-\frac{1}{n}\|A x - b\|^2\]</div>
+\[\frac{1}{n}\|A x - b\|^2~,\]</div>
 </div></blockquote>
+<p>where <span class="math notranslate nohighlight">\(\|\cdot\|\)</span> is the euclidean norm.</p>
 <dl class="method">
 <dt id="copt.utils.SquareLoss.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>A</em>, <em>b</em>, <em>alpha=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/9141530/copt/utils.py#L212"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.SquareLoss.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>A</em>, <em>b</em>, <em>alpha=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/59c3fd5/copt/utils.py#L258"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.SquareLoss.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 

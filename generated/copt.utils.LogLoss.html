@@ -41,20 +41,18 @@
 <h1>copt.utils.LogLoss<a class="headerlink" href="#copt-utils-logloss" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="copt.utils.LogLoss">
-<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">LogLoss</code><span class="sig-paren">(</span><em>A</em>, <em>b</em>, <em>alpha=0.0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/9141530/copt/utils.py#L106"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.LogLoss" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">LogLoss</code><span class="sig-paren">(</span><em>A</em>, <em>b</em>, <em>alpha=0.0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/59c3fd5/copt/utils.py#L111"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.LogLoss" title="Permalink to this definition">¶</a></dt>
 <dd><p>A class evaluation and derivatives of the logistic loss. The logistic loss function is defined as</p>
 <div class="math notranslate nohighlight">
-\[-\frac{1}{n}\sum_{i=1}^n b_i \log(\sigma(a_i^T x)) + (1 - b_i) \log(1 - \sigma(a_i^T x))\]</div>
-<p>where <span class="math notranslate nohighlight">\(\sigma\)</span> is the sigmoid function <span class="math notranslate nohighlight">\(\sigma(t) = 1/(1 + e^{-t})\)</span>.</p>
-<p>When the input vector b comes from class labels, it is expected to have the values 0 or 1.</p>
-<p>for a numerically stable computation of the logistic loss, we use the identities</p>
-<div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned}\begin{split}\log(\sigma(t)) = \begin{cases} -\log(1 + e^{-t}) &amp;\text{ if $t \geq 0$}\\
-t - \log(1 + e^t) &amp;\text{ otherwise}\end{cases}\end{split}\\\begin{split}\log(1 - \sigma(t)) = \begin{cases} -t -\log(1 + e^{-t}) &amp;\text{ if $t \geq 0$}\\
-- \log(1 + e^t) &amp;\text{ otherwise}\end{cases}\end{split}\end{aligned}\end{align} \]</div>
+\[-\frac{1}{n}\sum_{i=1}^n b_i \log(\sigma(\bs{a}_i^T \bs{x})) + (1 - b_i) \log(1 - \sigma(\bs{a}_i^T \bs{x}))\]</div>
+<p>where <span class="math notranslate nohighlight">\(\sigma\)</span> is the sigmoid function <span class="math notranslate nohighlight">\(\sigma(t) = 1/(1 + e^{-t})\)</span></p>
+<p>The input vector b verifies <span class="math notranslate nohighlight">\(0 \leq b_i \leq 1\)</span>. When it comes from
+class labels, it should have the values 0 or 1.</p>
+<p class="rubric">References</p>
+<p><a class="reference external" href="http://fa.bianp.net/drafts/derivatives_logistic.html">http://fa.bianp.net/drafts/derivatives_logistic.html</a></p>
 <dl class="method">
 <dt id="copt.utils.LogLoss.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>A</em>, <em>b</em>, <em>alpha=0.0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/9141530/copt/utils.py#L127"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.LogLoss.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>A</em>, <em>b</em>, <em>alpha=0.0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/59c3fd5/copt/utils.py#L126"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.LogLoss.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
@@ -91,6 +89,12 @@ t - \log(1 + e^t) &amp;\text{ otherwise}\end{cases}\end{split}\\\begin{split}\lo
 </tr>
 </tbody>
 </table>
+<dl class="method">
+<dt id="copt.utils.LogLoss.Hessian">
+<code class="descname">Hessian</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/59c3fd5/copt/utils.py#L177"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.LogLoss.Hessian" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a callable that performs dot products with the Hessian</p>
+</dd></dl>
+
 </dd></dl>
 
 </div>

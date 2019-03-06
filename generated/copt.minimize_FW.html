@@ -41,7 +41,7 @@
 <h1>copt.minimize_FW<a class="headerlink" href="#copt-minimize-fw" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="copt.minimize_FW">
-<code class="descclassname">copt.</code><code class="descname">minimize_FW</code><span class="sig-paren">(</span><em>f_grad</em>, <em>lmo</em>, <em>x0</em>, <em>L=None</em>, <em>max_iter=1000</em>, <em>tol=1e-12</em>, <em>backtracking=True</em>, <em>callback=None</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/9141530/copt/frank_wolfe.py#L10"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.minimize_FW" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">copt.</code><code class="descname">minimize_FW</code><span class="sig-paren">(</span><em>f_grad</em>, <em>lmo</em>, <em>x0</em>, <em>L=None</em>, <em>max_iter=1000</em>, <em>tol=1e-12</em>, <em>backtracking=True</em>, <em>callback=None</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/59c3fd5/copt/frank_wolfe.py#L10"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.minimize_FW" title="Permalink to this definition">¶</a></dt>
 <dd><p>Frank-Wolfe algorithm</p>
 <p>This method for optimization problems of the form</p>
 <div class="math notranslate nohighlight">
@@ -56,7 +56,7 @@ linear minimization oracle (lmo), i.e., a routine that given a vector
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>f_grad</strong> (<em>callable</em>) – Takes as input the current iterate (a vector of same size as x0) and
 returns the function value and gradient of the objective function.
 It should accept the optional argument return_gradient, and when False
@@ -64,13 +64,28 @@ it should return only the function value.</li>
 <li><strong>lmo</strong> (<em>callable</em>) – Takes as input a vector u of same size as x0 and returns a solution to
 the linear minimization oracle (defined above).</li>
 <li><strong>x0</strong> (<em>array-like</em>) – Initial guess for solution.</li>
+<li><strong>L</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em> (</em><em>optional</em><em>)</em>) – Estimate for the Lipschitz constant of the gradient.</li>
+<li><strong>backtracking</strong> (<em>boolean</em><em> or </em><em>callable</em>) – </li>
 </ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>res</strong> – The optimization result represented as a
+<code class="docutils literal notranslate"><span class="pre">scipy.optimize.OptimizeResult</span></code> object. Important attributes are:
+<code class="docutils literal notranslate"><span class="pre">x</span></code> the solution array, <code class="docutils literal notranslate"><span class="pre">success</span></code> a Boolean flag indicating if
+the optimizer exited successfully and <code class="docutils literal notranslate"><span class="pre">message</span></code> which describes
+the cause of the termination. See <cite>scipy.optimize.OptimizeResult</cite>
+for a description of other attributes.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">scipy.optimize.OptimizeResult</p>
 </td>
 </tr>
 </tbody>
 </table>
 <p class="rubric">References</p>
-<p><a class="reference external" href="https://arxiv.org/pdf/1806.05123.pdf">Step-Size Adaptivity in Projection-Free Optimization</a>, Pedregosa, F., Askari, A., Negiar, G., &amp; Jaggi, M. (2018).  arXiv preprint arXiv:1806.05123.</p>
+<p>Jaggi, Martin. <a class="reference external" href="http://proceedings.mlr.press/v28/jaggi13-supp.pdf">“Revisiting Frank-Wolfe: Projection-Free Sparse Convex Optimization.”</a> ICML 2013.</p>
+<p>Pedregosa, Fabian <a class="reference external" href="http://fa.bianp.net/blog/2018/notes-on-the-frank-wolfe-algorithm-part-i/">“Notes on the Frank-Wolfe Algorithm”</a>, 2018</p>
+<p>Pedregosa, Fabian, et al. <a class="reference external" href="https://arxiv.org/pdf/1806.05123.pdf">“Step-Size Adaptivity in Projection-Free Optimization.”</a> arXiv preprint arXiv:1806.05123 (2018).</p>
 </dd></dl>
 
 </div>
