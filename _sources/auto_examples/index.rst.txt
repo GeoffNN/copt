@@ -46,7 +46,7 @@ Examples
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Plot showing how an optimal step-size for the Frank-Wolfe algorithm evolves over time.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Plot showing both the optimal step-size and curavature for the Frank-Wolfe algorithm on a logis...">
 
 .. only:: html
 

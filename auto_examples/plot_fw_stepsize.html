@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Step-size strategies for FW &#8212; copt  documentation</title>
+    <title>Step-size and curavature on the Frank-Wolfe algorithm &#8212; copt  documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
@@ -41,10 +41,16 @@
 <p class="first admonition-title">Note</p>
 <p class="last">Click <a class="reference internal" href="#sphx-glr-download-auto-examples-plot-fw-stepsize-py"><span class="std std-ref">here</span></a> to download the full example code</p>
 </div>
-<div class="sphx-glr-example-title section" id="step-size-strategies-for-fw">
-<span id="sphx-glr-auto-examples-plot-fw-stepsize-py"></span><h1>Step-size strategies for FW<a class="headerlink" href="#step-size-strategies-for-fw" title="Permalink to this headline">¶</a></h1>
-<p>Plot showing how an optimal step-size for the Frank-Wolfe algorithm
-evolves over time.</p>
+<div class="sphx-glr-example-title section" id="step-size-and-curavature-on-the-frank-wolfe-algorithm">
+<span id="sphx-glr-auto-examples-plot-fw-stepsize-py"></span><h1>Step-size and curavature on the Frank-Wolfe algorithm<a class="headerlink" href="#step-size-and-curavature-on-the-frank-wolfe-algorithm" title="Permalink to this headline">¶</a></h1>
+<p>Plot showing both the optimal step-size and curavature for
+the Frank-Wolfe algorithm on a logistic regression problem.</p>
+<p>The step-size is computed as the one that gives the largest
+decrease in objective function (see <code class="xref py py-func docutils literal notranslate"><span class="pre">exact_ls()</span></code>). The
+curavature is computed as the largest eigenvalue of the
+Hessian.</p>
+<p>In the plot we can see how the variance of the step-size
+is much higher than the one associated with the curvature.</p>
 <img alt="../_images/sphx_glr_plot_fw_stepsize_001.png" class="sphx-glr-single-img" src="../_images/sphx_glr_plot_fw_stepsize_001.png" />
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
@@ -70,7 +76,7 @@ evolves over time.</p>
 <span class="n">f</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">LogLoss</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_features</span><span class="p">)</span>
 <span class="n">trace_step_size</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">trace_lipschitz</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">trace_curavature</span> <span class="o">=</span> <span class="p">[]</span>
 
 
 <span class="k">def</span> <span class="nf">cb</span><span class="p">(</span><span class="n">kw</span><span class="p">):</span>
@@ -80,18 +86,18 @@ evolves over time.</p>
         <span class="n">matvec</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">Hessian</span><span class="p">(</span><span class="n">kw</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]))</span>
 
     <span class="n">s</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">splinalg</span><span class="o">.</span><span class="n">eigsh</span><span class="p">(</span><span class="n">Hs</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">trace_lipschitz</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="n">trace_curavature</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 
 
 <span class="n">out</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">minimize_FW</span><span class="p">(</span>
     <span class="n">f</span><span class="o">.</span><span class="n">f_grad</span><span class="p">,</span> <span class="n">l1_ball</span><span class="o">.</span><span class="n">lmo</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">cb</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
-    <span class="n">backtracking</span><span class="o">=</span><span class="n">exact_ls</span><span class="p">,</span> <span class="n">L</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">lipschitz</span><span class="p">)</span>
+    <span class="n">backtracking</span><span class="o">=</span><span class="n">exact_ls</span><span class="p">)</span>
 
 <span class="c1"># Focus on the last 4/5, since the first iterations</span>
 <span class="c1"># tend to have a disproportionally large step-size</span>
 <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">trace_step_size</span><span class="p">)</span> <span class="o">//</span> <span class="mi">5</span>
 <span class="n">trace_step_size</span> <span class="o">=</span> <span class="n">trace_step_size</span><span class="p">[</span><span class="n">n</span><span class="p">:]</span>
-<span class="n">trace_lipschitz</span> <span class="o">=</span> <span class="n">trace_lipschitz</span><span class="p">[</span><span class="n">n</span><span class="p">:]</span>
+<span class="n">trace_curavature</span> <span class="o">=</span> <span class="n">trace_curavature</span><span class="p">[</span><span class="n">n</span><span class="p">:]</span>
 
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
@@ -106,8 +112,8 @@ evolves over time.</p>
 <span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>  <span class="c1"># instantiate a second axes that shares the same x-axis</span>
 
 <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;#ef8a62&#39;</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Lipschitz constant&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>  <span class="c1"># we already handled the x-label with ax1</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">trace_lipschitz</span><span class="p">)),</span> <span class="n">trace_lipschitz</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;curavature constant&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>  <span class="c1"># we already handled the x-label with ax1</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">trace_curavature</span><span class="p">)),</span> <span class="n">trace_curavature</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelcolor</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
 
 <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>  <span class="c1"># otherwise the right y-label is slightly clipped</span>
@@ -116,7 +122,7 @@ evolves over time.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><strong>Total running time of the script:</strong> ( 0 minutes  12.423 seconds)</p>
+<p><strong>Total running time of the script:</strong> ( 0 minutes  13.367 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-fw-stepsize-py">
 <div class="sphx-glr-download docutils container">
 <a class="reference download internal" download="" href="../_downloads/b9e6f1603bc53977c2c6d5ac207696ed/plot_fw_stepsize.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_fw_stepsize.py</span></code></a></div>
@@ -176,7 +182,7 @@ evolves over time.</p>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Examples</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="plot_accelerated.html">Effect of acceleration in gradient descent</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_saga_vs_svrg.html">SAGA vs SVRG</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Step-size strategies for FW</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Step-size and curavature on the Frank-Wolfe algorithm</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_group_lasso.html">Group Lasso regularization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_sparse_nuclear_norm.html">Estimating a sparse and low rank matrix</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_tv_deblurring.html">Total variation regularization</a></li>
