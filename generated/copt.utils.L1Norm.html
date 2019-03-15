@@ -14,8 +14,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"argmin": "\\DeclareMathOperator*{\\argmin}{\\mathbf{arg\\,min}}", "argmax": "\\DeclareMathOperator*{\\argmin}{\\mathbf{arg\\,max}}", "bs": "\\newcommand{\\bs}[1]{\\boldsymbol{#1}}"}}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -41,7 +40,7 @@
 <h1>copt.utils.L1Norm<a class="headerlink" href="#copt-utils-l1norm" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="copt.utils.L1Norm">
-<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">L1Norm</code><span class="sig-paren">(</span><em>alpha</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/7a312fe/copt/utils.py#L315"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.L1Norm" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">L1Norm</code><span class="sig-paren">(</span><em>alpha</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/95ecde5/copt/utils.py#L315"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.L1Norm" title="Permalink to this definition">¶</a></dt>
 <dd><p>L1 norm, that is, the sum of absolute values:</p>
 <div class="math notranslate nohighlight">
 \[\alpha\sum_i^d |x_i|\]</div>
@@ -55,7 +54,7 @@
 </table>
 <dl class="method">
 <dt id="copt.utils.L1Norm.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>alpha</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/7a312fe/copt/utils.py#L328"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.L1Norm.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>alpha</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/95ecde5/copt/utils.py#L328"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.L1Norm.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
@@ -69,10 +68,10 @@
 <tr class="row-odd"><td><a class="reference internal" href="#copt.utils.L1Norm.__init__" title="copt.utils.L1Norm.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(alpha)</td>
 <td>Initialize self.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="../source/copt.html#copt.utils.L1Norm.prox" title="copt.utils.L1Norm.prox"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prox</span></code></a>(x,&nbsp;step_size)</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">prox</span></code>(x,&nbsp;step_size)</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="../source/copt.html#copt.utils.L1Norm.prox_factory" title="copt.utils.L1Norm.prox_factory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prox_factory</span></code></a>(n_features)</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">prox_factory</span></code>(n_features)</td>
 <td></td>
 </tr>
 </tbody>
@@ -112,7 +111,7 @@
     
 
 <p>
-<a class="badge" href="https://travis-ci.org/openopt/copt">
+<a href="https://travis-ci.org/openopt/copt">
     <img
         alt="https://secure.travis-ci.org/openopt/copt.svg?branch=master"
         src="https://secure.travis-ci.org/openopt/copt.svg?branch=master"
@@ -164,8 +163,8 @@
       &copy;Fabian Pedregosa.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.4</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
       
       |
       <a href="../_sources/generated/copt.utils.L1Norm.rst.txt"

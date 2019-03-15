@@ -7,19 +7,23 @@
 .. _sphx_glr_auto_examples_plot_fw_stepsize.py:
 
 
-Step-size and curavature on the Frank-Wolfe algorithm
+Step-size and curvature on the Frank-Wolfe algorithm
 =====================================================
 
-Plot showing both the optimal step-size and curavature for
-the Frank-Wolfe algorithm on a logistic regression problem.
+Plot showing both the optimal step-size and norm of Hessian
+for the Frank-Wolfe algorithm on a logistic regression problem.
 
 The step-size is computed as the one that gives the largest
 decrease in objective function (see :func:`exact_ls`). The
-curavature is computed as the largest eigenvalue of the 
-Hessian.
+norm of the Hessian is its largest singular value.
 
 In the plot we can see how the variance of the step-size
-is much higher than the one associated with the curvature.
+is much higher than the one associated with the Hessian's
+norm.
+
+References
+----------
+http://fa.bianp.net/blog/2019/adaptive_fw/
 
 
 
@@ -57,7 +61,7 @@ is much higher than the one associated with the curvature.
     f = cp.utils.LogLoss(X, y)
     x0 = np.zeros(n_features)
     trace_step_size = []
-    trace_curavature = []
+    trace_hessian_norm = []
 
 
     def cb(kw):
@@ -67,7 +71,7 @@ is much higher than the one associated with the curvature.
             matvec=f.Hessian(kw['x']))
 
         s, _ = splinalg.eigsh(Hs, k=1)
-        trace_curavature.append(s)
+        trace_hessian_norm.append(s)
 
 
     out = cp.minimize_FW(
@@ -78,14 +82,14 @@ is much higher than the one associated with the curvature.
     # tend to have a disproportionally large step-size
     n = len(trace_step_size) // 5
     trace_step_size = trace_step_size[n:]
-    trace_curavature = trace_curavature[n:]
+    trace_hessian_norm = trace_hessian_norm[n:]
 
 
     fig, ax1 = plt.subplots()
 
     color = '#67a9cf'
     ax1.set_xlabel('number of iterations')
-    ax1.set_ylabel('step size', color=color)
+    ax1.set_ylabel('step-size', color=color)
     ax1.plot(n + np.arange(len(trace_step_size)), trace_step_size, color=color,
         alpha=0.5)
     ax1.tick_params(axis='y', labelcolor=color)
@@ -93,8 +97,8 @@ is much higher than the one associated with the curvature.
     ax2 = ax1.twinx()  # instantiate a second axes that shares the same x-axis
 
     color = '#ef8a62'
-    ax2.set_ylabel('curavature constant', color=color)  # we already handled the x-label with ax1
-    ax2.plot(n + np.arange(len(trace_curavature)), trace_curavature, color=color)
+    ax2.set_ylabel('Hessian norm', color=color)  # we already handled the x-label with ax1
+    ax2.plot(n + np.arange(len(trace_hessian_norm)), trace_hessian_norm, color=color)
     ax2.tick_params(axis='y', labelcolor=color)
 
     fig.tight_layout()  # otherwise the right y-label is slightly clipped
@@ -102,7 +106,7 @@ is much higher than the one associated with the curvature.
     plt.grid()
     plt.show()
 
-**Total running time of the script:** ( 0 minutes  13.367 seconds)
+**Total running time of the script:** ( 0 minutes  12.559 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_fw_stepsize.py:

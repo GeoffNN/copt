@@ -14,8 +14,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"argmin": "\\DeclareMathOperator*{\\argmin}{\\mathbf{arg\\,min}}", "argmax": "\\DeclareMathOperator*{\\argmin}{\\mathbf{arg\\,max}}", "bs": "\\newcommand{\\bs}[1]{\\boldsymbol{#1}}"}}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -41,7 +40,7 @@
 <h1>copt.utils.LogLoss<a class="headerlink" href="#copt-utils-logloss" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="copt.utils.LogLoss">
-<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">LogLoss</code><span class="sig-paren">(</span><em>A</em>, <em>b</em>, <em>alpha=0.0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/7a312fe/copt/utils.py#L111"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.LogLoss" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">LogLoss</code><span class="sig-paren">(</span><em>A</em>, <em>b</em>, <em>alpha=0.0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/95ecde5/copt/utils.py#L111"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.LogLoss" title="Permalink to this definition">¶</a></dt>
 <dd><p>A class evaluation and derivatives of the logistic loss. The logistic loss function is defined as</p>
 <div class="math notranslate nohighlight">
 \[-\frac{1}{n}\sum_{i=1}^n b_i \log(\sigma(\bs{a}_i^T \bs{x})) + (1 - b_i) \log(1 - \sigma(\bs{a}_i^T \bs{x}))\]</div>
@@ -52,7 +51,7 @@ class labels, it should have the values 0 or 1.</p>
 <p><a class="reference external" href="http://fa.bianp.net/drafts/derivatives_logistic.html">http://fa.bianp.net/drafts/derivatives_logistic.html</a></p>
 <dl class="method">
 <dt id="copt.utils.LogLoss.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>A</em>, <em>b</em>, <em>alpha=0.0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/7a312fe/copt/utils.py#L126"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.LogLoss.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>A</em>, <em>b</em>, <em>alpha=0.0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/95ecde5/copt/utils.py#L126"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.LogLoss.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
@@ -63,13 +62,13 @@ class labels, it should have the values 0 or 1.</p>
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="../source/copt.html#copt.utils.LogLoss.Hessian" title="copt.utils.LogLoss.Hessian"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Hessian</span></code></a>(x)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#copt.utils.LogLoss.Hessian" title="copt.utils.LogLoss.Hessian"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Hessian</span></code></a>(x)</td>
 <td>Return a callable that performs dot products with the Hessian</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#copt.utils.LogLoss.__init__" title="copt.utils.LogLoss.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(A,&nbsp;b[,&nbsp;alpha])</td>
 <td>Initialize self.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="../source/copt.html#copt.utils.LogLoss.f_grad" title="copt.utils.LogLoss.f_grad"><code class="xref py py-obj docutils literal notranslate"><span class="pre">f_grad</span></code></a>(x[,&nbsp;return_gradient])</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">f_grad</span></code>(x[,&nbsp;return_gradient])</td>
 <td></td>
 </tr>
 </tbody>
@@ -81,20 +80,20 @@ class labels, it should have the values 0 or 1.</p>
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="../source/copt.html#copt.utils.LogLoss.lipschitz" title="copt.utils.LogLoss.lipschitz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lipschitz</span></code></a></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">lipschitz</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="../source/copt.html#copt.utils.LogLoss.max_lipschitz" title="copt.utils.LogLoss.max_lipschitz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">max_lipschitz</span></code></a></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">max_lipschitz</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="../source/copt.html#copt.utils.LogLoss.partial_deriv" title="copt.utils.LogLoss.partial_deriv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">partial_deriv</span></code></a></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">partial_deriv</span></code></td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
 <dt id="copt.utils.LogLoss.Hessian">
-<code class="descname">Hessian</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/7a312fe/copt/utils.py#L177"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.LogLoss.Hessian" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Hessian</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/95ecde5/copt/utils.py#L177"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.LogLoss.Hessian" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a callable that performs dot products with the Hessian</p>
 </dd></dl>
 
@@ -133,7 +132,7 @@ class labels, it should have the values 0 or 1.</p>
     
 
 <p>
-<a class="badge" href="https://travis-ci.org/openopt/copt">
+<a href="https://travis-ci.org/openopt/copt">
     <img
         alt="https://secure.travis-ci.org/openopt/copt.svg?branch=master"
         src="https://secure.travis-ci.org/openopt/copt.svg?branch=master"
@@ -185,8 +184,8 @@ class labels, it should have the values 0 or 1.</p>
       &copy;Fabian Pedregosa.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.4</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
       
       |
       <a href="../_sources/generated/copt.utils.LogLoss.rst.txt"

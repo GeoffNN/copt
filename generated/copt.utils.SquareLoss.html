@@ -14,8 +14,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"argmin": "\\DeclareMathOperator*{\\argmin}{\\mathbf{arg\\,min}}", "argmax": "\\DeclareMathOperator*{\\argmin}{\\mathbf{arg\\,max}}", "bs": "\\newcommand{\\bs}[1]{\\boldsymbol{#1}}"}}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -41,7 +40,7 @@
 <h1>copt.utils.SquareLoss<a class="headerlink" href="#copt-utils-squareloss" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="copt.utils.SquareLoss">
-<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">SquareLoss</code><span class="sig-paren">(</span><em>A</em>, <em>b</em>, <em>alpha=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/7a312fe/copt/utils.py#L248"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.SquareLoss" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">SquareLoss</code><span class="sig-paren">(</span><em>A</em>, <em>b</em>, <em>alpha=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/95ecde5/copt/utils.py#L248"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.SquareLoss" title="Permalink to this definition">¶</a></dt>
 <dd><p>A class evaluation and derivatives of the square loss, defined as</p>
 <blockquote>
 <div><div class="math notranslate nohighlight">
@@ -50,7 +49,7 @@
 <p>where <span class="math notranslate nohighlight">\(\|\cdot\|\)</span> is the euclidean norm.</p>
 <dl class="method">
 <dt id="copt.utils.SquareLoss.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>A</em>, <em>b</em>, <em>alpha=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/7a312fe/copt/utils.py#L258"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.SquareLoss.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>A</em>, <em>b</em>, <em>alpha=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/95ecde5/copt/utils.py#L258"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.SquareLoss.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
@@ -64,7 +63,7 @@
 <tr class="row-odd"><td><a class="reference internal" href="#copt.utils.SquareLoss.__init__" title="copt.utils.SquareLoss.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(A,&nbsp;b[,&nbsp;alpha])</td>
 <td>Initialize self.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="../source/copt.html#copt.utils.SquareLoss.f_grad" title="copt.utils.SquareLoss.f_grad"><code class="xref py py-obj docutils literal notranslate"><span class="pre">f_grad</span></code></a>(x[,&nbsp;return_gradient])</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">f_grad</span></code>(x[,&nbsp;return_gradient])</td>
 <td></td>
 </tr>
 </tbody>
@@ -76,7 +75,7 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="../source/copt.html#copt.utils.SquareLoss.lipschitz" title="copt.utils.SquareLoss.lipschitz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lipschitz</span></code></a></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">lipschitz</span></code></td>
 <td></td>
 </tr>
 </tbody>
@@ -116,7 +115,7 @@
     
 
 <p>
-<a class="badge" href="https://travis-ci.org/openopt/copt">
+<a href="https://travis-ci.org/openopt/copt">
     <img
         alt="https://secure.travis-ci.org/openopt/copt.svg?branch=master"
         src="https://secure.travis-ci.org/openopt/copt.svg?branch=master"
@@ -168,8 +167,8 @@
       &copy;Fabian Pedregosa.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.4</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
       
       |
       <a href="../_sources/generated/copt.utils.SquareLoss.rst.txt"

@@ -14,8 +14,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"argmin": "\\DeclareMathOperator*{\\argmin}{\\mathbf{arg\\,min}}", "argmax": "\\DeclareMathOperator*{\\argmin}{\\mathbf{arg\\,max}}", "bs": "\\newcommand{\\bs}[1]{\\boldsymbol{#1}}"}}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -41,11 +40,11 @@
 <h1>copt.utils.TraceBall<a class="headerlink" href="#copt-utils-traceball" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="copt.utils.TraceBall">
-<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">TraceBall</code><span class="sig-paren">(</span><em>alpha</em>, <em>shape</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/7a312fe/copt/utils.py#L679"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.TraceBall" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">TraceBall</code><span class="sig-paren">(</span><em>alpha</em>, <em>shape</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/95ecde5/copt/utils.py#L679"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.TraceBall" title="Permalink to this definition">¶</a></dt>
 <dd><p>Projection onto the trace (aka nuclear) norm, sum of singular values</p>
 <dl class="method">
 <dt id="copt.utils.TraceBall.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>alpha</em>, <em>shape</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/7a312fe/copt/utils.py#L683"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.TraceBall.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>alpha</em>, <em>shape</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/95ecde5/copt/utils.py#L683"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.TraceBall.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
@@ -59,13 +58,13 @@
 <tr class="row-odd"><td><a class="reference internal" href="#copt.utils.TraceBall.__init__" title="copt.utils.TraceBall.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(alpha,&nbsp;shape)</td>
 <td>Initialize self.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="../source/copt.html#copt.utils.TraceBall.lmo" title="copt.utils.TraceBall.lmo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lmo</span></code></a>(x)</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">lmo</span></code>(x)</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="../source/copt.html#copt.utils.TraceBall.prox" title="copt.utils.TraceBall.prox"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prox</span></code></a>(x,&nbsp;step_size)</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">prox</span></code>(x,&nbsp;step_size)</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="../source/copt.html#copt.utils.TraceBall.prox_factory" title="copt.utils.TraceBall.prox_factory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prox_factory</span></code></a>()</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">prox_factory</span></code>()</td>
 <td></td>
 </tr>
 </tbody>
@@ -77,7 +76,7 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="../source/copt.html#copt.utils.TraceBall.is_separable" title="copt.utils.TraceBall.is_separable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_separable</span></code></a></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_separable</span></code></td>
 <td></td>
 </tr>
 </tbody>
@@ -117,7 +116,7 @@
     
 
 <p>
-<a class="badge" href="https://travis-ci.org/openopt/copt">
+<a href="https://travis-ci.org/openopt/copt">
     <img
         alt="https://secure.travis-ci.org/openopt/copt.svg?branch=master"
         src="https://secure.travis-ci.org/openopt/copt.svg?branch=master"
@@ -169,8 +168,8 @@
       &copy;Fabian Pedregosa.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.4</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
       
       |
       <a href="../_sources/generated/copt.utils.TraceBall.rst.txt"
