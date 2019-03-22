@@ -10,20 +10,16 @@
 Step-size and curvature on the Frank-Wolfe algorithm
 =====================================================
 
-Plot showing both the optimal step-size and norm of Hessian
-for the Frank-Wolfe algorithm on a logistic regression problem.
+Plot showing both the optimal step-size and curvature for
+the Frank-Wolfe algorithm on a logistic regression problem.
 
 The step-size is computed as the one that gives the largest
 decrease in objective function (see :func:`exact_ls`). The
-norm of the Hessian is its largest singular value.
+curvature is computed as the largest eigenvalue of the 
+Hessian.
 
 In the plot we can see how the variance of the step-size
-is much higher than the one associated with the Hessian's
-norm.
-
-References
-----------
-http://fa.bianp.net/blog/2019/adaptive_fw/
+is much higher than the one associated with the curvature.
 
 
 
@@ -61,7 +57,7 @@ http://fa.bianp.net/blog/2019/adaptive_fw/
     f = cp.utils.LogLoss(X, y)
     x0 = np.zeros(n_features)
     trace_step_size = []
-    trace_hessian_norm = []
+    trace_curavature = []
 
 
     def cb(kw):
@@ -71,7 +67,7 @@ http://fa.bianp.net/blog/2019/adaptive_fw/
             matvec=f.Hessian(kw['x']))
 
         s, _ = splinalg.eigsh(Hs, k=1)
-        trace_hessian_norm.append(s)
+        trace_curavature.append(s)
 
 
     out = cp.minimize_FW(
@@ -82,7 +78,7 @@ http://fa.bianp.net/blog/2019/adaptive_fw/
     # tend to have a disproportionally large step-size
     n = len(trace_step_size) // 5
     trace_step_size = trace_step_size[n:]
-    trace_hessian_norm = trace_hessian_norm[n:]
+    trace_curavature = trace_curavature[n:]
 
 
     fig, ax1 = plt.subplots()
@@ -97,8 +93,8 @@ http://fa.bianp.net/blog/2019/adaptive_fw/
     ax2 = ax1.twinx()  # instantiate a second axes that shares the same x-axis
 
     color = '#ef8a62'
-    ax2.set_ylabel('Hessian norm', color=color)  # we already handled the x-label with ax1
-    ax2.plot(n + np.arange(len(trace_hessian_norm)), trace_hessian_norm, color=color)
+    ax2.set_ylabel('curavature constant', color=color)  # we already handled the x-label with ax1
+    ax2.plot(n + np.arange(len(trace_curavature)), trace_curavature, color=color)
     ax2.tick_params(axis='y', labelcolor=color)
 
     fig.tight_layout()  # otherwise the right y-label is slightly clipped
@@ -106,7 +102,7 @@ http://fa.bianp.net/blog/2019/adaptive_fw/
     plt.grid()
     plt.show()
 
-**Total running time of the script:** ( 0 minutes  12.559 seconds)
+**Total running time of the script:** ( 0 minutes  14.342 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_fw_stepsize.py:

@@ -46,7 +46,7 @@ Examples
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Plot showing both the optimal step-size and norm of Hessian for the Frank-Wolfe algorithm on a ...">
+    <div class="sphx-glr-thumbcontainer" tooltip="Plot showing both the optimal step-size and curvature for the Frank-Wolfe algorithm on a logist...">
 
 .. only:: html
 
@@ -157,13 +157,13 @@ Examples
 
   .. container:: sphx-glr-download
 
-    :download:`Download all examples in Python source code: auto_examples_python.zip <//home/pedregosa/dev/copt/doc/auto_examples/auto_examples_python.zip>`
+    :download:`Download all examples in Python source code: auto_examples_python.zip <//usr/local/google/home/pedregosa/dev/copt/doc/auto_examples/auto_examples_python.zip>`
 
 
 
   .. container:: sphx-glr-download
 
-    :download:`Download all examples in Jupyter notebooks: auto_examples_jupyter.zip <//home/pedregosa/dev/copt/doc/auto_examples/auto_examples_jupyter.zip>`
+    :download:`Download all examples in Jupyter notebooks: auto_examples_jupyter.zip <//usr/local/google/home/pedregosa/dev/copt/doc/auto_examples/auto_examples_jupyter.zip>`
 
 
 .. only:: html
