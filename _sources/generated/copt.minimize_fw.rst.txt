@@ -1,0 +1,6 @@
+copt.minimize\_fw
+=================
+
+.. currentmodule:: copt
+
+.. autofunction:: minimize_fw

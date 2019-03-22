@@ -1,0 +1,6 @@
+copt.minimize\_pfw\_l1
+======================
+
+.. currentmodule:: copt
+
+.. autofunction:: minimize_pfw_l1
