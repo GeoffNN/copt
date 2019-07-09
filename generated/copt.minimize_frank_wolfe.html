@@ -41,17 +41,17 @@
 <h1>copt.minimize_frank_wolfe<a class="headerlink" href="#copt-minimize-frank-wolfe" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="copt.minimize_frank_wolfe">
-<code class="descclassname">copt.</code><code class="descname">minimize_frank_wolfe</code><span class="sig-paren">(</span><em>f_grad</em>, <em>x0</em>, <em>lmo</em>, <em>max_iter=1000</em>, <em>tol=1e-12</em>, <em>step_size=1.0</em>, <em>callback=None</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/e56d5d4/copt/frank_wolfe.py#L11"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.minimize_frank_wolfe" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">copt.</code><code class="descname">minimize_frank_wolfe</code><span class="sig-paren">(</span><em>f_grad</em>, <em>x0</em>, <em>lmo</em>, <em>max_iter=1000</em>, <em>tol=1e-12</em>, <em>step_size=1.0</em>, <em>callback=None</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/f4d66b7/copt/frank_wolfe.py#L11"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.minimize_frank_wolfe" title="Permalink to this definition">¶</a></dt>
 <dd><p>Frank-Wolfe algorithm.</p>
 <p>This method for optimization problems of the form</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\\argmin_{\\bs{x} \\in \\mathcal{D}} f(\\bs{x})\end{split}\]</div>
+\[\argmin_{\bs{x} \in \mathcal{D}} f(\bs{x})\]</div>
 <p>where f is a differentiable function for which we have access to its
 gradient and D is a compact set for which we have access to its
 linear minimization oracle (lmo), i.e., a routine that given a vector
-<span class="math notranslate nohighlight">\(\\bs{u}\)</span> returns a solution to</p>
+<span class="math notranslate nohighlight">\(\bs{u}\)</span> returns a solution to</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\\argmin_{\\bs{x} \\in D}\\, \\langle\\bs{u}, \\bs{x}\\rangle\end{split}\]</div>
+\[\argmin_{\bs{x} \in D}\, \langle\bs{u}, \bs{x}\rangle\]</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -102,9 +102,8 @@ Optimization.”</a> ICML
 2013.</p>
 <p>Pedregosa, Fabian <a class="reference external" href="http://fa.bianp.net/blog/2018/notes-on-the-frank-wolfe-algorithm-part-i/">“Notes on the Frank-Wolfe Algorithm”</a>,
 2018</p>
-<p>Pedregosa, Fabian, et al. <a class="reference external" href="https://arxiv.org/pdf/1806.05123.pdf">“Step-Size Adaptivity in Projection-Free
-Optimization.”</a> arXiv preprint
-arXiv:1806.05123 (2018).</p>
+<p>Pedregosa, Fabian, Armin Askari, Geoffrey Negiar, and Martin Jaggi.
+<a class="reference external" href="https://arxiv.org/pdf/1806.05123.pdf">“Step-Size Adaptivity in Projection-Free Optimization.”</a> arXiv preprint arXiv:1806.05123 (2018).</p>
 </dd></dl>
 
 </div>
