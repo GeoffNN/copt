@@ -26,6 +26,26 @@ Examples
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip=" ">
+
+.. only:: html
+
+    .. figure:: /auto_examples/images/thumb/sphx_glr_plot_fw_stepsize_thumb.png
+
+        :ref:`sphx_glr_auto_examples_plot_fw_stepsize.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/plot_fw_stepsize
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip="A comparison between two variance-reduced stochastic gradient methods: SAGA (implemented in :fu...">
 
 .. only:: html
@@ -43,26 +63,6 @@ Examples
    :hidden:
 
    /auto_examples/plot_saga_vs_svrg
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Plot showing both the optimal step-size and curvature for the Frank-Wolfe algorithm on a logist...">
-
-.. only:: html
-
-    .. figure:: /auto_examples/images/thumb/sphx_glr_plot_fw_stepsize_thumb.png
-
-        :ref:`sphx_glr_auto_examples_plot_fw_stepsize.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /auto_examples/plot_fw_stepsize
 
 .. raw:: html
 

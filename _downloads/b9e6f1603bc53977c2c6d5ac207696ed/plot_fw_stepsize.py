@@ -1,92 +1,62 @@
+# python3
 """
-Step-size and curvature on the Frank-Wolfe algorithm
-====================================================
+Comparison of different step-sizes in Frank-Wolfe
+=================================================
 
-Plot showing both the optimal step-size and curvature for
-the Frank-Wolfe algorithm on a logistic regression problem.
 
-The step-size is computed as the one that gives the largest
-decrease in objective function (see :func:`exact_ls`). The
-curvature is computed as the largest eigenvalue of the
-Hessian.
-
-In the plot we can see how the variance of the step-size
-is much higher than the one associated with the curvature.
 """
 import copt as cp
 import matplotlib.pylab as plt
 import numpy as np
-from scipy import optimize
-from scipy.sparse import linalg as splinalg
-from sklearn import datasets
 
-# Construct a toy classification dataset with 100 samples and 10 features
-n_samples, n_features = 100, 10
-X, y = datasets.make_classification(n_samples, n_features, random_state=0)
-
-
-# Define an exact line search strategy
-def exact_ls(kw):
-
-  def f_ls(gamma):
-    return kw['f_grad'](kw['x'] + gamma * kw['d_t'])[0]
-
-  ls_sol = optimize.minimize_scalar(f_ls, bounds=[0, 1], method='bounded')
-  return ls_sol.x
+datasets = [
+    ("Gisette", cp.datasets.load_gisette),
+    ("RCV1", cp.datasets.load_rcv1),
+    ("Madelon", cp.datasets.load_madelon),
+    ("Covtype", cp.datasets.load_covtype)
+    ]
 
 
-l1_ball = cp.utils.L1Ball(n_features / 2.)
-f = cp.utils.LogLoss(X, y)
-x0 = np.zeros(n_features)
-trace_step_size = []
-trace_curavature = []
+fig, axes = plt.subplots(nrows=2, ncols=2, figsize=(10, 5))
+for ax, (dataset_title, load_data) in zip(axes.ravel(), datasets):
+  print("Running on the %s dataset" % dataset_title)
 
+  X, y = load_data()
+  n_samples, n_features = X.shape
 
-def cb(kw):
-  trace_step_size.append(kw['step_size'])
-  hessian = splinalg.LinearOperator(
-      shape=(n_features, n_features), matvec=f.Hessian(kw['x']))
+  l1_ball = cp.utils.L1Ball(n_features / 2.)
+  f = cp.utils.LogLoss(X, y)
+  x0 = np.zeros(n_features)
 
-  s, _ = splinalg.eigsh(hessian, k=1)
-  trace_curavature.append(s)
+  for step_size, label in [
+      [(f.lipschitz, "adaptive"), "adaptive step-size"],
+      [(f.lipschitz, "adaptive2"), "adaptive2 step-size"],
+      [(f.lipschitz, "fixed"), "Lipschitz step-size"]
+      ]:
+    cb = cp.utils.Trace(f)
+    trace_gt = []
+    def trace(kw):
+      # store the Frank-Wolfe gap g_t
+      trace_gt.append(kw['g_t'])
+      # print(kw['f_t'], kw['f_next'])
 
-
-out = cp.minimize_fw(
-    f.f_grad,
-    l1_ball.lmo,
-    x0,
-    callback=cb,
-    max_iter=1000,
-    backtracking=exact_ls)
-
-# Focus on the last 4/5, since the first iterations
-# tend to have a disproportionally large step-size
-n = len(trace_step_size) // 5
-trace_step_size = trace_step_size[n:]
-trace_curavature = trace_curavature[n:]
-
-fig, ax1 = plt.subplots()
-
-color = '#67a9cf'
-ax1.set_xlabel('number of iterations')
-ax1.set_ylabel('step-size', color=color)
-ax1.plot(
-    n + np.arange(len(trace_step_size)),
-    trace_step_size,
-    color=color,
-    alpha=0.5)
-ax1.tick_params(axis='y', labelcolor=color)
-
-ax2 = ax1.twinx()  # instantiate a second axes that shares the same x-axis
-
-color = '#ef8a62'
-ax2.set_ylabel(
-    'curavature constant',
-    color=color)  # we already handled the x-label with ax1
-ax2.plot(n + np.arange(len(trace_curavature)), trace_curavature, color=color)
-ax2.tick_params(axis='y', labelcolor=color)
-
-fig.tight_layout()  # otherwise the right y-label is slightly clipped
-plt.xlim(n, n + len(trace_step_size))
-plt.grid()
+    cp.minimize_frank_wolfe(
+        f.f_grad,
+        x0,
+        l1_ball.lmo,
+        callback=trace,
+        max_iter=500,
+        step_size=step_size,
+        verbose=True
+    )
+    # ax.plot(trace_gt, label=label)
+    ax.plot(trace_gt, label=label)
+    ax.set_yscale('log')
+    ax.legend()
+  ax.set_xlabel("number of iterations")
+  ax.set_ylabel("FW gap")
+  ax.set_title(dataset_title)
+  fig.tight_layout()  # otherwise the right y-label is slightly clipped
+  ax.grid()
+# plt.legend()
 plt.show()

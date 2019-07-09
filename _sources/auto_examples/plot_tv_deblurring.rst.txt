@@ -28,6 +28,7 @@ Comparison of solvers with total variation regularization.
     Iteration 0, beta 0
     Iteration 1, beta 1e-06
     Iteration 2, beta 5e-06
+    Achieved relative tolerance at iteration 1660
 
 
 
@@ -94,7 +95,7 @@ Comparison of solvers with total variation regularization.
 
         cb_adatos = cp.utils.Trace()
         x0 = np.zeros(n_features)
-        adatos = cp.minimize_TOS(
+        adatos = cp.minimize_three_split(
             f.f_grad, x0, g_prox, h_prox,
             step_size=10 * step_size,
             max_iter=max_iter, tol=1e-14, verbose=1,
@@ -106,18 +107,18 @@ Comparison of solvers with total variation regularization.
 
         cb_tos = cp.utils.Trace()
         x0 = np.zeros(n_features)
-        cp.minimize_TOS(
+        cp.minimize_three_split(
             f.f_grad, x0, g_prox, h_prox,
             step_size=step_size,
             max_iter=max_iter, tol=1e-14, verbose=1,
-            callback=cb_tos, backtracking=False)
+            callback=cb_tos, line_search=False)
         trace_nols = [loss(x, beta) for x in cb_tos.trace_x]
         all_trace_nols.append(trace_nols)
         all_trace_nols_time.append(cb_tos.trace_time)
 
         cb_pdhg = cp.utils.Trace()
         x0 = np.zeros(n_features)
-        cp.minimize_PDHG(
+        cp.minimize_primal_dual(
             f.f_grad, x0, g_prox, h_prox,
             callback=cb_pdhg, max_iter=max_iter,
             step_size=step_size,
@@ -169,7 +170,7 @@ Comparison of solvers with total variation regularization.
     ax[1, 0].set_ylabel('Objective minus optimum')
     plt.show()
 
-**Total running time of the script:** ( 1 minutes  41.493 seconds)
+**Total running time of the script:** ( 2 minutes  3.734 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_tv_deblurring.py:

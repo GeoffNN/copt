@@ -19,8 +19,8 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"argmin": "\\DeclareMathOperator*{\\argmin}{\\mathbf{arg\\,min}}", "argmax": "\\DeclareMathOperator*{\\argmin}{\\mathbf{arg\\,max}}", "bs": "\\newcommand{\\bs}[1]{\\boldsymbol{#1}}"}}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Step-size and curvature on the Frank-Wolfe algorithm" href="plot_fw_stepsize.html" />
-    <link rel="prev" title="Effect of acceleration in gradient descent" href="plot_accelerated.html" />
+    <link rel="next" title="Group Lasso regularization" href="plot_group_lasso.html" />
+    <link rel="prev" title="Comparison of different step-sizes in Frank-Wolfe" href="plot_fw_stepsize.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -44,7 +44,7 @@
 <div class="sphx-glr-example-title section" id="saga-vs-svrg">
 <span id="sphx-glr-auto-examples-plot-saga-vs-svrg-py"></span><h1>SAGA vs SVRG<a class="headerlink" href="#saga-vs-svrg" title="Permalink to this headline">¶</a></h1>
 <p>A comparison between two variance-reduced stochastic gradient methods:
-SAGA (implemented in <a class="reference internal" href="../generated/copt.minimize_SAGA.html#copt.minimize_SAGA" title="copt.minimize_SAGA"><code class="xref py py-func docutils literal notranslate"><span class="pre">copt.minimize_SAGA()</span></code></a>) and SVRG (implemented in <a class="reference internal" href="../generated/copt.minimize_SVRG.html#copt.minimize_SVRG" title="copt.minimize_SVRG"><code class="xref py py-func docutils literal notranslate"><span class="pre">copt.minimize_SVRG()</span></code></a>). The problem solved in this case is the sum of a
+SAGA (implemented in <code class="xref py py-func docutils literal notranslate"><span class="pre">copt.minimize_SAGA()</span></code>) and SVRG (implemented in <a class="reference internal" href="../generated/copt.minimize_svrg.html#copt.minimize_svrg" title="copt.minimize_svrg"><code class="xref py py-func docutils literal notranslate"><span class="pre">copt.minimize_svrg()</span></code></a>). The problem solved in this case is the sum of a
 logistic regression and an L1 norm (sometimes referred to as sparse logistic)</p>
 <img alt="../_images/sphx_glr_plot_saga_vs_svrg_001.png" class="sphx-glr-single-img" src="../_images/sphx_glr_plot_saga_vs_svrg_001.png" />
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
@@ -65,7 +65,7 @@ logistic regression and an L1 norm (sometimes referred to as sparse logistic)</p
 <span class="n">cb_saga</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">Trace</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 <span class="c1"># .. run the SAGA algorithm ..</span>
 <span class="n">step_size</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">/</span> <span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">f</span><span class="o">.</span><span class="n">max_lipschitz</span><span class="p">)</span>
-<span class="n">result_saga</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">minimize_SAGA</span><span class="p">(</span>
+<span class="n">result_saga</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">minimize_saga</span><span class="p">(</span>
     <span class="n">f</span><span class="o">.</span><span class="n">partial_deriv</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_features</span><span class="p">),</span>
     <span class="n">prox</span><span class="o">=</span><span class="n">g</span><span class="o">.</span><span class="n">prox_factory</span><span class="p">(</span><span class="n">n_features</span><span class="p">),</span> <span class="n">step_size</span><span class="o">=</span><span class="n">step_size</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">cb_saga</span><span class="p">,</span>
     <span class="n">tol</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
@@ -73,7 +73,7 @@ logistic regression and an L1 norm (sometimes referred to as sparse logistic)</p
 <span class="c1"># .. callback to track progress ..</span>
 <span class="n">cb_svrg</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">Trace</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 <span class="c1"># .. run the SVRG algorithm ..</span>
-<span class="n">result_svrg</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">minimize_SVRG</span><span class="p">(</span>
+<span class="n">result_svrg</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">minimize_svrg</span><span class="p">(</span>
     <span class="n">f</span><span class="o">.</span><span class="n">partial_deriv</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_features</span><span class="p">),</span>
     <span class="n">prox</span><span class="o">=</span><span class="n">g</span><span class="o">.</span><span class="n">prox_factory</span><span class="p">(</span><span class="n">n_features</span><span class="p">),</span> <span class="n">step_size</span><span class="o">=</span><span class="n">step_size</span><span class="p">,</span>
     <span class="n">callback</span><span class="o">=</span><span class="n">cb_svrg</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
@@ -98,7 +98,7 @@ logistic regression and an L1 norm (sometimes referred to as sparse logistic)</p
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><strong>Total running time of the script:</strong> ( 0 minutes  3.273 seconds)</p>
+<p><strong>Total running time of the script:</strong> ( 0 minutes  3.380 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-saga-vs-svrg-py">
 <div class="sphx-glr-download docutils container">
 <a class="reference download internal" download="" href="../_downloads/9ab964bff694ec2bd8999a72dc43d9ee/plot_saga_vs_svrg.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_saga_vs_svrg.py</span></code></a></div>
@@ -157,8 +157,8 @@ logistic regression and an L1 norm (sometimes referred to as sparse logistic)</p
 <li class="toctree-l1"><a class="reference internal" href="../loss_functions.html">Loss functions</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Examples</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="plot_accelerated.html">Effect of acceleration in gradient descent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_fw_stepsize.html">Comparison of different step-sizes in Frank-Wolfe</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">SAGA vs SVRG</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plot_fw_stepsize.html">Step-size and curvature on the Frank-Wolfe algorithm</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_group_lasso.html">Group Lasso regularization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_sparse_nuclear_norm.html">Estimating a sparse and low rank matrix</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_tv_deblurring.html">Total variation regularization</a></li>

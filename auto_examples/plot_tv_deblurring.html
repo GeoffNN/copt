@@ -49,6 +49,7 @@
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Iteration 0, beta 0
 Iteration 1, beta 1e-06
 Iteration 2, beta 5e-06
+Achieved relative tolerance at iteration 1660
 </pre></div>
 </div>
 <div class="line-block">
@@ -111,7 +112,7 @@ Iteration 2, beta 5e-06
 
     <span class="n">cb_adatos</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">Trace</span><span class="p">()</span>
     <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_features</span><span class="p">)</span>
-    <span class="n">adatos</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">minimize_TOS</span><span class="p">(</span>
+    <span class="n">adatos</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">minimize_three_split</span><span class="p">(</span>
         <span class="n">f</span><span class="o">.</span><span class="n">f_grad</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">g_prox</span><span class="p">,</span> <span class="n">h_prox</span><span class="p">,</span>
         <span class="n">step_size</span><span class="o">=</span><span class="mi">10</span> <span class="o">*</span> <span class="n">step_size</span><span class="p">,</span>
         <span class="n">max_iter</span><span class="o">=</span><span class="n">max_iter</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-14</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
@@ -123,18 +124,18 @@ Iteration 2, beta 5e-06
 
     <span class="n">cb_tos</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">Trace</span><span class="p">()</span>
     <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_features</span><span class="p">)</span>
-    <span class="n">cp</span><span class="o">.</span><span class="n">minimize_TOS</span><span class="p">(</span>
+    <span class="n">cp</span><span class="o">.</span><span class="n">minimize_three_split</span><span class="p">(</span>
         <span class="n">f</span><span class="o">.</span><span class="n">f_grad</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">g_prox</span><span class="p">,</span> <span class="n">h_prox</span><span class="p">,</span>
         <span class="n">step_size</span><span class="o">=</span><span class="n">step_size</span><span class="p">,</span>
         <span class="n">max_iter</span><span class="o">=</span><span class="n">max_iter</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-14</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-        <span class="n">callback</span><span class="o">=</span><span class="n">cb_tos</span><span class="p">,</span> <span class="n">backtracking</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+        <span class="n">callback</span><span class="o">=</span><span class="n">cb_tos</span><span class="p">,</span> <span class="n">line_search</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
     <span class="n">trace_nols</span> <span class="o">=</span> <span class="p">[</span><span class="n">loss</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">beta</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">cb_tos</span><span class="o">.</span><span class="n">trace_x</span><span class="p">]</span>
     <span class="n">all_trace_nols</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">trace_nols</span><span class="p">)</span>
     <span class="n">all_trace_nols_time</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cb_tos</span><span class="o">.</span><span class="n">trace_time</span><span class="p">)</span>
 
     <span class="n">cb_pdhg</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">Trace</span><span class="p">()</span>
     <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_features</span><span class="p">)</span>
-    <span class="n">cp</span><span class="o">.</span><span class="n">minimize_PDHG</span><span class="p">(</span>
+    <span class="n">cp</span><span class="o">.</span><span class="n">minimize_primal_dual</span><span class="p">(</span>
         <span class="n">f</span><span class="o">.</span><span class="n">f_grad</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">g_prox</span><span class="p">,</span> <span class="n">h_prox</span><span class="p">,</span>
         <span class="n">callback</span><span class="o">=</span><span class="n">cb_pdhg</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="n">max_iter</span><span class="p">,</span>
         <span class="n">step_size</span><span class="o">=</span><span class="n">step_size</span><span class="p">,</span>
@@ -187,7 +188,7 @@ Iteration 2, beta 5e-06
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><strong>Total running time of the script:</strong> ( 1 minutes  41.493 seconds)</p>
+<p><strong>Total running time of the script:</strong> ( 2 minutes  3.734 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-tv-deblurring-py">
 <div class="sphx-glr-download docutils container">
 <a class="reference download internal" download="" href="../_downloads/e94ab9148efb733dbd6d61c47b557cd0/plot_tv_deblurring.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_tv_deblurring.py</span></code></a></div>
@@ -246,8 +247,8 @@ Iteration 2, beta 5e-06
 <li class="toctree-l1"><a class="reference internal" href="../loss_functions.html">Loss functions</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Examples</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="plot_accelerated.html">Effect of acceleration in gradient descent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_fw_stepsize.html">Comparison of different step-sizes in Frank-Wolfe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_saga_vs_svrg.html">SAGA vs SVRG</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plot_fw_stepsize.html">Step-size and curvature on the Frank-Wolfe algorithm</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_group_lasso.html">Group Lasso regularization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_sparse_nuclear_norm.html">Estimating a sparse and low rank matrix</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Total variation regularization</a></li>

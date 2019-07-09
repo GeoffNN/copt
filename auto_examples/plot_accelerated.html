@@ -19,7 +19,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"argmin": "\\DeclareMathOperator*{\\argmin}{\\mathbf{arg\\,min}}", "argmax": "\\DeclareMathOperator*{\\argmin}{\\mathbf{arg\\,max}}", "bs": "\\newcommand{\\bs}[1]{\\boldsymbol{#1}}"}}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="SAGA vs SVRG" href="plot_saga_vs_svrg.html" />
+    <link rel="next" title="Comparison of different step-sizes in Frank-Wolfe" href="plot_fw_stepsize.html" />
     <link rel="prev" title="Examples" href="index.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -46,9 +46,9 @@
 <p>Showcase the improved convergence of accelerated gradient
 descent on a logistic regression problem.</p>
 <img alt="../_images/sphx_glr_plot_accelerated_001.png" class="sphx-glr-single-img" src="../_images/sphx_glr_plot_accelerated_001.png" />
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">copt</span> <span class="kn">as</span> <span class="nn">cp</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pylab</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">copt</span> <span class="kn">as</span> <span class="nn">cp</span>
 
 <span class="c1"># .. construct (random) dataset ..</span>
 <span class="n">n_samples</span><span class="p">,</span> <span class="n">n_features</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">200</span>
@@ -60,14 +60,14 @@ descent on a logistic regression problem.</p>
 <span class="n">step_size</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">/</span> <span class="n">f</span><span class="o">.</span><span class="n">lipschitz</span>
 
 <span class="n">cb_pgd</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">Trace</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-<span class="n">result_pgd</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">minimize_PGD</span><span class="p">(</span>
+<span class="n">result_pgd</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">minimize_proximal_gradient</span><span class="p">(</span>
     <span class="n">f</span><span class="o">.</span><span class="n">f_grad</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_features</span><span class="p">),</span> <span class="n">step_size</span><span class="o">=</span><span class="n">step_size</span><span class="p">,</span>
-    <span class="n">callback</span><span class="o">=</span><span class="n">cb_pgd</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">backtracking</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">callback</span><span class="o">=</span><span class="n">cb_pgd</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">accelerated</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 
 <span class="n">cb_apgd</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">Trace</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-<span class="n">result_apgd</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">minimize_APGD</span><span class="p">(</span>
+<span class="n">result_apgd</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">minimize_proximal_gradient</span><span class="p">(</span>
     <span class="n">f</span><span class="o">.</span><span class="n">f_grad</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_features</span><span class="p">),</span> <span class="n">step_size</span><span class="o">=</span><span class="n">step_size</span><span class="p">,</span>
-    <span class="n">callback</span><span class="o">=</span><span class="n">cb_apgd</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">backtracking</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">callback</span><span class="o">=</span><span class="n">cb_apgd</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">accelerated</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
 
 <span class="c1"># .. plot the result ..</span>
@@ -87,7 +87,7 @@ descent on a logistic regression problem.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><strong>Total running time of the script:</strong> ( 0 minutes  1.922 seconds)</p>
+<p><strong>Total running time of the script:</strong> ( 0 minutes  1.977 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-accelerated-py">
 <div class="sphx-glr-download docutils container">
 <a class="reference download internal" download="" href="../_downloads/576d0b1ddd754389cef965fbcd7dfbaa/plot_accelerated.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_accelerated.py</span></code></a></div>
@@ -146,8 +146,8 @@ descent on a logistic regression problem.</p>
 <li class="toctree-l1"><a class="reference internal" href="../loss_functions.html">Loss functions</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Examples</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Effect of acceleration in gradient descent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_fw_stepsize.html">Comparison of different step-sizes in Frank-Wolfe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_saga_vs_svrg.html">SAGA vs SVRG</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plot_fw_stepsize.html">Step-size and curvature on the Frank-Wolfe algorithm</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_group_lasso.html">Group Lasso regularization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_sparse_nuclear_norm.html">Estimating a sparse and low rank matrix</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_tv_deblurring.html">Total variation regularization</a></li>
