@@ -53,7 +53,7 @@ for ax, (dataset_title, load_data) in zip(axes.ravel(), datasets):
     )
     # ax.plot(trace_gt, label=label)
     ax.plot(trace_gt, label=label)
-    ax.set_yscale('log')
+    ax.set_yscale("log")
     ax.legend()
   ax.set_xlabel("number of iterations")
   ax.set_ylabel("FW gap")
