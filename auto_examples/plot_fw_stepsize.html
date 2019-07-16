@@ -78,9 +78,9 @@ Running on the Covtype dataset
   <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_features</span><span class="p">)</span>
 
   <span class="k">for</span> <span class="n">step_size</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="p">[</span>
-      <span class="p">[(</span><span class="n">f</span><span class="o">.</span><span class="n">lipschitz</span><span class="p">,</span> <span class="s2">&quot;adaptive&quot;</span><span class="p">),</span> <span class="s2">&quot;adaptive step-size&quot;</span><span class="p">],</span>
-      <span class="p">[(</span><span class="n">f</span><span class="o">.</span><span class="n">lipschitz</span><span class="p">,</span> <span class="s2">&quot;adaptive2&quot;</span><span class="p">),</span> <span class="s2">&quot;adaptive2 step-size&quot;</span><span class="p">],</span>
-      <span class="p">[(</span><span class="n">f</span><span class="o">.</span><span class="n">lipschitz</span><span class="p">,</span> <span class="s2">&quot;fixed&quot;</span><span class="p">),</span> <span class="s2">&quot;Lipschitz step-size&quot;</span><span class="p">]</span>
+      <span class="p">[</span><span class="s2">&quot;adaptive&quot;</span><span class="p">,</span> <span class="s2">&quot;adaptive step-size&quot;</span><span class="p">],</span>
+      <span class="p">[</span><span class="s2">&quot;adaptive2&quot;</span><span class="p">,</span> <span class="s2">&quot;adaptive2 step-size&quot;</span><span class="p">],</span>
+      <span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="s2">&quot;Lipschitz step-size&quot;</span><span class="p">]</span>
       <span class="p">]:</span>
     <span class="n">cb</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">Trace</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
     <span class="n">trace_gt</span> <span class="o">=</span> <span class="p">[]</span>
@@ -96,7 +96,8 @@ Running on the Covtype dataset
         <span class="n">callback</span><span class="o">=</span><span class="n">trace</span><span class="p">,</span>
         <span class="n">max_iter</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
         <span class="n">step_size</span><span class="o">=</span><span class="n">step_size</span><span class="p">,</span>
-        <span class="n">verbose</span><span class="o">=</span><span class="bp">True</span>
+        <span class="n">verbose</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+        <span class="n">lipschitz</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">lipschitz</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="c1"># ax.plot(trace_gt, label=label)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">trace_gt</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
@@ -111,7 +112,7 @@ Running on the Covtype dataset
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><strong>Total running time of the script:</strong> ( 19 minutes  54.671 seconds)</p>
+<p><strong>Total running time of the script:</strong> ( 20 minutes  44.851 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-fw-stepsize-py">
 <div class="sphx-glr-download docutils container">
 <a class="reference download internal" download="" href="../_downloads/b9e6f1603bc53977c2c6d5ac207696ed/plot_fw_stepsize.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_fw_stepsize.py</span></code></a></div>
@@ -166,6 +167,7 @@ Running on the Covtype dataset
 <li class="toctree-l1"><a class="reference internal" href="../proximal_gradient.html">Gradient-based methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../proximal_splitting.html">Proximal splitting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../frank_wolfe.html">Frank-Wolfe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frank_wolfe.html#examples">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../incremental.html">Incremental methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../loss_functions.html">Loss functions</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Examples</a><ul class="current">

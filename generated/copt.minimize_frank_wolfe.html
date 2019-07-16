@@ -41,7 +41,7 @@
 <h1>copt.minimize_frank_wolfe<a class="headerlink" href="#copt-minimize-frank-wolfe" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="copt.minimize_frank_wolfe">
-<code class="descclassname">copt.</code><code class="descname">minimize_frank_wolfe</code><span class="sig-paren">(</span><em>f_grad</em>, <em>x0</em>, <em>lmo</em>, <em>max_iter=1000</em>, <em>tol=1e-12</em>, <em>step_size=1.0</em>, <em>callback=None</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/f4d66b7/copt/frank_wolfe.py#L11"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.minimize_frank_wolfe" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">copt.</code><code class="descname">minimize_frank_wolfe</code><span class="sig-paren">(</span><em>f_grad</em>, <em>x0</em>, <em>lmo</em>, <em>max_iter=1000</em>, <em>tol=1e-12</em>, <em>step_size=None</em>, <em>callback=None</em>, <em>lipschitz=None</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/f4d66b7/copt/frank_wolfe.py#L11"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.minimize_frank_wolfe" title="Permalink to this definition">¶</a></dt>
 <dd><p>Frank-Wolfe algorithm.</p>
 <p>This method for optimization problems of the form</p>
 <div class="math notranslate nohighlight">
@@ -67,12 +67,16 @@ Initial guess for solution.</li>
 <li><strong>lmo</strong> – callable
 Takes as input a vector u of same size as x0 and returns a solution to
 the linear minimization oracle (defined above).</li>
-<li><strong>lipschitz</strong> – None or float or “adaptive” or (float, “adaptive”).
+<li><strong>step_size</strong> – None or “adaptive” or “adaptive2” or callable
+Step-size step_size to use. If None is used and keyword lipschitz
+is not given or None, then it will use a decreasing step-size of the form
+2/(k+1) (described in [1]). If None is used and keyword lipschitz is not
+None, then it will use the Demyanov-Rubinov step-size step_size
+(variant 1 in [2]).</li>
+<li><strong>lipschitz</strong> – None or float.
 Estimate for the Lipschitz constant of the gradient.</li>
 <li><strong>max_iter</strong> – integer</li>
 <li><strong>tol</strong> – float</li>
-<li><strong>step_size</strong> – float or “adaptive” or (float, “adaptive”).
-Step-size value and/or strategy.</li>
 <li><strong>callback</strong> – callable</li>
 <li><strong>verbose</strong> – int</li>
 </ul>
@@ -97,13 +101,13 @@ for a description of other attributes.</p>
 </tbody>
 </table>
 <p class="rubric">References</p>
-<p>Jaggi, Martin. <a class="reference external" href="http://proceedings.mlr.press/v28/jaggi13-supp.pdf">“Revisiting Frank-Wolfe: Projection-Free Sparse Convex
+<p>[1] Jaggi, Martin. <a class="reference external" href="http://proceedings.mlr.press/v28/jaggi13-supp.pdf">“Revisiting Frank-Wolfe: Projection-Free Sparse Convex
 Optimization.”</a> ICML
 2013.</p>
-<p>Pedregosa, Fabian <a class="reference external" href="http://fa.bianp.net/blog/2018/notes-on-the-frank-wolfe-algorithm-part-i/">“Notes on the Frank-Wolfe Algorithm”</a>,
+<p>[2] Pedregosa, Fabian <a class="reference external" href="http://fa.bianp.net/blog/2018/notes-on-the-frank-wolfe-algorithm-part-i/">“Notes on the Frank-Wolfe Algorithm”</a>,
 2018</p>
-<p>Pedregosa, Fabian, Armin Askari, Geoffrey Negiar, and Martin Jaggi.
-<a class="reference external" href="https://arxiv.org/pdf/1806.05123.pdf">“Step-Size Adaptivity in Projection-Free Optimization.”</a> arXiv preprint arXiv:1806.05123 (2018).</p>
+<p>[3] Pedregosa, Fabian, Armin Askari, Geoffrey Negiar, and Martin Jaggi.
+<a class="reference external" href="https://arxiv.org/pdf/1806.05123.pdf">“Step-Size Adaptivity in Projection-Free Optimization.”</a> arXiv:1806.05123 (2018).</p>
 </dd></dl>
 
 </div>
@@ -157,6 +161,7 @@ Optimization.”</a> ICML
 <li class="toctree-l2"><a class="reference internal" href="copt.minimize_pfw_l1.html">copt.minimize_pfw_l1</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../frank_wolfe.html#examples">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../incremental.html">Incremental methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../loss_functions.html">Loss functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">Examples</a></li>

@@ -9,6 +9,7 @@ import copt as cp
 import matplotlib.pylab as plt
 import numpy as np
 
+# datasets and their respective loading functions
 datasets = [
     ("Gisette", cp.datasets.load_gisette),
     ("RCV1", cp.datasets.load_rcv1),
@@ -29,16 +30,16 @@ for ax, (dataset_title, load_data) in zip(axes.ravel(), datasets):
   x0 = np.zeros(n_features)
 
   for step_size, label in [
-      [(f.lipschitz, "adaptive"), "adaptive step-size"],
-      [(f.lipschitz, "adaptive2"), "adaptive2 step-size"],
-      [(f.lipschitz, "fixed"), "Lipschitz step-size"]
+      ["adaptive", "adaptive step-size"],
+      ["adaptive2", "adaptive2 step-size"],
+      [None, "Lipschitz step-size"]
       ]:
     cb = cp.utils.Trace(f)
     trace_gt = []
+
     def trace(kw):
       # store the Frank-Wolfe gap g_t
-      trace_gt.append(kw['g_t'])
-      # print(kw['f_t'], kw['f_next'])
+      trace_gt.append(kw["g_t"])
 
     cp.minimize_frank_wolfe(
         f.f_grad,
@@ -47,7 +48,8 @@ for ax, (dataset_title, load_data) in zip(axes.ravel(), datasets):
         callback=trace,
         max_iter=500,
         step_size=step_size,
-        verbose=True
+        verbose=True,
+        lipschitz=f.lipschitz,
     )
     # ax.plot(trace_gt, label=label)
     ax.plot(trace_gt, label=label)
