@@ -10,7 +10,8 @@
 Comparison of different step-sizes in Frank-Wolfe
 =================================================
 
-
+Speed of convergence of different step-size strategies
+and on 4 different classification datasets.
 
 
 
@@ -26,9 +27,25 @@ Comparison of different step-sizes in Frank-Wolfe
  .. code-block:: none
 
     Running on the Gisette dataset
+    Running adaptive step-size variant
+    Running adaptive2 step-size variant
+    Running adaptive3 step-size variant
+    Running Lipschitz step-size variant
     Running on the RCV1 dataset
+    Running adaptive step-size variant
+    Running adaptive2 step-size variant
+    Running adaptive3 step-size variant
+    Running Lipschitz step-size variant
     Running on the Madelon dataset
+    Running adaptive step-size variant
+    Running adaptive2 step-size variant
+    Running adaptive3 step-size variant
+    Running Lipschitz step-size variant
     Running on the Covtype dataset
+    Running adaptive step-size variant
+    Running adaptive2 step-size variant
+    Running adaptive3 step-size variant
+    Running Lipschitz step-size variant
 
 
 
@@ -65,8 +82,10 @@ Comparison of different step-sizes in Frank-Wolfe
       for step_size, label in [
           ["adaptive", "adaptive step-size"],
           ["adaptive2", "adaptive2 step-size"],
+          ["adaptive3", "adaptive3 step-size"],
           [None, "Lipschitz step-size"]
           ]:
+        print("Running %s variant" % label)
         cb = cp.utils.Trace(f)
         trace_gt = []
 
@@ -79,7 +98,7 @@ Comparison of different step-sizes in Frank-Wolfe
             x0,
             l1_ball.lmo,
             callback=trace,
-            max_iter=500,
+            max_iter=50,
             step_size=step_size,
             verbose=True,
             lipschitz=f.lipschitz,
@@ -96,7 +115,7 @@ Comparison of different step-sizes in Frank-Wolfe
     # plt.legend()
     plt.show()
 
-**Total running time of the script:** ( 19 minutes  25.594 seconds)
+**Total running time of the script:** ( 2 minutes  50.806 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_fw_stepsize.py:

@@ -43,12 +43,30 @@
 </div>
 <div class="sphx-glr-example-title section" id="comparison-of-different-step-sizes-in-frank-wolfe">
 <span id="sphx-glr-auto-examples-plot-fw-stepsize-py"></span><h1>Comparison of different step-sizes in Frank-Wolfe<a class="headerlink" href="#comparison-of-different-step-sizes-in-frank-wolfe" title="Permalink to this headline">¶</a></h1>
+<p>Speed of convergence of different step-size strategies
+and on 4 different classification datasets.</p>
 <img alt="../_images/sphx_glr_plot_fw_stepsize_001.png" class="sphx-glr-single-img" src="../_images/sphx_glr_plot_fw_stepsize_001.png" />
 <p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Running on the Gisette dataset
+Running adaptive step-size variant
+Running adaptive2 step-size variant
+Running adaptive3 step-size variant
+Running Lipschitz step-size variant
 Running on the RCV1 dataset
+Running adaptive step-size variant
+Running adaptive2 step-size variant
+Running adaptive3 step-size variant
+Running Lipschitz step-size variant
 Running on the Madelon dataset
+Running adaptive step-size variant
+Running adaptive2 step-size variant
+Running adaptive3 step-size variant
+Running Lipschitz step-size variant
 Running on the Covtype dataset
+Running adaptive step-size variant
+Running adaptive2 step-size variant
+Running adaptive3 step-size variant
+Running Lipschitz step-size variant
 </pre></div>
 </div>
 <div class="line-block">
@@ -81,8 +99,10 @@ Running on the Covtype dataset
   <span class="k">for</span> <span class="n">step_size</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="p">[</span>
       <span class="p">[</span><span class="s2">&quot;adaptive&quot;</span><span class="p">,</span> <span class="s2">&quot;adaptive step-size&quot;</span><span class="p">],</span>
       <span class="p">[</span><span class="s2">&quot;adaptive2&quot;</span><span class="p">,</span> <span class="s2">&quot;adaptive2 step-size&quot;</span><span class="p">],</span>
+      <span class="p">[</span><span class="s2">&quot;adaptive3&quot;</span><span class="p">,</span> <span class="s2">&quot;adaptive3 step-size&quot;</span><span class="p">],</span>
       <span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="s2">&quot;Lipschitz step-size&quot;</span><span class="p">]</span>
       <span class="p">]:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Running </span><span class="si">%s</span><span class="s2"> variant&quot;</span> <span class="o">%</span> <span class="n">label</span><span class="p">)</span>
     <span class="n">cb</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">Trace</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
     <span class="n">trace_gt</span> <span class="o">=</span> <span class="p">[]</span>
 
@@ -95,7 +115,7 @@ Running on the Covtype dataset
         <span class="n">x0</span><span class="p">,</span>
         <span class="n">l1_ball</span><span class="o">.</span><span class="n">lmo</span><span class="p">,</span>
         <span class="n">callback</span><span class="o">=</span><span class="n">trace</span><span class="p">,</span>
-        <span class="n">max_iter</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+        <span class="n">max_iter</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
         <span class="n">step_size</span><span class="o">=</span><span class="n">step_size</span><span class="p">,</span>
         <span class="n">verbose</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
         <span class="n">lipschitz</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">lipschitz</span><span class="p">,</span>
@@ -113,7 +133,7 @@ Running on the Covtype dataset
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><strong>Total running time of the script:</strong> ( 19 minutes  25.594 seconds)</p>
+<p><strong>Total running time of the script:</strong> ( 2 minutes  50.806 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-fw-stepsize-py">
 <div class="sphx-glr-download docutils container">
 <a class="reference download internal" download="" href="../_downloads/b9e6f1603bc53977c2c6d5ac207696ed/plot_fw_stepsize.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_fw_stepsize.py</span></code></a></div>

@@ -26,7 +26,7 @@ Examples
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip=" ">
+    <div class="sphx-glr-thumbcontainer" tooltip="Speed of convergence of different step-size strategies and on 4 different classification datase...">
 
 .. only:: html
 
