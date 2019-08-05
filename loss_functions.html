@@ -1,20 +1,21 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Loss functions &#8212; copt  documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <script type="text/javascript" src="_static/copybutton.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"argmin": "\\DeclareMathOperator*{\\argmin}{\\mathbf{arg\\,min}}", "argmax": "\\DeclareMathOperator*{\\argmin}{\\mathbf{arg\\,max}}", "bs": "\\newcommand{\\bs}[1]{\\boldsymbol{#1}}"}}})</script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -41,47 +42,47 @@
 <h1>Loss functions<a class="headerlink" href="#loss-functions" title="Permalink to this headline">¶</a></h1>
 <p>It is possible to your own functions. However, for convenience, the following are already defined and ready to use.</p>
 <p>Smooth loss functions:</p>
-<table border="1" class="longtable docutils">
+<table class="longtable docutils align-default">
 <colgroup>
-<col width="10%" />
-<col width="90%" />
+<col style="width: 10%" />
+<col style="width: 90%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="source/copt.html#copt.utils.LogLoss" title="copt.utils.LogLoss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copt.utils.LogLoss</span></code></a>(A,&nbsp;b[,&nbsp;alpha])</td>
-<td>A class evaluation and derivatives of the logistic loss.</td>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/copt.utils.LogLoss.html#copt.utils.LogLoss" title="copt.utils.LogLoss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copt.utils.LogLoss</span></code></a>(A, b[, alpha])</p></td>
+<td><p>A class evaluation and derivatives of the logistic loss.</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="source/copt.html#copt.utils.SquareLoss" title="copt.utils.SquareLoss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copt.utils.SquareLoss</span></code></a>(A,&nbsp;b[,&nbsp;alpha])</td>
-<td>A class evaluation and derivatives of the square loss, defined as</td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/copt.utils.SquareLoss.html#copt.utils.SquareLoss" title="copt.utils.SquareLoss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copt.utils.SquareLoss</span></code></a>(A, b[, alpha])</p></td>
+<td><p>A class evaluation and derivatives of the square loss, defined as</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="source/copt.html#copt.utils.HuberLoss" title="copt.utils.HuberLoss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copt.utils.HuberLoss</span></code></a>(A,&nbsp;b[,&nbsp;alpha,&nbsp;delta])</td>
-<td>Huber loss</td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/copt.utils.HuberLoss.html#copt.utils.HuberLoss" title="copt.utils.HuberLoss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copt.utils.HuberLoss</span></code></a>(A, b[, alpha, delta])</p></td>
+<td><p>Huber loss</p></td>
 </tr>
 </tbody>
 </table>
 <p>Non-smooth terms accessed through their proximal operator</p>
-<table border="1" class="longtable docutils">
+<table class="longtable docutils align-default">
 <colgroup>
-<col width="10%" />
-<col width="90%" />
+<col style="width: 10%" />
+<col style="width: 90%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="source/copt.html#copt.utils.L1Norm" title="copt.utils.L1Norm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copt.utils.L1Norm</span></code></a>(alpha)</td>
-<td>L1 norm, that is, the sum of absolute values:</td>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/copt.utils.L1Norm.html#copt.utils.L1Norm" title="copt.utils.L1Norm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copt.utils.L1Norm</span></code></a>(alpha)</p></td>
+<td><p>L1 norm, that is, the sum of absolute values:</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="source/copt.html#copt.utils.L1Ball" title="copt.utils.L1Ball"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copt.utils.L1Ball</span></code></a>(alpha)</td>
-<td>Indicator function over the L1 ball</td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/copt.utils.L1Ball.html#copt.utils.L1Ball" title="copt.utils.L1Ball"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copt.utils.L1Ball</span></code></a>(alpha)</p></td>
+<td><p>Indicator function over the L1 ball</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="source/copt.html#copt.utils.GroupL1" title="copt.utils.GroupL1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copt.utils.GroupL1</span></code></a>(alpha,&nbsp;groups)</td>
-<td>Group Lasso penalty</td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/copt.utils.GroupL1.html#copt.utils.GroupL1" title="copt.utils.GroupL1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copt.utils.GroupL1</span></code></a>(alpha, groups)</p></td>
+<td><p>Group Lasso penalty</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="source/copt.html#copt.utils.TraceNorm" title="copt.utils.TraceNorm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copt.utils.TraceNorm</span></code></a>(alpha,&nbsp;shape)</td>
-<td>Trace (aka nuclear) norm, sum of singular values</td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/copt.utils.TraceNorm.html#copt.utils.TraceNorm" title="copt.utils.TraceNorm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copt.utils.TraceNorm</span></code></a>(alpha, shape)</p></td>
+<td><p>Trace (aka nuclear) norm, sum of singular values</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="source/copt.html#copt.utils.TraceBall" title="copt.utils.TraceBall"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copt.utils.TraceBall</span></code></a>(alpha,&nbsp;shape)</td>
-<td>Projection onto the trace (aka nuclear) norm, sum of singular values</td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/copt.utils.TraceBall.html#copt.utils.TraceBall" title="copt.utils.TraceBall"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copt.utils.TraceBall</span></code></a>(alpha, shape)</p></td>
+<td><p>Projection onto the trace (aka nuclear) norm, sum of singular values</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="source/copt.html#copt.utils.TotalVariation2D" title="copt.utils.TotalVariation2D"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copt.utils.TotalVariation2D</span></code></a>(alpha,&nbsp;shape[,&nbsp;…])</td>
-<td>2-dimensional Total Variation pseudo-norm</td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/copt.utils.TotalVariation2D.html#copt.utils.TotalVariation2D" title="copt.utils.TotalVariation2D"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copt.utils.TotalVariation2D</span></code></a>(alpha, shape[, …])</p></td>
+<td><p>2-dimensional Total Variation pseudo-norm</p></td>
 </tr>
 </tbody>
 </table>
@@ -118,7 +119,7 @@
     
 
 <p>
-<a class="badge" href="https://travis-ci.org/openopt/copt">
+<a href="https://travis-ci.org/openopt/copt">
     <img
         alt="https://secure.travis-ci.org/openopt/copt.svg?branch=master"
         src="https://secure.travis-ci.org/openopt/copt.svg?branch=master"
@@ -151,13 +152,11 @@
 
 
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -167,11 +166,11 @@
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;Fabian Pedregosa.
+      &copy;COPT developers.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.4</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
       
       |
       <a href="_sources/loss_functions.rst.txt"

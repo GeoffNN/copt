@@ -1,0 +1,6 @@
+copt.minimize\_pairwise\_frank\_wolfe\_l1
+=========================================
+
+.. currentmodule:: copt
+
+.. autofunction:: minimize_pairwise_frank_wolfe_l1

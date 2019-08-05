@@ -1,25 +1,26 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Examples &#8212; copt  documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"argmin": "\\DeclareMathOperator*{\\argmin}{\\mathbf{arg\\,min}}", "argmax": "\\DeclareMathOperator*{\\argmin}{\\mathbf{arg\\,max}}", "bs": "\\newcommand{\\bs}[1]{\\boldsymbol{#1}}"}}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Effect of acceleration in gradient descent" href="plot_accelerated.html" />
+    <link rel="next" title="Accelerated gradient descent" href="plot_accelerated.html" />
     <link rel="prev" title="copt.utils.TotalVariation2D" href="../generated/copt.utils.TotalVariation2D.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -38,62 +39,70 @@
           <div class="body" role="main">
             
   <div class="section" id="examples">
-<h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
-<div class="sphx-glr-thumbcontainer" tooltip="Showcase the improved convergence of accelerated gradient descent on a logistic regression prob..."><div class="figure" id="id1">
+<span id="sphx-glr-auto-examples"></span><h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
+<div class="sphx-glr-thumbcontainer" tooltip="Speed of convergence comparison between gradient descent and Nesterov acceleration on a logisti..."><div class="figure align-default" id="id1">
 <img alt="../_images/sphx_glr_plot_accelerated_thumb.png" src="../_images/sphx_glr_plot_accelerated_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="plot_accelerated.html#sphx-glr-auto-examples-plot-accelerated-py"><span class="std std-ref">Effect of acceleration in gradient descent</span></a></span></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="plot_accelerated.html#sphx-glr-auto-examples-plot-accelerated-py"><span class="std std-ref">Accelerated gradient descent</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="Speed of convergence of different step-size strategies and on 4 different classification datase..."><div class="figure" id="id2">
-<img alt="../_images/sphx_glr_plot_fw_stepsize_thumb.png" src="../_images/sphx_glr_plot_fw_stepsize_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="plot_fw_stepsize.html#sphx-glr-auto-examples-plot-fw-stepsize-py"><span class="std std-ref">Comparison of different step-sizes in Frank-Wolfe</span></a></span></p>
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div class="sphx-glr-thumbcontainer" tooltip="A comparison between two variance-reduced stochastic gradient methods: SAGA (implemented in :fu..."><div class="figure" id="id3">
+<div class="sphx-glr-thumbcontainer" tooltip="A comparison between two variance-reduced stochastic gradient methods: SAGA (implemented in cop..."><div class="figure align-default" id="id2">
 <img alt="../_images/sphx_glr_plot_saga_vs_svrg_thumb.png" src="../_images/sphx_glr_plot_saga_vs_svrg_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="plot_saga_vs_svrg.html#sphx-glr-auto-examples-plot-saga-vs-svrg-py"><span class="std std-ref">SAGA vs SVRG</span></a></span></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="plot_saga_vs_svrg.html#sphx-glr-auto-examples-plot-saga-vs-svrg-py"><span class="std std-ref">SAGA vs SVRG</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip=" "><div class="figure" id="id4">
-<img alt="../_images/sphx_glr_plot_fw_vertex_overlap_thumb.png" src="../_images/sphx_glr_plot_fw_vertex_overlap_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="plot_fw_vertex_overlap.html#sphx-glr-auto-examples-plot-fw-vertex-overlap-py"><span class="std std-ref">Overlap in update direction for Frank-Wolfe</span></a></span></p>
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div class="sphx-glr-thumbcontainer" tooltip="Comparison of solvers for problems with a group lasso regularization."><div class="figure" id="id5">
+<div class="sphx-glr-thumbcontainer" tooltip="Comparison of solvers for problems with a group lasso regularization."><div class="figure align-default" id="id3">
 <img alt="../_images/sphx_glr_plot_group_lasso_thumb.png" src="../_images/sphx_glr_plot_group_lasso_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="plot_group_lasso.html#sphx-glr-auto-examples-plot-group-lasso-py"><span class="std std-ref">Group Lasso regularization</span></a></span></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="plot_group_lasso.html#sphx-glr-auto-examples-plot-group-lasso-py"><span class="std std-ref">Group Lasso regularization</span></a></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="Estimating a sparse and low rank matrix"><div class="figure" id="id6">
+<div style='clear:both'></div><div class="section" id="frank-wolfe">
+<span id="sphx-glr-auto-examples-frank-wolfe"></span><h2>Frank-Wolfe<a class="headerlink" href="#frank-wolfe" title="Permalink to this headline">¶</a></h2>
+<div class="sphx-glr-thumbcontainer" tooltip="Speed of convergence of different step-size strategies and on 4 different classification datase..."><div class="figure align-default" id="id4">
+<img alt="../_images/sphx_glr_plot_fw_stepsize_thumb.png" src="../_images/sphx_glr_plot_fw_stepsize_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="frank_wolfe/plot_fw_stepsize.html#sphx-glr-auto-examples-frank-wolfe-plot-fw-stepsize-py"><span class="std std-ref">Comparison of different step-sizes in Frank-Wolfe</span></a></span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-thumbcontainer" tooltip="This example quantifies how many times the Frank-Wolfe algorithm selects the same extremal vert..."><div class="figure align-default" id="id5">
+<img alt="../_images/sphx_glr_plot_fw_vertex_overlap_thumb.png" src="../_images/sphx_glr_plot_fw_vertex_overlap_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="frank_wolfe/plot_fw_vertex_overlap.html#sphx-glr-auto-examples-frank-wolfe-plot-fw-vertex-overlap-py"><span class="std std-ref">Update Direction Overlap in Frank-Wolfe</span></a></span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div style='clear:both'></div></div>
+<div class="section" id="proximal-splitting">
+<span id="sphx-glr-auto-examples-proximal-splitting"></span><h2>Proximal Splitting<a class="headerlink" href="#proximal-splitting" title="Permalink to this headline">¶</a></h2>
+<div class="sphx-glr-thumbcontainer" tooltip="Estimating a sparse and low rank matrix"><div class="figure align-default" id="id6">
 <img alt="../_images/sphx_glr_plot_sparse_nuclear_norm_thumb.png" src="../_images/sphx_glr_plot_sparse_nuclear_norm_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="plot_sparse_nuclear_norm.html#sphx-glr-auto-examples-plot-sparse-nuclear-norm-py"><span class="std std-ref">Estimating a sparse and low rank matrix</span></a></span></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="proximal_splitting/plot_sparse_nuclear_norm.html#sphx-glr-auto-examples-proximal-splitting-plot-sparse-nuclear-norm-py"><span class="std std-ref">Estimating a sparse and low rank matrix</span></a></span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="Comparison of solvers with total variation regularization. "><div class="figure" id="id7">
+<div class="sphx-glr-thumbcontainer" tooltip="Comparison of solvers with total variation regularization. "><div class="figure align-default" id="id7">
 <img alt="../_images/sphx_glr_plot_tv_deblurring_thumb.png" src="../_images/sphx_glr_plot_tv_deblurring_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="plot_tv_deblurring.html#sphx-glr-auto-examples-plot-tv-deblurring-py"><span class="std std-ref">Total variation regularization</span></a></span></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="proximal_splitting/plot_tv_deblurring.html#sphx-glr-auto-examples-proximal-splitting-plot-tv-deblurring-py"><span class="std std-ref">Total variation regularization</span></a></span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="Comparison of solvers for a least squares with overlapping group lasso regularization."><div class="figure" id="id8">
+<div class="sphx-glr-thumbcontainer" tooltip="Comparison of solvers for a least squares with overlapping group lasso regularization."><div class="figure align-default" id="id8">
 <img alt="../_images/sphx_glr_plot_overlapping_group_lasso_thumb.png" src="../_images/sphx_glr_plot_overlapping_group_lasso_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="plot_overlapping_group_lasso.html#sphx-glr-auto-examples-plot-overlapping-group-lasso-py"><span class="std std-ref">Group lasso with overlap</span></a></span></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="proximal_splitting/plot_overlapping_group_lasso.html#sphx-glr-auto-examples-proximal-splitting-plot-overlapping-group-lasso-py"><span class="std std-ref">Group lasso with overlap</span></a></span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
 <div style='clear:both'></div><div class="sphx-glr-footer class sphx-glr-footer-gallery docutils container">
 <div class="sphx-glr-download docutils container">
-<a class="reference download internal" download="" href="../_downloads/339587287ad71e83bd155019d9dcd686/auto_examples_python.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">all</span> <span class="pre">examples</span> <span class="pre">in</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">auto_examples_python.zip</span></code></a></div>
-<div class="sphx-glr-download docutils container">
-<a class="reference download internal" download="" href="../_downloads/3b45c9bca17d882f177de1797fd8b67e/auto_examples_jupyter.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">all</span> <span class="pre">examples</span> <span class="pre">in</span> <span class="pre">Jupyter</span> <span class="pre">notebooks:</span> <span class="pre">auto_examples_jupyter.zip</span></code></a></div>
+<p><a class="reference download internal" download="" href="../_downloads/e2464157e7d65da54a89bc7b70450c39/auto_examples_python.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">all</span> <span class="pre">examples</span> <span class="pre">in</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">auto_examples_python.zip</span></code></a></p>
 </div>
-<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Gallery generated by Sphinx-Gallery</a></p>
+<div class="sphx-glr-download docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/c865297874309c559310415b72355d29/auto_examples_jupyter.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">all</span> <span class="pre">examples</span> <span class="pre">in</span> <span class="pre">Jupyter</span> <span class="pre">notebooks:</span> <span class="pre">auto_examples_jupyter.zip</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</div>
 </div>
 
 
@@ -127,7 +136,7 @@
     
 
 <p>
-<a class="badge" href="https://travis-ci.org/openopt/copt">
+<a href="https://travis-ci.org/openopt/copt">
     <img
         alt="https://secure.travis-ci.org/openopt/copt.svg?branch=master"
         src="https://secure.travis-ci.org/openopt/copt.svg?branch=master"
@@ -144,14 +153,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../incremental.html">Incremental methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../loss_functions.html">Loss functions</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Examples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="plot_accelerated.html">Effect of acceleration in gradient descent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plot_fw_stepsize.html">Comparison of different step-sizes in Frank-Wolfe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_accelerated.html">Accelerated gradient descent</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_saga_vs_svrg.html">SAGA vs SVRG</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plot_fw_vertex_overlap.html">Overlap in update direction for Frank-Wolfe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_group_lasso.html">Group Lasso regularization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plot_sparse_nuclear_norm.html">Estimating a sparse and low rank matrix</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plot_tv_deblurring.html">Total variation regularization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plot_overlapping_group_lasso.html">Group lasso with overlap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frank-wolfe">Frank-Wolfe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#proximal-splitting">Proximal Splitting</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../datasets.html">Datasets</a></li>
@@ -159,13 +165,11 @@
 
 
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -175,11 +179,11 @@
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;Fabian Pedregosa.
+      &copy;COPT developers.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.4</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
       
       |
       <a href="../_sources/auto_examples/index.rst.txt"

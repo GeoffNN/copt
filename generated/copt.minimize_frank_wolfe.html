@@ -1,25 +1,26 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>copt.minimize_frank_wolfe &#8212; copt  documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"argmin": "\\DeclareMathOperator*{\\argmin}{\\mathbf{arg\\,min}}", "argmax": "\\DeclareMathOperator*{\\argmin}{\\mathbf{arg\\,max}}", "bs": "\\newcommand{\\bs}[1]{\\boldsymbol{#1}}"}}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="copt.minimize_pfw_l1" href="copt.minimize_pfw_l1.html" />
+    <link rel="next" title="copt.minimize_pairwise_frank_wolfe_l1" href="copt.minimize_pairwise_frank_wolfe_l1.html" />
     <link rel="prev" title="Frank-Wolfe and other projection-free algorithms" href="../frank_wolfe.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -41,7 +42,7 @@
 <h1>copt.minimize_frank_wolfe<a class="headerlink" href="#copt-minimize-frank-wolfe" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="copt.minimize_frank_wolfe">
-<code class="descclassname">copt.</code><code class="descname">minimize_frank_wolfe</code><span class="sig-paren">(</span><em>f_grad</em>, <em>x0</em>, <em>lmo</em>, <em>max_iter=1000</em>, <em>tol=1e-12</em>, <em>step_size=None</em>, <em>callback=None</em>, <em>lipschitz=None</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/d6b5554/copt/frank_wolfe.py#L11"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.minimize_frank_wolfe" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">copt.</code><code class="sig-name descname">minimize_frank_wolfe</code><span class="sig-paren">(</span><em class="sig-param">f_grad</em>, <em class="sig-param">x0</em>, <em class="sig-param">lmo</em>, <em class="sig-param">max_iter=200</em>, <em class="sig-param">tol=1e-12</em>, <em class="sig-param">step_size=None</em>, <em class="sig-param">callback=None</em>, <em class="sig-param">lipschitz=None</em>, <em class="sig-param">verbose=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96caf42/copt/frank_wolfe.py#L11"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.minimize_frank_wolfe" title="Permalink to this definition">¶</a></dt>
 <dd><p>Frank-Wolfe algorithm.</p>
 <p>This method for optimization problems of the form</p>
 <div class="math notranslate nohighlight">
@@ -52,39 +53,36 @@ linear minimization oracle (lmo), i.e., a routine that given a vector
 <span class="math notranslate nohighlight">\(\bs{u}\)</span> returns a solution to</p>
 <div class="math notranslate nohighlight">
 \[\argmin_{\bs{x} \in D}\, \langle\bs{u}, \bs{x}\rangle\]</div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>f_grad</strong> – callable
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f_grad</strong> – callable
 Takes as input the current iterate (a vector of same size as x0) and
 returns the function value and gradient of the objective function.
 It should accept the optional argument return_gradient, and when False
-it should return only the function value.</li>
-<li><strong>x0</strong> – array-like
-Initial guess for solution.</li>
-<li><strong>lmo</strong> – callable
+it should return only the function value.</p></li>
+<li><p><strong>x0</strong> – array-like
+Initial guess for solution.</p></li>
+<li><p><strong>lmo</strong> – callable
 Takes as input a vector u of same size as x0 and returns a solution to
-the linear minimization oracle (defined above).</li>
-<li><strong>step_size</strong> – None or “adaptive” or “adaptive2” or callable
+the linear minimization oracle (defined above).</p></li>
+<li><p><strong>step_size</strong> – None or “adaptive” or “adaptive2” or callable
 Step-size step_size to use. If None is used and keyword lipschitz
 is not given or None, then it will use a decreasing step-size of the form
 2/(k+1) (described in [1]). If None is used and keyword lipschitz is not
 None, then it will use the Demyanov-Rubinov step-size step_size
-(variant 1 in [2]).</li>
-<li><strong>lipschitz</strong> – None or float.
-Estimate for the Lipschitz constant of the gradient.</li>
-<li><strong>max_iter</strong> – integer</li>
-<li><strong>tol</strong> – float</li>
-<li><strong>callback</strong> – callable</li>
-<li><strong>verbose</strong> – int</li>
+(variant 1 in [2]).</p></li>
+<li><p><strong>lipschitz</strong> – None or float.
+Estimate for the Lipschitz constant of the gradient.</p></li>
+<li><p><strong>max_iter</strong> – integer</p></li>
+<li><p><strong>tol</strong> – float</p></li>
+<li><p><strong>callback</strong> – callable</p></li>
+<li><p><strong>verbose</strong> – int</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
-<dt>scipy.optimize.OptimizeResult</dt>
-<dd><p class="first last">The optimization result represented as a
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>scipy.optimize.OptimizeResult</dt><dd><p>The optimization result represented as a
 <code class="docutils literal notranslate"><span class="pre">scipy.optimize.OptimizeResult</span></code> object. Important attributes are:
 <code class="docutils literal notranslate"><span class="pre">x</span></code> the solution array, <code class="docutils literal notranslate"><span class="pre">success</span></code> a Boolean flag indicating if
 the optimizer exited successfully and <code class="docutils literal notranslate"><span class="pre">message</span></code> which describes
@@ -93,13 +91,11 @@ for a description of other attributes.</p>
 </dd>
 </dl>
 </p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">res</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>res</p>
+</dd>
+</dl>
 <p class="rubric">References</p>
 <p>[1] Jaggi, Martin. <a class="reference external" href="http://proceedings.mlr.press/v28/jaggi13-supp.pdf">“Revisiting Frank-Wolfe: Projection-Free Sparse Convex
 Optimization.”</a> ICML
@@ -143,7 +139,7 @@ Optimization.”</a> ICML
     
 
 <p>
-<a class="badge" href="https://travis-ci.org/openopt/copt">
+<a href="https://travis-ci.org/openopt/copt">
     <img
         alt="https://secure.travis-ci.org/openopt/copt.svg?branch=master"
         src="https://secure.travis-ci.org/openopt/copt.svg?branch=master"
@@ -169,13 +165,11 @@ Optimization.”</a> ICML
 
 
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -185,11 +179,11 @@ Optimization.”</a> ICML
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;Fabian Pedregosa.
+      &copy;COPT developers.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.4</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
       
       |
       <a href="../_sources/generated/copt.minimize_frank_wolfe.rst.txt"

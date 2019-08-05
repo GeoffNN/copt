@@ -1,26 +1,27 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Datasets &#8212; copt  documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <script type="text/javascript" src="_static/copybutton.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"argmin": "\\DeclareMathOperator*{\\argmin}{\\mathbf{arg\\,min}}", "argmax": "\\DeclareMathOperator*{\\argmin}{\\mathbf{arg\\,max}}", "bs": "\\newcommand{\\bs}[1]{\\boldsymbol{#1}}"}}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="copt.datasets.load_img1" href="generated/copt.datasets.load_img1.html" />
-    <link rel="prev" title="Group lasso with overlap" href="auto_examples/plot_overlapping_group_lasso.html" />
+    <link rel="prev" title="Group lasso with overlap" href="auto_examples/proximal_splitting/plot_overlapping_group_lasso.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -39,23 +40,23 @@
             
   <div class="section" id="datasets">
 <h1>Datasets<a class="headerlink" href="#datasets" title="Permalink to this headline">¶</a></h1>
-<table border="1" class="longtable docutils">
+<table class="longtable docutils align-default">
 <colgroup>
-<col width="10%" />
-<col width="90%" />
+<col style="width: 10%" />
+<col style="width: 90%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="source/copt.html#copt.datasets.load_img1" title="copt.datasets.load_img1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copt.datasets.load_img1</span></code></a>([n_rows,&nbsp;n_cols])</td>
-<td>Load sample image</td>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/copt.datasets.load_img1.html#copt.datasets.load_img1" title="copt.datasets.load_img1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copt.datasets.load_img1</span></code></a>([n_rows, n_cols])</p></td>
+<td><p>Load sample image.</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="source/copt.html#copt.datasets.load_rcv1" title="copt.datasets.load_rcv1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copt.datasets.load_rcv1</span></code></a>([md5_check,&nbsp;subset])</td>
-<td>Download and return the RCV1 dataset.</td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/copt.datasets.load_rcv1.html#copt.datasets.load_rcv1" title="copt.datasets.load_rcv1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copt.datasets.load_rcv1</span></code></a>([md5_check, subset])</p></td>
+<td><p>Download and return the RCV1 dataset.</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="source/copt.html#copt.datasets.load_url" title="copt.datasets.load_url"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copt.datasets.load_url</span></code></a>([md5_check])</td>
-<td>Download and return the URL dataset.</td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/copt.datasets.load_url.html#copt.datasets.load_url" title="copt.datasets.load_url"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copt.datasets.load_url</span></code></a>([md5_check])</p></td>
+<td><p>Download and return the URL dataset.</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="source/copt.html#copt.datasets.load_covtype" title="copt.datasets.load_covtype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copt.datasets.load_covtype</span></code></a>()</td>
-<td>Download and return the covtype dataset.</td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/copt.datasets.load_covtype.html#copt.datasets.load_covtype" title="copt.datasets.load_covtype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copt.datasets.load_covtype</span></code></a>()</p></td>
+<td><p>Download and return the covtype dataset.</p></td>
 </tr>
 </tbody>
 </table>
@@ -92,7 +93,7 @@
     
 
 <p>
-<a class="badge" href="https://travis-ci.org/openopt/copt">
+<a href="https://travis-ci.org/openopt/copt">
     <img
         alt="https://secure.travis-ci.org/openopt/copt.svg?branch=master"
         src="https://secure.travis-ci.org/openopt/copt.svg?branch=master"
@@ -120,13 +121,11 @@
 
 
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -136,11 +135,11 @@
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;Fabian Pedregosa.
+      &copy;COPT developers.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.4</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
       
       |
       <a href="_sources/datasets.rst.txt"

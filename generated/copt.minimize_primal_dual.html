@@ -1,20 +1,21 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>copt.minimize_primal_dual &#8212; copt  documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"argmin": "\\DeclareMathOperator*{\\argmin}{\\mathbf{arg\\,min}}", "argmax": "\\DeclareMathOperator*{\\argmin}{\\mathbf{arg\\,max}}", "bs": "\\newcommand{\\bs}[1]{\\boldsymbol{#1}}"}}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -41,46 +42,43 @@
 <h1>copt.minimize_primal_dual<a class="headerlink" href="#copt-minimize-primal-dual" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="copt.minimize_primal_dual">
-<code class="descclassname">copt.</code><code class="descname">minimize_primal_dual</code><span class="sig-paren">(</span><em>f_grad</em>, <em>x0</em>, <em>prox_1=None</em>, <em>prox_2=None</em>, <em>L=None</em>, <em>tol=1e-12</em>, <em>max_iter=1000</em>, <em>callback=None</em>, <em>step_size=1.0</em>, <em>step_size2=None</em>, <em>line_search=True</em>, <em>max_iter_ls=20</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/9d1b331/copt/splitting.py#L166"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.minimize_primal_dual" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">copt.</code><code class="sig-name descname">minimize_primal_dual</code><span class="sig-paren">(</span><em class="sig-param">f_grad</em>, <em class="sig-param">x0</em>, <em class="sig-param">prox_1=None</em>, <em class="sig-param">prox_2=None</em>, <em class="sig-param">L=None</em>, <em class="sig-param">tol=1e-12</em>, <em class="sig-param">max_iter=1000</em>, <em class="sig-param">callback=None</em>, <em class="sig-param">step_size=1.0</em>, <em class="sig-param">step_size2=None</em>, <em class="sig-param">line_search=True</em>, <em class="sig-param">max_iter_ls=20</em>, <em class="sig-param">verbose=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4c4c444/copt/splitting.py#L166"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.minimize_primal_dual" title="Permalink to this definition">¶</a></dt>
 <dd><p>Primal-dual hybrid gradient splitting method.</p>
 <p>This method for optimization problems of the form</p>
 <blockquote>
-<div>minimize_x f(x) + alpha * g(x) + beta * h(L x)</div></blockquote>
+<div><p>minimize_x f(x) + alpha * g(x) + beta * h(L x)</p>
+</div></blockquote>
 <p>where f is a smooth function and g is a (possibly non-smooth)
 function for which the proximal operator is known.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>f_grad</strong> (<em>callable</em>) – Returns the function value and gradient of the objective function.
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f_grad</strong> (<em>callable</em>) – Returns the function value and gradient of the objective function.
 It should accept the optional argument return_gradient, and when False
-it should return only the function value.</li>
-<li><strong>prox_1</strong> (<em>callable of the form prox_1</em><em>(</em><em>x</em><em>, </em><em>alpha</em><em>)</em>) – prox_1(x, alpha) returns the proximal operator of g at x
-with parameter alpha.</li>
-<li><strong>x0</strong> (<em>array-like</em>) – Initial guess of solution.</li>
-<li><strong>L</strong> (<em>ndarray</em><em> or </em><em>sparse matrix</em>) – Linear operator inside the h term.</li>
-<li><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Maximum number of iterations.</li>
-<li><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Verbosity level, from 0 (no output) to 2 (output on each iteration)</li>
-<li><strong>callback</strong> (<em>callable.</em>) – callback function (optional). Takes a single argument (x) with the
+it should return only the function value.</p></li>
+<li><p><strong>prox_1</strong> (<em>callable of the form prox_1</em><em>(</em><em>x</em><em>, </em><em>alpha</em><em>)</em>) – prox_1(x, alpha) returns the proximal operator of g at x
+with parameter alpha.</p></li>
+<li><p><strong>x0</strong> (<em>array-like</em>) – Initial guess of solution.</p></li>
+<li><p><strong>L</strong> (<em>ndarray</em><em> or </em><em>sparse matrix</em>) – Linear operator inside the h term.</p></li>
+<li><p><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Maximum number of iterations.</p></li>
+<li><p><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Verbosity level, from 0 (no output) to 2 (output on each iteration)</p></li>
+<li><p><strong>callback</strong> (<em>callable.</em>) – callback function (optional). Takes a single argument (x) with the
 current coefficients in the algorithm. The algorithm will exit if
-callback returns False.</li>
+callback returns False.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>res</strong> – The optimization result represented as a
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>res</strong> – The optimization result represented as a
 <code class="docutils literal notranslate"><span class="pre">scipy.optimize.OptimizeResult</span></code> object. Important attributes are:
 <code class="docutils literal notranslate"><span class="pre">x</span></code> the solution array, <code class="docutils literal notranslate"><span class="pre">success</span></code> a Boolean flag indicating if
 the optimizer exited successfully and <code class="docutils literal notranslate"><span class="pre">message</span></code> which describes
 the cause of the termination. See <cite>scipy.optimize.OptimizeResult</cite>
 for a description of other attributes.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">OptimizeResult</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>OptimizeResult</p>
+</dd>
+</dl>
 <p class="rubric">References</p>
 <p>Condat, Laurent. “A primal-dual splitting method for convex optimization
 involving Lipschitzian, proximable and linear composite terms.” Journal of
@@ -122,7 +120,7 @@ first-order primal-dual algorithm.” Mathematical Programming (2015)</p>
     
 
 <p>
-<a class="badge" href="https://travis-ci.org/openopt/copt">
+<a href="https://travis-ci.org/openopt/copt">
     <img
         alt="https://secure.travis-ci.org/openopt/copt.svg?branch=master"
         src="https://secure.travis-ci.org/openopt/copt.svg?branch=master"
@@ -148,13 +146,11 @@ first-order primal-dual algorithm.” Mathematical Programming (2015)</p>
 
 
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -164,11 +160,11 @@ first-order primal-dual algorithm.” Mathematical Programming (2015)</p>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;Fabian Pedregosa.
+      &copy;COPT developers.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.4</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
       
       |
       <a href="../_sources/generated/copt.minimize_primal_dual.rst.txt"

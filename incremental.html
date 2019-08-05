@@ -1,20 +1,21 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Incremental methods &#8212; copt  documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <script type="text/javascript" src="_static/copybutton.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"argmin": "\\DeclareMathOperator*{\\argmin}{\\mathbf{arg\\,min}}", "argmax": "\\DeclareMathOperator*{\\argmin}{\\mathbf{arg\\,max}}", "bs": "\\newcommand{\\bs}[1]{\\boldsymbol{#1}}"}}})</script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -39,20 +40,20 @@
             
   <div class="section" id="incremental-methods">
 <span id="id1"></span><h1>Incremental methods<a class="headerlink" href="#incremental-methods" title="Permalink to this headline">¶</a></h1>
-<table border="1" class="longtable docutils">
+<table class="longtable docutils align-default">
 <colgroup>
-<col width="10%" />
-<col width="90%" />
+<col style="width: 10%" />
+<col style="width: 90%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="generated/copt.minimize_saga.html#copt.minimize_saga" title="copt.minimize_saga"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copt.minimize_saga</span></code></a>(f_deriv,&nbsp;A,&nbsp;b,&nbsp;x0,&nbsp;step_size)</td>
-<td>Stochastic average gradient augmented (SAGA) algorithm.</td>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/copt.minimize_saga.html#copt.minimize_saga" title="copt.minimize_saga"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copt.minimize_saga</span></code></a>(f_deriv, A, b, x0, step_size)</p></td>
+<td><p>Stochastic average gradient augmented (SAGA) algorithm.</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/copt.minimize_svrg.html#copt.minimize_svrg" title="copt.minimize_svrg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copt.minimize_svrg</span></code></a>(f_deriv,&nbsp;A,&nbsp;b,&nbsp;x0,&nbsp;step_size)</td>
-<td>Stochastic average gradient augmented (SAGA) algorithm.</td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/copt.minimize_svrg.html#copt.minimize_svrg" title="copt.minimize_svrg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copt.minimize_svrg</span></code></a>(f_deriv, A, b, x0, step_size)</p></td>
+<td><p>Stochastic average gradient augmented (SAGA) algorithm.</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/copt.minimize_vrtos.html#copt.minimize_vrtos" title="copt.minimize_vrtos"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copt.minimize_vrtos</span></code></a>(f_deriv,&nbsp;A,&nbsp;b,&nbsp;x0,&nbsp;step_size)</td>
-<td>Variance-reduced three operator splitting (VRTOS) algorithm.</td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/copt.minimize_vrtos.html#copt.minimize_vrtos" title="copt.minimize_vrtos"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copt.minimize_vrtos</span></code></a>(f_deriv, A, b, x0, step_size)</p></td>
+<td><p>Variance-reduced three operator splitting (VRTOS) algorithm.</p></td>
 </tr>
 </tbody>
 </table>
@@ -89,7 +90,7 @@
     
 
 <p>
-<a class="badge" href="https://travis-ci.org/openopt/copt">
+<a href="https://travis-ci.org/openopt/copt">
     <img
         alt="https://secure.travis-ci.org/openopt/copt.svg?branch=master"
         src="https://secure.travis-ci.org/openopt/copt.svg?branch=master"
@@ -116,13 +117,11 @@
 
 
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -132,11 +131,11 @@
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;Fabian Pedregosa.
+      &copy;COPT developers.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.4</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
       
       |
       <a href="_sources/incremental.rst.txt"

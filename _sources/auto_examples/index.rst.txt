@@ -1,12 +1,16 @@
 :orphan:
 
+
+
+.. _sphx_glr_auto_examples:
+
 Examples
 ========
 
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Showcase the improved convergence of accelerated gradient descent on a logistic regression prob...">
+    <div class="sphx-glr-thumbcontainer" tooltip="Speed of convergence comparison between gradient descent and Nesterov acceleration on a logisti...">
 
 .. only:: html
 
@@ -26,27 +30,7 @@ Examples
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Speed of convergence of different step-size strategies and on 4 different classification datase...">
-
-.. only:: html
-
-    .. figure:: /auto_examples/images/thumb/sphx_glr_plot_fw_stepsize_thumb.png
-
-        :ref:`sphx_glr_auto_examples_plot_fw_stepsize.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /auto_examples/plot_fw_stepsize
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="A comparison between two variance-reduced stochastic gradient methods: SAGA (implemented in :fu...">
+    <div class="sphx-glr-thumbcontainer" tooltip="A comparison between two variance-reduced stochastic gradient methods: SAGA (implemented in cop...">
 
 .. only:: html
 
@@ -63,26 +47,6 @@ Examples
    :hidden:
 
    /auto_examples/plot_saga_vs_svrg
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip=" ">
-
-.. only:: html
-
-    .. figure:: /auto_examples/images/thumb/sphx_glr_plot_fw_vertex_overlap_thumb.png
-
-        :ref:`sphx_glr_auto_examples_plot_fw_vertex_overlap.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /auto_examples/plot_fw_vertex_overlap
 
 .. raw:: html
 
@@ -103,6 +67,68 @@ Examples
    :hidden:
 
    /auto_examples/plot_group_lasso
+.. raw:: html
+
+    <div style='clear:both'></div>
+
+
+
+.. _sphx_glr_auto_examples_frank_wolfe:
+
+Frank-Wolfe
+-----------
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Speed of convergence of different step-size strategies and on 4 different classification datase...">
+
+.. only:: html
+
+    .. figure:: /auto_examples/frank_wolfe/images/thumb/sphx_glr_plot_fw_stepsize_thumb.png
+
+        :ref:`sphx_glr_auto_examples_frank_wolfe_plot_fw_stepsize.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/frank_wolfe/plot_fw_stepsize
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example quantifies how many times the Frank-Wolfe algorithm selects the same extremal vert...">
+
+.. only:: html
+
+    .. figure:: /auto_examples/frank_wolfe/images/thumb/sphx_glr_plot_fw_vertex_overlap_thumb.png
+
+        :ref:`sphx_glr_auto_examples_frank_wolfe_plot_fw_vertex_overlap.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/frank_wolfe/plot_fw_vertex_overlap
+.. raw:: html
+
+    <div style='clear:both'></div>
+
+
+
+.. _sphx_glr_auto_examples_proximal_splitting:
+
+Proximal Splitting
+------------------
+
 
 .. raw:: html
 
@@ -110,9 +136,9 @@ Examples
 
 .. only:: html
 
-    .. figure:: /auto_examples/images/thumb/sphx_glr_plot_sparse_nuclear_norm_thumb.png
+    .. figure:: /auto_examples/proximal_splitting/images/thumb/sphx_glr_plot_sparse_nuclear_norm_thumb.png
 
-        :ref:`sphx_glr_auto_examples_plot_sparse_nuclear_norm.py`
+        :ref:`sphx_glr_auto_examples_proximal_splitting_plot_sparse_nuclear_norm.py`
 
 .. raw:: html
 
@@ -122,7 +148,7 @@ Examples
 .. toctree::
    :hidden:
 
-   /auto_examples/plot_sparse_nuclear_norm
+   /auto_examples/proximal_splitting/plot_sparse_nuclear_norm
 
 .. raw:: html
 
@@ -130,9 +156,9 @@ Examples
 
 .. only:: html
 
-    .. figure:: /auto_examples/images/thumb/sphx_glr_plot_tv_deblurring_thumb.png
+    .. figure:: /auto_examples/proximal_splitting/images/thumb/sphx_glr_plot_tv_deblurring_thumb.png
 
-        :ref:`sphx_glr_auto_examples_plot_tv_deblurring.py`
+        :ref:`sphx_glr_auto_examples_proximal_splitting_plot_tv_deblurring.py`
 
 .. raw:: html
 
@@ -142,7 +168,7 @@ Examples
 .. toctree::
    :hidden:
 
-   /auto_examples/plot_tv_deblurring
+   /auto_examples/proximal_splitting/plot_tv_deblurring
 
 .. raw:: html
 
@@ -150,9 +176,9 @@ Examples
 
 .. only:: html
 
-    .. figure:: /auto_examples/images/thumb/sphx_glr_plot_overlapping_group_lasso_thumb.png
+    .. figure:: /auto_examples/proximal_splitting/images/thumb/sphx_glr_plot_overlapping_group_lasso_thumb.png
 
-        :ref:`sphx_glr_auto_examples_plot_overlapping_group_lasso.py`
+        :ref:`sphx_glr_auto_examples_proximal_splitting_plot_overlapping_group_lasso.py`
 
 .. raw:: html
 
@@ -162,7 +188,7 @@ Examples
 .. toctree::
    :hidden:
 
-   /auto_examples/plot_overlapping_group_lasso
+   /auto_examples/proximal_splitting/plot_overlapping_group_lasso
 .. raw:: html
 
     <div style='clear:both'></div>
@@ -177,17 +203,17 @@ Examples
 
   .. container:: sphx-glr-download
 
-    :download:`Download all examples in Python source code: auto_examples_python.zip <//usr/local/google/home/pedregosa/dev/copt/doc/auto_examples/auto_examples_python.zip>`
+    :download:`Download all examples in Python source code: auto_examples_python.zip <//home/fabian/Dropbox/dev/copt/doc/auto_examples/auto_examples_python.zip>`
 
 
 
   .. container:: sphx-glr-download
 
-    :download:`Download all examples in Jupyter notebooks: auto_examples_jupyter.zip <//usr/local/google/home/pedregosa/dev/copt/doc/auto_examples/auto_examples_jupyter.zip>`
+    :download:`Download all examples in Jupyter notebooks: auto_examples_jupyter.zip <//home/fabian/Dropbox/dev/copt/doc/auto_examples/auto_examples_jupyter.zip>`
 
 
 .. only:: html
 
  .. rst-class:: sphx-glr-signature
 
-    `Gallery generated by Sphinx-Gallery <https://sphinx-gallery.readthedocs.io>`_
+    `Gallery generated by Sphinx-Gallery <https://sphinx-gallery.github.io>`_

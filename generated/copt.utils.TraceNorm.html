@@ -1,20 +1,21 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>copt.utils.TraceNorm &#8212; copt  documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"argmin": "\\DeclareMathOperator*{\\argmin}{\\mathbf{arg\\,min}}", "argmax": "\\DeclareMathOperator*{\\argmin}{\\mathbf{arg\\,max}}", "bs": "\\newcommand{\\bs}[1]{\\boldsymbol{#1}}"}}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -41,41 +42,41 @@
 <h1>copt.utils.TraceNorm<a class="headerlink" href="#copt-utils-tracenorm" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="copt.utils.TraceNorm">
-<em class="property">class </em><code class="descclassname">copt.utils.</code><code class="descname">TraceNorm</code><span class="sig-paren">(</span><em>alpha</em>, <em>shape</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/9d1b331/copt/utils.py#L665"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.TraceNorm" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">copt.utils.</code><code class="sig-name descname">TraceNorm</code><span class="sig-paren">(</span><em class="sig-param">alpha</em>, <em class="sig-param">shape</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4c4c444/copt/utils.py#L665"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.TraceNorm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Trace (aka nuclear) norm, sum of singular values</p>
 <dl class="method">
 <dt id="copt.utils.TraceNorm.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>alpha</em>, <em>shape</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/9d1b331/copt/utils.py#L669"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.TraceNorm.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">alpha</em>, <em class="sig-param">shape</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4c4c444/copt/utils.py#L669"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.TraceNorm.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
 <p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
+<table class="longtable docutils align-default">
 <colgroup>
-<col width="10%" />
-<col width="90%" />
+<col style="width: 10%" />
+<col style="width: 90%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#copt.utils.TraceNorm.__init__" title="copt.utils.TraceNorm.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(alpha,&nbsp;shape)</td>
-<td>Initialize self.</td>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#copt.utils.TraceNorm.__init__" title="copt.utils.TraceNorm.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(alpha, shape)</p></td>
+<td><p>Initialize self.</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="../source/copt.html#copt.utils.TraceNorm.prox" title="copt.utils.TraceNorm.prox"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prox</span></code></a>(x,&nbsp;step_size)</td>
-<td></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">prox</span></code>(x, step_size)</p></td>
+<td><p></p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="../source/copt.html#copt.utils.TraceNorm.prox_factory" title="copt.utils.TraceNorm.prox_factory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prox_factory</span></code></a>()</td>
-<td></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">prox_factory</span></code>()</p></td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>
 <p class="rubric">Attributes</p>
-<table border="1" class="longtable docutils">
+<table class="longtable docutils align-default">
 <colgroup>
-<col width="10%" />
-<col width="90%" />
+<col style="width: 10%" />
+<col style="width: 90%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="../source/copt.html#copt.utils.TraceNorm.is_separable" title="copt.utils.TraceNorm.is_separable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_separable</span></code></a></td>
-<td></td>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_separable</span></code></p></td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>
@@ -114,7 +115,7 @@
     
 
 <p>
-<a class="badge" href="https://travis-ci.org/openopt/copt">
+<a href="https://travis-ci.org/openopt/copt">
     <img
         alt="https://secure.travis-ci.org/openopt/copt.svg?branch=master"
         src="https://secure.travis-ci.org/openopt/copt.svg?branch=master"
@@ -147,13 +148,11 @@
 
 
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -163,11 +162,11 @@
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;Fabian Pedregosa.
+      &copy;COPT developers.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.4</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
       
       |
       <a href="../_sources/generated/copt.utils.TraceNorm.rst.txt"

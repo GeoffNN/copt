@@ -16,15 +16,31 @@ logistic regression and an L1 norm (sometimes referred to as sparse logistic)
 
 
 
-
 .. image:: /auto_examples/images/sphx_glr_plot_saga_vs_svrg_001.png
     :class: sphx-glr-single-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+      0%|          | 0/100 [00:00<?, ?it/s]    SAGA:   0%|          | 0/100 [00:00<?, ?it/s]    SAGA:   0%|          | 0/100 [00:00<?, ?it/s, tol=5.67]    SAGA:   1%|1         | 1/100 [00:00<01:11,  1.39it/s, tol=5.67]    SAGA:   1%|1         | 1/100 [00:00<01:11,  1.39it/s, tol=3.23]    SAGA:   1%|1         | 1/100 [00:00<01:11,  1.38it/s, tol=1.93]    SAGA:   1%|1         | 1/100 [00:00<01:12,  1.37it/s, tol=0.911]    SAGA:   1%|1         | 1/100 [00:00<01:12,  1.36it/s, tol=0.538]    SAGA:   1%|1         | 1/100 [00:00<01:13,  1.35it/s, tol=0.258]    SAGA:   1%|1         | 1/100 [00:00<01:13,  1.34it/s, tol=0.146]    SAGA:   1%|1         | 1/100 [00:00<01:14,  1.34it/s, tol=0.0786]    SAGA:   1%|1         | 1/100 [00:00<01:14,  1.33it/s, tol=0.0433]    SAGA:   1%|1         | 1/100 [00:00<01:14,  1.32it/s, tol=0.0254]    SAGA:   1%|1         | 1/100 [00:00<01:15,  1.31it/s, tol=0.0152]    SAGA:   1%|1         | 1/100 [00:00<01:15,  1.31it/s, tol=0.00925]    SAGA:   1%|1         | 1/100 [00:00<01:16,  1.30it/s, tol=0.0058]     SAGA:   1%|1         | 1/100 [00:00<01:16,  1.29it/s, tol=0.00354]    SAGA:   1%|1         | 1/100 [00:00<01:16,  1.29it/s, tol=0.00246]    SAGA:   1%|1         | 1/100 [00:00<01:17,  1.28it/s, tol=0.00159]    SAGA:   1%|1         | 1/100 [00:00<01:17,  1.27it/s, tol=0.00111]    SAGA:   1%|1         | 1/100 [00:00<01:18,  1.26it/s, tol=0.000722]    SAGA:   1%|1         | 1/100 [00:00<01:18,  1.26it/s, tol=0.000518]    SAGA:   1%|1         | 1/100 [00:00<01:19,  1.25it/s, tol=0.000328]    SAGA:   1%|1         | 1/100 [00:00<01:19,  1.24it/s, tol=0.000246]    SAGA:   1%|1         | 1/100 [00:00<01:20,  1.24it/s, tol=0.000153]    SAGA:   1%|1         | 1/100 [00:00<01:20,  1.23it/s, tol=0.000112]    SAGA:   1%|1         | 1/100 [00:00<01:20,  1.22it/s, tol=7.76e-05]    SAGA:  24%|##4       | 24/100 [00:00<00:02, 29.37it/s, tol=7.76e-05]    SAGA:  24%|##4       | 24/100 [00:00<00:02, 29.22it/s, tol=5.33e-05]    SAGA:  24%|##4       | 24/100 [00:00<00:02, 29.07it/s, tol=3.79e-05]    SAGA:  24%|##4       | 24/100 [00:00<00:02, 28.92it/s, tol=2.58e-05]    SAGA:  24%|##4       | 24/100 [00:00<00:02, 28.77it/s, tol=1.78e-05]    SAGA:  24%|##4       | 24/100 [00:00<00:02, 28.64it/s, tol=1.18e-05]    SAGA:  24%|##4       | 24/100 [00:00<00:02, 28.49it/s, tol=8.51e-06]    SAGA:  24%|##4       | 24/100 [00:00<00:02, 28.35it/s, tol=5.81e-06]    SAGA:  24%|##4       | 24/100 [00:00<00:02, 28.21it/s, tol=4.23e-06]    SAGA:  24%|##4       | 24/100 [00:00<00:02, 28.06it/s, tol=2.88e-06]    SAGA:  24%|##4       | 24/100 [00:00<00:02, 27.92it/s, tol=2.02e-06]    SAGA:  24%|##4       | 24/100 [00:00<00:02, 27.78it/s, tol=1.31e-06]    SAGA:  24%|##4       | 24/100 [00:00<00:02, 27.64it/s, tol=9.87e-07]    SAGA:  24%|##4       | 24/100 [00:00<00:02, 27.52it/s, tol=6.8e-07]     SAGA:  24%|##4       | 24/100 [00:00<00:02, 27.38it/s, tol=4.69e-07]    SAGA:  24%|##4       | 24/100 [00:00<00:02, 27.26it/s, tol=3.4e-07]     SAGA:  24%|##4       | 24/100 [00:00<00:02, 27.12it/s, tol=2.38e-07]    SAGA:  24%|##4       | 24/100 [00:00<00:02, 26.99it/s, tol=1.65e-07]    SAGA:  24%|##4       | 24/100 [00:00<00:02, 26.86it/s, tol=1.09e-07]    SAGA:  24%|##4       | 24/100 [00:00<00:02, 26.74it/s, tol=7.98e-08]    SAGA:  24%|##4       | 24/100 [00:00<00:02, 26.61it/s, tol=5.6e-08]     SAGA:  24%|##4       | 24/100 [00:00<00:02, 26.48it/s, tol=3.94e-08]    SAGA:  24%|##4       | 24/100 [00:00<00:02, 26.37it/s, tol=2.78e-08]    SAGA:  24%|##4       | 24/100 [00:00<00:02, 26.25it/s, tol=1.96e-08]    SAGA:  24%|##4       | 24/100 [00:00<00:02, 26.14it/s, tol=1.35e-08]    SAGA:  48%|####8     | 48/100 [00:00<00:00, 52.27it/s, tol=1.35e-08]    SAGA:  48%|####8     | 48/100 [00:00<00:00, 52.04it/s, tol=9.65e-09]    SAGA:  48%|####8     | 48/100 [00:00<00:01, 51.79it/s, tol=6.77e-09]    SAGA:  48%|####8     | 48/100 [00:00<00:01, 51.56it/s, tol=4.92e-09]    SAGA:  48%|####8     | 48/100 [00:00<00:01, 51.34it/s, tol=3.35e-09]    SAGA:  48%|####8     | 48/100 [00:00<00:01, 51.10it/s, tol=2.46e-09]    SAGA:  48%|####8     | 48/100 [00:00<00:01, 50.89it/s, tol=1.67e-09]    SAGA:  48%|####8     | 48/100 [00:00<00:01, 50.67it/s, tol=1.19e-09]    SAGA:  48%|####8     | 48/100 [00:00<00:01, 50.44it/s, tol=8.81e-10]    SAGA:  48%|####8     | 48/100 [00:00<00:01, 50.21it/s, tol=5.85e-10]    SAGA:  48%|####8     | 48/100 [00:00<00:01, 50.01it/s, tol=4.32e-10]    SAGA:  48%|####8     | 48/100 [00:00<00:01, 49.78it/s, tol=2.98e-10]    SAGA:  48%|####8     | 48/100 [00:00<00:01, 49.56it/s, tol=2.08e-10]    SAGA:  48%|####8     | 48/100 [00:00<00:01, 49.36it/s, tol=1.55e-10]    SAGA:  48%|####8     | 48/100 [00:00<00:01, 49.14it/s, tol=1.03e-10]    SAGA:  48%|####8     | 48/100 [00:00<00:01, 48.93it/s, tol=7.4e-11]     SAGA:  48%|####8     | 48/100 [00:00<00:01, 48.74it/s, tol=5.27e-11]    SAGA:  48%|####8     | 48/100 [00:00<00:01, 48.53it/s, tol=3.69e-11]    SAGA:  48%|####8     | 48/100 [00:00<00:01, 48.31it/s, tol=2.71e-11]    SAGA:  48%|####8     | 48/100 [00:00<00:01, 48.10it/s, tol=1.87e-11]    SAGA:  48%|####8     | 48/100 [00:01<00:01, 47.92it/s, tol=1.33e-11]    SAGA:  48%|####8     | 48/100 [00:01<00:01, 47.71it/s, tol=9.27e-12]    SAGA:  48%|####8     | 48/100 [00:01<00:01, 47.52it/s, tol=6.86e-12]    SAGA:  48%|####8     | 48/100 [00:01<00:01, 47.33it/s, tol=4.53e-12]    SAGA:  48%|####8     | 48/100 [00:01<00:01, 47.12it/s, tol=3.4e-12]     SAGA:  72%|#######2  | 72/100 [00:01<00:00, 70.67it/s, tol=3.4e-12]    SAGA:  72%|#######2  | 72/100 [00:01<00:00, 70.39it/s, tol=2.25e-12]    SAGA:  72%|#######2  | 72/100 [00:01<00:00, 70.09it/s, tol=1.66e-12]    SAGA:  72%|#######2  | 72/100 [00:01<00:00, 69.79it/s, tol=1.17e-12]    SAGA:  72%|#######2  | 72/100 [00:01<00:00, 69.52it/s, tol=7.93e-13]    SAGA:  72%|#######2  | 72/100 [00:01<00:00, 69.23it/s, tol=6.04e-13]    SAGA:  72%|#######2  | 72/100 [00:01<00:00, 68.97it/s, tol=4.1e-13]     SAGA:  72%|#######2  | 72/100 [00:01<00:00, 68.68it/s, tol=2.93e-13]    SAGA:  72%|#######2  | 72/100 [00:01<00:00, 68.43it/s, tol=2.01e-13]    SAGA:  72%|#######2  | 72/100 [00:01<00:00, 68.14it/s, tol=1.4e-13]     SAGA:  72%|#######2  | 72/100 [00:01<00:00, 67.89it/s, tol=9.91e-14]    SAGA:  72%|#######2  | 72/100 [00:01<00:00, 67.62it/s, tol=6.67e-14]    SAGA:  72%|#######2  | 72/100 [00:01<00:00, 67.37it/s, tol=4.82e-14]    SAGA:  72%|#######2  | 72/100 [00:01<00:00, 67.09it/s, tol=3.04e-14]    SAGA:  72%|#######2  | 72/100 [00:01<00:00, 66.80it/s, tol=1.96e-14]    SAGA:  72%|#######2  | 72/100 [00:01<00:00, 66.50it/s, tol=1.21e-14]    SAGA:  72%|#######2  | 72/100 [00:01<00:00, 66.23it/s, tol=7.27e-15]    SAGA:  72%|#######2  | 72/100 [00:01<00:00, 65.96it/s, tol=3.61e-15]    SAGA:  72%|#######2  | 72/100 [00:01<00:00, 65.66it/s, tol=1.97e-15]    SAGA:  72%|#######2  | 72/100 [00:01<00:00, 65.38it/s, tol=1.42e-15]    SAGA:  72%|#######2  | 72/100 [00:01<00:00, 65.12it/s, tol=1.06e-15]    SAGA:  72%|#######2  | 72/100 [00:01<00:00, 64.88it/s, tol=1.03e-15]    SAGA:  72%|#######2  | 72/100 [00:01<00:00, 64.63it/s, tol=1.1e-15]     SAGA:  72%|#######2  | 72/100 [00:01<00:00, 64.41it/s, tol=9.91e-16]    SAGA:  72%|#######2  | 72/100 [00:01<00:00, 64.15it/s, tol=7.85e-16]    SAGA:  96%|#########6| 96/100 [00:01<00:00, 85.52it/s, tol=7.85e-16]    SAGA:  96%|#########6| 96/100 [00:01<00:00, 85.22it/s, tol=9.36e-16]    SAGA:  96%|#########6| 96/100 [00:01<00:00, 84.91it/s, tol=8.42e-16]    SAGA:  96%|#########6| 96/100 [00:01<00:00, 84.58it/s, tol=7.54e-16]    SAGA:  96%|#########6| 96/100 [00:01<00:00, 84.28it/s, tol=6.67e-16]    SAGA: 100%|##########| 100/100 [00:01<00:00, 87.76it/s, tol=6.67e-16]
+    /home/fabian/anaconda3/lib/python3.6/site-packages/matplotlib/axes/_base.py:3604: MatplotlibDeprecationWarning: 
+    The `ymin` argument was deprecated in Matplotlib 3.0 and will be removed in 3.2. Use `bottom` instead.
+      alternative='`bottom`', obj_type='argument')
+    /home/fabian/anaconda3/lib/python3.6/site-packages/matplotlib/figure.py:445: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+      % get_backend())
 
 
 
-.. code-block:: python
+
+
+|
+
+
+.. code-block:: default
 
     import numpy as np
     import pylab as plt
@@ -76,7 +92,12 @@ logistic regression and an L1 norm (sometimes referred to as sparse logistic)
     plt.grid()
     plt.show()
 
-**Total running time of the script:** ( 0 minutes  3.247 seconds)
+
+.. rst-class:: sphx-glr-timing
+
+   **Total running time of the script:** ( 0 minutes  2.994 seconds)
+
+**Estimated memory usage:**  87 MB
 
 
 .. _sphx_glr_download_auto_examples_plot_saga_vs_svrg.py:
@@ -104,4 +125,4 @@ logistic regression and an L1 norm (sometimes referred to as sparse logistic)
 
  .. rst-class:: sphx-glr-signature
 
-    `Gallery generated by Sphinx-Gallery <https://sphinx-gallery.readthedocs.io>`_
+    `Gallery generated by Sphinx-Gallery <https://sphinx-gallery.github.io>`_

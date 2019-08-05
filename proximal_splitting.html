@@ -1,20 +1,21 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Proximal splitting &#8212; copt  documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <script type="text/javascript" src="_static/copybutton.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"argmin": "\\DeclareMathOperator*{\\argmin}{\\mathbf{arg\\,min}}", "argmax": "\\DeclareMathOperator*{\\argmin}{\\mathbf{arg\\,max}}", "bs": "\\newcommand{\\bs}[1]{\\boldsymbol{#1}}"}}})</script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -39,20 +40,28 @@
             
   <div class="section" id="proximal-splitting">
 <span id="id1"></span><h1>Proximal splitting<a class="headerlink" href="#proximal-splitting" title="Permalink to this headline">¶</a></h1>
-<table border="1" class="longtable docutils">
+<table class="longtable docutils align-default">
 <colgroup>
-<col width="10%" />
-<col width="90%" />
+<col style="width: 10%" />
+<col style="width: 90%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="generated/copt.minimize_three_split.html#copt.minimize_three_split" title="copt.minimize_three_split"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copt.minimize_three_split</span></code></a>(f_grad,&nbsp;x0[,&nbsp;…])</td>
-<td>Davis-Yin three operator splitting method.</td>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/copt.minimize_three_split.html#copt.minimize_three_split" title="copt.minimize_three_split"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copt.minimize_three_split</span></code></a>(f_grad, x0[, …])</p></td>
+<td><p>Davis-Yin three operator splitting method.</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/copt.minimize_primal_dual.html#copt.minimize_primal_dual" title="copt.minimize_primal_dual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copt.minimize_primal_dual</span></code></a>(f_grad,&nbsp;x0[,&nbsp;…])</td>
-<td>Primal-dual hybrid gradient splitting method.</td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/copt.minimize_primal_dual.html#copt.minimize_primal_dual" title="copt.minimize_primal_dual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copt.minimize_primal_dual</span></code></a>(f_grad, x0[, …])</p></td>
+<td><p>Primal-dual hybrid gradient splitting method.</p></td>
 </tr>
 </tbody>
 </table>
+<div class="topic">
+<p class="topic-title first">Examples:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="auto_examples/proximal_splitting/plot_sparse_nuclear_norm.html#sphx-glr-auto-examples-proximal-splitting-plot-sparse-nuclear-norm-py"><span class="std std-ref">Estimating a sparse and low rank matrix</span></a></p></li>
+<li><p><a class="reference internal" href="auto_examples/proximal_splitting/plot_tv_deblurring.html#sphx-glr-auto-examples-proximal-splitting-plot-tv-deblurring-py"><span class="std std-ref">Total variation regularization</span></a></p></li>
+<li><p><a class="reference internal" href="auto_examples/proximal_splitting/plot_overlapping_group_lasso.html#sphx-glr-auto-examples-proximal-splitting-plot-overlapping-group-lasso-py"><span class="std std-ref">Group lasso with overlap</span></a></p></li>
+</ul>
+</div>
 </div>
 
 
@@ -86,7 +95,7 @@
     
 
 <p>
-<a class="badge" href="https://travis-ci.org/openopt/copt">
+<a href="https://travis-ci.org/openopt/copt">
     <img
         alt="https://secure.travis-ci.org/openopt/copt.svg?branch=master"
         src="https://secure.travis-ci.org/openopt/copt.svg?branch=master"
@@ -112,13 +121,11 @@
 
 
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -128,11 +135,11 @@
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;Fabian Pedregosa.
+      &copy;COPT developers.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.4</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
       
       |
       <a href="_sources/proximal_splitting.rst.txt"
