@@ -46,39 +46,14 @@
 <span id="sphx-glr-auto-examples-frank-wolfe-plot-fw-stepsize-py"></span><h1>Comparison of different step-sizes in Frank-Wolfe<a class="headerlink" href="#comparison-of-different-step-sizes-in-frank-wolfe" title="Permalink to this headline">¶</a></h1>
 <p>Speed of convergence of different step-size strategies
 and on 4 different classification datasets.</p>
-<ul class="sphx-glr-horizontal">
-<li><img alt="../../_images/sphx_glr_plot_fw_stepsize_001.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_plot_fw_stepsize_001.png" />
-</li>
-<li><img alt="../../_images/sphx_glr_plot_fw_stepsize_002.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_plot_fw_stepsize_002.png" />
-</li>
-<li><img alt="../../_images/sphx_glr_plot_fw_stepsize_003.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_plot_fw_stepsize_003.png" />
-</li>
-<li><img alt="../../_images/sphx_glr_plot_fw_stepsize_004.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_plot_fw_stepsize_004.png" />
-</li>
-</ul>
+<img alt="../../_images/sphx_glr_plot_fw_stepsize_001.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_fw_stepsize_001.png" />
 <p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Running on the Gisette dataset
-Running adaptive step-size variant
-Running adaptive2 step-size variant
-Running adaptive3 step-size variant
-Running Lipschitz step-size variant
 /usr/local/google/home/pedregosa/anaconda3/lib/python3.6/site-packages/matplotlib/figure.py:448: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
   % get_backend())
 Running on the RCV1 dataset
-Running adaptive step-size variant
-Running adaptive2 step-size variant
-Running adaptive3 step-size variant
-Running Lipschitz step-size variant
 Running on the Madelon dataset
-Running adaptive step-size variant
-Running adaptive2 step-size variant
-Running adaptive3 step-size variant
-Running Lipschitz step-size variant
 Running on the Covtype dataset
-Running adaptive step-size variant
-Running adaptive2 step-size variant
-Running adaptive3 step-size variant
-Running Lipschitz step-size variant
 </pre></div>
 </div>
 <div class="line-block">
@@ -108,7 +83,6 @@ Running Lipschitz step-size variant
   <span class="n">l1_ball</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">L1Ball</span><span class="p">(</span><span class="n">n_features</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">)</span>
   <span class="n">f</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">LogLoss</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
   <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_features</span><span class="p">)</span>
-  <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 
   <span class="k">for</span> <span class="n">step_size</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="p">[</span>
       <span class="p">[</span><span class="s2">&quot;adaptive&quot;</span><span class="p">,</span> <span class="s2">&quot;adaptive step-size&quot;</span><span class="p">],</span>
@@ -116,7 +90,6 @@ Running Lipschitz step-size variant
       <span class="p">[</span><span class="s2">&quot;adaptive3&quot;</span><span class="p">,</span> <span class="s2">&quot;adaptive3 step-size&quot;</span><span class="p">],</span>
       <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;Lipschitz step-size&quot;</span><span class="p">]</span>
       <span class="p">]:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Running </span><span class="si">%s</span><span class="s2"> variant&quot;</span> <span class="o">%</span> <span class="n">label</span><span class="p">)</span>
     <span class="n">cb</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">Trace</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
     <span class="n">trace_gt</span> <span class="o">=</span> <span class="p">[]</span>
 
@@ -143,8 +116,8 @@ Running Lipschitz step-size variant
   <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 15 minutes  3.356 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  1769 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 15 minutes  5.206 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  1783 MB</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-frank-wolfe-plot-fw-stepsize-py">
 <div class="sphx-glr-download docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/987fa4d15553853a10ec9693a3937fed/plot_fw_stepsize.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_fw_stepsize.py</span></code></a></p>
