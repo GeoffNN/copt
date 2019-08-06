@@ -39,7 +39,6 @@ cp.minimize_proximal_gradient(
     f_grad,
     w0,
     prox=l1_ball.prox,
-    verbose=True,
     callback=cb
 )
 plt.plot(cb.trace_fx)
