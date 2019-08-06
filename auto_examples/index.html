@@ -20,7 +20,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"argmin": "\\DeclareMathOperator*{\\argmin}{\\mathbf{arg\\,min}}", "argmax": "\\DeclareMathOperator*{\\argmin}{\\mathbf{arg\\,max}}", "bs": "\\newcommand{\\bs}[1]{\\boldsymbol{#1}}"}}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Accelerated gradient descent" href="plot_accelerated.html" />
+    <link rel="next" title="Combining COPT with JAX" href="plot_jax_copt.html" />
     <link rel="prev" title="copt.utils.TotalVariation2D" href="../generated/copt.utils.TotalVariation2D.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -40,21 +40,21 @@
             
   <div class="section" id="examples">
 <span id="sphx-glr-auto-examples"></span><h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
-<div class="sphx-glr-thumbcontainer" tooltip="Speed of convergence comparison between gradient descent and Nesterov acceleration on a logisti..."><div class="figure align-default" id="id1">
+<div class="sphx-glr-thumbcontainer" tooltip="This example shows how JAX can be used within COPT to compute the gradients of the objective fu..."><div class="figure align-default" id="id1">
+<img alt="../_images/sphx_glr_plot_jax_copt_thumb.png" src="../_images/sphx_glr_plot_jax_copt_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="plot_jax_copt.html#sphx-glr-auto-examples-plot-jax-copt-py"><span class="std std-ref">Combining COPT with JAX</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-thumbcontainer" tooltip="Speed of convergence comparison between gradient descent and Nesterov acceleration on a logisti..."><div class="figure align-default" id="id2">
 <img alt="../_images/sphx_glr_plot_accelerated_thumb.png" src="../_images/sphx_glr_plot_accelerated_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="plot_accelerated.html#sphx-glr-auto-examples-plot-accelerated-py"><span class="std std-ref">Accelerated gradient descent</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="plot_accelerated.html#sphx-glr-auto-examples-plot-accelerated-py"><span class="std std-ref">Accelerated gradient descent</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="A comparison between two variance-reduced stochastic gradient methods: SAGA (implemented in cop..."><div class="figure align-default" id="id2">
+<div class="sphx-glr-thumbcontainer" tooltip="A comparison between two variance-reduced stochastic gradient methods: SAGA (implemented in cop..."><div class="figure align-default" id="id3">
 <img alt="../_images/sphx_glr_plot_saga_vs_svrg_thumb.png" src="../_images/sphx_glr_plot_saga_vs_svrg_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="plot_saga_vs_svrg.html#sphx-glr-auto-examples-plot-saga-vs-svrg-py"><span class="std std-ref">SAGA vs SVRG</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div class="sphx-glr-thumbcontainer" tooltip="This example shows how JAX can be used within COPT to compute the gradients of the objective fu..."><div class="figure align-default" id="id3">
-<img alt="../_images/sphx_glr_jax_mnist_thumb.png" src="../_images/sphx_glr_jax_mnist_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="jax_mnist.html#sphx-glr-auto-examples-jax-mnist-py"><span class="std std-ref">Combining COPT with JAX</span></a></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="plot_saga_vs_svrg.html#sphx-glr-auto-examples-plot-saga-vs-svrg-py"><span class="std std-ref">SAGA vs SVRG</span></a></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
@@ -159,9 +159,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../incremental.html">Incremental methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../loss_functions.html">Loss functions</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="plot_jax_copt.html">Combining COPT with JAX</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_accelerated.html">Accelerated gradient descent</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_saga_vs_svrg.html">SAGA vs SVRG</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jax_mnist.html">Combining COPT with JAX</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_group_lasso.html">Group Lasso regularization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#frank-wolfe">Frank-Wolfe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#proximal-splitting">Proximal Splitting</a></li>

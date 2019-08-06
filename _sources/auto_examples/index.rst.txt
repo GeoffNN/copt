@@ -10,6 +10,26 @@ Examples
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="This example shows how JAX can be used within COPT to compute the gradients of the objective fu...">
+
+.. only:: html
+
+    .. figure:: /auto_examples/images/thumb/sphx_glr_plot_jax_copt_thumb.png
+
+        :ref:`sphx_glr_auto_examples_plot_jax_copt.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/plot_jax_copt
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip="Speed of convergence comparison between gradient descent and Nesterov acceleration on a logisti...">
 
 .. only:: html
@@ -47,26 +67,6 @@ Examples
    :hidden:
 
    /auto_examples/plot_saga_vs_svrg
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="This example shows how JAX can be used within COPT to compute the gradients of the objective fu...">
-
-.. only:: html
-
-    .. figure:: /auto_examples/images/thumb/sphx_glr_jax_mnist_thumb.png
-
-        :ref:`sphx_glr_auto_examples_jax_mnist.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /auto_examples/jax_mnist
 
 .. raw:: html
 

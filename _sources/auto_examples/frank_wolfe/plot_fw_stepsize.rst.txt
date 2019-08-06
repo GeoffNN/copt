@@ -15,8 +15,28 @@ and on 4 different classification datasets.
 
 
 
-.. image:: /auto_examples/frank_wolfe/images/sphx_glr_plot_fw_stepsize_001.png
-    :class: sphx-glr-single-img
+.. rst-class:: sphx-glr-horizontal
+
+
+    *
+
+      .. image:: /auto_examples/frank_wolfe/images/sphx_glr_plot_fw_stepsize_001.png
+            :class: sphx-glr-multi-img
+
+    *
+
+      .. image:: /auto_examples/frank_wolfe/images/sphx_glr_plot_fw_stepsize_002.png
+            :class: sphx-glr-multi-img
+
+    *
+
+      .. image:: /auto_examples/frank_wolfe/images/sphx_glr_plot_fw_stepsize_003.png
+            :class: sphx-glr-multi-img
+
+    *
+
+      .. image:: /auto_examples/frank_wolfe/images/sphx_glr_plot_fw_stepsize_004.png
+            :class: sphx-glr-multi-img
 
 
 .. rst-class:: sphx-glr-script-out
@@ -81,6 +101,7 @@ and on 4 different classification datasets.
       l1_ball = cp.utils.L1Ball(n_features / 2.)
       f = cp.utils.LogLoss(X, y)
       x0 = np.zeros(n_features)
+      plt.figure()
 
       for step_size, label in [
           ["adaptive", "adaptive step-size"],
@@ -117,7 +138,7 @@ and on 4 different classification datasets.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 15 minutes  5.721 seconds)
+   **Total running time of the script:** ( 15 minutes  17.348 seconds)
 
 
 .. _sphx_glr_download_auto_examples_frank_wolfe_plot_fw_stepsize.py:

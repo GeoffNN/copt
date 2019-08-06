@@ -19,56 +19,72 @@ the training data.
 .. code-block:: default
 
     import copt as cp
-    import numpy as np
+    import jax.numpy as np
+    from jax import random
+    from jax import vmap
+    from jax import grad
+    # from jax.experimental import stax
+    # from jax.experimental.stax import Dense, Relu, LogSoftmax
     import tensorflow_datasets as tfds
-    from jax.experimental import stax
-    from jax.experimental.stax import Dense, Relu, LogSoftmax
 
 
     def one_hot(x, k, dtype=np.float32):
       """Create a one-hot encoding of x of size k."""
       return np.array(x[:, None] == np.arange(k), dtype)
 
-    data_dir = '/tmp/tfds'
-
-    # Fetch full datasets for evaluation
-    # tfds.load returns tf.Tensors (or tf.data.Datasets if batch_size != -1)
-    # You can convert them to NumPy arrays (or iterables of NumPy arrays) with tfds.dataset_as_numpy
-    mnist_data, info = tfds.load(name="mnist", batch_size=-1, data_dir=data_dir, with_info=True)
-    mnist_data = tfds.as_numpy(mnist_data)
-    train_data, test_data = mnist_data['train'], mnist_data['test']
+    # as_supervised=True gives us the (image, label) as a tuple instead of a dict
+    ds, info = tfds.load(name='mnist', split='train', as_supervised=True, with_info=True)
+    # You can build up an arbitrary tf.data input pipeline
+    ds = ds.batch(128).prefetch(1)
+    # tfds.dataset_as_numpy converts the tf.data.Dataset into an iterable of NumPy arrays
+    batches = tfds.as_numpy(ds)
     num_labels = info.features['label'].num_classes
     h, w, c = info.features['image'].shape
     num_pixels = h * w * c
 
-    # Full train set
-    train_images, train_labels = train_data['image'], train_data['label']
-    train_images = np.reshape(train_images, (len(train_images), num_pixels))
-    train_labels = one_hot(train_labels, num_labels)
 
-    # Full test set
-    test_images, test_labels = test_data['image'], test_data['label']
-    test_images = np.reshape(test_images, (len(test_images), num_pixels))
-    test_labels = one_hot(test_labels, num_labels)
+    from jax.scipy.special import logsumexp
+
+    def relu(x):
+      return np.maximum(0, x)
+
+    def predict(params, image):
+      # per-example predictions
+      activations = image
+      for w, b in params[:-1]:
+        outputs = np.dot(w, activations) + b
+        activations = relu(outputs)
+
+      final_w, final_b = params[-1]
+      logits = np.dot(final_w, activations) + final_b
+      return logits - logsumexp(logits)
+
+    def loss(params, images, targets):
+      batched_predict = vmap(predict, in_axes=(None, 0))
+      preds = batched_predict(params, images)
+      return -np.sum(preds * targets)
+
+    def f_grad(params):
+      x, y = next(batches)
+      x = np.reshape(x, (len(x), num_pixels))
+      y = one_hot(y, num_labels)
+      func = loss(params, x, y)
+      func_grad = grad(loss)(params, x, y)
+      return func, func_grad
 
 
-    def loss(params, batch):
-      inputs, targets = batch
-      preds = predict(params, inputs)
-      return -np.mean(preds * targets)
+    def random_layer_params(m, n, key, scale=1e-2):
+      w_key, b_key = random.split(key)
+      return scale * random.normal(w_key, (n, m)), scale * random.normal(b_key, (n,))
 
-    def accuracy(params, batch):
-      inputs, targets = batch
-      target_class = np.argmax(targets, axis=1)
-      predicted_class = np.argmax(predict(params, inputs), axis=1)
-      return np.mean(predicted_class == target_class)
 
-    init_random_params, predict = stax.serial(
-        Dense(1024), Relu,
-        Dense(1024), Relu,
-        Dense(10), LogSoftmax)
+    # Initialize all layers for a fully-connected neural network with sizes "sizes"
+    def init_network_params(sizes, key):
+      keys = random.split(key, len(sizes))
+      return [random_layer_params(m, n, k) for m, n, k in zip(sizes[:-1], sizes[1:], keys)]
 
-    mnist_train = tfds.load(name="mnist", split=tfds.Split.TRAIN)
+    layer_sizes = [784, 512, 512, 10]
+    params = init_network_params(layer_sizes, random.PRNGKey(0))
 
 .. rst-class:: sphx-glr-timing
 
