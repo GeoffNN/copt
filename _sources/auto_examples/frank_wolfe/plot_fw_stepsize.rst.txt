@@ -30,7 +30,7 @@ and on 4 different classification datasets.
     Running adaptive2 step-size variant
     Running adaptive3 step-size variant
     Running Lipschitz step-size variant
-    /home/fabian/anaconda3/lib/python3.6/site-packages/matplotlib/figure.py:445: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+    /usr/local/google/home/pedregosa/anaconda3/lib/python3.6/site-packages/matplotlib/figure.py:448: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
       % get_backend())
     Running on the RCV1 dataset
     Running adaptive step-size variant
@@ -117,9 +117,7 @@ and on 4 different classification datasets.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 12 minutes  3.839 seconds)
-
-**Estimated memory usage:**  1480 MB
+   **Total running time of the script:** ( 14 minutes  51.100 seconds)
 
 
 .. _sphx_glr_download_auto_examples_frank_wolfe_plot_fw_stepsize.py:

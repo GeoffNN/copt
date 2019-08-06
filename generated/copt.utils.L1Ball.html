@@ -42,13 +42,13 @@
 <h1>copt.utils.L1Ball<a class="headerlink" href="#copt-utils-l1ball" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="copt.utils.L1Ball">
-<em class="property">class </em><code class="sig-prename descclassname">copt.utils.</code><code class="sig-name descname">L1Ball</code><span class="sig-paren">(</span><em class="sig-param">alpha</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96caf42/copt/utils.py#L361"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.L1Ball" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">copt.utils.</code><code class="sig-name descname">L1Ball</code><span class="sig-paren">(</span><em class="sig-param">alpha</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/3c3fe98/copt/utils.py#L361"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.L1Ball" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indicator function over the L1 ball</p>
 <p>This function is 0 if the sum of absolute values is less than or equal to
 alpha, and infinity otherwise.</p>
 <dl class="method">
 <dt id="copt.utils.L1Ball.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">alpha</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96caf42/copt/utils.py#L367"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.L1Ball.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">alpha</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/3c3fe98/copt/utils.py#L367"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.L1Ball.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
@@ -62,17 +62,17 @@ alpha, and infinity otherwise.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#copt.utils.L1Ball.__init__" title="copt.utils.L1Ball.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(alpha)</p></td>
 <td><p>Initialize self.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#copt.utils.L1Ball.lmo" title="copt.utils.L1Ball.lmo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lmo</span></code></a>(u)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../source/copt.html#copt.utils.L1Ball.lmo" title="copt.utils.L1Ball.lmo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lmo</span></code></a>(u)</p></td>
 <td><p>Solve the linear problem min_{||s||_1 &lt;= alpha} &lt;u, s&gt;</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">prox</span></code>(x, step_size)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../source/copt.html#copt.utils.L1Ball.prox" title="copt.utils.L1Ball.prox"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prox</span></code></a>(x, step_size)</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
 <dt id="copt.utils.L1Ball.lmo">
-<code class="sig-name descname">lmo</code><span class="sig-paren">(</span><em class="sig-param">u</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/96caf42/copt/utils.py#L379"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.L1Ball.lmo" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">lmo</code><span class="sig-paren">(</span><em class="sig-param">u</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/3c3fe98/copt/utils.py#L379"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.L1Ball.lmo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Solve the linear problem
 min_{||s||_1 &lt;= alpha} &lt;u, s&gt;</p>
 </dd></dl>
@@ -112,7 +112,7 @@ min_{||s||_1 &lt;= alpha} &lt;u, s&gt;</p>
     
 
 <p>
-<a href="https://travis-ci.org/openopt/copt">
+<a class="badge" href="https://travis-ci.org/openopt/copt">
     <img
         alt="https://secure.travis-ci.org/openopt/copt.svg?branch=master"
         src="https://secure.travis-ci.org/openopt/copt.svg?branch=master"
@@ -163,7 +163,7 @@ min_{||s||_1 &lt;= alpha} &lt;u, s&gt;</p>
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
       <a href="../_sources/generated/copt.utils.L1Ball.rst.txt"
