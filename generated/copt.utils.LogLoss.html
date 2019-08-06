@@ -42,7 +42,7 @@
 <h1>copt.utils.LogLoss<a class="headerlink" href="#copt-utils-logloss" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="copt.utils.LogLoss">
-<em class="property">class </em><code class="sig-prename descclassname">copt.utils.</code><code class="sig-name descname">LogLoss</code><span class="sig-paren">(</span><em class="sig-param">A</em>, <em class="sig-param">b</em>, <em class="sig-param">alpha=0.0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/3c3fe98/copt/utils.py#L123"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.LogLoss" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">copt.utils.</code><code class="sig-name descname">LogLoss</code><span class="sig-paren">(</span><em class="sig-param">A</em>, <em class="sig-param">b</em>, <em class="sig-param">alpha=0.0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/74e01ee/copt/utils.py#L123"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.LogLoss" title="Permalink to this definition">¶</a></dt>
 <dd><p>A class evaluation and derivatives of the logistic loss. The logistic loss function is defined as</p>
 <div class="math notranslate nohighlight">
 \[-\frac{1}{n}\sum_{i=1}^n b_i \log(\sigma(\bs{a}_i^T \bs{x})) + (1 - b_i) \log(1 - \sigma(\bs{a}_i^T \bs{x}))\]</div>
@@ -53,7 +53,7 @@ class labels, it should have the values 0 or 1.</p>
 <p><a class="reference external" href="http://fa.bianp.net/drafts/derivatives_logistic.html">http://fa.bianp.net/drafts/derivatives_logistic.html</a></p>
 <dl class="method">
 <dt id="copt.utils.LogLoss.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">A</em>, <em class="sig-param">b</em>, <em class="sig-param">alpha=0.0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/3c3fe98/copt/utils.py#L138"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.LogLoss.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">A</em>, <em class="sig-param">b</em>, <em class="sig-param">alpha=0.0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/74e01ee/copt/utils.py#L138"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.LogLoss.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
@@ -95,7 +95,7 @@ class labels, it should have the values 0 or 1.</p>
 </table>
 <dl class="method">
 <dt id="copt.utils.LogLoss.Hessian">
-<code class="sig-name descname">Hessian</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/3c3fe98/copt/utils.py#L188"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.LogLoss.Hessian" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">Hessian</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/74e01ee/copt/utils.py#L188"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.LogLoss.Hessian" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a callable that performs dot products with the Hessian</p>
 </dd></dl>
 

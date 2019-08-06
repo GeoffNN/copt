@@ -5,7 +5,7 @@
 
 Computation times
 =================
-**15:58.946** total execution time for **auto_examples_frank_wolfe** files:
+**16:13.389** total execution time for **auto_examples_frank_wolfe** files:
 
-- **14:51.100**: :ref:`sphx_glr_auto_examples_frank_wolfe_plot_fw_stepsize.py` (``plot_fw_stepsize.py``)
-- **01:07.845**: :ref:`sphx_glr_auto_examples_frank_wolfe_plot_fw_vertex_overlap.py` (``plot_fw_vertex_overlap.py``)
+- **15:05.721**: :ref:`sphx_glr_auto_examples_frank_wolfe_plot_fw_stepsize.py` (``plot_fw_stepsize.py``)
+- **01:07.668**: :ref:`sphx_glr_auto_examples_frank_wolfe_plot_fw_vertex_overlap.py` (``plot_fw_vertex_overlap.py``)
