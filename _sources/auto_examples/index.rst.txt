@@ -10,7 +10,7 @@ Examples
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="This example shows how JAX can be used within COPT to compute the gradients of the objective fu...">
+    <div class="sphx-glr-thumbcontainer" tooltip="This example shows how `JAX &lt;https://github.com/google/jax&gt;`_ can be used within COPT to comput...">
 
 .. only:: html
 

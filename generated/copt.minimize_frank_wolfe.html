@@ -42,7 +42,7 @@
 <h1>copt.minimize_frank_wolfe<a class="headerlink" href="#copt-minimize-frank-wolfe" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="copt.minimize_frank_wolfe">
-<code class="sig-prename descclassname">copt.</code><code class="sig-name descname">minimize_frank_wolfe</code><span class="sig-paren">(</span><em class="sig-param">f_grad</em>, <em class="sig-param">x0</em>, <em class="sig-param">lmo</em>, <em class="sig-param">step_size=None</em>, <em class="sig-param">lipschitz=None</em>, <em class="sig-param">max_iter=200</em>, <em class="sig-param">tol=1e-12</em>, <em class="sig-param">callback=None</em>, <em class="sig-param">verbose=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/0fcada0/copt/frank_wolfe.py#L11"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.minimize_frank_wolfe" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">copt.</code><code class="sig-name descname">minimize_frank_wolfe</code><span class="sig-paren">(</span><em class="sig-param">f_grad</em>, <em class="sig-param">x0</em>, <em class="sig-param">lmo</em>, <em class="sig-param">step_size=None</em>, <em class="sig-param">lipschitz=None</em>, <em class="sig-param">max_iter=200</em>, <em class="sig-param">tol=1e-12</em>, <em class="sig-param">callback=None</em>, <em class="sig-param">verbose=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/9e0d673/copt/frank_wolfe.py#L11"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.minimize_frank_wolfe" title="Permalink to this definition">¶</a></dt>
 <dd><p>Frank-Wolfe algorithm.</p>
 <p>This method for optimization problems of the form</p>
 <div class="math notranslate nohighlight">
@@ -74,10 +74,17 @@ is not None, then it will use the Demyanov-Rubinov step-size step_size
 (variant 1 in [2]).</p></li>
 <li><p><strong>lipschitz</strong> – None or float.
 Estimate for the Lipschitz constant of the gradient.</p></li>
-<li><p><strong>max_iter</strong> – integer</p></li>
-<li><p><strong>tol</strong> – float</p></li>
-<li><p><strong>callback</strong> – callable</p></li>
-<li><p><strong>verbose</strong> – int</p></li>
+<li><p><strong>max_iter</strong> – integer
+Maximum number of iterations.</p></li>
+<li><p><strong>tol</strong> – float
+Tolerance of the stopping criterion. The algorithm will stop whenever
+the Frank-Wolfe gap is below tol or the maximum number of iterations
+is exceeded.</p></li>
+<li><p><strong>callback</strong> – callable
+Callback to execute at each iteration. If the callable returns False
+then the algorithm with immediately return.</p></li>
+<li><p><strong>verbose</strong> – int
+Verbosity level.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
