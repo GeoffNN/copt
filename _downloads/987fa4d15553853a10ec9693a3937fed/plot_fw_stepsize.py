@@ -50,7 +50,6 @@ for dataset_title, load_data in datasets:
         callback=trace,
         step_size=step_size,
         lipschitz=f.lipschitz,
-        max_iter=10
     )
 
   plt.figure()

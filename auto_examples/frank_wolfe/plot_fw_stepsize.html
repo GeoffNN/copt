@@ -58,8 +58,6 @@ and on 4 different classification datasets.</p>
 </ul>
 <p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Running on the Gisette dataset
-/usr/local/google/home/pedregosa/dev/copt/copt/frank_wolfe.py:167: RuntimeWarning: Exhausted line search iterations in minimize_frank_wolfe
-  warnings.warn(&quot;Exhausted line search iterations in minimize_frank_wolfe&quot;, RuntimeWarning)
 /usr/local/google/home/pedregosa/anaconda3/lib/python3.6/site-packages/matplotlib/figure.py:448: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
   % get_backend())
 Running on the RCV1 dataset
@@ -114,7 +112,6 @@ Running on the Covtype dataset
         <span class="n">callback</span><span class="o">=</span><span class="n">trace</span><span class="p">,</span>
         <span class="n">step_size</span><span class="o">=</span><span class="n">step_size</span><span class="p">,</span>
         <span class="n">lipschitz</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">lipschitz</span><span class="p">,</span>
-        <span class="n">max_iter</span><span class="o">=</span><span class="mi">10</span>
     <span class="p">)</span>
 
   <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
@@ -130,8 +127,8 @@ Running on the Covtype dataset
   <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  27.962 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  1910 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 13 minutes  48.669 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  1600 MB</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-frank-wolfe-plot-fw-stepsize-py">
 <div class="sphx-glr-download docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/987fa4d15553853a10ec9693a3937fed/plot_fw_stepsize.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_fw_stepsize.py</span></code></a></p>
