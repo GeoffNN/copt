@@ -15,8 +15,28 @@ and on 4 different classification datasets.
 
 
 
-.. image:: /auto_examples/frank_wolfe/images/sphx_glr_plot_fw_stepsize_001.png
-    :class: sphx-glr-single-img
+.. rst-class:: sphx-glr-horizontal
+
+
+    *
+
+      .. image:: /auto_examples/frank_wolfe/images/sphx_glr_plot_fw_stepsize_001.png
+            :class: sphx-glr-multi-img
+
+    *
+
+      .. image:: /auto_examples/frank_wolfe/images/sphx_glr_plot_fw_stepsize_002.png
+            :class: sphx-glr-multi-img
+
+    *
+
+      .. image:: /auto_examples/frank_wolfe/images/sphx_glr_plot_fw_stepsize_003.png
+            :class: sphx-glr-multi-img
+
+    *
+
+      .. image:: /auto_examples/frank_wolfe/images/sphx_glr_plot_fw_stepsize_004.png
+            :class: sphx-glr-multi-img
 
 
 .. rst-class:: sphx-glr-script-out
@@ -26,6 +46,8 @@ and on 4 different classification datasets.
  .. code-block:: none
 
     Running on the Gisette dataset
+    /usr/local/google/home/pedregosa/dev/copt/copt/frank_wolfe.py:167: RuntimeWarning: Exhausted line search iterations in minimize_frank_wolfe
+      warnings.warn("Exhausted line search iterations in minimize_frank_wolfe", RuntimeWarning)
     /usr/local/google/home/pedregosa/anaconda3/lib/python3.6/site-packages/matplotlib/figure.py:448: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
       % get_backend())
     Running on the RCV1 dataset
@@ -45,7 +67,7 @@ and on 4 different classification datasets.
     import matplotlib.pylab as plt
     import numpy as np
 
-    # datasets and their respective loading functions
+    # .. datasets and their loading functions ..
     datasets = [
         ("Gisette", cp.datasets.load_gisette),
         ("RCV1", cp.datasets.load_rcv1),
@@ -53,6 +75,11 @@ and on 4 different classification datasets.
         ("Covtype", cp.datasets.load_covtype)
         ]
 
+    variants_fw = [
+        ["adaptive", "adaptive step-size"],
+        ["adaptive2", "adaptive2 step-size"],
+        ["adaptive3", "adaptive3 step-size"],
+        [None, "Lipschitz step-size"]]
 
     for dataset_title, load_data in datasets:
       print("Running on the %s dataset" % dataset_title)
@@ -66,18 +93,12 @@ and on 4 different classification datasets.
       f = cp.utils.LogLoss(X, y)
       x0 = np.zeros(n_features)
 
-      for step_size, label in [
-          ["adaptive", "adaptive step-size"],
-          ["adaptive2", "adaptive2 step-size"],
-          ["adaptive3", "adaptive3 step-size"],
-          [None, "Lipschitz step-size"]
-          ]:
-        cb = cp.utils.Trace(f)
-        trace_gt = []
+      fw_trace = {label: [] for _, label in variants_fw}
+      for step_size, label in variants_fw:
 
         def trace(kw):
           # store the Frank-Wolfe gap g_t
-          trace_gt.append(kw["g_t"])
+          fw_trace[label].append(kw["g_t"])
 
         cp.minimize_frank_wolfe(
             f.f_grad,
@@ -86,9 +107,13 @@ and on 4 different classification datasets.
             callback=trace,
             step_size=step_size,
             lipschitz=f.lipschitz,
+            max_iter=10
         )
-        plt.plot(trace_gt, label=label)
-        plt.yscale("log")
+
+      plt.figure()
+      for _, label in variants_fw:
+        plt.plot(fw_trace[label], label=label)
+      plt.yscale("log")
       plt.legend()
       plt.xlabel("number of iterations")
       plt.ylabel("FW gap")
@@ -100,9 +125,9 @@ and on 4 different classification datasets.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 15 minutes  5.206 seconds)
+   **Total running time of the script:** ( 1 minutes  27.962 seconds)
 
-**Estimated memory usage:**  1783 MB
+**Estimated memory usage:**  1910 MB
 
 
 .. _sphx_glr_download_auto_examples_frank_wolfe_plot_fw_stepsize.py:
