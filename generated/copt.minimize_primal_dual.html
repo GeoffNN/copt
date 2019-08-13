@@ -42,7 +42,7 @@
 <h1>copt.minimize_primal_dual<a class="headerlink" href="#copt-minimize-primal-dual" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="copt.minimize_primal_dual">
-<code class="sig-prename descclassname">copt.</code><code class="sig-name descname">minimize_primal_dual</code><span class="sig-paren">(</span><em class="sig-param">f_grad</em>, <em class="sig-param">x0</em>, <em class="sig-param">prox_1=None</em>, <em class="sig-param">prox_2=None</em>, <em class="sig-param">L=None</em>, <em class="sig-param">tol=1e-12</em>, <em class="sig-param">max_iter=1000</em>, <em class="sig-param">callback=None</em>, <em class="sig-param">step_size=1.0</em>, <em class="sig-param">step_size2=None</em>, <em class="sig-param">line_search=True</em>, <em class="sig-param">max_iter_ls=20</em>, <em class="sig-param">verbose=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/0fcada0/copt/splitting.py#L166"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.minimize_primal_dual" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">copt.</code><code class="sig-name descname">minimize_primal_dual</code><span class="sig-paren">(</span><em class="sig-param">f_grad</em>, <em class="sig-param">x0</em>, <em class="sig-param">prox_1=None</em>, <em class="sig-param">prox_2=None</em>, <em class="sig-param">L=None</em>, <em class="sig-param">tol=1e-12</em>, <em class="sig-param">max_iter=1000</em>, <em class="sig-param">callback=None</em>, <em class="sig-param">step_size=1.0</em>, <em class="sig-param">step_size2=None</em>, <em class="sig-param">line_search=True</em>, <em class="sig-param">max_iter_ls=20</em>, <em class="sig-param">verbose=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/03a6c40/copt/splitting.py#L169"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.minimize_primal_dual" title="Permalink to this definition">¶</a></dt>
 <dd><p>Primal-dual hybrid gradient splitting method.</p>
 <p>This method for optimization problems of the form</p>
 <blockquote>
@@ -53,38 +53,51 @@ function for which the proximal operator is known.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>f_grad</strong> (<em>callable</em>) – Returns the function value and gradient of the objective function.
+<li><p><strong>f_grad</strong> – callable
+Returns the function value and gradient of the objective function.
 It should accept the optional argument return_gradient, and when False
 it should return only the function value.</p></li>
-<li><p><strong>prox_1</strong> (<em>callable of the form prox_1</em><em>(</em><em>x</em><em>, </em><em>alpha</em><em>)</em>) – prox_1(x, alpha) returns the proximal operator of g at x
+<li><p><strong>prox_1</strong> – callable of the form prox_1(x, alpha)
+prox_1(x, alpha) returns the proximal operator of g at x
 with parameter alpha.</p></li>
-<li><p><strong>x0</strong> (<em>array-like</em>) – Initial guess of solution.</p></li>
-<li><p><strong>L</strong> (<em>ndarray</em><em> or </em><em>sparse matrix</em>) – Linear operator inside the h term.</p></li>
-<li><p><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Maximum number of iterations.</p></li>
-<li><p><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Verbosity level, from 0 (no output) to 2 (output on each iteration)</p></li>
-<li><p><strong>callback</strong> (<em>callable.</em>) – callback function (optional). Takes a single argument (x) with the
+<li><p><strong>x0</strong> – array-like
+Initial guess of solution.</p></li>
+<li><p><strong>L</strong> – ndarray or sparse matrix
+Linear operator inside the h term.</p></li>
+<li><p><strong>max_iter</strong> – int
+Maximum number of iterations.</p></li>
+<li><p><strong>verbose</strong> – int
+Verbosity level, from 0 (no output) to 2 (output on each iteration)</p></li>
+<li><p><strong>callback</strong> – callable.
+callback function (optional). Takes a single argument (x) with the
 current coefficients in the algorithm. The algorithm will exit if
 callback returns False.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>res</strong> – The optimization result represented as a
+<dd class="field-even"><p><dl class="simple">
+<dt>OptimizeResult</dt><dd><p>The optimization result represented as a
 <code class="docutils literal notranslate"><span class="pre">scipy.optimize.OptimizeResult</span></code> object. Important attributes are:
 <code class="docutils literal notranslate"><span class="pre">x</span></code> the solution array, <code class="docutils literal notranslate"><span class="pre">success</span></code> a Boolean flag indicating if
 the optimizer exited successfully and <code class="docutils literal notranslate"><span class="pre">message</span></code> which describes
 the cause of the termination. See <cite>scipy.optimize.OptimizeResult</cite>
 for a description of other attributes.</p>
 </dd>
+</dl>
+</p>
+</dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>OptimizeResult</p>
+<dd class="field-odd"><p>res</p>
 </dd>
 </dl>
-<p class="rubric">References</p>
-<p>Condat, Laurent. “A primal-dual splitting method for convex optimization
+<dl>
+<dt>References</dt><dd><p>Condat, Laurent. “A primal-dual splitting method for convex optimization
 involving Lipschitzian, proximable and linear composite terms.” Journal of
 Optimization Theory and Applications (2013).</p>
 <p>Chambolle, Antonin, and Thomas Pock. “On the ergodic convergence rates of a
 first-order primal-dual algorithm.” Mathematical Programming (2015)</p>
+</dd>
+</dl>
 </dd></dl>
 
 </div>

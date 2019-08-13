@@ -122,9 +122,9 @@ and on 4 different classification datasets.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 13 minutes  48.669 seconds)
+   **Total running time of the script:** ( 13 minutes  49.717 seconds)
 
-**Estimated memory usage:**  1600 MB
+**Estimated memory usage:**  1688 MB
 
 
 .. _sphx_glr_download_auto_examples_frank_wolfe_plot_fw_stepsize.py:

@@ -45,10 +45,7 @@
 <p>The Frank-Wolfe (FW) or conditional gradient algorithm <a class="footnote-reference brackets" href="#id5" id="id2">1</a>, <a class="footnote-reference brackets" href="#id6" id="id3">2</a>, <a class="footnote-reference brackets" href="#id7" id="id4">3</a> is a method for constrained optimization. It can solve problems of the form  f</p>
 <div class="math notranslate nohighlight">
 \[\argmin_{\bs{x} \in \mathcal{D}} f(\bs{x})\]</div>
-<p>where <span class="math notranslate nohighlight">\(f\)</span> is a differentiable function for which we have access to its
-gradient and <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> is a compact set for which we have access to its
-linear minimization oracle (lmo), i.e., a routine that given a vector
-<span class="math notranslate nohighlight">\(\bs{u}\)</span> returns a solution to</p>
+<p>where <span class="math notranslate nohighlight">\(f\)</span> is a differentiable function for which we have access to its gradient and <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> is a compact set for which we have access to its linear minimization oracle (lmo). This is a routine that given a vector <span class="math notranslate nohighlight">\(\bs{u}\)</span> returns a solution to</p>
 <div class="math notranslate nohighlight">
 \[\argmin_{\bs{x} \in D}\, \langle\bs{u}, \bs{x}\rangle~.\]</div>
 <p>Contrary to other constrained optimization algorithms like projected gradient descent, the Frank-Wolfe algorithm does not require access to a projection, hence why it is sometimes referred to as a projection-free algorithm. It instead relies exclusively on the linear minimization oracle described above.</p>
@@ -56,6 +53,7 @@ linear minimization oracle (lmo), i.e., a routine that given a vector
 <p>At each iteration, the Frank-Wolfe algorithm selects the vertex <span class="math notranslate nohighlight">\(\boldsymbol{s}_t\)</span> of the domain that correlates the most with the negative gradient (thanks to the linear minimization oracle) and then constructs the next iterate <span class="math notranslate nohighlight">\(\boldsymbol{x}_{t+1}\)</span> as a convex combination of the current iterate <span class="math notranslate nohighlight">\(\boldsymbol{x}_{t}\)</span> and the newly acquired vertex <span class="math notranslate nohighlight">\(\boldsymbol{s}_t\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\boldsymbol{x}_{t+1} = (1 - \gamma)\boldsymbol{x}_t + \gamma \boldsymbol{s}_t\]</div>
+<p>TODO: describe line-search</p>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -95,15 +93,15 @@ linear minimization oracle (lmo), i.e., a routine that given a vector
 <div class="math notranslate nohighlight">
 \[\argmin_{\bs{x} \in \mathcal{D}} f(\bs{x})\]</div>
 <p>where <span class="math notranslate nohighlight">\(f\)</span>. is differentiable and the domain <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> is a convex and compart set.</p>
-<p>Although the algorithm is more broadly applicable, this library’s implementation, <code class="xref py py-meth docutils literal notranslate"><span class="pre">copt.minimize_pairwise_frank_wolfe_l1()</span></code>, assumes that the domain <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> is the <span class="math notranslate nohighlight">\(\ell_1\)</span> ball, that is, <span class="math notranslate nohighlight">\(\mathcal{D} = \{x : \sum_i |x| \leq \alpha\}\)</span>, where <span class="math notranslate nohighlight">\(\alpha\)</span> is a user-defined parameter.</p>
+<p>Although the algorithm is more broadly applicable, this library’s implementation, <a class="reference internal" href="generated/copt.minimize_pairwise_frank_wolfe.html#copt.minimize_pairwise_frank_wolfe" title="copt.minimize_pairwise_frank_wolfe"><code class="xref py py-meth docutils literal notranslate"><span class="pre">copt.minimize_pairwise_frank_wolfe()</span></code></a>, assumes that the domain <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> is the <span class="math notranslate nohighlight">\(\ell_1\)</span> ball, that is, <span class="math notranslate nohighlight">\(\mathcal{D} = \{x : \sum_i |x| \leq \alpha\}\)</span>, where <span class="math notranslate nohighlight">\(\alpha\)</span> is a user-defined parameter.</p>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">copt.minimize_pairwise_frank_wolfe_l1</span></code></p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/copt.minimize_pairwise_frank_wolfe.html#copt.minimize_pairwise_frank_wolfe" title="copt.minimize_pairwise_frank_wolfe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copt.minimize_pairwise_frank_wolfe</span></code></a>(f_grad, …)</p></td>
+<td><p>Pairwise FW on the L1 ball.</p></td>
 </tr>
 </tbody>
 </table>
@@ -112,6 +110,9 @@ linear minimization oracle (lmo), i.e., a routine that given a vector
 <dl class="footnote brackets">
 <dt class="label" id="id9"><span class="brackets"><a class="fn-backref" href="#id8">4</a></span></dt>
 <dd><p>Lacoste-Julien, Simon, and Martin Jaggi. “On the global linear convergence of Frank-Wolfe optimization variants.” Advances in Neural Information Processing Systems. 2015.</p>
+</dd>
+<dt class="label" id="id10"><span class="brackets">5</span></dt>
+<dd><p>Pedregosa, Fabian, Armin Askari, Geoffrey Negiar, and Martin Jaggi. <a class="reference external" href="https://arxiv.org/pdf/1806.05123.pdf">“Step-Size Adaptivity in Projection-Free Optimization.”</a> arXiv:1806.05123 (2018).</p>
 </dd>
 </dl>
 </div>

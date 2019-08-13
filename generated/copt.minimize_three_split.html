@@ -42,7 +42,7 @@
 <h1>copt.minimize_three_split<a class="headerlink" href="#copt-minimize-three-split" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="copt.minimize_three_split">
-<code class="sig-prename descclassname">copt.</code><code class="sig-name descname">minimize_three_split</code><span class="sig-paren">(</span><em class="sig-param">f_grad</em>, <em class="sig-param">x0</em>, <em class="sig-param">prox_1=None</em>, <em class="sig-param">prox_2=None</em>, <em class="sig-param">tol=1e-06</em>, <em class="sig-param">max_iter=1000</em>, <em class="sig-param">verbose=0</em>, <em class="sig-param">callback=None</em>, <em class="sig-param">line_search=True</em>, <em class="sig-param">step_size=None</em>, <em class="sig-param">max_iter_backtracking=100</em>, <em class="sig-param">backtracking_factor=0.7</em>, <em class="sig-param">h_Lipschitz=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/0fcada0/copt/splitting.py#L9"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.minimize_three_split" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">copt.</code><code class="sig-name descname">minimize_three_split</code><span class="sig-paren">(</span><em class="sig-param">f_grad</em>, <em class="sig-param">x0</em>, <em class="sig-param">prox_1=None</em>, <em class="sig-param">prox_2=None</em>, <em class="sig-param">tol=1e-06</em>, <em class="sig-param">max_iter=1000</em>, <em class="sig-param">verbose=0</em>, <em class="sig-param">callback=None</em>, <em class="sig-param">line_search=True</em>, <em class="sig-param">step_size=None</em>, <em class="sig-param">max_iter_backtracking=100</em>, <em class="sig-param">backtracking_factor=0.7</em>, <em class="sig-param">h_Lipschitz=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/03a6c40/copt/splitting.py#L9"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.minimize_three_split" title="Permalink to this definition">¶</a></dt>
 <dd><p>Davis-Yin three operator splitting method.</p>
 <p>This algorithm can solve problems of the form</p>
 <blockquote>
@@ -53,51 +53,56 @@ function for which the proximal operator is known.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>f_grad</strong> (<em>callable</em>) – Returns the function value and gradient of the objective function.
+<li><p><strong>f_grad</strong> – callable
+Returns the function value and gradient of the objective function.
 With return_gradient=False, returns only the function value.</p></li>
-<li><p><strong>prox_1</strong> (<em>callable</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a>) – prox_1(x, alpha, <a href="#id1"><span class="problematic" id="id2">*</span></a>args) returns the proximal operator of g at xa
-with parameter alpha. Extra arguments can be passed by prox_1_args.</p></li>
-<li><p><strong>y0</strong> (<em>array-like</em>) – Initial guess</p></li>
-<li><p><strong>backtracking</strong> (<em>boolean</em>) – Whether to perform backtracking (i.e. line-search) to estimate
-the step size.</p></li>
-<li><p><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Maximum number of iterations.</p></li>
-<li><p><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Verbosity level, from 0 (no output) to 2 (output on each iteration)</p></li>
-<li><p><strong>step_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – Starting value for the line-search procedure.</p></li>
-<li><p><strong>callback</strong> (<em>callable.</em>) – callback function (optional). Takes a single argument (x) with the
+<li><p><strong>x0</strong> – array-like
+Initial guess</p></li>
+<li><p><strong>prox_1</strong> – callable or None
+prox_1(x, alpha, <a href="#id1"><span class="problematic" id="id2">*</span></a>args) returns the proximal operator of g at xa
+with parameter alpha.</p></li>
+<li><p><strong>prox_2</strong> – callable or None
+prox_2(x, alpha, <a href="#id3"><span class="problematic" id="id4">*</span></a>args) returns the proximal operator of g at xa
+with parameter alpha.</p></li>
+<li><p><strong>tol</strong> – float
+Tolerance of the stopping criterion.</p></li>
+<li><p><strong>max_iter</strong> – int
+Maximum number of iterations.</p></li>
+<li><p><strong>line_search</strong> – boolean
+Whether to perform line-search to estimate the step size.</p></li>
+<li><p><strong>verbose</strong> – int
+Verbosity level, from 0 (no output) to 2 (output on each iteration)</p></li>
+<li><p><strong>step_size</strong> – float
+Starting value for the line-search procedure.</p></li>
+<li><p><strong>callback</strong> – callable.
+callback function (optional). Takes a single argument (x) with the
 current coefficients in the algorithm. The algorithm will exit if
 callback returns False.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>res</strong> – The optimization result represented as a
+<dd class="field-even"><p><dl class="simple">
+<dt>OptimizeResult</dt><dd><p>The optimization result represented as a
 <code class="docutils literal notranslate"><span class="pre">scipy.optimize.OptimizeResult</span></code> object. Important attributes are:
 <code class="docutils literal notranslate"><span class="pre">x</span></code> the solution array, <code class="docutils literal notranslate"><span class="pre">success</span></code> a Boolean flag indicating if
 the optimizer exited successfully and <code class="docutils literal notranslate"><span class="pre">message</span></code> which describes
 the cause of the termination. See <cite>scipy.optimize.OptimizeResult</cite>
 for a description of other attributes.</p>
 </dd>
+</dl>
+</p>
+</dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>OptimizeResult</p>
+<dd class="field-odd"><p>res</p>
 </dd>
 </dl>
 <p class="rubric">References</p>
-<ul class="simple">
-<li><p>Davis, Damek, and Wotao Yin. <a href="#id3"><span class="problematic" id="id4">`</span></a>”A three-operator splitting scheme and its</p></li>
-</ul>
-<dl class="simple">
-<dt>optimization</dt><dd><p>applications.” &lt;<a class="reference external" href="https://doi.org/10.1007/s11228-017-0421-z">https://doi.org/10.1007/s11228-017-0421-z</a>&gt;`_ Set-Valued
-and Variational Analysis, 2017.</p>
-</dd>
-</dl>
-<ul class="simple">
-<li><p>Pedregosa, Fabian, and Gauthier Gidel. <a href="#id5"><span class="problematic" id="id6">`</span></a>”Adaptive Three Operator</p></li>
-</ul>
-<dl class="simple">
-<dt>Splitting.”</dt><dd><p>&lt;<a class="reference external" href="https://arxiv.org/abs/1804.02339">https://arxiv.org/abs/1804.02339</a>&gt;`_ Proceedings of the 35th International
-Conference
-on Machine Learning, 2018.</p>
-</dd>
-</dl>
+<p>[1] Davis, Damek, and Wotao Yin. <a class="reference external" href="https://doi.org/10.1007/s11228-017-0421-z">“A three-operator splitting scheme and
+its optimization applications.”</a> Set-Valued and Variational
+Analysis, 2017.</p>
+<p>[2] Pedregosa, Fabian, and Gauthier Gidel. <a class="reference external" href="https://arxiv.org/abs/1804.02339">“Adaptive Three Operator
+Splitting.”</a> Proceedings of the 35th
+International Conference on Machine Learning, 2018.</p>
 </dd></dl>
 
 </div>
