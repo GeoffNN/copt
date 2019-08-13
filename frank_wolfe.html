@@ -45,8 +45,13 @@
 <p>The Frank-Wolfe (FW) or conditional gradient algorithm <a class="footnote-reference brackets" href="#id5" id="id2">1</a>, <a class="footnote-reference brackets" href="#id6" id="id3">2</a>, <a class="footnote-reference brackets" href="#id7" id="id4">3</a> is a method for constrained optimization. It can solve problems of the form  f</p>
 <div class="math notranslate nohighlight">
 \[\argmin_{\bs{x} \in \mathcal{D}} f(\bs{x})\]</div>
-<p>where <span class="math notranslate nohighlight">\(f\)</span>. is differentiable and the domain <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> is a convex and compart set.</p>
-<p>Contrary to other constrained optimization algorithms like projected gradient descent, the Frank-Wolfe algorithm does not require access to a projection, hence why it is sometimes referred to as a projection-free algorithm. It instead relies on a routine that solves a linear problem over the domain. We refer to this routine as a linear minimization oracle (keyword argument lmo).</p>
+<p>where <span class="math notranslate nohighlight">\(f\)</span> is a differentiable function for which we have access to its
+gradient and <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> is a compact set for which we have access to its
+linear minimization oracle (lmo), i.e., a routine that given a vector
+<span class="math notranslate nohighlight">\(\bs{u}\)</span> returns a solution to</p>
+<div class="math notranslate nohighlight">
+\[\argmin_{\bs{x} \in D}\, \langle\bs{u}, \bs{x}\rangle~.\]</div>
+<p>Contrary to other constrained optimization algorithms like projected gradient descent, the Frank-Wolfe algorithm does not require access to a projection, hence why it is sometimes referred to as a projection-free algorithm. It instead relies exclusively on the linear minimization oracle described above.</p>
 <p>The Frank-Wolfe algorithm is implemented in this library in the method <a class="reference internal" href="generated/copt.minimize_frank_wolfe.html#copt.minimize_frank_wolfe" title="copt.minimize_frank_wolfe"><code class="xref py py-meth docutils literal notranslate"><span class="pre">copt.minimize_frank_wolfe()</span></code></a>. As most other methods it takes as argument an objective function to minimize, but unlike most other methods, it also requires to</p>
 <p>At each iteration, the Frank-Wolfe algorithm selects the vertex <span class="math notranslate nohighlight">\(\boldsymbol{s}_t\)</span> of the domain that correlates the most with the negative gradient (thanks to the linear minimization oracle) and then constructs the next iterate <span class="math notranslate nohighlight">\(\boldsymbol{x}_{t+1}\)</span> as a convex combination of the current iterate <span class="math notranslate nohighlight">\(\boldsymbol{x}_{t}\)</span> and the newly acquired vertex <span class="math notranslate nohighlight">\(\boldsymbol{s}_t\)</span>:</p>
 <div class="math notranslate nohighlight">
@@ -97,8 +102,8 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">copt.minimize_pairwise_frank_wolfe_l1</span></code>(…[, …])</p></td>
-<td><p>Pairwise FW on the L1 ball.</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">copt.minimize_pairwise_frank_wolfe_l1</span></code></p></td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>
