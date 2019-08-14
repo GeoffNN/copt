@@ -105,9 +105,9 @@ Frank-Wolfe
 
 .. only:: html
 
-    .. figure:: /auto_examples/frank_wolfe/images/thumb/sphx_glr_plot_fw_stepsize_thumb.png
+    .. figure:: /auto_examples/frank_wolfe/images/thumb/sphx_glr_plot_stepsize_thumb.png
 
-        :ref:`sphx_glr_auto_examples_frank_wolfe_plot_fw_stepsize.py`
+        :ref:`sphx_glr_auto_examples_frank_wolfe_plot_stepsize.py`
 
 .. raw:: html
 
@@ -117,7 +117,7 @@ Frank-Wolfe
 .. toctree::
    :hidden:
 
-   /auto_examples/frank_wolfe/plot_fw_stepsize
+   /auto_examples/frank_wolfe/plot_stepsize
 
 .. raw:: html
 
@@ -125,9 +125,9 @@ Frank-Wolfe
 
 .. only:: html
 
-    .. figure:: /auto_examples/frank_wolfe/images/thumb/sphx_glr_plot_fw_vertex_overlap_thumb.png
+    .. figure:: /auto_examples/frank_wolfe/images/thumb/sphx_glr_plot_vertex_overlap_thumb.png
 
-        :ref:`sphx_glr_auto_examples_frank_wolfe_plot_fw_vertex_overlap.py`
+        :ref:`sphx_glr_auto_examples_frank_wolfe_plot_vertex_overlap.py`
 
 .. raw:: html
 
@@ -137,7 +137,7 @@ Frank-Wolfe
 .. toctree::
    :hidden:
 
-   /auto_examples/frank_wolfe/plot_fw_vertex_overlap
+   /auto_examples/frank_wolfe/plot_vertex_overlap
 .. raw:: html
 
     <div style='clear:both'></div>
