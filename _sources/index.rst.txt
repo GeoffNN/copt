@@ -3,8 +3,21 @@
 Welcome to copt!
 ================
 
-copt is a library for mathematical optimization written in pure Python.
+.. image:: https://travis-ci.org/openopt/copt.svg?branch=master
+   :target: https://travis-ci.org/openopt/copt
+.. image:: https://coveralls.io/repos/github/openopt/copt/badge.svg?branch=master
+   :target: https://coveralls.io/github/openopt/copt?branch=master
+.. image:: https://img.shields.io/github/license/openopt/copt
+   :alt: Apache-2 license
+   :target: https://github.com/openopt/copt/blob/master/LICENSE
+.. image:: https://badge.fury.io/py/copt.svg
+    :target: https://badge.fury.io/py/copt
+.. image:: https://pypip.in/d/copt/badge.png
+    :target: https://crate.io/packages/copt/
+.. image:: https://zenodo.org/badge/46262908.svg
+   :target: https://zenodo.org/badge/latestdoi/46262908
 
+copt is a library for mathematical optimization written in pure Python.
 
 
 Philosophy
@@ -44,6 +57,13 @@ Alternatively, you can install the latest development from github with the comma
 
     pip install git+https://github.com/openopt/copt.git
 
+
+.. warning::
+
+    TODO: mention examples or API
+
+
+
 .. toctree::
     :maxdepth: 2
     :hidden:
@@ -55,3 +75,5 @@ Alternatively, you can install the latest development from github with the comma
     loss_functions.rst
     auto_examples/index.rst
     datasets.rst
+    utils.rst
+    citing.rst

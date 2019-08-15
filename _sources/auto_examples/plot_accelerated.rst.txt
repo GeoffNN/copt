@@ -32,8 +32,6 @@ and Nesterov acceleration on a logistic regression problem.
     /usr/local/google/home/pedregosa/anaconda3/lib/python3.6/site-packages/matplotlib/axes/_base.py:3449: MatplotlibDeprecationWarning: 
     The `ymin` argument was deprecated in Matplotlib 3.0 and will be removed in 3.2. Use `bottom` instead.
       alternative='`bottom`', obj_type='argument')
-    /usr/local/google/home/pedregosa/anaconda3/lib/python3.6/site-packages/matplotlib/figure.py:448: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
-      % get_backend())
 
 
 
@@ -87,9 +85,9 @@ and Nesterov acceleration on a logistic regression problem.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.392 seconds)
+   **Total running time of the script:** ( 0 minutes  1.600 seconds)
 
-**Estimated memory usage:**  24 MB
+**Estimated memory usage:**  26 MB
 
 
 .. _sphx_glr_download_auto_examples_plot_accelerated.py:

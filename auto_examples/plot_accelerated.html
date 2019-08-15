@@ -55,8 +55,6 @@ and Nesterov acceleration on a logistic regression problem.</p>
 /usr/local/google/home/pedregosa/anaconda3/lib/python3.6/site-packages/matplotlib/axes/_base.py:3449: MatplotlibDeprecationWarning:
 The `ymin` argument was deprecated in Matplotlib 3.0 and will be removed in 3.2. Use `bottom` instead.
   alternative=&#39;`bottom`&#39;, obj_type=&#39;argument&#39;)
-/usr/local/google/home/pedregosa/anaconda3/lib/python3.6/site-packages/matplotlib/figure.py:448: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
-  % get_backend())
 </pre></div>
 </div>
 <div class="line-block">
@@ -72,17 +70,17 @@ The `ymin` argument was deprecated in Matplotlib 3.0 and will be removed in 3.2.
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">n_features</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n_samples</span><span class="p">)</span>
 
-<span class="n">f</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">LogLoss</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <a href="../generated/copt.utils.LogLoss.html#copt.utils.LogLoss" title="View documentation for copt.utils.LogLoss"><a href="../generated/copt.utils.LogLoss.html#copt.utils.LogLoss" title="View documentation for copt.utils.LogLoss"><span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">LogLoss</span></a></a><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="n">step_size</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">/</span> <span class="n">f</span><span class="o">.</span><span class="n">lipschitz</span>
 
-<span class="n">cb_pgd</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">Trace</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-<span class="n">result_pgd</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">minimize_proximal_gradient</span><span class="p">(</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">f_grad</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_features</span><span class="p">),</span> <span class="n">step_size</span><span class="o">=</span><span class="n">step_size</span><span class="p">,</span>
+<span class="n">cb_pgd</span> <span class="o">=</span> <a href="../generated/copt.utils.Trace.html#copt.utils.Trace" title="View documentation for copt.utils.Trace"><a href="../generated/copt.utils.Trace.html#copt.utils.Trace" title="View documentation for copt.utils.Trace"><span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">Trace</span></a></a><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="n">result_pgd</span> <span class="o">=</span> <a href="../generated/copt.minimize_proximal_gradient.html#copt.minimize_proximal_gradient" title="View documentation for copt.minimize_proximal_gradient"><a href="../generated/copt.minimize_proximal_gradient.html#copt.minimize_proximal_gradient" title="View documentation for copt.minimize_proximal_gradient"><span class="n">cp</span><span class="o">.</span><span class="n">minimize_proximal_gradient</span></a></a><span class="p">(</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">f_grad</span><span class="p">,</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html#numpy.zeros" title="View documentation for numpy.zeros"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html#numpy.zeros" title="View documentation for numpy.zeros"><span class="n">np</span><span class="o">.</span><span class="n">zeros</span></a></a><span class="p">(</span><span class="n">n_features</span><span class="p">),</span> <span class="n">step_size</span><span class="o">=</span><span class="n">step_size</span><span class="p">,</span>
     <span class="n">callback</span><span class="o">=</span><span class="n">cb_pgd</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">accelerated</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-<span class="n">cb_apgd</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">Trace</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-<span class="n">result_apgd</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">minimize_proximal_gradient</span><span class="p">(</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">f_grad</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_features</span><span class="p">),</span> <span class="n">step_size</span><span class="o">=</span><span class="n">step_size</span><span class="p">,</span>
+<span class="n">cb_apgd</span> <span class="o">=</span> <a href="../generated/copt.utils.Trace.html#copt.utils.Trace" title="View documentation for copt.utils.Trace"><a href="../generated/copt.utils.Trace.html#copt.utils.Trace" title="View documentation for copt.utils.Trace"><span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">Trace</span></a></a><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="n">result_apgd</span> <span class="o">=</span> <a href="../generated/copt.minimize_proximal_gradient.html#copt.minimize_proximal_gradient" title="View documentation for copt.minimize_proximal_gradient"><a href="../generated/copt.minimize_proximal_gradient.html#copt.minimize_proximal_gradient" title="View documentation for copt.minimize_proximal_gradient"><span class="n">cp</span><span class="o">.</span><span class="n">minimize_proximal_gradient</span></a></a><span class="p">(</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">f_grad</span><span class="p">,</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html#numpy.zeros" title="View documentation for numpy.zeros"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html#numpy.zeros" title="View documentation for numpy.zeros"><span class="n">np</span><span class="o">.</span><span class="n">zeros</span></a></a><span class="p">(</span><span class="n">n_features</span><span class="p">),</span> <span class="n">step_size</span><span class="o">=</span><span class="n">step_size</span><span class="p">,</span>
     <span class="n">callback</span><span class="o">=</span><span class="n">cb_apgd</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">accelerated</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 
@@ -103,8 +101,8 @@ The `ymin` argument was deprecated in Matplotlib 3.0 and will be removed in 3.2.
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.392 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  24 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.600 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  26 MB</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-accelerated-py">
 <div class="sphx-glr-download docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/576d0b1ddd754389cef965fbcd7dfbaa/plot_accelerated.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_accelerated.py</span></code></a></p>
@@ -144,18 +142,6 @@ The `ymin` argument was deprecated in Matplotlib 3.0 and will be removed in 3.2.
 
 
 
-    
-
-<p>
-<a class="badge" href="https://travis-ci.org/openopt/copt">
-    <img
-        alt="https://secure.travis-ci.org/openopt/copt.svg?branch=master"
-        src="https://secure.travis-ci.org/openopt/copt.svg?branch=master"
-    />
-</a>
-</p>
-
-
 <h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../proximal_gradient.html">Gradient-based methods</a></li>
@@ -173,6 +159,8 @@ The `ymin` argument was deprecated in Matplotlib 3.0 and will be removed in 3.2.
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../datasets.html">Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils.html">Other utility functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../citing.html">Citing</a></li>
 </ul>
 
 
@@ -202,6 +190,10 @@ The `ymin` argument was deprecated in Matplotlib 3.0 and will be removed in 3.2.
           rel="nofollow">Page source</a>
     </div>
 
+    
+    <a href="https://github.com/openopt/copt" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
     
 
     

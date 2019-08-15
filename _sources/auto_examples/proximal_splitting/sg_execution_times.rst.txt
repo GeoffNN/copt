@@ -5,8 +5,8 @@
 
 Computation times
 =================
-**07:09.832** total execution time for **auto_examples_proximal_splitting** files:
+**06:47.583** total execution time for **auto_examples_proximal_splitting** files:
 
-- **05:17.266**: :ref:`sphx_glr_auto_examples_proximal_splitting_plot_overlapping_group_lasso.py` (``plot_overlapping_group_lasso.py``)
-- **01:16.988**: :ref:`sphx_glr_auto_examples_proximal_splitting_plot_tv_deblurring.py` (``plot_tv_deblurring.py``)
-- **00:35.579**: :ref:`sphx_glr_auto_examples_proximal_splitting_plot_sparse_nuclear_norm.py` (``plot_sparse_nuclear_norm.py``)
+- **04:45.113**: :ref:`sphx_glr_auto_examples_proximal_splitting_plot_overlapping_group_lasso.py` (``plot_overlapping_group_lasso.py``)
+- **01:22.717**: :ref:`sphx_glr_auto_examples_proximal_splitting_plot_tv_deblurring.py` (``plot_tv_deblurring.py``)
+- **00:39.754**: :ref:`sphx_glr_auto_examples_proximal_splitting_plot_sparse_nuclear_norm.py` (``plot_sparse_nuclear_norm.py``)

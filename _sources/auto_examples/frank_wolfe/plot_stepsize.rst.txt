@@ -46,8 +46,6 @@ and on 4 different classification datasets.
  .. code-block:: none
 
     Running on the Gisette dataset
-    /usr/local/google/home/pedregosa/anaconda3/lib/python3.6/site-packages/matplotlib/figure.py:448: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
-      % get_backend())
     Running on the RCV1 dataset
     Running on the Madelon dataset
     Running on the Covtype dataset
@@ -74,12 +72,13 @@ and on 4 different classification datasets.
         ]
 
     variants_fw = [
-        ["adaptive", "adaptive step-size"],
-        ["adaptive2", "adaptive2 step-size"],
-        ["adaptive3", "adaptive3 step-size"],
-        [None, "Lipschitz step-size"]]
+        ["adaptive", "adaptive step-size", "s"],
+        ["adaptive2", "adaptive2 step-size", "^"],
+        ["adaptive3", "adaptive3 step-size", "+"],
+        ["DR", "Lipschitz step-size", "<"]]
 
     for dataset_title, load_data in datasets:
+      plt.figure()
       print("Running on the %s dataset" % dataset_title)
 
       X, y = load_data()
@@ -91,29 +90,22 @@ and on 4 different classification datasets.
       f = cp.utils.LogLoss(X, y)
       x0 = np.zeros(n_features)
 
-      fw_trace = {label: [] for _, label in variants_fw}
-      for step_size, label in variants_fw:
+      for step_size, label, marker in variants_fw:
 
-        def trace(kw):
-          # store the Frank-Wolfe gap g_t
-          fw_trace[label].append(kw["g_t"])
-
+        cb = cp.utils.Trace(f)
         cp.minimize_frank_wolfe(
             f.f_grad,
             x0,
             l1_ball.lmo,
-            callback=trace,
+            callback=cb,
             step_size=step_size,
             lipschitz=f.lipschitz,
         )
 
-      plt.figure()
-      for _, label in variants_fw:
-        plt.plot(fw_trace[label], label=label)
-      plt.yscale("log")
+        plt.plot(cb.trace_time, cb.trace_fx, label=label, marker=marker, markevery=10)
       plt.legend()
-      plt.xlabel("number of iterations")
-      plt.ylabel("FW gap")
+      plt.xlabel("Time (in seconds)")
+      plt.ylabel("Objective function")
       plt.title(dataset_title)
       plt.tight_layout()  # otherwise the right y-label is slightly clipped
       plt.grid()
@@ -122,9 +114,9 @@ and on 4 different classification datasets.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 26 minutes  45.173 seconds)
+   **Total running time of the script:** ( 14 minutes  47.256 seconds)
 
-**Estimated memory usage:**  1963 MB
+**Estimated memory usage:**  1938 MB
 
 
 .. _sphx_glr_download_auto_examples_frank_wolfe_plot_stepsize.py:
