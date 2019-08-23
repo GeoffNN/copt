@@ -4,8 +4,15 @@
 
 .. _sphx_glr_auto_examples:
 
+.. _general_examples:
+
 Examples
 ========
+
+Miscellaneous examples
+----------------------
+
+Miscellaneous and introductory examples for copt.
 
 
 .. raw:: html
@@ -95,19 +102,23 @@ Examples
 
 .. _sphx_glr_auto_examples_frank_wolfe:
 
+.. _frank_wolfe_examples:
+
 Frank-Wolfe
 -----------
+
+Examples based on the Frank-Wolf ealgorithm
 
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Speed of convergence of different step-size strategies and on 4 different classification datase...">
+    <div class="sphx-glr-thumbcontainer" tooltip="Speed of convergence of different Frank-Wolfe variants on various problems with a logistic regr...">
 
 .. only:: html
 
-    .. figure:: /auto_examples/frank_wolfe/images/thumb/sphx_glr_plot_stepsize_thumb.png
+    .. figure:: /auto_examples/frank_wolfe/images/thumb/sphx_glr_plot_sparse_benchmark_thumb.png
 
-        :ref:`sphx_glr_auto_examples_frank_wolfe_plot_stepsize.py`
+        :ref:`sphx_glr_auto_examples_frank_wolfe_plot_sparse_benchmark.py`
 
 .. raw:: html
 
@@ -117,7 +128,47 @@ Frank-Wolfe
 .. toctree::
    :hidden:
 
-   /auto_examples/frank_wolfe/plot_stepsize
+   /auto_examples/frank_wolfe/plot_sparse_benchmark
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Speed of convergence of different Frank-Wolfe variants on various problems with a logistic regr...">
+
+.. only:: html
+
+    .. figure:: /auto_examples/frank_wolfe/images/thumb/sphx_glr_plot_sparse_benchmark_pairwise_thumb.png
+
+        :ref:`sphx_glr_auto_examples_frank_wolfe_plot_sparse_benchmark_pairwise.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/frank_wolfe/plot_sparse_benchmark_pairwise
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Speed of convergence of different Frank-Wolfe variants on various problems with a logistic regr...">
+
+.. only:: html
+
+    .. figure:: /auto_examples/frank_wolfe/images/thumb/sphx_glr__plot_trace_benchmark_thumb.png
+
+        :ref:`sphx_glr_auto_examples_frank_wolfe__plot_trace_benchmark.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/frank_wolfe/_plot_trace_benchmark
 
 .. raw:: html
 
@@ -146,8 +197,12 @@ Frank-Wolfe
 
 .. _sphx_glr_auto_examples_proximal_splitting:
 
+.. _proximal_splitting_examples:
+
 Proximal Splitting
 ------------------
+
+Examples that use proximal splitting methods.
 
 
 .. raw:: html
