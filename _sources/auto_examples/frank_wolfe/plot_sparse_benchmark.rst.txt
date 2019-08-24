@@ -123,9 +123,9 @@ and a L1 ball constraint (:meth:`cp.utils.L1Ball`).
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 16 minutes  5.259 seconds)
+   **Total running time of the script:** ( 15 minutes  58.393 seconds)
 
-**Estimated memory usage:**  1547 MB
+**Estimated memory usage:**  1734 MB
 
 
 .. _sphx_glr_download_auto_examples_frank_wolfe_plot_sparse_benchmark.py:

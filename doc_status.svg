@@ -1,11 +1,11 @@
---2019-08-24 16:37:22--  https://storage.googleapis.com/tm-github-builds/build/success.svg
+--2019-08-24 19:10:14--  https://storage.googleapis.com/tm-github-builds/build/success.svg
 Resolving storage.googleapis.com (storage.googleapis.com)... 2607:f8b0:4020:805::2010, 172.217.13.144
 Connecting to storage.googleapis.com (storage.googleapis.com)|2607:f8b0:4020:805::2010|:443... connected.
 HTTP request sent, awaiting response... 200 OK
 Length: 966 [image/svg+xml]
 Saving to: ‘success.svg’
 
-     0K                                                       100% 38.4M=0s
+     0K                                                       100% 22.9M=0s
 
-2019-08-24 16:37:23 (38.4 MB/s) - ‘success.svg’ saved [966/966]
+2019-08-24 19:10:14 (22.9 MB/s) - ‘success.svg’ saved [966/966]
 
