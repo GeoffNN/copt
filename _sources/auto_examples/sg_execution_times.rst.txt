@@ -5,9 +5,9 @@
 
 Computation times
 =================
-**00:20.639** total execution time for **auto_examples** files:
+**00:22.873** total execution time for **auto_examples** files:
 
-- **00:13.490**: :ref:`sphx_glr_auto_examples_plot_group_lasso.py` (``plot_group_lasso.py``)
-- **00:03.418**: :ref:`sphx_glr_auto_examples_plot_saga_vs_svrg.py` (``plot_saga_vs_svrg.py``)
-- **00:02.321**: :ref:`sphx_glr_auto_examples_plot_jax_copt.py` (``plot_jax_copt.py``)
-- **00:01.410**: :ref:`sphx_glr_auto_examples_plot_accelerated.py` (``plot_accelerated.py``)
+- **00:13.833**: :ref:`sphx_glr_auto_examples_plot_group_lasso.py` (``plot_group_lasso.py``)
+- **00:03.660**: :ref:`sphx_glr_auto_examples_plot_saga_vs_svrg.py` (``plot_saga_vs_svrg.py``)
+- **00:02.846**: :ref:`sphx_glr_auto_examples_plot_accelerated.py` (``plot_accelerated.py``)
+- **00:02.535**: :ref:`sphx_glr_auto_examples_plot_jax_copt.py` (``plot_jax_copt.py``)
