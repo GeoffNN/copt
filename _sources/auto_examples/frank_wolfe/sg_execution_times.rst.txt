@@ -5,9 +5,9 @@
 
 Computation times
 =================
-**06:20.144** total execution time for **auto_examples_frank_wolfe** files:
+**22:05.503** total execution time for **auto_examples_frank_wolfe** files:
 
-- **06:20.144**: :ref:`sphx_glr_auto_examples_frank_wolfe_plot_sparse_benchmark_pairwise.py` (``plot_sparse_benchmark_pairwise.py``)
+- **16:04.070**: :ref:`sphx_glr_auto_examples_frank_wolfe_plot_sparse_benchmark.py` (``plot_sparse_benchmark.py``)
+- **05:12.254**: :ref:`sphx_glr_auto_examples_frank_wolfe_plot_sparse_benchmark_pairwise.py` (``plot_sparse_benchmark_pairwise.py``)
+- **00:49.179**: :ref:`sphx_glr_auto_examples_frank_wolfe_plot_vertex_overlap.py` (``plot_vertex_overlap.py``)
 - **00:00.000**: :ref:`sphx_glr_auto_examples_frank_wolfe__plot_trace_benchmark.py` (``_plot_trace_benchmark.py``)
-- **00:00.000**: :ref:`sphx_glr_auto_examples_frank_wolfe_plot_sparse_benchmark.py` (``plot_sparse_benchmark.py``)
-- **00:00.000**: :ref:`sphx_glr_auto_examples_frank_wolfe_plot_vertex_overlap.py` (``plot_vertex_overlap.py``)

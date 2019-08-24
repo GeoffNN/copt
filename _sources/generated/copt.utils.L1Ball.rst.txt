@@ -15,6 +15,7 @@ copt.utils.L1Ball
    
       ~L1Ball.__init__
       ~L1Ball.lmo
+      ~L1Ball.lmo_pairwise
       ~L1Ball.prox
    
    
