@@ -27,7 +27,7 @@ is used to provide the training data.
 
  .. code-block:: none
 
-    /usr/local/google/home/pedregosa/anaconda3/lib/python3.6/site-packages/jax/lib/xla_bridge.py:114: UserWarning: No GPU/TPU found, falling back to CPU.
+    /usr/local/google/home/pedregosa/anaconda3/lib/python3.6/site-packages/jax/lib/xla_bridge.py:109: UserWarning: No GPU/TPU found, falling back to CPU.
       warnings.warn('No GPU/TPU found, falling back to CPU.')
 
 
@@ -77,9 +77,9 @@ is used to provide the training data.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  2.535 seconds)
+   **Total running time of the script:** ( 0 minutes  2.511 seconds)
 
-**Estimated memory usage:**  105 MB
+**Estimated memory usage:**  91 MB
 
 
 .. _sphx_glr_download_auto_examples_plot_jax_copt.py:
