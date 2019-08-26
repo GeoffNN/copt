@@ -42,7 +42,7 @@
 <h1>copt.datasets.load_madelon<a class="headerlink" href="#copt-datasets-load-madelon" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="copt.datasets.load_madelon">
-<code class="sig-prename descclassname">copt.datasets.</code><code class="sig-name descname">load_madelon</code><span class="sig-paren">(</span><em class="sig-param">md5_check=True</em>, <em class="sig-param">subset='full'</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4d137ed/copt/datasets.py#L22"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.datasets.load_madelon" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">copt.datasets.</code><code class="sig-name descname">load_madelon</code><span class="sig-paren">(</span><em class="sig-param">md5_check=True</em>, <em class="sig-param">subset='full'</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/1ab8809/copt/datasets.py#L22"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.datasets.load_madelon" title="Permalink to this definition">¶</a></dt>
 <dd><p>Download and return the madelon dataset.</p>
 <dl class="simple">
 <dt>Properties:</dt><dd><p>n_samples: 2600
@@ -56,19 +56,25 @@ LIBSVM dataset project:</p>
 </div></blockquote>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>md5_check</strong> – bool
-Whether to do an md5 check on the downloaded files.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>md5_check</strong> – bool
+Whether to do an md5 check on the downloaded files.</p></li>
+<li><p><strong>subset</strong> – string
+Can be one of ‘full’ for full dataset, ‘train’ for only the train set
+or ‘test’ for only the test set.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><p>scipy.sparse CSR matrix, shape=(2600, 500)
-y: numpy array</p>
-<blockquote>
-<div><p>Labels, only takes values 0 or 1.</p>
-</div></blockquote>
+<dd class="field-even"><p><dl class="simple">
+<dt>scipy.sparse CSR</dt><dd><p>Return data as CSR sparse matrix of shape=(2600, 500).</p>
+</dd>
+<dt>target: array of shape 2600</dt><dd><p>Labels, only takes values 0 or 1.</p>
+</dd>
+</dl>
 </p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>X</p>
+<dd class="field-odd"><p>data</p>
 </dd>
 </dl>
 </dd></dl>

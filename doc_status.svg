@@ -1,11 +1,23 @@
---2019-08-24 19:10:14--  https://storage.googleapis.com/tm-github-builds/build/success.svg
-Resolving storage.googleapis.com (storage.googleapis.com)... 2607:f8b0:4020:805::2010, 172.217.13.144
-Connecting to storage.googleapis.com (storage.googleapis.com)|2607:f8b0:4020:805::2010|:443... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 966 [image/svg+xml]
-Saving to: ‘success.svg’
-
-     0K                                                       100% 22.9M=0s
-
-2019-08-24 19:10:14 (22.9 MB/s) - ‘success.svg’ saved [966/966]
-
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="79" height="20">
+    <linearGradient id="b" x2="0" y2="100%">
+        <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
+        <stop offset="1" stop-opacity=".1"/>
+    </linearGradient>
+    <mask id="anybadge_1">
+        <rect width="79" height="20" rx="3" fill="#fff"/>
+    </mask>
+    <g mask="url(#anybadge_1)">
+        <path fill="#555" d="M0 0h31v20H0z"/>
+        <path fill="#4c1" d="M31 0h48v20H31z"/>
+        <path fill="url(#b)" d="M0 0h79v20H0z"/>
+    </g>
+    <g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="11">
+        <text x="16.5" y="15" fill="#010101" fill-opacity=".3">doc</text>
+        <text x="15.5" y="14">doc</text>
+    </g>
+    <g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="11">
+        <text x="56.0" y="15" fill="#010101" fill-opacity=".3">passing</text>
+        <text x="55.0" y="14">passing</text>
+    </g>
+</svg>

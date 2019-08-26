@@ -42,7 +42,7 @@
 <h1>copt.datasets.load_rcv1<a class="headerlink" href="#copt-datasets-load-rcv1" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="copt.datasets.load_rcv1">
-<code class="sig-prename descclassname">copt.datasets.</code><code class="sig-name descname">load_rcv1</code><span class="sig-paren">(</span><em class="sig-param">md5_check=True</em>, <em class="sig-param">subset='full'</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4d137ed/copt/datasets.py#L74"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.datasets.load_rcv1" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">copt.datasets.</code><code class="sig-name descname">load_rcv1</code><span class="sig-paren">(</span><em class="sig-param">md5_check=True</em>, <em class="sig-param">subset='full'</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/1ab8809/copt/datasets.py#L82"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.datasets.load_rcv1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Download and return the RCV1 dataset.</p>
 <p>This is the binary classification version of the dataset as found in the
 LIBSVM dataset project:</p>
@@ -51,14 +51,24 @@ LIBSVM dataset project:</p>
 </div></blockquote>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>md5_check</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – Whether to do an md5 check on the downloaded files.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>md5_check</strong> – bool
+Whether to do an md5 check on the downloaded files.</p></li>
+<li><p><strong>subset</strong> – string
+Can be one of ‘full’ for full dataset, ‘train’ for only the train set
+or ‘test’ for only the test set.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><ul class="simple">
-<li><p><strong>X</strong> (<em>scipy.sparse CSR matrix</em>)</p></li>
-<li><p><strong>y</strong> (<em>numpy array</em>) – Labels, only takes values 0 or 1.</p></li>
-</ul>
+<dd class="field-even"><p><p>scipy.sparse CSR matrix</p>
+<dl class="simple">
+<dt>y: numpy array</dt><dd><p>Labels, only takes values 0 or 1.</p>
+</dd>
+</dl>
 </p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>X</p>
 </dd>
 </dl>
 </dd></dl>
