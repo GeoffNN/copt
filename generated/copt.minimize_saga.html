@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
@@ -21,7 +22,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="copt.minimize_svrg" href="copt.minimize_svrg.html" />
-    <link rel="prev" title="Incremental methods" href="../incremental.html" />
+    <link rel="prev" title="Stochastic methods" href="../stochastic.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -42,7 +43,7 @@
 <h1>copt.minimize_saga<a class="headerlink" href="#copt-minimize-saga" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="copt.minimize_saga">
-<code class="sig-prename descclassname">copt.</code><code class="sig-name descname">minimize_saga</code><span class="sig-paren">(</span><em class="sig-param">f_deriv</em>, <em class="sig-param">A</em>, <em class="sig-param">b</em>, <em class="sig-param">x0</em>, <em class="sig-param">step_size</em>, <em class="sig-param">prox=None</em>, <em class="sig-param">alpha=0</em>, <em class="sig-param">max_iter=500</em>, <em class="sig-param">tol=1e-06</em>, <em class="sig-param">verbose=1</em>, <em class="sig-param">callback=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4d137ed/copt/randomized.py#L61"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.minimize_saga" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">copt.</code><code class="sig-name descname">minimize_saga</code><span class="sig-paren">(</span><em class="sig-param">f_deriv</em>, <em class="sig-param">A</em>, <em class="sig-param">b</em>, <em class="sig-param">x0</em>, <em class="sig-param">step_size</em>, <em class="sig-param">prox=None</em>, <em class="sig-param">alpha=0</em>, <em class="sig-param">max_iter=500</em>, <em class="sig-param">tol=1e-06</em>, <em class="sig-param">verbose=1</em>, <em class="sig-param">callback=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/9fc2dcc/copt/randomized.py#L57"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.minimize_saga" title="Permalink to this definition">¶</a></dt>
 <dd><p>Stochastic average gradient augmented (SAGA) algorithm.</p>
 <p>This algorithm can solve linearly-parametrized loss functions of the form</p>
 <blockquote>
@@ -57,29 +58,39 @@
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> – loss functions.</p></li>
-<li><p><strong>x0</strong> (<em>np.ndarray</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><em>optional</em>) – Starting point for optimization.</p></li>
-<li><p><strong>step_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><em>optional</em>) – Step size for the optimization. If None is given, this will be
+<li><p><strong>x0</strong> – np.ndarray or None, optional
+Starting point for optimization.</p></li>
+<li><p><strong>step_size</strong> – float or None, optional
+Step size for the optimization. If None is given, this will be
 estimated from the function f.</p></li>
-<li><p><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Maximum number of passes through the data in the optimization.</p></li>
-<li><p><strong>tol</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – Tolerance criterion. The algorithm will stop whenever the norm of the
+<li><p><strong>max_iter</strong> – int
+Maximum number of passes through the data in the optimization.</p></li>
+<li><p><strong>tol</strong> – float
+Tolerance criterion. The algorithm will stop whenever the norm of the
 gradient mapping (generalization of the gradient for nonsmooth
 optimization) is below tol.</p></li>
-<li><p><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – Verbosity level. True might print some messages.</p></li>
-<li><p><strong>trace</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – Whether to trace convergence of the function, useful for plotting
+<li><p><strong>verbose</strong> – bool
+Verbosity level. True might print some messages.</p></li>
+<li><p><strong>trace</strong> – bool
+Whether to trace convergence of the function, useful for plotting
 and/or debugging. If ye, the result will have extra members trace_func,
 trace_time.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>opt</strong> – The optimization result represented as a
+<dd class="field-even"><p><dl class="simple">
+<dt>OptimizeResult</dt><dd><p>The optimization result represented as a
 <code class="docutils literal notranslate"><span class="pre">scipy.optimize.OptimizeResult</span></code> object. Important attributes are:
 <code class="docutils literal notranslate"><span class="pre">x</span></code> the solution array, <code class="docutils literal notranslate"><span class="pre">success</span></code> a Boolean flag indicating if
 the optimizer exited successfully and <code class="docutils literal notranslate"><span class="pre">message</span></code> which describes
 the cause of the termination. See <cite>scipy.optimize.OptimizeResult</cite>
 for a description of other attributes.</p>
 </dd>
+</dl>
+</p>
+</dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>OptimizeResult</p>
+<dd class="field-odd"><p>opt</p>
 </dd>
 </dl>
 <p class="rubric">References</p>
@@ -123,18 +134,16 @@ and Simon Lacoste-Julien. Advances in Neural Information Processing Systems
 <h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../proximal_gradient.html">Gradient-based methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../proximal_splitting.html">Proximal splitting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../frank_wolfe.html">Frank-Wolfe and other projection-free algorithms</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../incremental.html">Incremental methods</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../frank_wolfe.html">Frank-Wolfe</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../stochastic.html">Stochastic methods</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">copt.minimize_saga</a></li>
 <li class="toctree-l2"><a class="reference internal" href="copt.minimize_svrg.html">copt.minimize_svrg</a></li>
 <li class="toctree-l2"><a class="reference internal" href="copt.minimize_vrtos.html">copt.minimize_vrtos</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../loss_functions.html">Loss and regularization functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../datasets.html">Datasets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../utils.html">Other utility functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">Example Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils.html">Utility functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../citing.html">Citing</a></li>
 </ul>
 
@@ -154,7 +163,7 @@ and Simon Lacoste-Julien. Advances in Neural Information Processing Systems
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;COPT developers.
+      &copy;2019, COPT developers. Updated on August 28, 2019.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>

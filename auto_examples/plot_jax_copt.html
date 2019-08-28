@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
@@ -21,7 +22,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Accelerated gradient descent" href="plot_accelerated.html" />
-    <link rel="prev" title="Examples" href="index.html" />
+    <link rel="prev" title="Example Gallery" href="index.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -57,44 +58,44 @@ is used to provide the training data.</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">copt</span> <span class="k">as</span> <span class="nn">cp</span>
-<span class="kn">import</span> <span class="nn">jax</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">jax</span>
 <span class="kn">from</span> <span class="nn">jax</span> <span class="k">import</span> <span class="n">numpy</span> <span class="k">as</span> <span class="n">np</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">onp</span>
-<span class="kn">import</span> <span class="nn">pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">datasets</span>
+<span class="kn">import</span> <span class="nn">copt</span> <span class="k">as</span> <span class="nn">cp</span>
 
 <span class="c1"># .. construct (random) dataset ..</span>
-<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_regression.html#sklearn.datasets.make_regression" title="View documentation for sklearn.datasets.make_regression"><a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_regression.html#sklearn.datasets.make_regression" title="View documentation for sklearn.datasets.make_regression"><a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_regression.html#sklearn.datasets.make_regression" title="View documentation for sklearn.datasets.make_regression"><a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_regression.html#sklearn.datasets.make_regression" title="View documentation for sklearn.datasets.make_regression"><span class="n">datasets</span><span class="o">.</span><span class="n">make_regression</span></a></a></a></a><span class="p">()</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_regression.html#sklearn.datasets.make_regression" title="View documentation for sklearn.datasets.make_regression"><span class="n">datasets</span><span class="o">.</span><span class="n">make_regression</span></a><span class="p">()</span>
 <span class="n">n_samples</span><span class="p">,</span> <span class="n">n_features</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
 
 
 <span class="k">def</span> <span class="nf">loss</span><span class="p">(</span><span class="n">w</span><span class="p">):</span>
-  <span class="sd">&quot;&quot;&quot;Squared error loss.&quot;&quot;&quot;</span>
-  <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span> <span class="o">-</span> <span class="n">y</span>
-  <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">z</span> <span class="o">*</span> <span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_samples</span>
+    <span class="sd">&quot;&quot;&quot;Squared error loss.&quot;&quot;&quot;</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span> <span class="o">-</span> <span class="n">y</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">z</span> <span class="o">*</span> <span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_samples</span>
+
 
 <span class="c1"># .. use JAX to compute the gradient of loss value_and_grad ..</span>
 <span class="c1"># .. returns both the gradient and the objective, which is ..</span>
 <span class="c1"># .. the format that COPT accepts ..</span>
 <span class="n">f_grad</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">value_and_grad</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>
 
-<span class="n">w0</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html#numpy.zeros" title="View documentation for numpy.zeros"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html#numpy.zeros" title="View documentation for numpy.zeros"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html#numpy.zeros" title="View documentation for numpy.zeros"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html#numpy.zeros" title="View documentation for numpy.zeros"><span class="n">onp</span><span class="o">.</span><span class="n">zeros</span></a></a></a></a><span class="p">(</span><span class="n">n_features</span><span class="p">)</span>
+<span class="n">w0</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html#numpy.zeros" title="View documentation for numpy.zeros"><span class="n">onp</span><span class="o">.</span><span class="n">zeros</span></a><span class="p">(</span><span class="n">n_features</span><span class="p">)</span>
 
-<span class="n">l1_ball</span> <span class="o">=</span> <a href="../generated/copt.utils.L1Norm.html#copt.utils.L1Norm" title="View documentation for copt.utils.L1Norm"><a href="../generated/copt.utils.L1Norm.html#copt.utils.L1Norm" title="View documentation for copt.utils.L1Norm"><a href="../generated/copt.utils.L1Norm.html#copt.utils.L1Norm" title="View documentation for copt.utils.L1Norm"><a href="../generated/copt.utils.L1Norm.html#copt.utils.L1Norm" title="View documentation for copt.utils.L1Norm"><span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">L1Norm</span></a></a></a></a><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
-<span class="n">cb</span> <span class="o">=</span> <a href="../generated/copt.utils.Trace.html#copt.utils.Trace" title="View documentation for copt.utils.Trace"><a href="../generated/copt.utils.Trace.html#copt.utils.Trace" title="View documentation for copt.utils.Trace"><a href="../generated/copt.utils.Trace.html#copt.utils.Trace" title="View documentation for copt.utils.Trace"><a href="../generated/copt.utils.Trace.html#copt.utils.Trace" title="View documentation for copt.utils.Trace"><span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">Trace</span></a></a></a></a><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">loss</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">l1_ball</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<span class="n">sol</span> <span class="o">=</span> <a href="../generated/copt.minimize_proximal_gradient.html#copt.minimize_proximal_gradient" title="View documentation for copt.minimize_proximal_gradient"><a href="../generated/copt.minimize_proximal_gradient.html#copt.minimize_proximal_gradient" title="View documentation for copt.minimize_proximal_gradient"><a href="../generated/copt.minimize_proximal_gradient.html#copt.minimize_proximal_gradient" title="View documentation for copt.minimize_proximal_gradient"><a href="../generated/copt.minimize_proximal_gradient.html#copt.minimize_proximal_gradient" title="View documentation for copt.minimize_proximal_gradient"><span class="n">cp</span><span class="o">.</span><span class="n">minimize_proximal_gradient</span></a></a></a></a><span class="p">(</span>
-    <span class="n">f_grad</span><span class="p">,</span> <span class="n">w0</span><span class="p">,</span> <span class="n">prox</span><span class="o">=</span><span class="n">l1_ball</span><span class="o">.</span><span class="n">prox</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">cb</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cb</span><span class="o">.</span><span class="n">trace_fx</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;# Iterations&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Objective value&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">l1_ball</span> <span class="o">=</span> <a href="../generated/copt.utils.L1Norm.html#copt.utils.L1Norm" title="View documentation for copt.utils.L1Norm"><span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">L1Norm</span></a><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">cb</span> <span class="o">=</span> <a href="../generated/copt.utils.Trace.html#copt.utils.Trace" title="View documentation for copt.utils.Trace"><span class="n">cp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">Trace</span></a><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">loss</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">l1_ball</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">sol</span> <span class="o">=</span> <a href="../generated/copt.minimize_proximal_gradient.html#copt.minimize_proximal_gradient" title="View documentation for copt.minimize_proximal_gradient"><span class="n">cp</span><span class="o">.</span><span class="n">minimize_proximal_gradient</span></a><span class="p">(</span><span class="n">f_grad</span><span class="p">,</span> <span class="n">w0</span><span class="p">,</span> <span class="n">prox</span><span class="o">=</span><span class="n">l1_ball</span><span class="o">.</span><span class="n">prox</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">cb</span><span class="p">)</span>
+<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.plot.html#matplotlib.pyplot.plot" title="View documentation for matplotlib.pyplot.plot"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span></a><span class="p">(</span><span class="n">cb</span><span class="o">.</span><span class="n">trace_fx</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.yscale.html#matplotlib.pyplot.yscale" title="View documentation for matplotlib.pyplot.yscale"><span class="n">plt</span><span class="o">.</span><span class="n">yscale</span></a><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
+<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.xlabel.html#matplotlib.pyplot.xlabel" title="View documentation for matplotlib.pyplot.xlabel"><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span></a><span class="p">(</span><span class="s2">&quot;# Iterations&quot;</span><span class="p">)</span>
+<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.ylabel.html#matplotlib.pyplot.ylabel" title="View documentation for matplotlib.pyplot.ylabel"><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span></a><span class="p">(</span><span class="s2">&quot;Objective value&quot;</span><span class="p">)</span>
+<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.grid.html#matplotlib.pyplot.grid" title="View documentation for matplotlib.pyplot.grid"><span class="n">plt</span><span class="o">.</span><span class="n">grid</span></a><span class="p">()</span>
+<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.772 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  93 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.741 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  80 MB</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-jax-copt-py">
 <div class="sphx-glr-download docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/9a7f81089acad360f66814ab42d214de/plot_jax_copt.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_jax_copt.py</span></code></a></p>
@@ -137,18 +138,16 @@ is used to provide the training data.</p>
 <h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../proximal_gradient.html">Gradient-based methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../proximal_splitting.html">Proximal splitting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../frank_wolfe.html">Frank-Wolfe and other projection-free algorithms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../incremental.html">Incremental methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frank_wolfe.html">Frank-Wolfe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stochastic.html">Stochastic methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../loss_functions.html">Loss and regularization functions</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Examples</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Example Gallery</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="index.html#miscellaneous-examples">Miscellaneous examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#frank-wolfe">Frank-Wolfe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#proximal-splitting">Proximal Splitting</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../datasets.html">Datasets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../utils.html">Other utility functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils.html">Utility functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../citing.html">Citing</a></li>
 </ul>
 
@@ -168,7 +167,7 @@ is used to provide the training data.</p>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;COPT developers.
+      &copy;2019, COPT developers. Updated on August 28, 2019.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>

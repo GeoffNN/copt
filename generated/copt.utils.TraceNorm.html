@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
@@ -42,11 +43,11 @@
 <h1>copt.utils.TraceNorm<a class="headerlink" href="#copt-utils-tracenorm" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="copt.utils.TraceNorm">
-<em class="property">class </em><code class="sig-prename descclassname">copt.utils.</code><code class="sig-name descname">TraceNorm</code><span class="sig-paren">(</span><em class="sig-param">alpha</em>, <em class="sig-param">shape</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4d137ed/copt/utils.py#L690"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.TraceNorm" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">copt.utils.</code><code class="sig-name descname">TraceNorm</code><span class="sig-paren">(</span><em class="sig-param">alpha</em>, <em class="sig-param">shape</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/9fc2dcc/copt/utils.py#L711"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.TraceNorm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Trace (aka nuclear) norm, sum of singular values</p>
 <dl class="method">
 <dt id="copt.utils.TraceNorm.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">alpha</em>, <em class="sig-param">shape</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4d137ed/copt/utils.py#L694"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.TraceNorm.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">alpha</em>, <em class="sig-param">shape</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/9fc2dcc/copt/utils.py#L716"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.utils.TraceNorm.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
@@ -115,9 +116,8 @@
 <h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../proximal_gradient.html">Gradient-based methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../proximal_splitting.html">Proximal splitting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../frank_wolfe.html">Frank-Wolfe and other projection-free algorithms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../incremental.html">Incremental methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frank_wolfe.html">Frank-Wolfe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stochastic.html">Stochastic methods</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../loss_functions.html">Loss and regularization functions</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="copt.utils.LogLoss.html">copt.utils.LogLoss</a></li>
 <li class="toctree-l2"><a class="reference internal" href="copt.utils.SquareLoss.html">copt.utils.SquareLoss</a></li>
@@ -130,9 +130,8 @@
 <li class="toctree-l2"><a class="reference internal" href="copt.utils.TotalVariation2D.html">copt.utils.TotalVariation2D</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../datasets.html">Datasets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../utils.html">Other utility functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">Example Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils.html">Utility functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../citing.html">Citing</a></li>
 </ul>
 
@@ -152,7 +151,7 @@
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;COPT developers.
+      &copy;2019, COPT developers. Updated on August 28, 2019.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
@@ -20,8 +21,8 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"argmin": "\\DeclareMathOperator*{\\argmin}{\\mathbf{arg\\,min}}", "argmax": "\\DeclareMathOperator*{\\argmin}{\\mathbf{arg\\,max}}", "bs": "\\newcommand{\\bs}[1]{\\boldsymbol{#1}}"}}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Frank-Wolfe and other projection-free algorithms" href="../frank_wolfe.html" />
-    <link rel="prev" title="copt.minimize_three_split" href="copt.minimize_three_split.html" />
+    <link rel="next" title="copt.minimize_three_split" href="copt.minimize_three_split.html" />
+    <link rel="prev" title="copt.minimize_proximal_gradient" href="copt.minimize_proximal_gradient.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -42,7 +43,7 @@
 <h1>copt.minimize_primal_dual<a class="headerlink" href="#copt-minimize-primal-dual" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="copt.minimize_primal_dual">
-<code class="sig-prename descclassname">copt.</code><code class="sig-name descname">minimize_primal_dual</code><span class="sig-paren">(</span><em class="sig-param">f_grad</em>, <em class="sig-param">x0</em>, <em class="sig-param">prox_1=None</em>, <em class="sig-param">prox_2=None</em>, <em class="sig-param">L=None</em>, <em class="sig-param">tol=1e-12</em>, <em class="sig-param">max_iter=1000</em>, <em class="sig-param">callback=None</em>, <em class="sig-param">step_size=1.0</em>, <em class="sig-param">step_size2=None</em>, <em class="sig-param">line_search=True</em>, <em class="sig-param">max_iter_ls=20</em>, <em class="sig-param">verbose=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/4d137ed/copt/splitting.py#L169"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.minimize_primal_dual" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">copt.</code><code class="sig-name descname">minimize_primal_dual</code><span class="sig-paren">(</span><em class="sig-param">f_grad</em>, <em class="sig-param">x0</em>, <em class="sig-param">prox_1=None</em>, <em class="sig-param">prox_2=None</em>, <em class="sig-param">L=None</em>, <em class="sig-param">tol=1e-12</em>, <em class="sig-param">max_iter=1000</em>, <em class="sig-param">callback=None</em>, <em class="sig-param">step_size=1.0</em>, <em class="sig-param">step_size2=None</em>, <em class="sig-param">line_search=True</em>, <em class="sig-param">max_iter_ls=20</em>, <em class="sig-param">verbose=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/openopt/copt/blob/9fc2dcc/copt/splitting.py#L167"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#copt.minimize_primal_dual" title="Permalink to this definition">¶</a></dt>
 <dd><p>Primal-dual hybrid gradient splitting method.</p>
 <p>This method for optimization problems of the form</p>
 <blockquote>
@@ -132,18 +133,17 @@ first-order primal-dual algorithm.” Mathematical Programming (2015)</p>
 
 <h3>Navigation</h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../proximal_gradient.html">Gradient-based methods</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../proximal_splitting.html">Proximal splitting</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="copt.minimize_three_split.html">copt.minimize_three_split</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">copt.minimize_primal_dual</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../proximal_gradient.html">Gradient-based methods</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../proximal_gradient.html#id1">Proximal-Gradient</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../proximal_gradient.html#primal-dual-hybrid-gradient">Primal-dual hybrid gradient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proximal_gradient.html#three-operator-splitting">Three-operator splitting</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../frank_wolfe.html">Frank-Wolfe and other projection-free algorithms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../incremental.html">Incremental methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frank_wolfe.html">Frank-Wolfe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stochastic.html">Stochastic methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../loss_functions.html">Loss and regularization functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../datasets.html">Datasets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../utils.html">Other utility functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">Example Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils.html">Utility functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../citing.html">Citing</a></li>
 </ul>
 
@@ -163,7 +163,7 @@ first-order primal-dual algorithm.” Mathematical Programming (2015)</p>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;COPT developers.
+      &copy;2019, COPT developers. Updated on August 28, 2019.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>

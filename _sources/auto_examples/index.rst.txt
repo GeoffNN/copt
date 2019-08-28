@@ -6,8 +6,8 @@
 
 .. _general_examples:
 
-Examples
-========
+Example Gallery
+===============
 
 Miscellaneous examples
 ----------------------
@@ -149,26 +149,6 @@ Examples based on the Frank-Wolf ealgorithm
    :hidden:
 
    /auto_examples/frank_wolfe/plot_sparse_benchmark_pairwise
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Speed of convergence of different Frank-Wolfe variants on various problems with a logistic regr...">
-
-.. only:: html
-
-    .. figure:: /auto_examples/frank_wolfe/images/thumb/sphx_glr__plot_trace_benchmark_thumb.png
-
-        :ref:`sphx_glr_auto_examples_frank_wolfe__plot_trace_benchmark.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /auto_examples/frank_wolfe/_plot_trace_benchmark
 
 .. raw:: html
 

@@ -39,12 +39,12 @@ is used to provide the training data.
 
 .. code-block:: default
 
-    import copt as cp
     import jax
     from jax import numpy as np
     import numpy as onp
-    import pylab as plt
+    import matplotlib.pyplot as plt
     from sklearn import datasets
+    import copt as cp
 
     # .. construct (random) dataset ..
     X, y = datasets.make_regression()
@@ -52,9 +52,10 @@ is used to provide the training data.
 
 
     def loss(w):
-      """Squared error loss."""
-      z = np.dot(X, w) - y
-      return np.sum(z * z) / n_samples
+        """Squared error loss."""
+        z = np.dot(X, w) - y
+        return np.sum(z * z) / n_samples
+
 
     # .. use JAX to compute the gradient of loss value_and_grad ..
     # .. returns both the gradient and the objective, which is ..
@@ -65,21 +66,20 @@ is used to provide the training data.
 
     l1_ball = cp.utils.L1Norm(0.1)
     cb = cp.utils.Trace(lambda x: loss(x) + l1_ball(x))
-    sol = cp.minimize_proximal_gradient(
-        f_grad, w0, prox=l1_ball.prox, callback=cb)
+    sol = cp.minimize_proximal_gradient(f_grad, w0, prox=l1_ball.prox, callback=cb)
     plt.plot(cb.trace_fx, lw=3)
-    plt.yscale('log')
-    plt.xlabel('# Iterations')
-    plt.ylabel('Objective value')
+    plt.yscale("log")
+    plt.xlabel("# Iterations")
+    plt.ylabel("Objective value")
     plt.grid()
     plt.show()
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  2.772 seconds)
+   **Total running time of the script:** ( 0 minutes  1.741 seconds)
 
-**Estimated memory usage:**  93 MB
+**Estimated memory usage:**  80 MB
 
 
 .. _sphx_glr_download_auto_examples_plot_jax_copt.py:

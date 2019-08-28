@@ -4,11 +4,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Frank-Wolfe and other projection-free algorithms &#8212; copt  documentation</title>
+    <title>Frank-Wolfe &#8212; copt  documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/gallery.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
@@ -21,7 +22,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="copt.minimize_frank_wolfe" href="generated/copt.minimize_frank_wolfe.html" />
-    <link rel="prev" title="copt.minimize_primal_dual" href="generated/copt.minimize_primal_dual.html" />
+    <link rel="prev" title="copt.minimize_three_split" href="generated/copt.minimize_three_split.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -38,11 +39,12 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="frank-wolfe-and-other-projection-free-algorithms">
-<span id="frank-wolfe"></span><h1>Frank-Wolfe and other projection-free algorithms<a class="headerlink" href="#frank-wolfe-and-other-projection-free-algorithms" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id1">
-<h2>Frank-Wolfe<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>The Frank-Wolfe (FW) or conditional gradient algorithm <a class="reference internal" href="#j2003" id="id2"><span>[J2003]</span></a>, <a class="reference internal" href="#p2018" id="id3"><span>[P2018]</span></a>, <a class="reference internal" href="#panj2018" id="id4"><span>[PANJ2018]</span></a> is a method for constrained optimization. It can solve problems of the form</p>
+  <div class="section" id="frank-wolfe">
+<span id="id1"></span><h1>Frank-Wolfe<a class="headerlink" href="#frank-wolfe" title="Permalink to this headline">¶</a></h1>
+<p>This section describes the implementation of the Frank-Wolfe and other projection-free algorithms</p>
+<div class="section" id="id2">
+<h2>Frank-Wolfe<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>The Frank-Wolfe (FW) or conditional gradient algorithm <a class="reference internal" href="#j2003" id="id3"><span>[J2003]</span></a>, <a class="reference internal" href="#p2018" id="id4"><span>[P2018]</span></a>, <a class="reference internal" href="#panj2018" id="id5"><span>[PANJ2018]</span></a> is a method for constrained optimization. It can solve problems of the form</p>
 <div class="math notranslate nohighlight">
 \[\argmin_{\bs{x} \in \mathcal{D}} f(\bs{x})\]</div>
 <p>where <span class="math notranslate nohighlight">\(f\)</span> is a differentiable function for which we have access to its gradient and <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> is a compact set for which we have access to its linear minimization oracle (lmo). This is a routine that given a vector <span class="math notranslate nohighlight">\(\bs{u}\)</span> returns a solution to</p>
@@ -95,17 +97,31 @@ constant <span class="math notranslate nohighlight">\(L\)</span> needs to be spe
 </tr>
 </tbody>
 </table>
-<div class="topic">
-<p class="topic-title first">Examples:</p>
+<div class="admonition-examples admonition">
+<p class="admonition-title">Examples</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="auto_examples/frank_wolfe/plot_sparse_benchmark.html#sphx-glr-auto-examples-frank-wolfe-plot-sparse-benchmark-py"><span class="std std-ref">Benchmark of Frank-Wolfe variants for sparse logistic regression</span></a></p></li>
 <li><p><a class="reference internal" href="auto_examples/frank_wolfe/plot_vertex_overlap.html#sphx-glr-auto-examples-frank-wolfe-plot-vertex-overlap-py"><span class="std std-ref">Update Direction Overlap in Frank-Wolfe</span></a></p></li>
 </ul>
 </div>
+<div class="topic">
+<p class="topic-title first">References:</p>
+<dl class="citation">
+<dt class="label" id="j2003"><span class="brackets"><a class="fn-backref" href="#id3">J2003</a></span></dt>
+<dd><p>Jaggi, Martin. <a class="reference external" href="http://proceedings.mlr.press/v28/jaggi13-supp.pdf">“Revisiting Frank-Wolfe: Projection-Free Sparse Convex Optimization.”</a> ICML 2013.</p>
+</dd>
+<dt class="label" id="p2018"><span class="brackets"><a class="fn-backref" href="#id4">P2018</a></span></dt>
+<dd><p>Pedregosa, Fabian <a class="reference external" href="http://fa.bianp.net/blog/2018/notes-on-the-frank-wolfe-algorithm-part-i/">“Notes on the Frank-Wolfe Algorithm”</a>, 2018</p>
+</dd>
+<dt class="label" id="panj2018"><span class="brackets"><a class="fn-backref" href="#id5">PANJ2018</a></span></dt>
+<dd><p>Pedregosa, Fabian, Armin Askari, Geoffrey Negiar, and Martin Jaggi. <a class="reference external" href="https://arxiv.org/pdf/1806.05123.pdf">“Step-Size Adaptivity in Projection-Free Optimization.”</a> arXiv:1806.05123 (2018).</p>
+</dd>
+</dl>
+</div>
 </div>
 <div class="section" id="pairwise-frank-wolfe">
 <h2>Pairwise Frank-Wolfe<a class="headerlink" href="#pairwise-frank-wolfe" title="Permalink to this headline">¶</a></h2>
-<p>As the Frank-Wolfe algorithm, the Pairwise Frank-Wolfe <a class="reference internal" href="#lj2015" id="id5"><span>[LJ2015]</span></a> solves problems of the form</p>
+<p>As the Frank-Wolfe algorithm, the Pairwise Frank-Wolfe <a class="reference internal" href="#lj2015" id="id6"><span>[LJ2015]</span></a> solves problems of the form</p>
 <div class="math notranslate nohighlight">
 \[\argmin_{\bs{x} \in \mathcal{D}} f(\bs{x})\]</div>
 <p>where <span class="math notranslate nohighlight">\(f\)</span>. is differentiable and the domain <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> is a convex and compart set.</p>
@@ -121,19 +137,16 @@ constant <span class="math notranslate nohighlight">\(L\)</span> needs to be spe
 </tr>
 </tbody>
 </table>
+<div class="admonition-examples admonition">
+<p class="admonition-title">Examples</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="auto_examples/frank_wolfe/plot_sparse_benchmark_pairwise.html#sphx-glr-auto-examples-frank-wolfe-plot-sparse-benchmark-pairwise-py"><span class="std std-ref">Benchmark of Pairwise Frank-Wolfe variants for sparse logistic regression</span></a></p></li>
+</ul>
+</div>
 <div class="topic">
 <p class="topic-title first">References:</p>
 <dl class="citation">
-<dt class="label" id="j2003"><span class="brackets"><a class="fn-backref" href="#id2">J2003</a></span></dt>
-<dd><p>Jaggi, Martin. <a class="reference external" href="http://proceedings.mlr.press/v28/jaggi13-supp.pdf">“Revisiting Frank-Wolfe: Projection-Free Sparse Convex Optimization.”</a> ICML 2013.</p>
-</dd>
-<dt class="label" id="p2018"><span class="brackets"><a class="fn-backref" href="#id3">P2018</a></span></dt>
-<dd><p>Pedregosa, Fabian <a class="reference external" href="http://fa.bianp.net/blog/2018/notes-on-the-frank-wolfe-algorithm-part-i/">“Notes on the Frank-Wolfe Algorithm”</a>, 2018</p>
-</dd>
-<dt class="label" id="panj2018"><span class="brackets"><a class="fn-backref" href="#id4">PANJ2018</a></span></dt>
-<dd><p>Pedregosa, Fabian, Armin Askari, Geoffrey Negiar, and Martin Jaggi. <a class="reference external" href="https://arxiv.org/pdf/1806.05123.pdf">“Step-Size Adaptivity in Projection-Free Optimization.”</a> arXiv:1806.05123 (2018).</p>
-</dd>
-<dt class="label" id="lj2015"><span class="brackets"><a class="fn-backref" href="#id5">LJ2015</a></span></dt>
+<dt class="label" id="lj2015"><span class="brackets"><a class="fn-backref" href="#id6">LJ2015</a></span></dt>
 <dd><p>Lacoste-Julien, Simon, and Martin Jaggi. <a class="reference external" href="https://arxiv.org/pdf/1511.05932.pdf">“On the global linear convergence of Frank-Wolfe optimization variants.”</a> Advances in Neural Information Processing Systems. 2015.</p>
 </dd>
 </dl>
@@ -172,17 +185,15 @@ constant <span class="math notranslate nohighlight">\(L\)</span> needs to be spe
 <h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="proximal_gradient.html">Gradient-based methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="proximal_splitting.html">Proximal splitting</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Frank-Wolfe and other projection-free algorithms</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">Frank-Wolfe</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Frank-Wolfe</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Frank-Wolfe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pairwise-frank-wolfe">Pairwise Frank-Wolfe</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="incremental.html">Incremental methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stochastic.html">Stochastic methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="loss_functions.html">Loss and regularization functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="datasets.html">Datasets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="utils.html">Other utility functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html">Example Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">Utility functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="citing.html">Citing</a></li>
 </ul>
 
@@ -202,7 +213,7 @@ constant <span class="math notranslate nohighlight">\(L\)</span> needs to be spe
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;COPT developers.
+      &copy;2019, COPT developers. Updated on August 28, 2019.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
