@@ -60,6 +60,8 @@ and a L1 ball constraint (<a class="reference internal" href="../../generated/co
 </ul>
 <p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Running on the Gisette dataset
+/usr/local/google/home/pedregosa/dev/copt/copt/frank_wolfe.py:115: RuntimeWarning: Exhausted line search iterations in minimize_frank_wolfe
+  &quot;Exhausted line search iterations in minimize_frank_wolfe&quot;, RuntimeWarning
 Running on the RCV1 dataset
 Running on the Madelon dataset
 Running on the Covtype dataset
@@ -87,7 +89,7 @@ Running on the Covtype dataset
     <span class="c1"># [&quot;adaptive2+&quot;, &quot;linesearch+ step-size&quot;, &quot;s&quot;],</span>
     <span class="c1"># [&quot;adaptive3&quot;, &quot;adaptive3 step-size&quot;, &quot;+&quot;],</span>
     <span class="c1"># [&quot;adaptive4&quot;, &quot;adaptive4 step-size&quot;, &quot;x&quot;],</span>
-    <span class="c1"># [&quot;adaptive5&quot;, &quot;adaptive5 step-size&quot;, &quot;&gt;&quot;],</span>
+    <span class="p">[</span><span class="s2">&quot;panj&quot;</span><span class="p">,</span> <span class="s2">&quot;adaptive5 step-size&quot;</span><span class="p">,</span> <span class="s2">&quot;&gt;&quot;</span><span class="p">],</span>
     <span class="p">[</span><span class="s2">&quot;DR&quot;</span><span class="p">,</span> <span class="s2">&quot;Lipschitz step-size&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;&quot;</span><span class="p">],</span>
 <span class="p">]</span>
 
@@ -132,8 +134,8 @@ Running on the Covtype dataset
     <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 9 minutes  56.082 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  1754 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 22 minutes  39.472 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  1789 MB</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-frank-wolfe-plot-sparse-benchmark-pairwise-py">
 <div class="sphx-glr-download docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/f79d5c2099e3f54db5ae9aade8943623/plot_sparse_benchmark_pairwise.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_sparse_benchmark_pairwise.py</span></code></a></p>

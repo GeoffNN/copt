@@ -47,6 +47,8 @@ and a L1 ball constraint (:meth:`copt.utils.L1Ball`).
  .. code-block:: none
 
     Running on the Gisette dataset
+    /usr/local/google/home/pedregosa/dev/copt/copt/frank_wolfe.py:115: RuntimeWarning: Exhausted line search iterations in minimize_frank_wolfe
+      "Exhausted line search iterations in minimize_frank_wolfe", RuntimeWarning
     Running on the RCV1 dataset
     Running on the Madelon dataset
     Running on the Covtype dataset
@@ -79,7 +81,7 @@ and a L1 ball constraint (:meth:`copt.utils.L1Ball`).
         # ["adaptive2+", "linesearch+ step-size", "s"],
         # ["adaptive3", "adaptive3 step-size", "+"],
         # ["adaptive4", "adaptive4 step-size", "x"],
-        # ["adaptive5", "adaptive5 step-size", ">"],
+        ["panj", "adaptive5 step-size", ">"],
         ["DR", "Lipschitz step-size", "<"],
     ]
 
@@ -126,9 +128,9 @@ and a L1 ball constraint (:meth:`copt.utils.L1Ball`).
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 9 minutes  56.082 seconds)
+   **Total running time of the script:** ( 22 minutes  39.472 seconds)
 
-**Estimated memory usage:**  1754 MB
+**Estimated memory usage:**  1789 MB
 
 
 .. _sphx_glr_download_auto_examples_frank_wolfe_plot_sparse_benchmark_pairwise.py:
