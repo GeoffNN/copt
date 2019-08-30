@@ -79,7 +79,7 @@ and a L1 ball constraint (:meth:`copt.utils.L1Ball`).
         ["adaptive_scipy+", "linesearch+ step-size", "s"],
         # ["adaptive3", "adaptive3 step-size", "+"],
         # ["adaptive4", "adaptive4 step-size", "x"],
-        ["adaptive5", "adaptive5 step-size", ">"],
+        ["panj", "geoff's step-size", ">"],
         ["DR", "Lipschitz step-size", "<"],
     ]
 
@@ -122,9 +122,9 @@ and a L1 ball constraint (:meth:`copt.utils.L1Ball`).
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 16 minutes  4.284 seconds)
+   **Total running time of the script:** ( 16 minutes  58.724 seconds)
 
-**Estimated memory usage:**  1786 MB
+**Estimated memory usage:**  1726 MB
 
 
 .. _sphx_glr_download_auto_examples_frank_wolfe_plot_sparse_benchmark.py:
