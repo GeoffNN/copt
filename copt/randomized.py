@@ -727,6 +727,48 @@ def step_size_DR(kwargs):
 
 
 
+def sfw_importance_probs(A, alpha, ord=1):
+    r"""Sampling probabilities that minimize the SFW error constant on a norm ball.
+
+    The rate of the SAG-style Stochastic Frank-Wolfe estimator is governed by
+    :math:`\Psi(q) = \sum_{m\geq 1}\max_j d_j (1-q_j)^m`, where
+    :math:`d_j = \max_{u,v\in C}|a_j^T(u-v)|` measures how far datapoint :math:`j`'s
+    prediction can move across the constraint set. Uniform sampling gives
+    :math:`\Psi = (n-1)\max_j d_j`, while :math:`q_j \propto d_j` reduces it to
+    roughly :math:`\sum_j d_j` up to a log factor -- a gain of
+    :math:`\max_j d_j / \mathrm{mean}_j\, d_j`, which is large for heavy-tailed
+    designs and equal to 1 when every datapoint has the same scale.
+
+    Args:
+      A: array-like or sparse matrix, shape (n_samples, n_features)
+        The data matrix.
+
+      alpha: float
+        Radius of the constraint ball.
+
+      ord: 1
+        Order of the norm ball. Only the l1 ball is currently supported, for which
+        :math:`d_j = 2\alpha\|a_j\|_\infty`.
+
+    Returns:
+      probs: np.ndarray, shape (n_samples,)
+        Sampling probabilities, summing to one. Pass to
+        :func:`minimize_sfw` as ``sampling_probs``.
+
+    References:
+      .. [N2026] "The Dual View of Stochastic Frank-Wolfe: Tighter Rates, an
+         Acceleration Dichotomy, and Adaptive Steps", Proposition 5.
+    """
+    if ord != 1:
+        raise NotImplementedError("Only the l1 ball (ord=1) is currently supported.")
+    A = sparse.csr_matrix(A)
+    d = 2.0 * alpha * np.asarray(np.abs(A).max(axis=1).todense()).ravel()
+    total = d.sum()
+    if total <= 0:
+        return np.full(A.shape[0], 1.0 / A.shape[0])
+    return d / total
+
+
 SFW_VARIANTS = {'SAG', 'SAGA', 'MHK', 'LF'}
 LMO_VARIANTS = {'vanilla', 'pairwise'}
 
@@ -746,7 +788,8 @@ def minimize_sfw(
         verbose=False,
         callback=None,
         variant='SAGA',
-        lmo_variant='vanilla'
+        lmo_variant='vanilla',
+        sampling_probs=None
 ):
     r"""Stochastic Frank-Wolfe (SFW) algorithm.
 
@@ -766,6 +809,14 @@ def minimize_sfw(
           - 'sublinear': sets the step size as the default for `variant`.
           - 'DR': uses the Demyanov-Rubinov step size scheme, using the Lipschitz estimate given in
         the lipschitz parameter.
+
+        Note that 'DR' forms its certificate from the *stochastic* gap
+        <-grad_agg, update_direction>, which is not a lower bound on the true
+        directional derivative of the objective. It is therefore a heuristic
+        step size rather than one backed by a sufficient-decrease guarantee: a
+        backtracking line search built on this certificate can fail to
+        terminate, because when the stochastic gap overestimates the true gap no
+        Lipschitz estimate satisfies the sufficient-decrease test.
 
       lipschitz: None or float, optional
         Estimate for the Lipschitz constant of the gradient. Required when step_size="DR".
@@ -800,6 +851,18 @@ def minimize_sfw(
         Controls which variant of the LMO we're using.
         Using 'pairwise' will create and update an active set of vertices.
 
+      sampling_probs: None or array-like, shape (n_samples,)
+        Probabilities used to sample datapoints. None (the default) samples
+        uniformly. Supplying probabilities proportional to each datapoint's
+        reach across the constraint set reduces the error constant of the
+        SAG-style estimator by up to a factor of n; see
+        :func:`sfw_importance_probs`, which computes them for the l1 ball.
+        Only supported for the 'SAG' and 'SAGA' variants with batch_size=1,
+        since the analysis and the without-replacement batch sampler both
+        assume unit batches. The guarantee describes the 'SAG' estimator, whose
+        per-datapoint error decays at rate q_j; 'SAGA' rescales its correction
+        by 1/q_j and is accepted but not covered by it.
+
     Returns:
       opt: OptimizeResult
           The optimization result represented as a
@@ -827,6 +890,24 @@ From Convex Minimization to Submodular Maximization" <https://arxiv.org/abs/1804
     if lmo_variant not in LMO_VARIANTS:
         raise ValueError(f"This LMO variant is not implemented. "
                          f"Please use one from {LMO_VARIANTS}.")
+
+    if sampling_probs is not None:
+        if variant not in {'SAG', 'SAGA'}:
+            raise ValueError("sampling_probs is only supported for the 'SAG' and "
+                             f"'SAGA' variants, not '{variant}'.")
+        if batch_size != 1:
+            raise ValueError("sampling_probs is only supported with batch_size=1; "
+                             "the batch sampler draws without replacement, which "
+                             "non-uniform probabilities do not describe.")
+        sampling_probs = np.asarray(sampling_probs, dtype=float)
+        if sampling_probs.shape != (A.shape[0],):
+            raise ValueError(f"sampling_probs has shape {sampling_probs.shape}, "
+                             f"expected {(A.shape[0],)}.")
+        if np.any(sampling_probs <= 0):
+            raise ValueError("sampling_probs must be strictly positive: a datapoint "
+                             "that is never resampled keeps a stale gradient forever.")
+        if not np.isclose(sampling_probs.sum(), 1.0):
+            raise ValueError("sampling_probs must sum to one.")
 
     n_samples, n_features = A.shape
     x = np.reshape(x0, n_features).astype(float)
@@ -872,7 +953,10 @@ From Convex Minimization to Submodular Maximization" <https://arxiv.org/abs/1804
     for it in range(max_iter):
 
         if batch_size == 1:
-            idx = np.random.randint(n_samples, size=n_samples)
+            if sampling_probs is None:
+                idx = np.random.randint(n_samples, size=n_samples)
+            else:
+                idx = np.random.choice(n_samples, size=n_samples, p=sampling_probs)
         else:
             # Sample without replacement batch wise
             idx = utils.sample_batches(n_samples, n_samples // batch_size, batch_size)
